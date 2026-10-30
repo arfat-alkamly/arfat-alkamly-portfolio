@@ -1,42 +1,97 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
-  ArrowUpRight, ShieldCheck, Code2, Network, Database, Github, Linkedin, Instagram, Facebook, Sun, Moon, LockKeyhole, GraduationCap, Menu, X, Award, Music2, Search
+  ArrowUpRight, ShieldCheck, Code2, Network, Database, Github, Linkedin, Instagram,
+  Facebook, Sun, Moon, LockKeyhole, GraduationCap, Menu, X, Award, Music2,
+  Search, BrainCircuit, FlaskConical, BookOpen, BriefcaseBusiness, Terminal,
+  Server, Bug, Cpu, Users, Wrench, Layers3, ExternalLink
 } from 'lucide-react';
 
-const projects = [
-  {name:'AEGIS-TITAN',type:'DEFENSIVE SECURITY ARCHITECTURE',stage:'Private project',desc:'A defense-first security architecture focused on telemetry, detection, controlled deception, isolation, incident response, digital forensics and evidence integrity.',role:'Architecture design · defensive security concept and system direction',stack:['Cyber Defense','DFIR','Detection','Security Architecture'],repo:'',preview:'',private:true,icon:ShieldCheck},
-  {name:'CryptoLab-Pro',type:'CRYPTOGRAPHY · ACADEMIC PROJECT',stage:'Public repository',desc:'An offline-first interactive platform for exploring classical ciphers, AES-256-GCM, hashing, avalanche effect and client-side file encryption.',role:'Designed and implemented the browser-based cryptography learning and file-encryption workflows.',stack:['JavaScript','Web Crypto API','HTML5','CSS3'],repo:'https://github.com/arfat-alkamly/CryptoLab-Pro',preview:'',icon:LockKeyhole},
-  {name:'Manar Schedule System',type:'ACADEMIC SOFTWARE',stage:'Public repository',desc:'A university scheduling and management system with student records, role-based access, schedule updates and notifications.',role:'Project contribution details should be confirmed against the repository history; system architecture and listed stack are taken from its README.',stack:['React','Node.js','Express','PostgreSQL','Prisma'],repo:'https://github.com/mghalaosimi-web/manar-schedule-system',preview:'',icon:GraduationCap},
-  {name:'Vulnerability Research Lab',type:'SECURITY RESEARCH',stage:'Public repository',desc:'A dedicated repository for documenting and organizing vulnerability research and practical security learning.',role:'Research documentation and practical security-learning workspace.',stack:['Security Research','Documentation','Analysis'],repo:'https://github.com/arfat-alkamly/Vulnerability-Research-Lab',preview:'',icon:Search},
-  {name:'Waynah',type:'GEOGRAPHIC INTELLIGENCE PLATFORM',stage:'Collaborative project',desc:'An Arabic-first geographic information and local discovery platform built around spatial hierarchy, search, multi-source verification and local trust.',role:'Collaborative product; the public repository identifies a separate project owner. My contribution scope is not asserted here.',stack:['Next.js','TypeScript','Hono','PostgreSQL','PostGIS','Prisma'],repo:'https://github.com/mghalaosimi-web/waynah',preview:'https://waynah.vercel.app',icon:Network}
+type Item = { name: string; category: string; detail: string; tools?: string[]; status?: string; link?: string };
+const projects: Item[] = [
+ {name:'Academic OS',category:'Academic software',detail:'A student-focused academic assistant system designed to help students complete, organize and track their academic tasks through multiple integrated categories and features. A substantial personally conceived and developed system.',tools:['Flutter','Dart','SQLite','TensorFlow Lite'],status:'Personal project · ongoing development'},
+ {name:'Student Management System',category:'Academic software',detail:'A student information and management application developed as a practical application of object-oriented programming concepts.',tools:['Java','Object-Oriented Programming'],status:'Academic project'},
+ {name:'Tourism Platform',category:'Web development',detail:'A tourism-oriented web platform developed to practice front-end structure, styling, interaction and user-facing information presentation.',tools:['HTML5','CSS3','JavaScript'],status:'Academic project'},
+ {name:'Cybersecurity Portfolio',category:'Cybersecurity',detail:'A cybersecurity-focused portfolio and documentation project for presenting security learning, practical work and technical resources.',tools:['Markdown','Security tools','Documentation'],status:'Personal project'},
+ {name:'Virtual Pentesting Lab',category:'Security lab',detail:'A virtual environment for learning and practicing penetration-testing workflows in an isolated lab setup.',tools:['VMware','Kali Linux','Virtual machines'],status:'Personal lab project'},
+ {name:'Network Security Projects',category:'Network security',detail:'Practical network-security exercises and projects involving network infrastructure, traffic inspection and defensive monitoring.',tools:['Cisco','Wireshark','Snort'],status:'Academic and practical work'},
+ {name:'AEGIS-TITAN',category:'Cyber defense architecture',detail:'A defense-first security architecture focused on telemetry, detection, controlled deception, isolation, incident response, digital forensics and evidence integrity. The project is personally conceived and has been under development over an extended period.',tools:['Cyber Defense','DFIR','Detection Engineering','Honeypots','Security Architecture'],status:'Personal project · in development'},
+ {name:'CryptoLab-Pro',category:'Cryptography',detail:'An offline-first interactive platform for exploring classical ciphers, AES-256-GCM, hashing, avalanche effect and client-side file encryption.',tools:['JavaScript','Web Crypto API','HTML5','CSS3'],status:'Public repository',link:'https://github.com/arfat-alkamly/CryptoLab-Pro'},
+ {name:'Vulnerability Research Lab',category:'Security research',detail:'A dedicated workspace for documenting and organizing vulnerability research, analysis and practical security learning.',tools:['Security Research','Analysis','Documentation'],status:'Public repository',link:'https://github.com/arfat-alkamly/Vulnerability-Research-Lab'},
+ {name:'Manar Schedule System',category:'Academic software',detail:'A university scheduling and management system covering student records, role-based access, schedule updates and notifications.',tools:['React','Node.js','Express','PostgreSQL','Prisma'],status:'Collaborative academic project',link:'https://github.com/mghalaosimi-web/manar-schedule-system'},
+ {name:'Waynah',category:'Collaborative product',detail:'An Arabic-first geographic information and local discovery platform. Listed as collaborative work, not as sole ownership.',tools:['Next.js','TypeScript','Hono','PostgreSQL','PostGIS','Prisma'],status:'Collaborative project',link:'https://github.com/mghalaosimi-web/waynah'}
 ];
-
-const skills=[
- {title:'Cybersecurity',icon:ShieldCheck,items:['Information security foundations','Network security','Cryptography','Vulnerability assessment','Endpoint security']},
- {title:'Programming',icon:Code2,items:['Java · Object-Oriented Programming','Python','C++','JavaScript','HTML · CSS']},
- {title:'Networks & Systems',icon:Network,items:['TCP/IP fundamentals','Network analysis','Linux · Kali Linux','Windows environments','Virtual labs']},
- {title:'Databases & Tools',icon:Database,items:['SQL · PL/SQL','Oracle Database','Git · GitHub','Visual Studio Code','Wireshark']},
+const skillGroups: {title:string;icon:any;items:Item[]}[] = [
+ {title:'Programming & Development',icon:Code2,items:[
+  {name:'Java',category:'Programming',detail:'Object-oriented programming and academic application development.',status:'Academic practice'},
+  {name:'Python',category:'Programming',detail:'Programming foundations and use in cybersecurity learning.',status:'Study and practice'},
+  {name:'C++',category:'Programming',detail:'Programming fundamentals and coursework.',status:'Academic study'},
+  {name:'JavaScript',category:'Programming',detail:'Interactive web development and CryptoLab-Pro.',status:'Project use'},
+  {name:'HTML5 & CSS3',category:'Web',detail:'Web structure, layout and styling.',status:'Project use'},
+  {name:'Dart & Flutter',category:'Mobile',detail:'Mobile and cross-platform application development.',status:'Project development'},
+  {name:'TypeScript',category:'Web',detail:'Typed JavaScript for modern application development.',status:'Learning / project exposure'},
+  {name:'C#',category:'Programming',detail:'Programming practice with Visual Studio.',status:'Learning and practice'}
+ ]},
+ {title:'Cybersecurity & Defensive Security',icon:ShieldCheck,items:[
+  {name:'Information Security',category:'Foundations',detail:'Core information-security concepts and principles.',status:'Academic foundation'},
+  {name:'Endpoint Security',category:'Defensive',detail:'Endpoint protection concepts and Cisco training.',status:'Coursework and certification'},
+  {name:'Network Security',category:'Defensive',detail:'Network security concepts, traffic inspection and defensive monitoring.',status:'Academic and practical'},
+  {name:'Cryptography',category:'Specialty',detail:'Classical ciphers, hashing and authenticated encryption concepts.',status:'Academic and project use'},
+  {name:'Vulnerability Assessment',category:'Research',detail:'Learning vulnerability identification, analysis and documentation.',status:'Research practice'},
+  {name:'Digital Forensics & Incident Response',category:'DFIR',detail:'Interest and learning in evidence handling, incident response and forensic workflows.',status:'Study / project focus'},
+  {name:'Security Architecture',category:'Architecture',detail:'Defensive system design, isolation, telemetry and detection concepts.',status:'Personal project focus'}
+ ]},
+ {title:'Networks, Systems & Infrastructure',icon:Network,items:[
+  {name:'TCP/IP & Networking',category:'Networking',detail:'Computer networking foundations and protocol concepts.',status:'Academic study'},
+  {name:'Cisco Networking',category:'Networking',detail:'Network configuration and learning through Cisco environments.',status:'Academic practice'},
+  {name:'Wireshark',category:'Analysis',detail:'Network packet and traffic analysis.',status:'Practical use'},
+  {name:'Snort',category:'Monitoring',detail:'Network intrusion detection concepts and rules-based monitoring.',status:'Lab exposure'},
+  {name:'Linux & Kali Linux',category:'Operating systems',detail:'Linux environments and security-focused virtual labs.',status:'Practical learning'},
+  {name:'Windows',category:'Operating systems',detail:'Windows operating-system environment and administration fundamentals.',status:'Study and use'},
+  {name:'VMware',category:'Virtualization',detail:'Virtual-machine setup for isolated learning and testing environments.',status:'Lab use'}
+ ]},
+ {title:'Databases & Data',icon:Database,items:[
+  {name:'SQL',category:'Database',detail:'Relational querying and database fundamentals.',status:'Academic practice'},
+  {name:'PL/SQL & Oracle',category:'Database',detail:'Oracle database coursework and practical exercises.',status:'Academic and practical'},
+  {name:'SQLite',category:'Database',detail:'Embedded database use in the Academic OS project.',status:'Project use'},
+  {name:'PostgreSQL',category:'Database',detail:'Relational database technology used in collaborative software projects.',status:'Project exposure'}
+ ]},
+ {title:'Artificial Intelligence',icon:BrainCircuit,items:[
+  {name:'AI Foundations',category:'AI',detail:'Academic learning in artificial intelligence and its applications.',status:'Coursework'},
+  {name:'AI for Cybersecurity',category:'AI security',detail:'Study focus on applying AI concepts to cybersecurity problems.',status:'Current academic focus'},
+  {name:'TensorFlow Lite',category:'ML tooling',detail:'Technology included in the Academic OS project.',status:'Project use'},
+  {name:'AI Threat Detection',category:'Research idea',detail:'A planned exploration of AI-assisted threat detection.',status:'Planned study / project'}
+ ]},
+ {title:'Applied & Engineering Skills',icon:Wrench,items:[
+  {name:'Software Design',category:'Engineering',detail:'Breaking software problems into components and defining system behavior.',status:'Coursework and projects'},
+  {name:'Database Design',category:'Engineering',detail:'Relational data organization and database-backed application work.',status:'Academic practice'},
+  {name:'Technical Documentation',category:'Applied',detail:'Writing project notes, security research and structured academic resources.',status:'Ongoing practice'},
+  {name:'Troubleshooting',category:'Applied',detail:'Investigating technical issues across software, systems and networks.',status:'Practical experience'},
+  {name:'Virtual Lab Setup',category:'Applied',detail:'Building isolated virtual environments for technical learning.',status:'Practical experience'}
+ ]},
+ {title:'Personal & Professional Skills',icon:Users,items:[
+  {name:'Academic Coordination',category:'Leadership',detail:'Coordinating academic resources and communication across Cybersecurity and IT students.',status:'Scientific committee responsibility'},
+  {name:'Team Coordination',category:'Leadership',detail:'Coordinating representatives and organizing task distribution.',status:'Practical experience'},
+  {name:'Technical Communication',category:'Communication',detail:'Preparing clear announcements, explanations and technical material.',status:'Ongoing practice'},
+  {name:'Planning & Organization',category:'Personal',detail:'Organizing academic work, resources, project tasks and follow-up.',status:'Ongoing practice'},
+  {name:'Independent Learning',category:'Personal',detail:'Building knowledge through coursework, practical projects and self-directed study.',status:'Ongoing practice'}
+ ]}
 ];
-const languages=[
- {name:'Python',state:'Used in study'},
- {name:'Java',state:'Academic practice'},
- {name:'C++',state:'Listed in profile'},
- {name:'JavaScript',state:'Project use'},
- {name:'HTML / CSS',state:'Project use'},
- {name:'TypeScript',state:'Learning'},
- {name:'C#',state:'Learning'},
- {name:'Go',state:'Learning'},
- {name:'PHP',state:'Learning'},
- {name:'Bash',state:'Learning'}
+const labs:Item[]=[
+ {name:'Web Application Penetration Testing Lab',category:'Web security',detail:'A controlled lab track for understanding web-application testing workflows and common security weaknesses.',tools:['Kali Linux','Web security tools'],status:'Lab track'},
+ {name:'Active Directory Attack & Defense Lab',category:'Identity infrastructure',detail:'A controlled environment for studying directory services, attack paths and defensive controls.',tools:['Windows Server','Active Directory','Virtual machines'],status:'Lab track'},
+ {name:'Network Traffic Analysis Lab',category:'Network analysis',detail:'Hands-on inspection and interpretation of network traffic and protocols.',tools:['Wireshark','TCP/IP'],status:'Lab track'},
+ {name:'Wireless Security Assessment Lab',category:'Wireless security',detail:'A lab track for studying wireless security configurations and assessment concepts.',tools:['Wireless networking','Kali Linux'],status:'Lab track'},
+ {name:'Malware Analysis Sandbox',category:'Malware analysis',detail:'An isolated analysis environment for learning safe malware examination and behavioral observation.',tools:['Virtual machines','Sandboxing'],status:'Lab track'}
 ];
-const certificates=[
- {name:'Cisco Endpoint Security',issuer:'Cisco · Credly',category:'Cybersecurity',issueDate:'غير متاح في البيانات الحالية',href:'https://www.credly.com/badges/f0520c01-63aa-4440-9df4-69c7303d8762/public_url'},
- {name:'IT Customer Support Basics',issuer:'Cisco · Credly',category:'IT Support',issueDate:'غير متاح في البيانات الحالية',href:'https://www.credly.com/badges/dd68b74c-65f9-468f-9a51-3bb78adad239/public_url'},
- {name:'Cisco Learn-A-Thon 2026',issuer:'Cisco · Credly',category:'Professional Development',issueDate:'غير متاح في البيانات الحالية',href:'https://www.credly.com/badges/a370a36f-7ce1-4531-b44b-b909e56ee52d/public_url'},
- {name:'Introduction to Artificial Intelligence',issuer:'Cisco',category:'Artificial Intelligence',issueDate:'غير متاح في البيانات الحالية',href:'https://lnkd.in/dRCcTwf5'}
+const courses:Item[]=[
+ {name:'Introduction to Artificial Intelligence',category:'Cisco / AI',detail:'Introductory learning in artificial intelligence.',status:'Completed credential',link:'https://lnkd.in/dRCcTwf5'},
+ {name:'Cisco Endpoint Security',category:'Cisco / Cybersecurity',detail:'Endpoint security learning and concepts.',status:'Completed credential',link:'https://www.credly.com/badges/f0520c01-63aa-4440-9df4-69c7303d8762/public_url'},
+ {name:'IT Customer Support Basics',category:'Cisco / IT',detail:'Foundational IT customer support learning.',status:'Completed credential',link:'https://www.credly.com/badges/dd68b74c-65f9-468f-9a51-3bb78adad239/public_url'},
+ {name:'Cisco Learn-A-Thon 2026',category:'Cisco / Professional development',detail:'Cisco learning event participation and development.',status:'Completed credential',link:'https://www.credly.com/badges/a370a36f-7ce1-4531-b44b-b909e56ee52d/public_url'}
 ];
+const academicCourses=['Web Development','Cryptography','Information Security & Networks','Research Methods','Software Development Fundamentals','AI for Cybersecurity','Communication Skills','Cloud Computing','Systems Analysis & Design','Secure Software Design','Digital Forensic Investigation','Fundamentals of Software Engineering & Design','Field Application / Field Training'];
 const socials=[
  {name:'GitHub',href:'https://github.com/arfat-alkamly',icon:Github},
  {name:'LinkedIn',href:'https://www.linkedin.com/in/arfat-alkamly-399676409',icon:Linkedin},
@@ -44,66 +99,35 @@ const socials=[
  {name:'Instagram',href:'https://www.instagram.com/dark.hacker_x',icon:Instagram},
  {name:'TikTok',href:'https://www.tiktok.com/@dark.hacker_x',icon:Music2}
 ];
-
+const nav=[['about','نبذة','About'],['skills','المهارات','Skills'],['projects','المشاريع','Projects'],['labs','المعامل','Labs'],['learning','الدورات والتعلم','Learning'],['experience','الخبرة','Experience'],['contact','التواصل','Contact']];
+function Cards({items}:{items:Item[]}){return <div className="directory-grid">{items.map((item,i)=><article className="directory-card" key={item.name}><div className="directory-card-top"><span className="directory-index">{String(i+1).padStart(2,'0')}</span><span className="directory-status">{item.status}</span></div><div className="directory-category">{item.category}</div><h3>{item.name}</h3><p>{item.detail}</p>{item.tools?.length?<div className="tags">{item.tools.map(x=><span key={x}>{x}</span>)}</div>:null}{item.link?<a className="directory-link" href={item.link} target="_blank" rel="noopener noreferrer">فتح التفاصيل <ArrowUpRight size={14}/></a>:null}</article>)}</div>}
 export default function Home(){
- const [ar,setAr]=useState(true);
- const [light,setLight]=useState(false);
- const [menu,setMenu]=useState(false);
- const [credentialFilter,setCredentialFilter]=useState('All');
+ const [ar,setAr]=useState(true),[light,setLight]=useState(false),[menu,setMenu]=useState(false);
+ const [skillTab,setSkillTab]=useState('All'),[projectTab,setProjectTab]=useState('All');
+ const [labTab,setLabTab]=useState('All'),[courseTab,setCourseTab]=useState('All');
+ useEffect(()=>{document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr'},[ar]);
  const t=(en:string,aa:string)=>ar?aa:en;
- useEffect(()=>{document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr';},[ar]);
- const nav=[['about','نبذة عني','About'],['skills','المهارات','Skills'],['projects','المشاريع','Projects'],['credentials','الشهادات','Credentials'],['journey','المسار','Journey'],['contact','التواصل','Contact']];
+ const skillTabs=['All',...skillGroups.map(x=>x.title)];
+ const filteredProjects=useMemo(()=>projectTab==='All'?projects:projects.filter(x=>x.category===projectTab),[projectTab]);
+ const projectTabs=['All',...Array.from(new Set(projects.map(x=>x.category)))];
+ const filteredLabs=labTab==='All'?labs:labs.filter(x=>x.category===labTab);
+ const labTabs=['All',...Array.from(new Set(labs.map(x=>x.category)))];
+ const filteredCourses=courseTab==='All'?courses:courses.filter(x=>x.category===courseTab);
+ const courseTabs=['All',...Array.from(new Set(courses.map(x=>x.category)))];
  return <main className={(light?'light ':'')+(ar?'arabic':'')}>
-  <header className="header">
-   <a className="wordmark" href="#home"><span>AK</span><b>ARFAT ALKAMALI</b></a>
-   <nav className={'nav '+(menu?'nav-open':'')}>{nav.map(([id,aa,en])=><a key={id} href={'#'+id} onClick={()=>setMenu(false)}>{t(en,aa)}</a>)}</nav>
-   <div className="header-tools"><button className="lang" onClick={()=>setAr(!ar)}>{ar?'EN':'عربي'}</button><button className="theme" onClick={()=>setLight(!light)} aria-label="Toggle theme">{light?<Moon size={17}/>:<Sun size={17}/>}</button><button className="menu-toggle" onClick={()=>setMenu(!menu)} aria-label="Toggle navigation">{menu?<X size={19}/>:<Menu size={19}/>}</button></div>
-  </header>
+  <header className="header"><a className="wordmark" href="#home"><span>AK</span><b>ARFAT ALKAMALI</b></a><nav className={'nav '+(menu?'nav-open':'')}>{nav.map(([id,aa,en])=><a key={id} href={'#'+id} onClick={()=>setMenu(false)}>{t(en,aa)}</a>)}</nav><div className="header-tools"><button className="lang" onClick={()=>setAr(!ar)}>{ar?'EN':'عربي'}</button><button className="theme" onClick={()=>setLight(!light)} aria-label="Toggle theme">{light?<Moon size={17}/>:<Sun size={17}/>}</button><button className="menu-toggle" onClick={()=>setMenu(!menu)} aria-label="Toggle navigation">{menu?<X size={19}/>:<Menu size={19}/>}</button></div></header>
   <div className="page" id="home">
-   <section className="hero">
-    <div className="hero-copy">
-     <div className="eyebrow"><span/> {t('CYBERSECURITY STUDENT · LEVEL 3','طالب أمن سيبراني · المستوى الثالث')}</div>
-     <h1>{t('Building secure systems,','أبني أنظمة أكثر أماناً،')}<em>{t('one step at a time.','خطوةً بعد خطوة.')}</em></h1>
-     <p className="hero-text">{t('I’m Arfat Abdullah Hussein Al-Kamly. I study cybersecurity at Al-Manar University College, with interests in defensive security, networks, software development and applied research.','أنا عرفات عبدالله حسين الكاملي، طالب أمن سيبراني في كلية المنار الجامعية. أهتم بالأمن الدفاعي والشبكات وتطوير البرمجيات والبحث التقني التطبيقي.')}</p>
-     <div className="hero-buttons"><a className="button primary" href="#projects">{t('View my projects','استعرض مشاريعي')} <ArrowUpRight size={16}/></a><a className="button quiet" href="#contact">{t('Get in touch','تواصل معي')}</a></div>
-     <div className="hero-links">{socials.slice(0,2).map(s=><a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer">{s.name}<ArrowUpRight size={12}/></a>)}</div>
-    </div>
-    <div className="hero-panel">
-     <div className="monogram">AK<span>.</span></div>
-     <div className="panel-line"/>
-     <div className="panel-caption"><ShieldCheck size={18}/><span>{t('DEFENSIVE SECURITY','الأمن الدفاعي')}</span></div>
-     <div className="panel-bottom"><span>LEARN / BUILD / VERIFY</span><span>YEMEN · 2026</span></div>
-    </div>
-   </section>
-   <div className="quick-facts"><div><span>01</span><b>{t('Cybersecurity','الأمن السيبراني')}</b><small>{t('Academic focus','التخصص الدراسي')}</small></div><div><span>02</span><b>{t('Defensive Security','الأمن الدفاعي')}</b><small>{t('Primary interest','الاهتمام الأساسي')}</small></div><div><span>03</span><b>{t('Software & Networks','البرمجيات والشبكات')}</b><small>{t('Technical practice','التطبيق التقني')}</small></div></div>
-
-   <section className="section" id="about">
-    <div className="section-title"><span>01 / {t('PROFILE','نبذة')}</span><h2>{t('A practical approach to learning and building.','منهج عملي في التعلم والبناء.')}</h2></div>
-    <div className="about-grid"><p className="lead">{t('I’m developing my technical foundation through university study and hands-on projects. I value clear engineering, responsible security practice and honest documentation of what is built, tested and still in progress.','أطوّر أساسًا تقنيًا من خلال الدراسة الجامعية والمشاريع العملية. أهتم بالهندسة الواضحة والممارسة الأمنية المسؤولة والتوثيق الدقيق لما تم بناؤه واختباره وما يزال قيد التطوير.')}</p><div className="details"><div><small>{t('EDUCATION','التعليم')}</small><b>{t('Al-Manar University College','كلية المنار الجامعية')}</b></div><div><small>{t('PROGRAM','التخصص')}</small><b>{t('Cybersecurity','الأمن السيبراني')}</b></div><div><small>{t('CURRENT LEVEL','المستوى الحالي')}</small><b>{t('Level 3','المستوى الثالث')}</b></div><div><small>{t('BASED IN','الموقع')}</small><b>{t('Yemen','اليمن')}</b></div></div></div>
-   </section>
-
-   <section className="section" id="skills">
-    <div className="section-title"><span>02 / {t('TECHNICAL SKILLS','المهارات التقنية')}</span><h2>{t('Core areas','المجالات الأساسية')}</h2><p>{t('A concise overview of my current study and practical focus.','ملخص للمجالات التي أدرسها وأطبّقها حالياً.')}</p></div>
-    <div className="skill-grid">{skills.map((s,i)=>{const Icon=s.icon;return <article className="skill-card" key={s.title}><div className="skill-head"><Icon size={20}/><span>0{i+1}</span></div><h3>{t(s.title, ['الأمن السيبراني','البرمجة','الشبكات والأنظمة','قواعد البيانات والأدوات'][i])}</h3><ul>{s.items.map(x=><li key={x}>{x}</li>)}</ul></article>})}</div>
-    <div className="language-block"><div><h3>{t('Programming languages','لغات البرمجة')}</h3><p>{t('Grouped by current practice and learning, not claimed proficiency levels.','مرتبة بحسب الاستخدام والتعلم الحالي، دون ادعاء مستويات غير موثقة.')}</p></div><div className="language-list">{languages.map(l=><div key={l.name}><b>{l.name}</b><span>{l.state}</span></div>)}</div></div>
-   </section>
-
-   <section className="section" id="projects">
-    <div className="section-title"><span>03 / {t('SELECTED WORK','المشاريع')}</span><h2>{t('Projects with a clear purpose.','مشاريع بأهداف واضحة.')}</h2><p>{t('A selection of academic, personal and collaborative work.','مجموعة من المشاريع الأكاديمية والشخصية والتعاونية.')}</p></div>
-    <div className="engineering-grid">{projects.map((p,i)=>{const Icon=p.icon;return <article className="engineering-card" key={p.name}><div className="engineering-top"><div className="project-icon"><Icon size={21}/></div><span className="engineering-stage">{p.stage}</span></div><div className="engineering-type">{p.type}</div><h3>{p.name}</h3><p className="engineering-desc">{p.desc}</p><div className="engineering-role"><b>{t('ENGINEERING ROLE','الدور الهندسي')}</b><p>{p.role}</p></div><div className="engineering-stack"><b>{t('TECH STACK','حزمة التقنيات')}</b><div className="tags">{p.stack.map(tag=><span key={tag}>{tag}</span>)}</div></div><div className="engineering-actions">{p.preview&&<a className="button primary" href={p.preview} target="_blank" rel="noopener noreferrer">{t('Live preview','معاينة حية')} <ArrowUpRight size={14}/></a>}{p.repo&&<a className="button quiet" href={p.repo} target="_blank" rel="noopener noreferrer">{t('Source repository','المستودع البرمجي')} <Github size={14}/></a>}{p.private&&<span className="private"><LockKeyhole size={13}/>{t('Private system','نظام خاص')}</span>}</div></article>})}</div>
-   </section>
-
-   <section className="section" id="credentials">
-    <div className="section-title"><span>04 / {t('CERTIFICATES','الشهادات')}</span><h2>{t('Learning milestones','محطات تعليمية')}</h2></div>
-    <div className="credential-toolbar"><div className="credential-filters">{['All',...Array.from(new Set(certificates.map(c=>c.category)))].map(category=><button key={category} className={credentialFilter===category?'active':''} onClick={()=>setCredentialFilter(category)}>{category==='All'?t('All credentials','كل الشهادات'):category}</button>)}</div><span>{certificates.filter(c=>credentialFilter==='All'||c.category===credentialFilter).length} {t('credentials','شهادات')}</span></div><div className="credential-grid">{certificates.filter(c=>credentialFilter==='All'||c.category===credentialFilter).map(c=><article className="credential-card" key={c.name}><div className="credential-icon"><Award size={20}/></div><div className="credential-category">{c.category}</div><h3>{c.name}</h3><dl><div><dt>{t('ISSUER','الجهة المانحة')}</dt><dd>{c.issuer}</dd></div><div><dt>{t('ISSUE DATE','تاريخ الإصدار')}</dt><dd>{t('Not listed by issuer','غير متاح في البيانات الحالية')}</dd></div></dl><a href={c.href} target="_blank" rel="noopener noreferrer" className="verify-link">{t('Verify credential','تحقق من الشهادة')} <ArrowUpRight size={15}/></a></article>)}</div>
-   </section>
-
-   <section className="section" id="journey">
-    <div className="section-title"><span>05 / {t('ACADEMIC JOURNEY','المسار الأكاديمي')}</span><h2>{t('Learning, applying, improving.','تعلّم، تطبيق، وتطوير.')}</h2></div>
-    <div className="journey"><article><span>01</span><div><small>{t('LEVELS 1–2','المستويان الأول والثاني')}</small><h3>{t('Academic foundations','التأسيس الأكاديمي')}</h3><p>{t('Coursework in programming, object-oriented programming, databases, computer networks, mathematics and information security.','دراسة البرمجة والبرمجة كائنية التوجه وقواعد البيانات وشبكات الحاسوب والرياضيات وأمن المعلومات.')}</p></div></article><article><span>02</span><div><small>{t('LEVEL 3 · CURRENT','المستوى الثالث · الحالي')}</small><h3>{t('Cybersecurity specialization','التخصص في الأمن السيبراني')}</h3><p>{t('Continuing with cryptography, information security, web development, software fundamentals and AI for cybersecurity.','مواصلة دراسة التشفير وأمن المعلومات وتطوير الويب وأساسيات البرمجيات والذكاء الاصطناعي للأمن السيبراني.')}</p></div></article><article><span>03</span><div><small>{t('ONGOING','مستمر')}</small><h3>{t('Scientific committee','اللجنة العلمية')}</h3><p>{t('Academic coordination and resource organization for Cybersecurity and IT students at Al-Manar University College.','تنسيق العمل الأكاديمي وتنظيم المصادر لطلاب الأمن السيبراني وتقنية المعلومات في كلية المنار الجامعية.')}</p></div></article></div>
-   </section>
-
-   <section className="contact" id="contact"><div><span>06 / {t('CONTACT','التواصل')}</span><h2>{t('Let’s connect.','يسعدني التواصل.')}</h2><p>{t('For technical discussions, collaboration and professional opportunities.','للنقاشات التقنية والتعاون والفرص المهنية.')}</p></div><div className="social-grid">{socials.map(s=>{const Icon=s.icon;return <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer"><Icon size={18}/><span>{s.name}</span><ArrowUpRight size={13}/></a>})}</div></section>
+   <section className="hero"><div className="hero-copy"><div className="eyebrow"><span/>{t('CYBERSECURITY STUDENT · LEVEL 3','طالب أمن سيبراني · المستوى الثالث')}</div><h1>{t('Building secure systems,','أبني أنظمة أكثر أماناً،')}<em>{t('one step at a time.','خطوةً بعد خطوة.')}</em></h1><p className="hero-text">{t('I’m Arfat Abdullah Hussein Al-Kamly, a cybersecurity student, software builder and technical learner interested in defensive security, networks, applied research and system design.','أنا عرفات عبدالله حسين الكاملي، طالب أمن سيبراني ومهتم ببناء البرمجيات والأمن الدفاعي والشبكات والبحث التطبيقي وتصميم الأنظمة.')}</p><div className="hero-buttons"><a className="button primary" href="#projects">{t('Explore projects','استكشف المشاريع')} <ArrowUpRight size={16}/></a><a className="button quiet" href="#skills">{t('Explore skills','استكشف المهارات')}</a></div><div className="hero-links">{socials.slice(0,2).map(s=><a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer">{s.name}<ArrowUpRight size={12}/></a>)}</div></div><div className="hero-panel"><div className="monogram">AK<span>.</span></div><div className="panel-line"/><div className="panel-caption"><ShieldCheck size={18}/><span>{t('CYBERSECURITY · SOFTWARE · RESEARCH','الأمن السيبراني · البرمجيات · البحث')}</span></div><div className="panel-bottom"><span>LEARN / BUILD / TEST</span><span>YEMEN · 2026</span></div></div></section>
+   <div className="quick-facts"><div><span>01</span><b>{t('Cybersecurity','الأمن السيبراني')}</b><small>{t('Academic specialization','التخصص الدراسي')}</small></div><div><span>02</span><b>{t('Software & Systems','البرمجيات والأنظمة')}</b><small>{t('Project development','تطوير المشاريع')}</small></div><div><span>03</span><b>{t('Research & Labs','البحث والمعامل')}</b><small>{t('Practical learning','التعلم التطبيقي')}</small></div></div>
+   <section className="section" id="about"><div className="section-title"><span>01 / {t('PROFILE','الملف الشخصي')}</span><h2>{t('A growing technical portfolio.','ملف تقني يتطور باستمرار.')}</h2></div><div className="about-grid"><p className="lead">{t('My work brings together university study, independently developed projects, technical labs, research interests and academic coordination. This portfolio organizes each area so that projects, skills, learning and practical experience can be explored separately.','يجمع عملي بين الدراسة الجامعية والمشاريع التي طورتها بنفسي والمعامل التقنية والاهتمامات البحثية والتنسيق الأكاديمي. ينظم هذا الموقع كل مجال بصورة مستقلة لتسهيل استعراض المشاريع والمهارات والتعلم والخبرات التطبيقية.')}</p><div className="details"><div><small>{t('EDUCATION','التعليم')}</small><b>{t('Al-Manar University College','كلية المنار الجامعية')}</b></div><div><small>{t('SPECIALIZATION','التخصص')}</small><b>{t('Cybersecurity','الأمن السيبراني')}</b></div><div><small>{t('CURRENT LEVEL','المستوى الحالي')}</small><b>{t('Level 3','المستوى الثالث')}</b></div><div><small>{t('LEADERSHIP','المسؤولية')}</small><b>{t('Scientific Committee · Cybersecurity & IT','اللجنة العلمية · الأمن السيبراني وتقنية المعلومات')}</b></div><div><small>{t('LOCATION','الموقع')}</small><b>{t('Yemen','اليمن')}</b></div></div></div></section>
+   <section className="section" id="skills"><div className="section-title"><span>02 / {t('SKILLS DIRECTORY','دليل المهارات')}</span><h2>{t('Skills, grouped by discipline.','مهارات مصنفة حسب المجال.')}</h2><p>{t('Explore programming, cybersecurity, systems, databases, AI, applied engineering and professional skills separately.','استعرض مهارات البرمجة والأمن السيبراني والأنظمة وقواعد البيانات والذكاء الاصطناعي والمهارات التطبيقية والشخصية كلًّا في فئته.')}</p></div><div className="filter-bar">{skillTabs.map((x,i)=><button key={x} className={skillTab===x?'active':''} onClick={()=>setSkillTab(x)}>{x==='All'?t('All skills','كل المهارات'):t(x,['البرمجة والتطوير','الأمن السيبراني والأمن الدفاعي','الشبكات والأنظمة والبنية التحتية','قواعد البيانات والبيانات','الذكاء الاصطناعي','المهارات التطبيقية والهندسية','المهارات الشخصية والمهنية'][i-1])}</button>)}</div><div className="skill-directory">{skillGroups.filter(g=>skillTab==='All'||g.title===skillTab).map((group,i)=>{const Icon=group.icon;return <article className="skill-group" key={group.title}><div className="skill-group-title"><Icon size={21}/><div><span>0{i+1} / SKILL CATEGORY</span><h3>{t(group.title,['البرمجة والتطوير','الأمن السيبراني والأمن الدفاعي','الشبكات والأنظمة والبنية التحتية','قواعد البيانات والبيانات','الذكاء الاصطناعي','المهارات التطبيقية والهندسية','المهارات الشخصية والمهنية'][i])}</h3></div><b>{group.items.length}</b></div><Cards items={group.items}/></article>})}</div></section>
+   <section className="section" id="projects"><div className="section-title"><span>03 / {t('PROJECT ARCHIVE','أرشيف المشاريع')}</span><h2>{t('Every project has its own record.','لكل مشروع ملفه المستقل.')}</h2><p>{t('Academic, personal and collaborative projects, each presented with its own purpose, description, technologies and status.','المشاريع الأكاديمية والشخصية والتعاونية، ولكل مشروع هدفه ووصفه وتقنياته وحالته بصورة مستقلة.')}</p></div><div className="filter-bar">{projectTabs.map(x=><button key={x} className={projectTab===x?'active':''} onClick={()=>setProjectTab(x)}>{x==='All'?t('All projects','كل المشاريع'):x}</button>)}</div><Cards items={filteredProjects}/></section>
+   <section className="section" id="labs"><div className="section-title"><span>04 / {t('LABS & EXPERIMENTS','المعامل والتجارب')}</span><h2>{t('Practical environments and lab tracks.','بيئات تطبيقية ومسارات المعامل.')}</h2><p>{t('A structured index of controlled learning environments and practical security experiments.','فهرس منظم لبيئات التعلم المعزولة والتجارب الأمنية التطبيقية.')}</p></div><div className="filter-bar">{labTabs.map(x=><button key={x} className={labTab===x?'active':''} onClick={()=>setLabTab(x)}>{x==='All'?t('All labs','كل المعامل'):x}</button>)}</div><Cards items={filteredLabs}/></section>
+   <section className="section" id="research"><div className="section-title"><span>05 / {t('RESEARCH & VULNERABILITIES','البحث والثغرات')}</span><h2>{t('Research interests and security analysis.','الاهتمامات البحثية وتحليل الأمن.')}</h2></div><div className="directory-grid"><article className="directory-card"><div className="directory-category">VULNERABILITY RESEARCH</div><h3>{t('Vulnerability Research','أبحاث الثغرات')}</h3><p>{t('A dedicated area for vulnerability discovery learning, technical analysis, documenting findings and maintaining research notes.','مساحة مخصصة لتعلم اكتشاف الثغرات وتحليلها تقنيًا وتوثيق النتائج وتنظيم الملاحظات البحثية.')}</p><div className="tags"><span>Vulnerability Assessment</span><span>Technical Analysis</span><span>Documentation</span></div><a className="directory-link" href="https://github.com/arfat-alkamly/Vulnerability-Research-Lab" target="_blank" rel="noopener noreferrer">Research repository <ArrowUpRight size={14}/></a></article><article className="directory-card"><div className="directory-category">AI SECURITY</div><h3>{t('AI-assisted Threat Detection','اكتشاف التهديدات بمساعدة الذكاء الاصطناعي')}</h3><p>{t('An identified future study and project direction combining AI concepts with cybersecurity threat detection.','مسار دراسة ومشروع مستقبلي يجمع مفاهيم الذكاء الاصطناعي مع اكتشاف التهديدات السيبرانية.')}</p><div className="tags"><span>Python</span><span>AI</span><span>Threat Detection</span></div></article><article className="directory-card"><div className="directory-category">DEFENSIVE ARCHITECTURE</div><h3>AEGIS-TITAN</h3><p>{t('Research and system-design direction for defensive monitoring, deception, isolation, incident response and evidence integrity.','مسار بحث وتصميم منظومة للمراقبة الدفاعية والخداع الأمني والعزل والاستجابة للحوادث وسلامة الأدلة.')}</p><div className="tags"><span>Detection</span><span>DFIR</span><span>Telemetry</span><span>Deception</span></div></article></div></section>
+   <section className="section" id="learning"><div className="section-title"><span>06 / {t('COURSES & LEARNING','الدورات والتعلم')}</span><h2>{t('Courses, credentials and academic study.','الدورات والشهادات والدراسة الأكاديمية.')}</h2></div><h3 className="subsection-heading">{t('Courses & verified credentials','الدورات والشهادات')}</h3><div className="filter-bar">{courseTabs.map(x=><button key={x} className={courseTab===x?'active':''} onClick={()=>setCourseTab(x)}>{x==='All'?t('All courses','كل الدورات'):x}</button>)}</div><Cards items={filteredCourses}/><h3 className="subsection-heading">{t('University coursework','المقررات الجامعية')}</h3><div className="course-list">{academicCourses.map((x,i)=><div key={x}><span>{String(i+1).padStart(2,'0')}</span><b>{x}</b><small>{i<7?t('Level 3 · Term 1','المستوى الثالث · الفصل الأول'):t('Level 3 · Term 2','المستوى الثالث · الفصل الثاني')}</small></div>)}</div></section>
+   <section className="section" id="experience"><div className="section-title"><span>07 / {t('LEADERSHIP & EXPERIENCE','القيادة والخبرة')}</span><h2>{t('Academic coordination and responsibility.','التنسيق الأكاديمي والمسؤولية.')}</h2></div><div className="experience-card"><div className="experience-icon"><Users size={22}/></div><div><span>AL-MANAR UNIVERSITY COLLEGE</span><h3>{t('Head of the Scientific Committee','مسؤول اللجنة العلمية')}</h3><p>{t('Responsible for scientific committee coordination across Cybersecurity and Information Technology: organizing academic resources, coordinating with class representatives, publishing lecture materials and announcements, and following up on academic needs.','مسؤول عن تنسيق عمل اللجنة العلمية لقسمي الأمن السيبراني وتقنية المعلومات، وتنظيم المصادر الأكاديمية، والتنسيق مع المندوبين، ونشر مواد المحاضرات والتعميمات، ومتابعة الاحتياجات الأكاديمية.')}</p><div className="tags"><span>Academic Coordination</span><span>Leadership</span><span>Resource Organization</span><span>Communication</span></div></div></div><div className="journey"><article><span>01</span><div><small>LEVELS 1–2</small><h3>{t('Academic foundations','التأسيس الأكاديمي')}</h3><p>{t('Programming, object-oriented programming, databases, computer networks, mathematics and information security.','البرمجة والبرمجة كائنية التوجه وقواعد البيانات وشبكات الحاسوب والرياضيات وأمن المعلومات.')}</p></div></article><article><span>02</span><div><small>LEVEL 3 · CURRENT</small><h3>{t('Cybersecurity specialization','التخصص في الأمن السيبراني')}</h3><p>{t('Cryptography, information security, web development, software fundamentals, research methods and AI for cybersecurity.','التشفير وأمن المعلومات وتطوير الويب وأساسيات البرمجيات ومناهج البحث والذكاء الاصطناعي للأمن السيبراني.')}</p></div></article></div></section>
+   <section className="section" id="credentials"><div className="section-title"><span>08 / {t('CERTIFICATIONS','الشهادات')}</span><h2>{t('Verified learning milestones.','شهادات ومحطات تعلم موثقة.')}</h2></div><Cards items={courses}/></section>
+   <section className="contact" id="contact"><div><span>09 / {t('CONTACT','التواصل')}</span><h2>{t('Let’s connect.','يسعدني التواصل.')}</h2><p>{t('For technical discussions, collaboration and professional opportunities.','للنقاشات التقنية والتعاون والفرص المهنية.')}</p></div><div className="social-grid">{socials.map(s=>{const Icon=s.icon;return <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer"><Icon size={18}/><span>{s.name}</span><ArrowUpRight size={13}/></a>})}</div></section>
    <footer><a className="wordmark" href="#home"><span>AK</span><b>ARFAT ALKAMALI</b></a><small>© 2026 · {t('Built with clarity and purpose.','بُني بوضوح وهدف.')}</small><a href="#home">{t('BACK TO TOP ↑','العودة للأعلى ↑')}</a></footer>
   </div>
  </main>
