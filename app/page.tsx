@@ -1,5 +1,5 @@
 'use client';
-import {useState} from 'react';
+import {useEffect,useState} from 'react';
 import {ArrowUpRight,ShieldCheck,Code2,Network,Database,Terminal,Github,Linkedin,Sun,Moon,Menu,X,ExternalLink,LockKeyhole,Cpu,FlaskConical} from 'lucide-react';
 const projects=[
 {name:'AEGIS-TITAN',url:'https://github.com/arfat-alkamly/aegis-titan',type:'Defensive Cybersecurity Platform',status:'In Development',desc:'A defense-focused platform concept for security telemetry, threat detection, containment, deception, digital forensics, and evidence logging.',tags:['Cyber Defense','DFIR','Detection']},
@@ -19,6 +19,7 @@ const skills=[
 export default function Home(){
 const [ar,setAr]=useState(false),[light,setLight]=useState(false),[menu,setMenu]=useState(false);
 const t=(en:string,arabic:string)=>ar?arabic:en;
+useEffect(()=>{document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr';},[ar]);
 const nav=[['about','About','من أنا'],['expertise','Expertise','المهارات'],['projects','Projects','المشاريع'],['journey','Journey','المسار'],['contact','Contact','تواصل']];
 return <main className={(light?'light ':'')+(ar?'arabic':'')}>
 <header className="topbar"><a className="brand" href="#home"><b>AK</b><span>ARFAT <i>ALKAMALI</i><small>CYBERSECURITY · TECHNOLOGY</small></span></a><nav className={menu?'nav open':'nav'}>{nav.map(([id,en,aa])=><a key={id} href={'#'+id} onClick={()=>setMenu(false)}>{t(en,aa)}</a>)}</nav><div className="actions"><button onClick={()=>setAr(!ar)}>{ar?'EN':'عربي'}</button><button onClick={()=>setLight(!light)}>{light?<Moon size={16}/>:<Sun size={16}/>}</button><button className="mobile" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button></div></header>
