@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arfat-alkamali-portfolio.vercel.app'),
   title: {
     default: 'ARFAT ALKAMALI | Cybersecurity & Technology',
     template: '%s | ARFAT ALKAMALI',
