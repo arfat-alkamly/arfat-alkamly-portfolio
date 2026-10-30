@@ -2,18 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import {
-  ArrowUpRight, ShieldCheck, Code2, Network, Database, Terminal, Github,
-  Linkedin, Instagram, Facebook, Sun, Moon, LockKeyhole, GraduationCap,
-  BookOpen, Mail, Menu, X, ExternalLink, Award, Globe2, Music2, Server, Search,
-  FileCode2, Activity, Cpu, BriefcaseBusiness, ChevronDown
+  ArrowUpRight, ShieldCheck, Code2, Network, Database, Github, Linkedin, Instagram, Facebook, Sun, Moon, LockKeyhole, GraduationCap, Menu, X, Award, Music2, Search
 } from 'lucide-react';
 
 const projects = [
-  {name:'AEGIS-TITAN',type:'DEFENSIVE SECURITY ARCHITECTURE',stage:'Private project',desc:'A defense-first security architecture focused on telemetry, detection, controlled deception, isolation, incident response, digital forensics and evidence integrity.',stack:['Cyber Defense','DFIR','Detection','Security Architecture'],href:'',private:true,icon:ShieldCheck},
-  {name:'CryptoLab-Pro',type:'CRYPTOGRAPHY · ACADEMIC PROJECT',stage:'Public repository',desc:'An offline-first interactive platform for exploring classical ciphers, AES-256-GCM, hashing, avalanche effect and client-side file encryption.',stack:['JavaScript','Web Crypto API','HTML','CSS'],href:'https://github.com/arfat-alkamly/CryptoLab-Pro',icon:LockKeyhole},
-  {name:'Manar Schedule System',type:'ACADEMIC SOFTWARE',stage:'Public repository',desc:'A university scheduling and management system with student records, role-based access, schedule updates and notifications.',stack:['React','Node.js','Express','PostgreSQL'],href:'https://github.com/arfat-alkamly/manar-schedule-system',icon:GraduationCap},
-  {name:'Vulnerability Research Lab',type:'SECURITY RESEARCH',stage:'Public repository',desc:'A dedicated repository for documenting and organizing vulnerability research and practical security learning.',stack:['Security Research','Documentation','Analysis'],href:'https://github.com/arfat-alkamly/Vulnerability-Research-Lab',icon:Search},
-  {name:'Waynah',type:'ARABIC SAAS · PRODUCT DESIGN',stage:'Collaborative project',desc:'An Arabic-first product concept that brings bus tracking, gate management and point-of-sale workflows into one platform.',stack:['Product Design','Systems Analysis','Web'],href:'https://github.com/mghalaosimi-web/waynah',icon:Network}
+  {name:'AEGIS-TITAN',type:'DEFENSIVE SECURITY ARCHITECTURE',stage:'Private project',desc:'A defense-first security architecture focused on telemetry, detection, controlled deception, isolation, incident response, digital forensics and evidence integrity.',role:'Architecture design · defensive security concept and system direction',stack:['Cyber Defense','DFIR','Detection','Security Architecture'],repo:'',preview:'',private:true,icon:ShieldCheck},
+  {name:'CryptoLab-Pro',type:'CRYPTOGRAPHY · ACADEMIC PROJECT',stage:'Public repository',desc:'An offline-first interactive platform for exploring classical ciphers, AES-256-GCM, hashing, avalanche effect and client-side file encryption.',role:'Designed and implemented the browser-based cryptography learning and file-encryption workflows.',stack:['JavaScript','Web Crypto API','HTML5','CSS3'],repo:'https://github.com/arfat-alkamly/CryptoLab-Pro',preview:'',icon:LockKeyhole},
+  {name:'Manar Schedule System',type:'ACADEMIC SOFTWARE',stage:'Public repository',desc:'A university scheduling and management system with student records, role-based access, schedule updates and notifications.',role:'Project contribution details should be confirmed against the repository history; system architecture and listed stack are taken from its README.',stack:['React','Node.js','Express','PostgreSQL','Prisma'],repo:'https://github.com/mghalaosimi-web/manar-schedule-system',preview:'',icon:GraduationCap},
+  {name:'Vulnerability Research Lab',type:'SECURITY RESEARCH',stage:'Public repository',desc:'A dedicated repository for documenting and organizing vulnerability research and practical security learning.',role:'Research documentation and practical security-learning workspace.',stack:['Security Research','Documentation','Analysis'],repo:'https://github.com/arfat-alkamly/Vulnerability-Research-Lab',preview:'',icon:Search},
+  {name:'Waynah',type:'GEOGRAPHIC INTELLIGENCE PLATFORM',stage:'Collaborative project',desc:'An Arabic-first geographic information and local discovery platform built around spatial hierarchy, search, multi-source verification and local trust.',role:'Collaborative product; the public repository identifies a separate project owner. My contribution scope is not asserted here.',stack:['Next.js','TypeScript','Hono','PostgreSQL','PostGIS','Prisma'],repo:'https://github.com/mghalaosimi-web/waynah',preview:'https://waynah.vercel.app',icon:Network}
 ];
 
 const skills=[
@@ -35,10 +32,10 @@ const languages=[
  {name:'Bash',state:'Learning'}
 ];
 const certificates=[
- {name:'Cisco Endpoint Security',issuer:'Cisco',href:'https://www.credly.com/badges/f0520c01-63aa-4440-9df4-69c7303d8762/public_url'},
- {name:'IT Customer Support Basics',issuer:'Cisco',href:'https://www.credly.com/badges/dd68b74c-65f9-468f-9a51-3bb78adad239/public_url'},
- {name:'Cisco Learn-A-Thon 2026',issuer:'Cisco',href:'https://www.credly.com/badges/a370a36f-7ce1-4531-b44b-b909e56ee52d/public_url'},
- {name:'Introduction to Artificial Intelligence',issuer:'Cisco',href:'https://lnkd.in/dRCcTwf5'}
+ {name:'Cisco Endpoint Security',issuer:'Cisco · Credly',category:'Cybersecurity',issueDate:'غير متاح في البيانات الحالية',href:'https://www.credly.com/badges/f0520c01-63aa-4440-9df4-69c7303d8762/public_url'},
+ {name:'IT Customer Support Basics',issuer:'Cisco · Credly',category:'IT Support',issueDate:'غير متاح في البيانات الحالية',href:'https://www.credly.com/badges/dd68b74c-65f9-468f-9a51-3bb78adad239/public_url'},
+ {name:'Cisco Learn-A-Thon 2026',issuer:'Cisco · Credly',category:'Professional Development',issueDate:'غير متاح في البيانات الحالية',href:'https://www.credly.com/badges/a370a36f-7ce1-4531-b44b-b909e56ee52d/public_url'},
+ {name:'Introduction to Artificial Intelligence',issuer:'Cisco',category:'Artificial Intelligence',issueDate:'غير متاح في البيانات الحالية',href:'https://lnkd.in/dRCcTwf5'}
 ];
 const socials=[
  {name:'GitHub',href:'https://github.com/arfat-alkamly',icon:Github},
@@ -52,6 +49,7 @@ export default function Home(){
  const [ar,setAr]=useState(true);
  const [light,setLight]=useState(false);
  const [menu,setMenu]=useState(false);
+ const [credentialFilter,setCredentialFilter]=useState('All');
  const t=(en:string,aa:string)=>ar?aa:en;
  useEffect(()=>{document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr';},[ar]);
  const nav=[['about','نبذة عني','About'],['skills','المهارات','Skills'],['projects','المشاريع','Projects'],['credentials','الشهادات','Credentials'],['journey','المسار','Journey'],['contact','التواصل','Contact']];
@@ -92,12 +90,12 @@ export default function Home(){
 
    <section className="section" id="projects">
     <div className="section-title"><span>03 / {t('SELECTED WORK','المشاريع')}</span><h2>{t('Projects with a clear purpose.','مشاريع بأهداف واضحة.')}</h2><p>{t('A selection of academic, personal and collaborative work.','مجموعة من المشاريع الأكاديمية والشخصية والتعاونية.')}</p></div>
-    <div className="project-list">{projects.map((p,i)=>{const Icon=p.icon;return <article className="project" key={p.name}><div className="project-icon"><Icon size={21}/></div><div className="project-main"><div className="project-meta"><span>{p.type}</span><i>{p.stage}</i></div><h3>{p.name}</h3><p>{p.desc}</p><div className="tags">{p.stack.map(tag=><span key={tag}>{tag}</span>)}</div></div><div className="project-action">{p.private?<span className="private"><LockKeyhole size={13}/>{t('PRIVATE','خاص')}</span>:<a href={p.href} target="_blank" rel="noopener noreferrer" aria-label={'Open '+p.name}><ArrowUpRight size={19}/></a>}</div></article>})}</div>
+    <div className="engineering-grid">{projects.map((p,i)=>{const Icon=p.icon;return <article className="engineering-card" key={p.name}><div className="engineering-top"><div className="project-icon"><Icon size={21}/></div><span className="engineering-stage">{p.stage}</span></div><div className="engineering-type">{p.type}</div><h3>{p.name}</h3><p className="engineering-desc">{p.desc}</p><div className="engineering-role"><b>{t('ENGINEERING ROLE','الدور الهندسي')}</b><p>{p.role}</p></div><div className="engineering-stack"><b>{t('TECH STACK','حزمة التقنيات')}</b><div className="tags">{p.stack.map(tag=><span key={tag}>{tag}</span>)}</div></div><div className="engineering-actions">{p.preview&&<a className="button primary" href={p.preview} target="_blank" rel="noopener noreferrer">{t('Live preview','معاينة حية')} <ArrowUpRight size={14}/></a>}{p.repo&&<a className="button quiet" href={p.repo} target="_blank" rel="noopener noreferrer">{t('Source repository','المستودع البرمجي')} <Github size={14}/></a>}{p.private&&<span className="private"><LockKeyhole size={13}/>{t('Private system','نظام خاص')}</span>}</div></article>})}</div>
    </section>
 
    <section className="section" id="credentials">
     <div className="section-title"><span>04 / {t('CERTIFICATES','الشهادات')}</span><h2>{t('Learning milestones','محطات تعليمية')}</h2></div>
-    <div className="cert-grid">{certificates.map(c=><a className="cert" key={c.name} href={c.href} target="_blank" rel="noopener noreferrer"><Award size={19}/><div><b>{c.name}</b><small>{c.issuer}</small></div><ArrowUpRight size={15}/></a>)}</div>
+    <div className="credential-toolbar"><div className="credential-filters">{['All',...Array.from(new Set(certificates.map(c=>c.category)))].map(category=><button key={category} className={credentialFilter===category?'active':''} onClick={()=>setCredentialFilter(category)}>{category==='All'?t('All credentials','كل الشهادات'):category}</button>)}</div><span>{certificates.filter(c=>credentialFilter==='All'||c.category===credentialFilter).length} {t('verified links','روابط تحقق')}</span></div><div className="credential-grid">{certificates.filter(c=>credentialFilter==='All'||c.category===credentialFilter).map(c=><article className="credential-card" key={c.name}><div className="credential-icon"><Award size={20}/></div><div className="credential-category">{c.category}</div><h3>{c.name}</h3><dl><div><dt>{t('ISSUER','الجهة المانحة')}</dt><dd>{c.issuer}</dd></div><div><dt>{t('ISSUE DATE','تاريخ الإصدار')}</dt><dd>{c.issueDate}</dd></div></dl><a href={c.href} target="_blank" rel="noopener noreferrer" className="verify-link">{t('Verify credential','تحقق من الشهادة')} <ArrowUpRight size={15}/></a></article>)}</div>
    </section>
 
    <section className="section" id="journey">
