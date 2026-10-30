@@ -70,6 +70,15 @@ const skillGroups: {title:string;icon:any;items:Item[]}[] = [
   {name:'Troubleshooting',category:'Applied',detail:'Investigating technical issues across software, systems and networks.',status:'Practical experience'},
   {name:'Virtual Lab Setup',category:'Applied',detail:'Building isolated virtual environments for technical learning.',status:'Practical experience'}
  ]},
+ {title:'Skills in Study & Development',icon:BookOpen,items:[
+  {name:'Cloud Computing',category:'Planned study',detail:'Developing knowledge of cloud platforms, deployment models and cloud security.',status:'Current academic study'},
+  {name:'Digital Forensics',category:'Planned study',detail:'Building practical knowledge of digital evidence acquisition, preservation and forensic analysis.',status:'Current academic study'},
+  {name:'Secure Software Design',category:'Planned study',detail:'Learning secure design principles and integrating security into software development.',status:'Current academic study'},
+  {name:'Wireless Network Security',category:'Planned study',detail:'Studying wireless protocols, configurations and security assessment.',status:'Current academic study'},
+  {name:'Threat & Vulnerability Analysis',category:'Planned study',detail:'Developing structured methods for threat analysis, vulnerability assessment and risk understanding.',status:'Current academic study'},
+  {name:'Systems Analysis & Design',category:'Planned study',detail:'Studying requirements, system modeling, analysis and design methods.',status:'Current academic study'},
+  {name:'Cloud & IoT Security',category:'Planned study',detail:'Expanding knowledge of cloud-connected systems and Internet of Things security.',status:'Planned learning'}
+ ]},
  {title:'Personal & Professional Skills',icon:Users,items:[
   {name:'Academic Coordination',category:'Leadership',detail:'Coordinating academic resources and communication across Cybersecurity and IT students.',status:'Scientific committee responsibility'},
   {name:'Team Coordination',category:'Leadership',detail:'Coordinating representatives and organizing task distribution.',status:'Practical experience'},
