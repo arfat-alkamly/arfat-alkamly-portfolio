@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import {
   ArrowUpRight, ShieldCheck, Code2, Network, Database, Terminal, Github,
   Linkedin, Instagram, Facebook, Sun, Moon, LockKeyhole, GraduationCap,
-  BookOpen, Mail, Menu, X, ExternalLink, Award, Globe2, Server, Search,
+  BookOpen, Mail, Menu, X, ExternalLink, Award, Globe2, Music2, Server, Search,
   FileCode2, Activity, Cpu, BriefcaseBusiness, ChevronDown
 } from 'lucide-react';
 
@@ -45,7 +45,7 @@ const socials=[
  {name:'LinkedIn',href:'https://www.linkedin.com/in/arfat-alkamly-399676409',icon:Linkedin},
  {name:'Facebook',href:'https://www.facebook.com/rfatalkamly',icon:Facebook},
  {name:'Instagram',href:'https://www.instagram.com/dark.hacker_x',icon:Instagram},
- {name:'TikTok',href:'https://www.tiktok.com/@dark.hacker_x',icon:Globe2}
+ {name:'TikTok',href:'https://www.tiktok.com/@dark.hacker_x',icon:Music2}
 ];
 
 export default function Home(){
