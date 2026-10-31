@@ -5,3 +5,19 @@ html{scroll-behavior:smooth}body{background:var(--site-bg);color:var(--site-text
 @media(max-width:980px){.site-header{align-items:flex-start;flex-wrap:wrap}.site-header nav{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding:8px 0}.site-header nav a{white-space:nowrap}.home-hero{gap:25px}.featured-grid,.overview-grid{gap:10px}.featured-card{padding:16px}}
 @media(max-width:700px){.site-shell,.content-page{width:min(100% - 32px,560px)}.site-header{padding:12px 16px}.site-header nav{gap:17px}.cv-nav{margin-inline-start:auto}.home-hero{padding:55px 0 40px;grid-template-columns:1fr;min-height:0}.hero-mark{min-height:245px}.hero-shield{width:130px;height:130px}.featured-grid,.overview-grid,.archive-grid,.skill-groups,.contact-grid{grid-template-columns:1fr}.section-heading,.home-cta{align-items:flex-start;flex-direction:column}.featured-card p{min-height:0}.overview-grid{padding-bottom:40px}.site-footer{align-items:flex-start;flex-direction:column}.content-page{padding:48px 0 65px}.architecture-list{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+
+/* Contact form and shared footer */
+.site-footer{margin-top:20px}
+.site-footer small{line-height:2}
+.contact-form{display:grid;gap:15px;margin-top:20px}
+.contact-form label{display:grid;gap:7px;color:var(--site-muted);font-size:12px}
+.contact-form input,.contact-form textarea{width:100%;padding:12px 13px;border:1px solid var(--site-line);border-radius:8px;background:var(--site-bg);color:var(--site-text);font:inherit;font-size:14px;outline:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--site-accent);box-shadow:0 0 0 3px rgba(82,199,223,.12)}
+.contact-form textarea{resize:vertical;min-height:130px}
+.contact-form button:disabled{opacity:.6;cursor:wait}
+.form-success,.form-error{padding:12px 14px;border-radius:8px;font-size:12px;line-height:1.8}
+.form-success{color:#9be7bd;background:rgba(45,160,95,.1);border:1px solid rgba(45,160,95,.3)}
+.form-error{color:#ffb2b2;background:rgba(220,70,70,.08);border:1px solid rgba(220,70,70,.25)}
+.form-honeypot{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:700px){.contact-form{gap:12px}.contact-form input,.contact-form textarea{font-size:16px}}
