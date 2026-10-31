@@ -145,7 +145,14 @@ const projects:Record<string,Project>={
   repository:'https://github.com/mghalaosimi-web/waynah'
  }
 };
-export function generateStaticParams(){return Object.keys(projects).map(slug=>({slug}));}
+
+function ProjectVisual({slug,title}:{slug:string;title:string}){
+ if(slug==='aegis-titan') return <div className="project-visual aegis-visual"><div className="visual-topline">AEGIS-TITAN <span>DEFENSIVE ARCHITECTURE / CONCEPT MAP</span></div><div className="aegis-visual-core"><div className="aegis-ring aegis-ring-one"/><div className="aegis-ring aegis-ring-two"/><div className="aegis-core"><ShieldCheck size={30}/><b>AEGIS</b><small>DEFENSE CORE</small></div><div className="aegis-node node-top">TELEMETRY</div><div className="aegis-node node-right">DETECTION</div><div className="aegis-node node-bottom">CONTAINMENT</div><div className="aegis-node node-left">DFIR / EVIDENCE</div></div><div className="visual-caption">COLLECT → CORRELATE → DETECT → CONTAIN → INVESTIGATE</div></div>;
+ if(slug==='academic-os') return <div className="project-visual academic-visual-panel"><div className="visual-topline">ACADEMIC OS <span>ACADEMIC WORKSPACE / PRODUCT CONCEPT</span></div><div className="academic-dashboard"><aside><b>AK / OS</b><i/><i/><i/><i/></aside><div className="academic-main"><small>STUDENT WORKSPACE</small><h3>One connected academic space.</h3><div className="academic-widgets"><div><BookOpen size={18}/>Learning</div><div><Layers3 size={18}/>Organization</div><div><BrainCircuit size={18}/>Assistance</div></div><div className="academic-progress"><span/><span/><span/></div></div></div><div className="visual-caption">CONCEPTUAL PRODUCT VIEW · MODULES SUBJECT TO SPECIFICATION</div></div>;
+ if(slug==='waynah') return <div className="project-visual waynah-visual-panel"><div className="visual-topline">WAYNAH / وينه؟ <span>CONNECTED SERVICE PLATFORM</span></div><div className="waynah-flow"><div className="waynah-hub"><span>WAYNAH</span><small>PLATFORM</small></div><div className="waynah-connectors"><i/><i/><i/></div><div className="waynah-services"><div><Network size={22}/><b>BUS TRACKING</b><small>Location visibility</small></div><div><ShieldCheck size={22}/><b>GATE MANAGEMENT</b><small>Entry operations</small></div><div><Database size={22}/><b>POINT OF SALE</b><small>Sales workflows</small></div></div></div><div className="visual-caption">ONE PLATFORM · THREE OPERATIONAL DOMAINS</div></div>;
+ return <div className="project-visual generic-visual"><div className="visual-topline">{title}<span>PROJECT OVERVIEW</span></div><div className="generic-visual-mark"><Layers3 size={42}/><b>PROJECT SYSTEM</b></div></div>;
+}
+\nexport function generateStaticParams(){return Object.keys(projects).map(slug=>({slug}));}
 export default async function ProjectDetail({params}:{params:Promise<{slug:string}>}){
  const {slug}=await params; const p=projects[slug]; if(!p) notFound();
  return <main className="project-detail-page">
@@ -153,7 +160,7 @@ export default async function ProjectDetail({params}:{params:Promise<{slug:strin
   <article className="project-detail">
    <div className="detail-eyebrow"><ShieldCheck size={15}/> PROJECT PROFILE <span>·</span> {p.category}</div>
    <h1>{p.title}</h1><p className="detail-summary">{p.summary}</p>
-   <div className="detail-meta"><span>{p.status}</span><span>PROJECT DOCUMENTATION</span></div>
+   <div className="detail-meta"><span>{p.status}</span><span>PROJECT DOCUMENTATION</span></div>\n   <ProjectVisual slug={slug} title={p.title}/>
    <section className="detail-section"><span className="detail-number">01 / OVERVIEW</span><h2>نظرة عامة</h2><p>{p.overview}</p></section>
    <section className="detail-section"><span className="detail-number">02 / PURPOSE</span><h2>الهدف من المشروع</h2><p>{p.purpose}</p></section>
    <section className="detail-section"><span className="detail-number">03 / FEATURES</span><h2>الخصائص والوظائف</h2><ul>{p.features.map(x=><li key={x}>{x}</li>)}</ul></section>
