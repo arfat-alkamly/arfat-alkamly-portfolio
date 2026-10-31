@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, ArrowUpRight, Github, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, ShieldCheck, BookOpen, Layers3, BrainCircuit, Network, Database } from 'lucide-react';
 
 type Project = {
  title:string; category:string; summary:string; overview:string; purpose:string;
