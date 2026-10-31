@@ -161,7 +161,8 @@ export default async function ProjectDetail({params}:{params:Promise<{slug:strin
   <article className="project-detail">
    <div className="detail-eyebrow"><ShieldCheck size={15}/> PROJECT PROFILE <span>·</span> {p.category}</div>
    <h1>{p.title}</h1><p className="detail-summary">{p.summary}</p>
-   <div className="detail-meta"><span>{p.status}</span><span>PROJECT DOCUMENTATION</span></div>\n   <ProjectVisual slug={slug} title={p.title}/>
+   <div className="detail-meta"><span>{p.status}</span><span>PROJECT DOCUMENTATION</span></div>
+   <ProjectVisual slug={slug} title={p.title}/>
    <section className="detail-section"><span className="detail-number">01 / OVERVIEW</span><h2>نظرة عامة</h2><p>{p.overview}</p></section>
    <section className="detail-section"><span className="detail-number">02 / PURPOSE</span><h2>الهدف من المشروع</h2><p>{p.purpose}</p></section>
    <section className="detail-section"><span className="detail-number">03 / FEATURES</span><h2>الخصائص والوظائف</h2><ul>{p.features.map(x=><li key={x}>{x}</li>)}</ul></section>
