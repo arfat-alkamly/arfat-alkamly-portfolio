@@ -152,11 +152,12 @@ function ProjectVisual({slug,title}:{slug:string;title:string}){
  if(slug==='waynah') return <div className="project-visual waynah-visual-panel"><div className="visual-topline">WAYNAH / وينه؟ <span>CONNECTED SERVICE PLATFORM</span></div><div className="waynah-flow"><div className="waynah-hub"><span>WAYNAH</span><small>PLATFORM</small></div><div className="waynah-connectors"><i/><i/><i/></div><div className="waynah-services"><div><Network size={22}/><b>BUS TRACKING</b><small>Location visibility</small></div><div><ShieldCheck size={22}/><b>GATE MANAGEMENT</b><small>Entry operations</small></div><div><Database size={22}/><b>POINT OF SALE</b><small>Sales workflows</small></div></div></div><div className="visual-caption">ONE PLATFORM · THREE OPERATIONAL DOMAINS</div></div>;
  return <div className="project-visual generic-visual"><div className="visual-topline">{title}<span>PROJECT OVERVIEW</span></div><div className="generic-visual-mark"><Layers3 size={42}/><b>PROJECT SYSTEM</b></div></div>;
 }
-\nexport function generateStaticParams(){return Object.keys(projects).map(slug=>({slug}));}
+
+export function generateStaticParams(){return Object.keys(projects).map(slug=>({slug}));}
 export default async function ProjectDetail({params}:{params:Promise<{slug:string}>}){
  const {slug}=await params; const p=projects[slug]; if(!p) notFound();
  return <main className="project-detail-page">
-  <header className="project-detail-nav"><Link href="/#projects" className="back-link"><ArrowLeft size={16}/> العودة إلى المشاريع</Link><Link href="/" className="detail-brand">ARFAT ALKAMALI <span> / PORTFOLIO</span></Link></header>
+  <header className="project-detail-nav"><Link href="/projects" className="back-link"><ArrowLeft size={16}/> العودة إلى المشاريع</Link><Link href="/" className="detail-brand">ARFAT ALKAMALI <span> / PORTFOLIO</span></Link></header>
   <article className="project-detail">
    <div className="detail-eyebrow"><ShieldCheck size={15}/> PROJECT PROFILE <span>·</span> {p.category}</div>
    <h1>{p.title}</h1><p className="detail-summary">{p.summary}</p>
