@@ -1,5 +1,5 @@
 import {NextRequest,NextResponse} from 'next/server';
-const emailPattern=/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export async function POST(request:NextRequest){
  const origin=request.headers.get('origin');const host=request.headers.get('host');
  if(origin&&host){try{if(new URL(origin).host!==host)return NextResponse.json({error:'طلب غير صالح.'},{status:403});}catch{return NextResponse.json({error:'طلب غير صالح.'},{status:403});}}
