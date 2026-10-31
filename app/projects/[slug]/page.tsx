@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowUpRight, Github, ShieldCheck } from 'lucide-react';
 type Project = {
  title:string; category:string; summary:string; overview:string; purpose:string;
  features:string[]; architecture:string[]; technologies:string[]; role:string;
- status:string; learning:string[]; repository?:string; note?:string;
+ status:string; learning?:string[]; repository?:string; note?:string;
 };
 const projects:Record<string,Project>={
  'academic-os':{
