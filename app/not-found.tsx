@@ -1,0 +1,1 @@
+import Link from 'next/link'; export default function NotFound(){return <main className="content-page"><span className="eyebrow">404 / NOT FOUND</span><h1>الصفحة غير موجودة</h1><p className="lead">قد يكون الرابط غير صحيح أو أن الصفحة نُقلت.</p><Link className="button-primary" href="/">العودة إلى الرئيسية</Link></main>}
