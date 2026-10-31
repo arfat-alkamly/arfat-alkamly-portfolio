@@ -240,3 +240,20 @@ footer>small,footer>a:last-child{font-size:9px;color:var(--muted)}
 .detail-actions a:hover{border-color:var(--accent);color:var(--accent)}
 .detail-footer{max-width:1080px;margin:auto;padding:22px 0;border-top:1px solid var(--line);font-size:9px;letter-spacing:.12em;color:var(--muted);text-align:center}
 @media(max-width:650px){.project-detail-page{padding:0 5vw}.project-detail-nav{min-height:64px}.detail-brand{font-size:9px}.project-detail{padding:52px 0 65px}.detail-meta{margin-bottom:35px}.detail-section{padding:22px 0}.detail-section h2{font-size:19px}.detail-section>p{font-size:12px}.detail-actions{flex-direction:column}.detail-actions a{justify-content:center}}
+
+/* Refined homepage sections */
+.education-panel{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;padding:25px;background:var(--paper);border:1px solid var(--line)}
+.education-panel>div>span{font-size:9px;font-weight:800;letter-spacing:.12em;color:var(--accent)}
+.education-panel h3{font-size:19px;margin:10px 0}
+.education-panel p{max-width:720px;font-size:11px;line-height:1.95;color:var(--muted);margin:0}
+.education-panel .directory-link{flex:none;margin:0;padding:10px 0 0}
+.goals-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.goals-grid article{padding:22px;background:var(--paper);border:1px solid var(--line)}
+.goals-grid article>span{font-size:10px;font-weight:800;color:var(--accent)}
+.goals-grid h3{font-size:14px;line-height:1.6;margin:14px 0 8px}
+.goals-grid p{font-size:10px;line-height:1.9;color:var(--muted);margin:0}
+.social-icons{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.social-icons a{width:48px;height:48px;display:grid;place-items:center;border:1px solid #ffffff35;color:#dce8ed;transition:background .2s,border-color .2s,transform .2s}
+.social-icons a:hover{background:#ffffff12;border-color:#85cbd2;transform:translateY(-2px)}
+.social-icons a>svg{color:#85cbd2}
+@media(max-width:700px){.education-panel{align-items:flex-start;flex-direction:column;gap:10px}.goals-grid{grid-template-columns:1fr}.social-icons{justify-content:flex-start}.social-icons a{width:44px;height:44px}}
