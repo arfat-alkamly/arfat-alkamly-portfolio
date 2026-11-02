@@ -20,7 +20,7 @@ export default function HomePage(){
      <a className="button-primary" href="#featured">استعرض المشاريع المختارة <ArrowUpLeft size={17}/></a>
      <Link className="button-plain" href="/contact">تواصل مهني <ArrowUpRight size={16}/></Link>
     </div>
-    <div className="hero-social-proof"><span><i/> متاح للتعاون التقني</span><span>اليمن · CYBERSECURITY</span></div>
+    <div className="hero-social-proof"><span>THIRD-YEAR CYBERSECURITY STUDENT</span><span>YEMEN · INDEPENDENT PROJECTS</span></div>
    </div>
    <div className="hero-mark" aria-label="هوية عرفات الكاملي التقنية">
     <div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/>
@@ -29,7 +29,7 @@ export default function HomePage(){
    </div>
   </section>
   <section className="home-focus" aria-labelledby="focus-title">
-   <div className="home-section-kicker"><span>AREAS OF PRACTICE</span><span>01 — 03</span></div>
+   <div className="home-section-kicker" id="focus-title"><span>AREAS OF PRACTICE</span><span>01 — 03</span></div>
    <div className="home-focus-grid">
     {focusAreas.map((item,i)=><article className="focus-card" key={item.title}><div className="focus-card-top"><item.icon size={22}/><span>0{i+1}</span></div><h2>{item.title}</h2><p>{item.detail}</p></article>)}
    </div>
