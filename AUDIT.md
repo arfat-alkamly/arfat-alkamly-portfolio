@@ -7,12 +7,12 @@
 | Field | Value |
 |---|---|
 | Repository | `arfat-alkamly/arfat-alkamly-portfolio` |
-| Working branch | `portfolio` |
+| Working branch | `portfolio` (existing branch; not created during this execution) |
 | Production origin | `https://arfat-phi.vercel.app` |
 | Audit started | 2026-11-02 |
 | Baseline source commit before this audit update | `77a2413578e7b09b88d1c2433f580a218a970d84` |
 | Production deployment used for measurements | Not confirmed |
-| Measurement status | Pending |
+| Measurement status | Partially reviewed; Lighthouse, CrUX, and external header scan not executed in this environment |
 
 ## 1. Mandatory blocker — identify the exact Vercel restriction
 
@@ -24,13 +24,13 @@ In Vercel Dashboard → select the portfolio project/team → Usage (or Usage & 
 
 | Required evidence | Recorded value |
 |---|---|
-| Exact resource/limit name as displayed | Pending |
-| Project and team | Pending |
-| Usage consumed | Pending |
-| Included quota / limit | Pending |
-| Accounting window (hour/day/month or exact period) | Pending |
-| Reset date/time and timezone | Pending |
-| Usage dashboard URL or screenshot reference | Pending |
+| Exact resource/limit name as displayed | لم يُقَس بعد |
+| Project and team | لم يُقَس بعد |
+| Usage consumed | لم يُقَس بعد |
+| Included quota / limit | لم يُقَس بعد |
+| Accounting window (hour/day/month or exact period) | لم يُقَس بعد |
+| Reset date/time and timezone | لم يُقَس بعد |
+| Usage dashboard URL or screenshot reference | لم يُقَس بعد |
 
 ### 1.2 Failure classification and verbatim error
 
@@ -38,13 +38,13 @@ Open Deployments → failed deployment → Build Logs. Copy the decisive error m
 
 | Evidence | Recorded value |
 |---|---|
-| Failure phase: Build / Functions / Other / Unknown | Pending |
-| Exact error text copied from logs | Pending |
-| Deployment ID and URL | Pending |
-| Failure timestamp (with timezone) | Pending |
-| Related Usage resource name | Pending |
-| Is there also a Functions restriction? | Pending |
-| Next action justified by evidence | Pending |
+| Failure phase: Build / Functions / Other / Unknown | لم يُقَس بعد |
+| Exact error text copied from logs | لم يُقَس بعد |
+| Deployment ID and URL | لم يُقَس بعد |
+| Failure timestamp (with timezone) | لم يُقَس بعد |
+| Related Usage resource name | لم يُقَس بعد |
+| Is there also a Functions restriction? | لم يُقَس بعد |
+| Next action justified by evidence | لم يُقَس بعد |
 
 **Gate:** This section must be completed before a new deployment attempt or a hosting/plan decision.
 
@@ -54,15 +54,15 @@ The measurement target must be the actual production domain, not a Preview deplo
 
 | Field | Recorded value |
 |---|---|
-| Production domain verified in Vercel | Pending |
-| Production deployment status | Pending |
-| Production URL tested (must be the actual domain) | Pending |
-| Deployment ID | Pending |
-| Deployment created at (timezone) | Pending |
-| Deployed commit SHA | Pending |
-| Source branch | Pending |
-| Configured Production Branch | Pending |
-| Is deployed SHA equal to current `portfolio` head? | Pending |
+| Production domain verified in Vercel | لم يُقَس بعد |
+| Production deployment status | لم يُقَس بعد |
+| Production URL tested (must be the actual domain) | لم يُقَس بعد |
+| Deployment ID | لم يُقَس بعد |
+| Deployment created at (timezone) | لم يُقَس بعد |
+| Deployed commit SHA | لم يُقَس بعد |
+| Source branch | لم يُقَس بعد |
+| Configured Production Branch | لم يُقَس بعد |
+| Is deployed SHA equal to current `portfolio` head? | لم يُقَس بعد |
 | If not, label measurements as | Last successful production deployment |
 
 Verification:
@@ -115,23 +115,23 @@ Repeat with unique output filenames for runs 2 and 3, then for the other two pag
 
 | Page | Run | Date/time + timezone | Chrome version | Lighthouse version | LCP ms | CLS | TBT ms | Performance score | Report |
 |---|---:|---|---|---|---:|---:|---:|---:|---|
-| Home | 1 | Pending | Pending | Pending | — | — | — | — | — |
-| Home | 2 | Pending | Pending | Pending | — | — | — | — | — |
-| Home | 3 | Pending | Pending | Pending | — | — | — | — | — |
-| AEGIS-TITAN | 1 | Pending | Pending | Pending | — | — | — | — | — |
-| AEGIS-TITAN | 2 | Pending | Pending | Pending | — | — | — | — | — |
-| AEGIS-TITAN | 3 | Pending | Pending | Pending | — | — | — | — | — |
-| About | 1 | Pending | Pending | Pending | — | — | — | — | — |
-| About | 2 | Pending | Pending | Pending | — | — | — | — | — |
-| About | 3 | Pending | Pending | Pending | — | — | — | — | — |
+| Home | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
+| Home | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
+| Home | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
+| AEGIS-TITAN | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
+| AEGIS-TITAN | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
+| AEGIS-TITAN | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
+| About | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
+| About | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
+| About | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
 
 #### Lab summary — median of three runs
 
 | Page | LCP median ms | CLS median | TBT median ms | Score median | Sample count | Outlier note |
 |---|---:|---:|---:|---:|---:|---|
-| Home | — | — | — | — | 0 | — |
-| AEGIS-TITAN | — | — | — | — | 0 | — |
-| About | — | — | — | — | 0 | — |
+| Home | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | 0 | لم يُقَس بعد |
+| AEGIS-TITAN | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | 0 | لم يُقَس بعد |
+| About | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | 0 | لم يُقَس بعد |
 
 #### Variability and outlier policy
 
@@ -162,15 +162,15 @@ In a personal portfolio, origin-level data may be available while individual URL
 
 | Origin | Form factor | Checked at (timezone) | CrUX collection period | LCP p75 ms | INP p75 ms | CLS p75 | Availability / PSI evidence |
 |---|---|---|---|---:|---:|---:|---|
-| `https://arfat-phi.vercel.app` | Phone | Pending | Pending (28-day rolling window) | Not checked | Not checked | Not checked | Pending |
+| `https://arfat-phi.vercel.app` | Phone | لم يُقَس بعد | لم يُقَس بعد (28-day rolling window) | Not checked | Not checked | Not checked | لم يُقَس بعد |
 
 **URL-level table**
 
 | Exact URL | Form factor | Checked at (timezone) | CrUX collection period | LCP p75 ms | INP p75 ms | CLS p75 | Availability / PSI evidence |
 |---|---|---|---|---:|---:|---:|---|
-| `https://arfat-phi.vercel.app/` | Phone | Pending | Pending | Not checked | Not checked | Not checked | Pending |
-| `https://arfat-phi.vercel.app/aegis-titan` | Phone | Pending | Pending | Not checked | Not checked | Not checked | Pending |
-| `https://arfat-phi.vercel.app/about` | Phone | Pending | Pending | Not checked | Not checked | Not checked | Pending |
+| `https://arfat-phi.vercel.app/` | Phone | لم يُقَس بعد | لم يُقَس بعد | Not checked | Not checked | Not checked | لم يُقَس بعد |
+| `https://arfat-phi.vercel.app/aegis-titan` | Phone | لم يُقَس بعد | لم يُقَس بعد | Not checked | Not checked | Not checked | لم يُقَس بعد |
+| `https://arfat-phi.vercel.app/about` | Phone | لم يُقَس بعد | لم يُقَس بعد | Not checked | Not checked | Not checked | لم يُقَس بعد |
 
 Repeat with Desktop only as a separate form-factor dataset if required. Do not mix Phone and Desktop.
 
@@ -196,13 +196,15 @@ curl --fail-with-body -sS -X POST \
   }'
 ```
 
-URL-level query for the home page (change the `url` value to query another exact page):
+**Required query order:** query the exact page URL first. If the successful URL query returns no record, then query the origin. Record the URL response before making the origin query. Do not reverse this order.
+
+Origin-level fallback query — run only after the corresponding URL query returned no record:
 ```bash
 curl --fail-with-body -sS -X POST \
   "https://chromeuxreport.googleapis.com/v1/records:queryRecord?key=${CRUX_API_KEY}" \
   -H 'Content-Type: application/json' \
   --data-binary '{
-    "url": "https://arfat-phi.vercel.app/",
+    "origin": "https://arfat-phi.vercel.app",
     "formFactor": "PHONE",
     "metrics": [
       "largest_contentful_paint",
@@ -213,9 +215,9 @@ curl --fail-with-body -sS -X POST \
 ```
 
 Interpretation of direct API responses:
-- A successful response with `record.metrics` provides data for the requested scope and form factor. Record the collection period (typically 28 days), p75 values and histogram.
-- A response indicating no record / not found means no CrUX record was returned for that query. Record **Not available** for that scope, with check timestamp and collection period if supplied.
-- HTTP 401/403 is an API authentication, API enablement, or permission issue. It is not evidence that CrUX has no user data. Resolve access and retry.
+- A successful HTTP 200 response with `record.metrics` provides data for the requested scope and form factor. Record `record.collectionPeriod.firstDate` and `record.collectionPeriod.lastDate` explicitly, plus p75 values and histogram.
+- HTTP 200 with an empty/missing `record` or no `record.metrics` means **Not available** for that queried scope. Record the exact response state and check timestamp; do not infer a collection period if none was returned.
+- HTTP 401/403 means **access error** (key, API enablement, or permission). It is not evidence that CrUX has no user data and must not be logged as Not available. Resolve access and retry.
 - HTTP 400 is a request error until investigated; do not classify it as missing field data.
 - Keep URL and Origin queries in their respective tables. Do not paste the API key or secrets into this repository.
 
@@ -245,14 +247,14 @@ No additional visible fields are planned. Honeypot and/or rate limiting are back
 
 | Check | Procedure | Result / evidence |
 |---|---|---|
-| Normal submission | Send a valid test message and verify expected delivery/receipt | Pending |
-| Required-field validation | Submit with required values missing | Pending |
-| Invalid email | Submit malformed email | Pending |
-| Honeypot (if implemented) | Controlled test with honeypot populated | Pending |
-| Rate limit (if implemented) | Controlled repeated requests; verify throttling | Pending |
-| Error handling | Test server/network failure; ensure no false success | Pending |
-| Mobile usability | Complete submission on mobile viewport | Pending |
-| Privacy | Verify secrets/tokens/message content are not exposed in public responses or client logs | Pending |
+| Normal submission | Send a valid test message and verify expected delivery/receipt | لم يُقَس بعد |
+| Required-field validation | Submit with required values missing | لم يُقَس بعد |
+| Invalid email | Submit malformed email | لم يُقَس بعد |
+| Honeypot (if implemented) | Controlled test with honeypot populated | لم يُقَس بعد |
+| Rate limit (if implemented) | Controlled repeated requests; verify throttling | لم يُقَس بعد |
+| Error handling | Test server/network failure; ensure no false success | لم يُقَس بعد |
+| Mobile usability | Complete submission on mobile viewport | لم يُقَس بعد |
+| Privacy | Verify secrets/tokens/message content are not exposed in public responses or client logs | لم يُقَس بعد |
 
 Do not claim protection until both implementation and behavior are verified. Repeat after deployment.
 
@@ -260,12 +262,12 @@ Do not claim protection until both implementation and behavior are verified. Rep
 
 | Area | Evidence / method | Status |
 |---|---|---|
-| Security headers | Inspect production response headers and record actual values | Pending |
-| Content Security Policy | Start in report-only mode; validate assets and flows before enforcement | Pending |
-| Dependencies | Run package audit; review applicability | Pending |
-| Accessibility | Lighthouse plus keyboard/focus and form-label checks | Pending |
-| Responsive layout | Verify mobile/tablet/desktop | Pending |
-| Metadata | Verify title, description, canonical and Open Graph | Pending |
+| Security headers | Inspect production response headers and record actual values | لم يُقَس بعد |
+| Content Security Policy | Start in report-only mode; validate assets and flows before enforcement | لم يُقَس بعد |
+| Dependencies | Run package audit; review applicability | لم يُقَس بعد |
+| Accessibility | Lighthouse plus keyboard/focus and form-label checks | لم يُقَس بعد |
+| Responsive layout | Verify mobile/tablet/desktop | لم يُقَس بعد |
+| Metadata | Verify title, description, canonical and Open Graph | لم يُقَس بعد |
 | GitHub integration | Deferred; see full appendix below | Deferred |
 
 Commands:
@@ -282,7 +284,7 @@ Record date/time, tool/runtime version, relevant output and accepted risks. Head
 |---|---|---|---|---|
 | 2026-11-02 | `portfolio` | `77a2413578e7b09b88d1c2433f580a218a970d84` | Source baseline before audit record | Branch head verified |
 | 2026-11-02 | `portfolio` | `ddde4bd8c63d949346b3dfa3f1f9924921c7f6d6` | Initial AUDIT.md | File fetched and inspected |
-| 2026-11-02 | `portfolio` | Pending | Refine Vercel blocker, three-page scope, fixed Lab conditions, variability policy, CrUX scope/availability, and integration appendix | Pending |
+| 2026-11-02 | `portfolio` | لم يُقَس بعد | Refine Vercel blocker, three-page scope, fixed Lab conditions, variability policy, CrUX scope/availability, and integration appendix | لم يُقَس بعد |
 
 ## 7. Working and release rules
 
@@ -323,8 +325,9 @@ Display selected public GitHub profile and repository information on the portfol
 - Request only public data and the minimum scopes required; public unauthenticated access is preferred.
 - Keep secrets server-only and redact authorization headers from logs.
 - Validate external URLs and render only expected GitHub HTTPS links.
-- Do not accept arbitrary repository names or URLs from query parameters as upstream fetch targets.
-- Do not expose raw API responses to the browser.
+- Use a fixed allowlist of selected repository names in server code or a server-side environment variable; do not accept arbitrary repository names or URLs from query parameters as upstream fetch targets.
+- Route Handlers necessarily return JSON to the browser. Return only sanitized, explicitly selected fields (repository name, description, URL, primary language, and relevant dates); never forward the complete upstream GitHub response.
+- Keep account profile fields (`bio`, `blog`, `location`) separate from repository cards, or omit them entirely.
 
 ### Verification and acceptance criteria
 - Build succeeds with and without a configured token.
@@ -332,15 +335,59 @@ Display selected public GitHub profile and repository information on the portfol
 - No token appears in client bundles, page source, network responses, or logs.
 - Cache/revalidation behavior is verified and documented.
 - Displayed fields match the public GitHub API response at the time checked.
+- Offline acceptance test: in DevTools, enable Offline; the static fallback must appear within 2 seconds without a hanging/loading state.
+- Do not display a total repository count when the account may contain private repositories.
 - Existing page layout, accessibility, and responsive behavior remain intact.
 - Any displayed metric includes a retrieval timestamp and is not presented as a skill rating.
 
 ### Deferred implementation record
 | Item | Value |
 |---|---|
-| Implementation branch | `portfolio` |
+| Execution branch | `portfolio` (already existed; not created in this execution) |
 | Status | Not started |
 | API code added | No |
 | Token configured | No |
 | Cache policy implemented | No |
-| Verification | Pending |
+| Verification | لم يُقَس بعد |
+
+
+## 9. Execution review — 2026-11-02
+
+**Review timestamp:** 2026-11-02 21:18 (UTC+03:00).  
+**Execution branch:** `portfolio` — verified to exist before this execution; **not created** during this execution.  
+**Current execution commit:** recorded in Git history after this document update.
+
+### 9.1 Confirmed repository checks
+
+| Date | Check | Result | Evidence |
+|---|---|---|---|
+| 2026-11-02 | Branch existence | Confirmed: `portfolio` exists; head before this update was `83539e43b8f66fdcb4d13870f258849a26a1e67d` | GitHub branch API |
+| 2026-11-02 | `.gitignore` before correction | `.env*` was absent; only `.env` and `.env.local` were listed | Fetched `.gitignore` from `portfolio` |
+| 2026-11-02 | `.gitignore` correction | Added `.env*`; update committed on `portfolio` | Commit `7b833e5f77c9de9c9051e2479131e58a66c881a5` |
+| 2026-11-02 | CrUX URL-first procedure | Documented: query each exact URL first, then origin only if URL has no record | This audit document |
+| 2026-11-02 | GitHub integration scope | Proposal only; no API integration code added | Repository file review |
+
+### 9.2 Measurements not executed in this environment
+
+No controlled Chrome Incognito/Lighthouse session, authenticated Vercel dashboard inspection, CrUX API/PSI result capture, or securityheaders.com scan was performed during this execution. Therefore these are **not measured**, not zero and not inferred:
+
+| Date | Target | Required result | Current state |
+|---|---|---|---|
+| 2026-11-02 | Home — Lighthouse Mobile, 3 runs | LCP/CLS/TBT medians and variability | لم يُقَس بعد |
+| 2026-11-02 | AEGIS-TITAN — Lighthouse Mobile, 3 runs | LCP/CLS/TBT medians and variability | لم يُقَس بعد |
+| 2026-11-02 | About — Lighthouse Mobile, 3 runs | LCP/CLS/TBT medians and variability | لم يُقَس بعد |
+| 2026-11-02 | CrUX URL: Home | URL record and exact collectionPeriod, or HTTP 200 empty record | لم يُقَس بعد |
+| 2026-11-02 | CrUX URL: AEGIS-TITAN | URL record and exact collectionPeriod, or HTTP 200 empty record | لم يُقَس بعد |
+| 2026-11-02 | CrUX URL: About | URL record and exact collectionPeriod, or HTTP 200 empty record | لم يُقَس بعد |
+| 2026-11-02 | CrUX Origin fallback | Query only after URL query has no record; record collectionPeriod | لم يُقَس بعد |
+| 2026-11-02 | securityheaders.com | Actual report, missing headers and exact values | لم يُقَس بعد |
+| 2026-11-02 | Vercel Usage and deployment | Exact quota, error text, deployment SHA and Production mapping | لم يُقَس بعد |
+| 2026-11-02 | Contact form | Functional and abuse-control tests | لم يُقَس بعد |
+
+### 9.3 Security header findings
+
+No securityheaders.com report was obtained. Consequently, no header is claimed present or missing. The following must be captured from the actual production response: Strict-Transport-Security, Content-Security-Policy, X-Frame-Options or CSP frame-ancestors, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, and any additional headers reported by the scanner. Record exact values and scanner timestamp before proposing changes.
+
+### 9.4 Environment-file protection
+
+The repository `.gitignore` now includes `.env*`. This prevents matching untracked environment files from being added accidentally, but does not remove a secret already committed or guarantee that a file is untracked. Verify tracked files separately before placing any key in a local environment file. Never commit, paste into AUDIT.md, or expose the CrUX API key.
