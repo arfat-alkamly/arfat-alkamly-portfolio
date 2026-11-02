@@ -36,9 +36,17 @@ export async function verifyGoogleIdToken(token:string,expectedNonce:string){
  const jwks=await response.json(),jwk=jwks.keys?.find((k:any)=>k.kid===header.kid&&k.kty==='RSA');if(!jwk)throw new Error('مفتاح توقيع Google غير موجود.');
  const key=createPublicKey({key:jwk,format:'jwk'});
  const valid=verifySignature('RSA-SHA256',Buffer.from(parts[0]+'.'+parts[1]),key,Buffer.from(parts[2],'base64url'));
- const aud=process.env.GOOGLE_CLIENT_ID;
- if(!valid||!aud||claims.iss!=='https://accounts.google.com'&&claims.iss!=='accounts.google.com'||claims.aud!==aud||(claims.azp&&claims.azp!==aud)||typeof claims.sub!=='string'||claims.sub.length<1||claims.exp<Math.floor(Date.now()/1000)||claims.iat>Math.floor(Date.now()/1000)+60||claims.nonce!==expectedNonce||claims.email_verified!==true||typeof claims.email!=='string')throw new Error('تعذر إثبات ملكية حساب Google.');
- return {email:claims.email.toLowerCase(),name:String(claims.name||'')};
+ const aud=process.env.GOOGLE_CLIENT_ID,now=Math.floor(Date.now()/1000);
+ const validClaims=typeof claims.iss==='string'&&['https://accounts.google.com','accounts.google.com'].includes(claims.iss)
+  &&claims.aud===aud&&(!claims.azp||claims.azp===aud)
+  &&typeof claims.sub==='string'&&claims.sub.length>0
+  &&Number.isSafeInteger(claims.exp)&&claims.exp>now
+  &&Number.isSafeInteger(claims.iat)&&claims.iat<=now+60
+  &&(!('nbf' in claims)||(Number.isSafeInteger(claims.nbf)&&claims.nbf<=now))
+  &&typeof claims.nonce==='string'&&claims.nonce===expectedNonce
+  &&claims.email_verified===true&&typeof claims.email==='string'&&/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(claims.email);
+ if(!valid||!aud||!validClaims)throw new Error('تعذر إثبات ملكية حساب Google.');
+ return {email:claims.email.toLowerCase(),name:typeof claims.name==='string'?claims.name:''};
 }
 export function sameOrigin(req:NextRequest){
  const origin=req.headers.get('origin'),host=req.headers.get('host');
