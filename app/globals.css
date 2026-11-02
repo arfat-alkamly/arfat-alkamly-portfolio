@@ -141,3 +141,68 @@ html{scroll-behavior:smooth}body{background:var(--site-bg);color:var(--site-text
 .site-header nav a{padding-block:5px}
 @media(hover:hover){.button-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}.button-plain:hover,.site-footer a:hover{color:var(--site-accent)}}
 @media(prefers-reduced-motion:no-preference){.hero-shield{animation:shield-glow 6s ease-in-out infinite alternate}@keyframes shield-glow{from{box-shadow:0 0 24px rgba(82,199,223,.05)}to{box-shadow:0 0 58px rgba(82,199,223,.16)}}}
+
+/* Premium skills directory and project archive */
+.skills-overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:28px 0 20px}
+.skills-overview>div{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:12px;row-gap:3px;padding:15px;border:1px solid var(--site-line);border-radius:12px;background:linear-gradient(145deg,rgba(16,34,56,.92),rgba(10,24,40,.96))}
+.skills-overview svg{grid-row:span 2;color:var(--site-accent);width:22px;height:22px}
+.skills-overview b{font:700 21px ui-monospace,monospace;color:var(--site-text)}
+.skills-overview span{font-size:10px;color:var(--site-muted)}
+.skill-groups{gap:16px}
+.skill-group-card{padding:23px;overflow:hidden;position:relative}
+.skill-group-card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--site-accent),transparent);opacity:.55}
+.skill-group-heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.skill-group-icon{width:48px;height:48px;flex:0 0 48px;display:grid;place-items:center;border:1px solid rgba(82,199,223,.3);border-radius:13px;background:rgba(82,199,223,.08);color:var(--site-accent)}
+.skill-group-heading h2{margin:5px 0;font-size:17px}
+.skill-group-heading small{color:var(--site-muted);font-size:10px}
+.skill-icon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.skill-icon-item{display:flex;align-items:center;gap:9px;min-width:0;padding:9px 10px;border:1px solid rgba(148,181,208,.12);border-radius:8px;background:rgba(4,13,24,.42);transition:background .22s,border-color .22s,transform .22s}
+.skill-icon-item i{display:grid;place-items:center;width:27px;height:27px;flex:0 0 27px;border-radius:7px;background:rgba(82,199,223,.09);color:var(--site-accent);font-style:normal}
+.skill-icon-item b{font:500 10px ui-monospace,monospace;color:#d8e7f0;overflow-wrap:anywhere}
+.skill-icon-item:hover{transform:translateY(-2px);border-color:rgba(82,199,223,.4);background:rgba(82,199,223,.07)}
+.skill-project-links{margin-top:20px;padding-top:16px;border-top:1px solid var(--site-line)}
+.skill-project-links h3{font-size:11px;color:var(--site-muted);margin:0 0 10px}
+.skill-project-links .case-actions{margin-top:0;gap:8px}
+.skill-project-links .case-actions a{padding:8px 10px;font-size:10px}
+.project-evidence-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:27px 0 22px}
+.project-evidence-summary>div{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:3px 11px;padding:15px 17px;border:1px solid var(--site-line);border-radius:12px;background:linear-gradient(145deg,rgba(16,34,56,.92),rgba(10,24,40,.96))}
+.project-evidence-summary svg{grid-row:span 2;color:var(--site-accent);width:22px;height:22px}
+.project-evidence-summary strong{font:700 21px ui-monospace,monospace}
+.project-evidence-summary span{font-size:10px;color:var(--site-muted)}
+.filter-tabs{padding:7px;border:1px solid var(--site-line);border-radius:12px;background:rgba(12,25,41,.72);width:fit-content;max-width:100%}
+.filter-tabs button{display:inline-flex;align-items:center;gap:9px;border-color:transparent;border-radius:8px;transition:background .2s,color .2s,border-color .2s}
+.filter-tabs button span{display:grid;place-items:center;min-width:21px;height:21px;padding:0 5px;border-radius:6px;background:rgba(148,181,208,.1);font:10px ui-monospace,monospace}
+.filter-tabs button.selected span{background:rgba(6,19,30,.12)}
+.project-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.project-tile{position:relative;display:flex;flex-direction:column;min-height:315px;padding:22px 23px 17px;overflow:hidden;background:linear-gradient(150deg,rgba(16,34,56,.96),rgba(8,20,34,.98));transition:transform .25s,border-color .25s,box-shadow .25s,background .25s}
+.project-tile:before{content:"";position:absolute;top:0;right:0;left:0;height:2px;background:linear-gradient(90deg,transparent,var(--site-accent),transparent);opacity:.45;transition:opacity .25s}
+.project-tile:after{content:"";position:absolute;width:190px;height:190px;left:-100px;bottom:-115px;border:1px solid rgba(82,199,223,.09);border-radius:50%;pointer-events:none}
+.project-tile:hover{transform:translateY(-5px);border-color:rgba(82,199,223,.55);box-shadow:0 18px 48px rgba(0,0,0,.2);background:linear-gradient(150deg,#112b43,#0a1929)}
+.project-tile:hover:before{opacity:1}
+.project-card-top{display:flex;align-items:center;gap:11px}
+.project-category-icon{display:grid;place-items:center;width:43px;height:43px;border:1px solid rgba(82,199,223,.3);border-radius:12px;background:rgba(82,199,223,.08);color:var(--site-accent)}
+.project-card-number{font:9px ui-monospace,monospace;letter-spacing:.07em;color:var(--site-muted)}
+.project-open-icon{margin-inline-start:auto;color:#69899e;transition:transform .2s,color .2s}
+.project-tile:hover .project-open-icon{transform:translate(3px,-3px);color:var(--site-accent)}
+.project-card-status{display:flex;align-items:center;gap:8px;margin-top:17px;color:var(--site-muted);font-size:10px}
+.project-card-status i{width:6px;height:6px;border-radius:50%;background:#6dd8a7;box-shadow:0 0 10px rgba(109,216,167,.35)}
+.project-tile h2{font-size:22px;margin:10px 0 5px;letter-spacing:-.02em}
+.project-card-label{font-size:11px;color:var(--site-accent)}
+.project-tile>p{flex:1;min-height:0;margin:12px 0 17px;color:var(--site-muted);font-size:12px;line-height:1.95}
+.project-stack{display:flex;flex-wrap:wrap;gap:6px}
+.project-stack small{padding:6px 8px;border:1px solid rgba(148,181,208,.14);border-radius:5px;background:rgba(3,11,20,.38);color:#a9bfce;font:9px ui-monospace,monospace}
+.project-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:17px;padding-top:13px;border-top:1px solid var(--site-line);font-size:10px;color:var(--site-muted)}
+.project-card-bottom strong{display:flex;align-items:center;gap:6px;color:var(--site-accent);font-size:11px}
+.project-tile:focus-visible,.skill-icon-item:focus-visible{outline:2px solid var(--site-accent);outline-offset:4px}
+@media(max-width:850px){.skills-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.skill-icon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.project-card-grid{grid-template-columns:1fr}.project-tile{min-height:285px;padding:19px}.project-evidence-summary{gap:7px}.project-evidence-summary>div{padding:11px 9px;gap:3px 7px}.project-evidence-summary strong{font-size:18px}.project-evidence-summary span{font-size:9px}.filter-tabs{width:100%;overflow-x:auto;flex-wrap:nowrap}.filter-tabs button{white-space:nowrap;flex:0 0 auto}.skills-overview{gap:8px}.skills-overview>div{padding:12px}.skill-group-card{padding:17px}.skill-icon-grid{gap:6px}.skill-icon-item{padding:8px 7px;gap:7px}.skill-icon-item b{font-size:9px}}
+/* Consistent transitions and touch-friendly controls across the portfolio */
+:where(a,button,[role="button"],input,textarea,select){-webkit-tap-highlight-color:transparent}
+:where(a,button){transition-property:color,background-color,border-color,box-shadow,transform,opacity;transition-duration:.2s;transition-timing-function:ease}
+:where(button,.button-primary,.button-secondary,.button-plain,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-text-link){cursor:pointer}
+:where(button,.button-primary,.button-secondary,.button-plain,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-text-link):active{transform:translateY(1px) scale(.99)}
+:where(a,button):focus-visible{outline:2px solid var(--site-accent);outline-offset:4px}
+:where(.button-primary,.button-secondary,.button-plain,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-text-link){position:relative;overflow:hidden}
+:where(.button-primary,.button-secondary,.filter-tabs button,.case-actions a,.aegis-actions a):hover{box-shadow:0 7px 22px rgba(0,0,0,.16)}
+:where(.button-primary,.button-secondary,.button-plain,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-text-link):disabled{opacity:.55;cursor:not-allowed}
+@media(prefers-reduced-motion:reduce){:where(a,button,[role="button"]){transition:none!important}}
