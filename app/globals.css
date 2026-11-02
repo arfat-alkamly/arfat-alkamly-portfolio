@@ -132,3 +132,12 @@ html{scroll-behavior:smooth}body{background:var(--site-bg);color:var(--site-text
 .home-cta p{margin:0;color:var(--site-muted);font-size:12px;line-height:1.9}
 .home-cta .button-primary{white-space:nowrap}
 @media(max-width:700px){.home-focus-grid{grid-template-columns:1fr}.focus-card{min-height:0}.hero-social-proof{gap:12px}.home-cta{padding:22px}.home-cta .button-primary{width:100%}}
+
+/* Accessibility and interaction polish */
+:where(a,button,input,textarea,select):focus-visible{outline:2px solid var(--site-accent);outline-offset:4px}
+:target{scroll-margin-top:100px}
+::selection{background:rgba(82,199,223,.28);color:var(--site-text)}
+.site-header nav{scrollbar-width:thin;scrollbar-color:rgba(82,199,223,.35) transparent}
+.site-header nav a{padding-block:5px}
+@media(hover:hover){.button-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}.button-plain:hover,.site-footer a:hover{color:var(--site-accent)}}
+@media(prefers-reduced-motion:no-preference){.hero-shield{animation:shield-glow 6s ease-in-out infinite alternate}@keyframes shield-glow{from{box-shadow:0 0 24px rgba(82,199,223,.05)}to{box-shadow:0 0 58px rgba(82,199,223,.16)}}}
