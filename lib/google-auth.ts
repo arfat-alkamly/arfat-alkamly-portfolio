@@ -40,5 +40,9 @@ export async function verifyGoogleIdToken(token:string,expectedNonce:string){
  if(!valid||!aud||claims.iss!=='https://accounts.google.com'&&claims.iss!=='accounts.google.com'||claims.aud!==aud||(claims.azp&&claims.azp!==aud)||typeof claims.sub!=='string'||claims.sub.length<1||claims.exp<Math.floor(Date.now()/1000)||claims.iat>Math.floor(Date.now()/1000)+60||claims.nonce!==expectedNonce||claims.email_verified!==true||typeof claims.email!=='string')throw new Error('تعذر إثبات ملكية حساب Google.');
  return {email:claims.email.toLowerCase(),name:String(claims.name||'')};
 }
-export function sameOrigin(req:NextRequest){const origin=req.headers.get('origin'),host=req.headers.get('host');if(!origin||!host)return true;try{return new URL(origin).host===host;}catch{return false;}}
+export function sameOrigin(req:NextRequest){
+ const origin=req.headers.get('origin'),host=req.headers.get('host');
+ if(!origin||!host)return false;
+ try{const parsed=new URL(origin);return parsed.protocol==='https:'&&parsed.host.toLowerCase()===host.toLowerCase();}catch{return false;}
+}
 export function fail(message:string,status=400){return NextResponse.json({error:message},{status});}
