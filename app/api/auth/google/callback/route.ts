@@ -9,7 +9,7 @@ export async function GET(request:NextRequest){
   const id=process.env.GOOGLE_CLIENT_ID,secret=process.env.GOOGLE_CLIENT_SECRET,redirect=process.env.GOOGLE_REDIRECT_URI;
   if(!id||!secret||!redirect)return failure();
   const body=new URLSearchParams({code,client_id:id,client_secret:secret,redirect_uri:redirect,grant_type:'authorization_code',code_verifier:verifier});
-  const tokenResponse=await fetch('https://oauth2.googleapis.com/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body,cache:'no-store'});
+  const tokenResponse=await fetch('https://oauth2.googleapis.com/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body,cache:'no-store',signal:AbortSignal.timeout(10000)});
   if(!tokenResponse.ok)return failure();
   const tokens=await tokenResponse.json();if(typeof tokens.id_token!=='string')return failure();
   const user=await verifyGoogleIdToken(tokens.id_token,nonce);
