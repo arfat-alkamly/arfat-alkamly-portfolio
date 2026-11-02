@@ -29,3 +29,16 @@ html{scroll-behavior:smooth}body{background:var(--site-bg);color:var(--site-text
 .form-hint{margin:0;font-size:.875rem;opacity:.75}
 .button-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 16px;border:1px solid currentColor;border-radius:10px;background:transparent;color:inherit;font:inherit;cursor:pointer}
 .button-secondary:disabled{opacity:.55;cursor:not-allowed}
+
+
+/* Google identity confirmation */
+.google-auth-panel{display:grid;gap:14px;padding:18px;border:1px solid var(--site-line);border-radius:12px;background:var(--site-panel)}
+.google-auth-panel p,.contact-auth-status{margin:0;color:var(--site-muted);font-size:13px;line-height:1.9}
+.google-auth-button{width:fit-content;gap:12px}
+.google-auth-button span{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#fff;color:#4285f4;font-weight:800;font-size:15px}
+.verified-account{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px;border:1px solid rgba(45,160,95,.3);border-radius:10px;background:rgba(45,160,95,.07)}
+.verified-account>div{display:grid;gap:5px;min-width:0}
+.verified-account strong{color:#9be7bd;font-size:12px}
+.verified-account span{color:var(--site-muted);font-size:12px;overflow-wrap:anywhere}
+.contact-form-wrap>.form-error,.contact-form-wrap>.form-success{margin-top:14px}
+@media(max-width:520px){.verified-account{align-items:flex-start;flex-direction:column}}
