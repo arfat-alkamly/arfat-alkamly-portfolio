@@ -46,7 +46,7 @@ export async function verifyGoogleIdToken(token:string,expectedNonce:string){
   &&Number.isSafeInteger(claims.iat)&&claims.iat<=now+60
   &&(!('nbf' in claims)||(Number.isSafeInteger(claims.nbf)&&claims.nbf<=now))
   &&typeof claims.nonce==='string'&&claims.nonce===expectedNonce
-  &&claims.email_verified===true&&typeof claims.email==='string'&&/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(claims.email);
+  &&claims.email_verified===true&&typeof claims.email==='string'&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(claims.email);
  if(!valid||!aud||!validClaims)throw new Error('تعذر إثبات ملكية حساب Google.');
  return {email:claims.email.toLowerCase(),name:typeof claims.name==='string'?claims.name:''};
 }
