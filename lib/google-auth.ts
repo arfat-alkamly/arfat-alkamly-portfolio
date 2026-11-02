@@ -1,4 +1,4 @@
-import {createHmac,createHash,randomBytes,createPublicKey,verify as verifySignature} from 'node:crypto';
+import {createHmac,createHash,randomBytes,createPublicKey,timingSafeEqual,verify as verifySignature} from 'node:crypto';
 import {cookies} from 'next/headers';
 import {NextRequest,NextResponse} from 'next/server';
 const b64=(v:Buffer|string)=>Buffer.from(v).toString('base64url');
@@ -25,7 +25,7 @@ export async function getSession(){
  const raw=(await cookies()).get('contact_session')?.value,s=secret();if(!raw||s.length<32)return null;
  const [payload,sig]=raw.split('.');if(!payload||!sig)return null;
  const expected=createHmac('sha256',s).update(payload).digest();
- const actual=Buffer.from(sig,'base64url');if(actual.length!==expected.length||!expected.equals(actual))return null;
+ const actual=Buffer.from(sig,'base64url');if(actual.length!==expected.length||!timingSafeEqual(expected,actual))return null;
  try{const p=JSON.parse(Buffer.from(payload,'base64url').toString());if(!p.email||p.exp<Math.floor(Date.now()/1000))return null;return {email:String(p.email),name:String(p.name||'')};}catch{return null;}
 }
 export async function verifyGoogleIdToken(token:string,expectedNonce:string){
@@ -43,6 +43,6 @@ export async function verifyGoogleIdToken(token:string,expectedNonce:string){
 export function sameOrigin(req:NextRequest){
  const origin=req.headers.get('origin'),host=req.headers.get('host');
  if(!origin||!host)return false;
- try{const parsed=new URL(origin);return parsed.protocol==='https:'&&parsed.host.toLowerCase()===host.toLowerCase();}catch{return false;}
+ try{const parsed=new URL(origin),local=process.env.NODE_ENV!=='production'&&['localhost','127.0.0.1','[::1]'].includes(parsed.hostname);return (parsed.protocol==='https:'||(local&&parsed.protocol==='http:'))&&parsed.host.toLowerCase()===host.toLowerCase();}catch{return false;}
 }
 export function fail(message:string,status=400){return NextResponse.json({error:message},{status});}
