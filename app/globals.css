@@ -223,3 +223,38 @@ html{scroll-behavior:smooth}body{background:var(--site-bg);color:var(--site-text
 .about-focus-card h3{margin:13px 0 6px;font-size:15px}
 .about-focus-card p{margin:0;font-size:11px;line-height:1.9}
 @media(max-width:700px){.about-identity{grid-template-columns:1fr;padding:18px;gap:22px}.about-portrait-wrap{width:min(100%,280px)}.about-intro{text-align:center}.about-intro .lead{font-size:13px}.about-actions{justify-content:center}.about-focus-grid{grid-template-columns:1fr}.about-focus-card{padding:17px}}
+
+
+/* Professional portfolio refinement */
+:root{--site-muted:#b7c7d6}
+body{font-family:Inter,"IBM Plex Sans Arabic","Noto Kufi Arabic",Tahoma,sans-serif;letter-spacing:0}
+.site-header nav a,.cv-nav,.button-primary,.button-secondary,.button-plain,.section-heading>a,.home-cta>a{transition:color .2s ease,background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.featured-card,.overview-grid>a,.archive-card,.content-panel,.contact-grid a,.aegis-pillars article,.aegis-domain-grid a,.aegis-page-links a{box-shadow:0 8px 24px rgba(0,0,0,.22);border-color:rgba(82,199,223,.15)}
+.featured-card:hover,.overview-grid>a:hover,.archive-card:hover,.contact-grid a:hover{box-shadow:0 14px 32px rgba(0,0,0,.3)}
+:where(a,button,input,textarea):focus-visible{outline:2px solid var(--site-accent);outline-offset:3px}
+.home-hero{gap:clamp(28px,5vw,70px)}
+.home-hero p{max-width:680px}
+.hero-mark{position:relative;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.22);border-color:rgba(82,199,223,.18)}
+.featured-card,.overview-grid>a,.archive-card,.content-panel{transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.featured-card:hover,.overview-grid>a:hover,.archive-card:hover{transform:translateY(-4px)}
+.site-footer{padding-top:28px}
+.site-footer small{font-size:11px;color:#b7c7d6}
+.aegis-blueprint-section{padding-top:68px}
+.aegis-architecture-map{position:relative;overflow:hidden;padding:22px;border:1px solid rgba(98,215,232,.24);border-radius:16px;background:radial-gradient(ellipse at 50% 0,rgba(40,119,145,.18),transparent 55%),linear-gradient(145deg,#091725,#050c15);box-shadow:0 18px 48px rgba(0,0,0,.32)}
+.aegis-map-heading{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--ag-line);font:10px ui-monospace,monospace;letter-spacing:.1em;color:var(--ag-cyan)}
+.aegis-map-heading b{color:#b7c7d6;font-weight:500}
+.aegis-map-sources,.aegis-map-foot{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0}
+.aegis-map-sources span,.aegis-map-foot span{padding:8px 13px;border:1px solid var(--ag-line);border-radius:6px;background:rgba(98,215,232,.045);color:#c2d4df;font:9px ui-monospace,monospace;letter-spacing:.08em}
+.aegis-map-arrow{text-align:center;color:var(--ag-cyan);font:10px ui-monospace,monospace;letter-spacing:.1em;margin:15px 0}
+.aegis-map-core,.aegis-map-response{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.aegis-map-response{grid-template-columns:repeat(3,minmax(0,1fr))}
+.aegis-map-core article,.aegis-map-response article{display:flex;min-width:0;min-height:126px;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:15px 10px;text-align:center;border:1px solid rgba(98,215,232,.2);border-radius:10px;background:linear-gradient(150deg,rgba(16,43,61,.92),rgba(7,18,30,.96))}
+.aegis-map-core svg,.aegis-map-response svg{width:25px;height:25px;color:var(--ag-cyan);stroke-width:1.5}
+.aegis-map-core b,.aegis-map-response b{font:700 10px ui-monospace,monospace;color:#eaf7fb;letter-spacing:.04em}
+.aegis-map-core small,.aegis-map-response small{font:9px ui-monospace,monospace;color:var(--ag-muted);line-height:1.7}
+.aegis-map-foot{padding-top:15px;border-top:1px solid var(--ag-line);margin-bottom:0}
+.aegis-map-foot span{color:var(--ag-cyan)}
+.aegis-disclaimer{border-top:1px solid var(--ag-line)}
+@media(max-width:760px){.aegis-map-core{grid-template-columns:repeat(2,minmax(0,1fr))}.aegis-map-response{grid-template-columns:1fr}.aegis-map-response article{min-height:105px}.aegis-map-heading{font-size:9px}.aegis-architecture-map{padding:14px}}
+@media(max-width:520px){.aegis-map-sources{gap:6px}.aegis-map-sources span,.aegis-map-foot span{font-size:8px;padding:7px 9px}.aegis-map-core article{min-height:115px;padding:12px 7px}.aegis-map-core b{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.aegis-emblem:after{animation:none}}
