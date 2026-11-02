@@ -10,8 +10,9 @@ export async function POST(request:NextRequest){
   const name=String(data.get('name')||'').trim(),email=String(data.get('email')||'').trim().toLowerCase(),subject=String(data.get('subject')||'').trim(),message=String(data.get('message')||'').trim();
   if(email!==session.email)return NextResponse.json({error:'البريد لا يطابق حساب Google الذي تم التحقق منه.'},{status:403});
   if(name.length<2||name.length>80||subject.length<3||subject.length>120||message.length<10||message.length>4000)return NextResponse.json({error:'تحقق من الحقول المدخلة وحاول مجددًا.'},{status:400});
-  const ip=request.headers.get('x-real-ip')||request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()||'unknown',day=new Date().toISOString().slice(0,10),emailKey=createHash('sha256').update(session.email).digest('hex'),ipKey=createHash('sha256').update(ip).digest('hex');
-  const [accountOk,ipOk,globalOk]=await Promise.all([rate('contact:account:'+emailKey,5,86400),rate('contact:ip:'+ipKey,8,3600),rate('contact:global:'+day,40,86400)]);
+  const ip=request.headers.get('x-real-ip')||'unknown',day=new Date().toISOString().slice(0,10),emailKey=createHash('sha256').update(session.email).digest('hex'),ipKey=createHash('sha256').update(ip).digest('hex');
+  const secondsToUtcMidnight=Math.max(1,Math.ceil((Date.UTC(new Date().getUTCFullYear(),new Date().getUTCMonth(),new Date().getUTCDate()+1)-Date.now())/1000));
+  const [accountOk,ipOk,globalOk]=await Promise.all([rate('contact:account:'+emailKey,5,86400),rate('contact:ip:'+ipKey,8,3600),rate('contact:global:'+day,40,secondsToUtcMidnight)]);
   if(!accountOk||!ipOk||!globalOk)return NextResponse.json({error:'تم بلوغ حد الإرسال المسموح. حاول لاحقًا.'},{status:429});
   const formId=process.env.FORMSPREE_FORM_ID||'myeenwaq';
   if(!/^[a-zA-Z0-9]+$/.test(formId))return NextResponse.json({error:'إعداد استقبال الرسائل غير صالح.'},{status:503});
