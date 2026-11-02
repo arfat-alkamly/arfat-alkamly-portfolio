@@ -13,7 +13,9 @@ export async function redis(command:string[]){
  const d=await r.json();if(d.error)throw new Error('تعذر تنفيذ عملية الحماية.');return d.result as string|null;
 }
 export async function rate(key:string,limit:number,seconds:number){
- const n=Number(await redis(['INCR',key]));if(n===1)await redis(['EXPIRE',key,String(seconds)]);return n<=limit;
+ const script="local n=redis.call('INCR',KEYS[1]); if n==1 then redis.call('EXPIRE',KEYS[1],ARGV[1]); end; return n";
+ const n=Number(await redis(['EVAL',script,'1',key,String(seconds)]));
+ return Number.isSafeInteger(n)&&n<=limit;
 }
 export async function setSession(email:string,name:string){
  const s=secret();if(s.length<32)throw new Error('AUTH_SESSION_SECRET غير مضبوط أو قصير.');
