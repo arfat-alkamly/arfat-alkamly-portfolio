@@ -1,4 +1,4 @@
-# AUDIT — Portfolio Quality, Performance & Security
+# AUDIT لم يُقَس بعد Portfolio Quality, Performance & Security
 
 > Evidence log only. Never estimate missing metrics or present unverified behavior as complete.
 
@@ -14,7 +14,7 @@
 | Production deployment used for measurements | Not confirmed |
 | Measurement status | Partially reviewed; Lighthouse, CrUX, and external header scan not executed in this environment |
 
-## 1. Mandatory blocker — identify the exact Vercel restriction
+## 1. Mandatory blocker لم يُقَس بعد identify the exact Vercel restriction
 
 Do not start deployment retries, recommend waiting/upgrading, or treat a generic build failure as proof of a particular quota. Inspect Usage and the deployment's own logs. **Build and Functions are separate resource categories** and can be restricted independently or simultaneously.
 
@@ -48,7 +48,7 @@ Open Deployments → failed deployment → Build Logs. Copy the decisive error m
 
 **Gate:** This section must be completed before a new deployment attempt or a hosting/plan decision.
 
-## 2. Deployment baseline — production domain only
+## 2. Deployment baseline لم يُقَس بعد production domain only
 
 The measurement target must be the actual production domain, not a Preview deployment URL. The expected production origin is `https://arfat-phi.vercel.app`; verify in Vercel → Project → Settings → Domains and confirm it is assigned to the intended Production deployment.
 
@@ -77,7 +77,7 @@ Verification:
 
 Lab and Field are separate datasets. Do not combine their values in one table or substitute one metric for another.
 
-### 3.1 Lab — Lighthouse (priority pages only)
+### 3.1 Lab لم يُقَس بعد Lighthouse (priority pages only)
 
 Only these three pages are in the initial baseline:
 1. Home: `https://arfat-phi.vercel.app/`
@@ -115,17 +115,17 @@ Repeat with unique output filenames for runs 2 and 3, then for the other two pag
 
 | Page | Run | Date/time + timezone | Chrome version | Lighthouse version | LCP ms | CLS | TBT ms | Performance score | Report |
 |---|---:|---|---|---|---:|---:|---:|---:|---|
-| Home | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
-| Home | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
-| Home | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
-| AEGIS-TITAN | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
-| AEGIS-TITAN | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
-| AEGIS-TITAN | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
-| About | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
-| About | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
-| About | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
+| Home | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| Home | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| Home | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| AEGIS-TITAN | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| AEGIS-TITAN | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| AEGIS-TITAN | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| About | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| About | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| About | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
 
-#### Lab summary — median of three runs
+#### Lab summary لم يُقَس بعد median of three runs
 
 | Page | LCP median ms | CLS median | TBT median ms | Score median | Sample count | Outlier note |
 |---|---:|---:|---:|---:|---:|---|
@@ -140,7 +140,7 @@ Repeat with unique output filenames for runs 2 and 3, then for the other two pag
 - If a run is clearly anomalous (for example, approximately three times the median), **keep it in the record**, flag it in Outlier note, and investigate. Never silently delete it. Report both the full set and the median; if a run is excluded from a secondary analysis, document the reason and show the result with and without it.
 - Do not call a small numeric change an improvement when it is within normal measurement noise.
 
-### 3.2 Field — Chrome UX Report (CrUX)
+### 3.2 Field لم يُقَس بعد Chrome UX Report (CrUX)
 
 CrUX represents real Chrome user experiences. Its standard collection window is a rolling **28-day** period. The reporting period and the data scope must be recorded for every check.
 
@@ -151,10 +151,10 @@ CrUX represents real Chrome user experiences. Its standard collection window is 
 3. Inspect the field-data section titled **Discover what your real users are experiencing**.
 4. PSI's field data is CrUX data; **PSI does not require the user's CrUX API key**.
 5. If PSI shows URL-level field data, record it as URL-level.
-6. If URL-level data is absent but origin-level field data is shown, record it only as **Origin-level — applies to the origin, not this page**.
+6. If URL-level data is absent but origin-level field data is shown, record it only as **Origin-level لم يُقَس بعد applies to the origin, not this page**.
 7. If PSI reports no field data at both scopes, record Not available with the check date and displayed reporting period (if shown). Do not interpret this as an API-key problem.
 
-#### Scope separation — never mix URL and Origin records
+#### Scope separation لم يُقَس بعد never mix URL and Origin records
 
 In a personal portfolio, origin-level data may be available while individual URL-level records are not. These are different populations/scopes and must not be merged or compared as if they described the same page.
 
@@ -162,15 +162,15 @@ In a personal portfolio, origin-level data may be available while individual URL
 
 | Origin | Form factor | Checked at (timezone) | CrUX collection period | LCP p75 ms | INP p75 ms | CLS p75 | Availability / PSI evidence |
 |---|---|---|---|---:|---:|---:|---|
-| `https://arfat-phi.vercel.app` | Phone | لم يُقَس بعد | لم يُقَس بعد (28-day rolling window) | Not checked | Not checked | Not checked | لم يُقَس بعد |
+| `https://arfat-phi.vercel.app` | Phone | لم يُقَس بعد | لم يُقَس بعد (28-day rolling window) | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
 
 **URL-level table**
 
 | Exact URL | Form factor | Checked at (timezone) | CrUX collection period | LCP p75 ms | INP p75 ms | CLS p75 | Availability / PSI evidence |
 |---|---|---|---|---:|---:|---:|---|
-| `https://arfat-phi.vercel.app/` | Phone | لم يُقَس بعد | لم يُقَس بعد | Not checked | Not checked | Not checked | لم يُقَس بعد |
-| `https://arfat-phi.vercel.app/aegis-titan` | Phone | لم يُقَس بعد | لم يُقَس بعد | Not checked | Not checked | Not checked | لم يُقَس بعد |
-| `https://arfat-phi.vercel.app/about` | Phone | لم يُقَس بعد | لم يُقَس بعد | Not checked | Not checked | Not checked | لم يُقَس بعد |
+| `https://arfat-phi.vercel.app/` | Phone | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| `https://arfat-phi.vercel.app/aegis-titan` | Phone | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
+| `https://arfat-phi.vercel.app/about` | Phone | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد |
 
 Repeat with Desktop only as a separate form-factor dataset if required. Do not mix Phone and Desktop.
 
@@ -198,7 +198,7 @@ curl --fail-with-body -sS -X POST \
 
 **Required query order:** query each exact page URL first. If the successful URL query returns HTTP 200 without a record, then run the origin fallback below. Record both responses separately. Do not reverse this order.
 
-Origin-level fallback query — run only after the URL query returned HTTP 200 with no record:
+Origin-level fallback query لم يُقَس بعد run only after the URL query returned HTTP 200 with no record:
 ```bash
 curl --fail-with-body -sS -X POST \
   "https://chromeuxreport.googleapis.com/v1/records:queryRecord?key=${CRUX_API_KEY}" \
@@ -223,7 +223,7 @@ Interpretation of direct API responses:
 
 #### Not available recording rule
 
-When a PSI check or valid API query has no CrUX record, replace “Not checked” with **Not available** and fill:
+When a PSI check or valid API query has no CrUX record, replace “لم يُقَس بعد” with **Not available** and fill:
 - exact scope (Origin or exact URL);
 - check date/time and timezone;
 - CrUX collection period shown (normally rolling 28 days; if not displayed, say “not displayed”);
@@ -298,9 +298,9 @@ Record date/time, tool/runtime version, relevant output and accepted risks. Head
 8. A Git commit is not proof of a successful Vercel deployment. Verify deployment and live behavior separately.
 9. Never fabricate missing CrUX, Lighthouse, Vercel Usage, or form-test results.
 
-## 8. Future appendix — GitHub public profile data integration (proposal only)
+## 8. Future appendix لم يُقَس بعد GitHub public profile data integration (proposal only)
 
-**Status: deferred — not implemented in this audit step.** This is the complete proposed scope for later review; it is not permission to implement it now.
+**Status: deferred لم يُقَس بعد not implemented in this audit step.** This is the complete proposed scope for later review; it is not permission to implement it now.
 
 ### Objective
 Display selected public GitHub profile and repository information on the portfolio without making the site depend on GitHub availability.
@@ -351,10 +351,10 @@ Display selected public GitHub profile and repository information on the portfol
 | Verification | لم يُقَس بعد |
 
 
-## 9. Execution review — 2026-11-02
+## 9. Execution review لم يُقَس بعد 2026-11-02
 
 **Review timestamp:** 2026-11-02 21:18 (UTC+03:00).  
-**Execution branch:** `portfolio` — verified to exist before this execution; **not created** during this execution.  
+**Execution branch:** `portfolio` لم يُقَس بعد verified to exist before this execution; **not created** during this execution.  
 **Current execution commit:** recorded in Git history after this document update.
 
 ### 9.1 Confirmed repository checks
@@ -373,9 +373,9 @@ No controlled Chrome Incognito/Lighthouse session, authenticated Vercel dashboar
 
 | Date | Target | Required result | Current state |
 |---|---|---|---|
-| 2026-11-02 | Home — Lighthouse Mobile, 3 runs | LCP/CLS/TBT medians and variability | لم يُقَس بعد |
-| 2026-11-02 | AEGIS-TITAN — Lighthouse Mobile, 3 runs | LCP/CLS/TBT medians and variability | لم يُقَس بعد |
-| 2026-11-02 | About — Lighthouse Mobile, 3 runs | LCP/CLS/TBT medians and variability | لم يُقَس بعد |
+| 2026-11-02 | Home لم يُقَس بعد Lighthouse Mobile, 3 runs | LCP/CLS/TBT medians and variability | لم يُقَس بعد |
+| 2026-11-02 | AEGIS-TITAN لم يُقَس بعد Lighthouse Mobile, 3 runs | LCP/CLS/TBT medians and variability | لم يُقَس بعد |
+| 2026-11-02 | About لم يُقَس بعد Lighthouse Mobile, 3 runs | LCP/CLS/TBT medians and variability | لم يُقَس بعد |
 | 2026-11-02 | CrUX URL: Home | URL record and exact collectionPeriod, or HTTP 200 empty record | لم يُقَس بعد |
 | 2026-11-02 | CrUX URL: AEGIS-TITAN | URL record and exact collectionPeriod, or HTTP 200 empty record | لم يُقَس بعد |
 | 2026-11-02 | CrUX URL: About | URL record and exact collectionPeriod, or HTTP 200 empty record | لم يُقَس بعد |
