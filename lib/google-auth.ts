@@ -8,7 +8,7 @@ export const randomToken=(n=32)=>randomBytes(n).toString('base64url');
 export async function redis(command:string[]){
  const url=process.env.UPSTASH_REDIS_REST_URL,token=process.env.UPSTASH_REDIS_REST_TOKEN;
  if(!url||!token)throw new Error('خدمة الحماية غير مهيأة.');
- const r=await fetch(url,{method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify(command),cache:'no-store'});
+ const r=await fetch(url,{method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify(command),cache:'no-store',signal:AbortSignal.timeout(5000)});
  if(!r.ok)throw new Error('تعذر الوصول إلى مخزن الحماية.');
  const d=await r.json();if(d.error)throw new Error('تعذر تنفيذ عملية الحماية.');return d.result as string|null;
 }
@@ -34,7 +34,7 @@ export async function verifyGoogleIdToken(token:string,expectedNonce:string){
  const parts=token.split('.');if(parts.length!==3)throw new Error('رمز Google غير صالح.');
  const header=JSON.parse(Buffer.from(parts[0],'base64url').toString()),claims=JSON.parse(Buffer.from(parts[1],'base64url').toString());
  if(header.alg!=='RS256'||typeof header.kid!=='string')throw new Error('توقيع Google غير مدعوم.');
- const response=await fetch('https://www.googleapis.com/oauth2/v3/certs',{cache:'no-store'});if(!response.ok)throw new Error('تعذر التحقق من توقيع Google.');
+ const response=await fetch('https://www.googleapis.com/oauth2/v3/certs',{cache:'no-store',signal:AbortSignal.timeout(8000)});if(!response.ok)throw new Error('تعذر التحقق من توقيع Google.');
  const jwks=await response.json(),jwk=jwks.keys?.find((k:any)=>k.kid===header.kid&&k.kty==='RSA');if(!jwk)throw new Error('مفتاح توقيع Google غير موجود.');
  const key=createPublicKey({key:jwk,format:'jwk'});
  const valid=verifySignature('RSA-SHA256',Buffer.from(parts[0]+'.'+parts[1]),key,Buffer.from(parts[2],'base64url'));
