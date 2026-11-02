@@ -115,15 +115,15 @@ Repeat with unique output filenames for runs 2 and 3, then for the other two pag
 
 | Page | Run | Date/time + timezone | Chrome version | Lighthouse version | LCP ms | CLS | TBT ms | Performance score | Report |
 |---|---:|---|---|---|---:|---:|---:|---:|---|
-| Home | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
-| Home | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
-| Home | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
-| AEGIS-TITAN | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
-| AEGIS-TITAN | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
-| AEGIS-TITAN | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
-| About | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
-| About | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
-| About | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | — | — | — | — |
+| Home | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
+| Home | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
+| Home | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
+| AEGIS-TITAN | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
+| AEGIS-TITAN | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
+| AEGIS-TITAN | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
+| About | 1 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
+| About | 2 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
+| About | 3 | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | لم يُقَس بعد | — | لم يُقَس بعد | — | لم يُقَس بعد |
 
 #### Lab summary — median of three runs
 
@@ -178,7 +178,7 @@ Repeat with Desktop only as a separate form-factor dataset if required. Do not m
 
 The API requires a Google Cloud API key and the Chrome UX Report API enabled. This key is only for the direct API call below; PSI does not need it. Run in Bash, WSL, macOS/Linux terminal, or Git Bash. Do not commit the key or put it in AUDIT.md.
 
-Origin query:
+URL-level query (run first for each exact page URL):
 ```bash
 export CRUX_API_KEY='PASTE_YOUR_GOOGLE_CLOUD_API_KEY_HERE'
 
@@ -186,7 +186,7 @@ curl --fail-with-body -sS -X POST \
   "https://chromeuxreport.googleapis.com/v1/records:queryRecord?key=${CRUX_API_KEY}" \
   -H 'Content-Type: application/json' \
   --data-binary '{
-    "origin": "https://arfat-phi.vercel.app",
+    "url": "https://arfat-phi.vercel.app/",
     "formFactor": "PHONE",
     "metrics": [
       "largest_contentful_paint",
@@ -196,9 +196,9 @@ curl --fail-with-body -sS -X POST \
   }'
 ```
 
-**Required query order:** query the exact page URL first. If the successful URL query returns no record, then query the origin. Record the URL response before making the origin query. Do not reverse this order.
+**Required query order:** query each exact page URL first. If the successful URL query returns HTTP 200 without a record, then run the origin fallback below. Record both responses separately. Do not reverse this order.
 
-Origin-level fallback query — run only after the corresponding URL query returned no record:
+Origin-level fallback query — run only after the URL query returned HTTP 200 with no record:
 ```bash
 curl --fail-with-body -sS -X POST \
   "https://chromeuxreport.googleapis.com/v1/records:queryRecord?key=${CRUX_API_KEY}" \
@@ -284,7 +284,7 @@ Record date/time, tool/runtime version, relevant output and accepted risks. Head
 |---|---|---|---|---|
 | 2026-11-02 | `portfolio` | `77a2413578e7b09b88d1c2433f580a218a970d84` | Source baseline before audit record | Branch head verified |
 | 2026-11-02 | `portfolio` | `ddde4bd8c63d949346b3dfa3f1f9924921c7f6d6` | Initial AUDIT.md | File fetched and inspected |
-| 2026-11-02 | `portfolio` | لم يُقَس بعد | Refine Vercel blocker, three-page scope, fixed Lab conditions, variability policy, CrUX scope/availability, and integration appendix | لم يُقَس بعد |
+| 2026-11-02 | `portfolio` | `0334c85764fddbe8db041858d73e75b85e120030` | Correct CrUX sequence and GitHub integration safeguards; record verified checks | AUDIT.md fetched and inspected; .gitignore verified |
 
 ## 7. Working and release rules
 
