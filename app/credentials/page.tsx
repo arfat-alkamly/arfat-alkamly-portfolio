@@ -58,11 +58,14 @@ export default function CredentialsPage(){
                 <div className="credential-skill-list">{credential.skills.map(skill=><span key={skill}>{skill}</span>)}</div>
               </div>
               <div className="certificate-document">
-                <div className="certificate-document-heading"><span>ORIGINAL CERTIFICATE · PDF</span><a href={pdf} target="_blank" rel="noopener noreferrer">فتح الملف ↗</a></div>
-                <div className="certificate-document-preview"><iframe src={pdf+'#toolbar=0&navpanes=0&view=FitH'} title={'معاينة الشهادة: '+credential.name} loading="lazy" /></div>
+                <div className="certificate-document-heading"><span>ORIGINAL CERTIFICATE · PDF</span><span>معاينة داخل الموقع</span></div>
+                <details className="certificate-inline-viewer">
+                  <summary>عرض الشهادة داخل الموقع</summary>
+                  <div className="certificate-document-preview"><iframe src={pdf+'#toolbar=0&navpanes=0&view=FitH'} title={'معاينة الشهادة: '+credential.name} loading="lazy" /></div>
+                </details>
               </div>
               <div className="credential-actions">
-                <a className="text-link" href={pdf} target="_blank" rel="noopener noreferrer">فتح الشهادة الأصلية ↗</a>
+                <a className="text-link" href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF عند الحاجة ↓</a>
                 <a className="text-link" href={verify} target="_blank" rel="noopener noreferrer">رابط التحقق الرسمي ↗</a>
               </div>
             </div>
