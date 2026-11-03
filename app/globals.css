@@ -640,3 +640,31 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
 .certificate-image-viewer canvas.is-hidden{display:none}
 .certificate-image-loading,.certificate-image-error{padding:30px 15px;text-align:center;color:#56708b;font-size:12px}
 .certificate-image-error{color:#a33}
+
+
+/* Credential showcase v2: issuer and Credly flank the original certificate */
+.credentials-page .credential-showcase-grid-v2{grid-template-columns:minmax(0,1fr);gap:14px}
+.credentials-page .credential-certificate-panel-v2{overflow:hidden;border:1px solid #cbdced;border-radius:16px;background:#f7faff}
+.credentials-page .certificate-panel-brands{display:grid;grid-template-columns:minmax(0,1fr) 190px;align-items:center;gap:18px;padding:18px 22px;background:linear-gradient(110deg,#f4f9ff,#eaf4ff);border-bottom:1px solid #d5e3f2}
+.credentials-page .certificate-issuer-brand{display:flex;align-items:center;gap:18px;min-width:0}
+.credentials-page .certificate-issuer-brand .cisco-brand-mark{width:116px;flex:0 0 116px}
+.credentials-page .certificate-issuer-brand>span{color:#71819a;font:700 9px/1.7 ui-monospace,monospace;letter-spacing:.08em}
+.credentials-page .certificate-issuer-brand strong{color:#18365d;font:700 12px/1.7 inherit;letter-spacing:0}
+.credentials-page .certificate-credly-brand{display:grid;justify-items:center;align-content:center;gap:5px;padding:10px;border:1px solid #d6e4f3;border-radius:12px;background:#fff}
+.credentials-page .credly-embed-frame-compact{min-height:165px}
+.credentials-page .credly-embed-frame-compact iframe{max-width:100%;border:0}
+.credentials-page .certificate-document-preview{min-height:240px;padding:14px;background:#eaf1f8}
+.credentials-page .credential-facts-v2{grid-template-columns:repeat(4,minmax(0,1fr))}
+.credentials-page .credential-facts-v2>div{min-width:0}
+.credentials-page .credential-about-issuer-v2{margin-top:0}
+.credentials-page .credential-showcase-head-v2{grid-template-columns:minmax(0,1fr) auto}
+@media(max-width:850px){.credentials-page .credential-facts-v2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+ .credentials-page .certificate-panel-brands{grid-template-columns:minmax(0,1fr) 135px;gap:8px;padding:12px}
+ .credentials-page .certificate-issuer-brand{align-items:flex-start;flex-direction:column;gap:7px}
+ .credentials-page .certificate-issuer-brand .cisco-brand-mark{width:90px;flex-basis:auto}
+ .credentials-page .certificate-issuer-brand>span{font-size:8px}
+ .credentials-page .credly-embed-frame-compact{min-height:145px}
+ .credentials-page .credential-facts-v2{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .credentials-page .credential-showcase-head-v2{grid-template-columns:1fr auto}
+}
