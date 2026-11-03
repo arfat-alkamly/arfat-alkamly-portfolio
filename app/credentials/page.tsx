@@ -40,7 +40,7 @@ function CiscoMark(){
 
 export default function CredentialsPage(){
   return <main className="content-page credentials-page">
-    <Script src="https://cdn.credly.com/assets/utilities/embed.js" strategy="lazyOnLoad" />
+    <Script src="https://cdn.credly.com/assets/utilities/embed.js" strategy="lazyOnload" />
     <header className="credentials-hero">
       <div className="credentials-brand"><CiscoMark/><span></span></div>
       <div className="credentials-hero-copy">
