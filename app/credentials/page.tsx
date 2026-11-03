@@ -1,5 +1,6 @@
 import type {Metadata} from 'next';
 import Script from 'next/script';
+import CertificatePreview from './CertificatePreview';
 
 export const metadata:Metadata={
   title:'الشهادات والشارات الرقمية',
@@ -87,12 +88,9 @@ export default function CredentialsPage(){
               <section className="credential-right-column">
                 <div className="credential-certificate-panel">
                   <div className="certificate-panel-top"><span>ORIGINAL CERTIFICATE</span><span>وثيقة الشهادة</span></div>
-                  <details className="certificate-inline-viewer">
-                    <summary>معاينة الشهادة داخل الموقع</summary>
-                    <div className="certificate-document-preview"><iframe src={pdf+'#toolbar=0&navpanes=0&view=FitH'} title={'معاينة الشهادة: '+credential.name} loading="lazy" /></div>
-                  </details>
+                  <div className="certificate-document-preview"><CertificatePreview file={pdf} title={credential.name} /></div>
                   <div className="certificate-actions">
-                    <a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل الشهادة PDF</a>
+                    <a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF</a>
                     <a href={verify} target="_blank" rel="noopener noreferrer">التحقق عبر Credly ↗</a>
                   </div>
                 </div>
