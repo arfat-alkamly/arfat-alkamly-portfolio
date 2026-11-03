@@ -32,8 +32,8 @@
 .ag-cycle-track article i{display:grid;place-items:center;width:25px;height:25px;border:1px solid rgba(82,199,223,.35);border-radius:50%;color:#6bd5e6;font:9px ui-monospace,monospace;font-style:normal}
 .ag-cycle-track article b{color:#e4f6fa;font:700 8px/1.5 ui-monospace,monospace;overflow-wrap:anywhere}
 .ag-cycle-track article small{color:#9bb4c4;font-size:9px;line-height:1.6}
-.ag-cycle-track article>span{position:absolute;right:-9px;top:48%;z-index:1;color:#62cfe2;font:15px ui-monospace,monospace};transform:rotate(270deg)
-.ag-cycle-track article:last-child>span{right:calc(50% - 5px);top:auto;bottom:-17px};transform:none
+.ag-cycle-track article>span{position:absolute;right:-9px;top:48%;z-index:1;color:#62cfe2;font:15px ui-monospace,monospace;transform:rotate(270deg)}
+.ag-cycle-track article:last-child>span{right:calc(50% - 5px);top:auto;bottom:-17px;transform:none}
 .ag-cycle-branches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:24px}
 .ag-cycle-branches article{display:grid;align-content:start;gap:7px;padding:12px;border:1px solid rgba(218,177,103,.25);border-radius:8px;background:rgba(44,35,22,.3)}
 .ag-cycle-branches b{color:#e5bd78;font:700 8px/1.6 ui-monospace,monospace}
