@@ -632,3 +632,11 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
  .credential-acquired-skills{padding:14px}
  .credentials-section-heading h2{font-size:21px}
 }
+
+/* Always-visible certificate image rendered from the original PDF */
+.certificate-document-preview{height:auto;min-height:220px;padding:12px;background:#eaf1f8}
+.certificate-image-viewer{width:100%;min-height:220px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:8px;background:#fff;box-shadow:0 2px 14px rgba(20,45,75,.12)}
+.certificate-image-viewer canvas{display:block;max-width:100%;object-fit:contain}
+.certificate-image-viewer canvas.is-hidden{display:none}
+.certificate-image-loading,.certificate-image-error{padding:30px 15px;text-align:center;color:#56708b;font-size:12px}
+.certificate-image-error{color:#a33}
