@@ -471,3 +471,75 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
  html{scroll-behavior:auto}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Cisco credential wallet */
+.credentials-page{max-width:1120px;margin-inline:auto}
+.credentials-section{margin-top:42px}
+.credentials-section-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:12px}
+.credentials-section-heading h2{margin:5px 0 0;font-size:clamp(22px,3vw,30px);line-height:1.35;color:var(--ivory)}
+.credentials-count{padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--brass-light);font:700 10px/1.4 ui-monospace,monospace;letter-spacing:.1em}
+.credentials-section-lead{margin:0 0 18px;color:var(--slate-300);font-size:13px}
+.cisco-credentials-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.cisco-credential-card{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:start;gap:14px;min-width:0;padding:16px;border:1px solid var(--line-cool);border-radius:12px;background:var(--panel);box-shadow:var(--shadow-soft)}
+.cisco-badge-art{width:76px;aspect-ratio:1;border-radius:9px;background-image:url('/credentials/cisco-badges-sprite.svg');background-size:300% 300%;background-repeat:no-repeat;background-color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.22)}
+.cisco-credential-info{min-width:0}
+.credential-index{color:var(--brass);font:700 8px/1.5 ui-monospace,monospace;letter-spacing:.09em}
+.cisco-credential-info h3{margin:5px 0 6px;color:var(--ivory);font-size:13px;line-height:1.55;overflow-wrap:anywhere}
+.credential-issuer{margin:0;color:var(--slate-300);font-size:11px}
+.credential-meta{display:flex;flex-wrap:wrap;gap:5px 10px;margin-top:8px;color:var(--slate-500);font-size:10px}
+.credential-link-pending{display:inline-block;margin-top:9px;color:var(--brass-light);font-size:10px}
+.other-credentials-section{padding-top:26px;border-top:1px solid var(--line-cool)}
+.archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.archive-card{padding:16px;border:1px solid var(--line-cool);border-radius:11px;background:var(--panel-soft)}
+.archive-card>span{color:var(--brass);font:700 8px/1.6 ui-monospace,monospace;letter-spacing:.06em}
+.archive-card h3{margin:7px 0;color:var(--ivory);font-size:14px}
+.archive-card p,.disclaimer{color:var(--slate-300);font-size:11px;line-height:1.8}
+.text-link{display:inline-block;margin-top:5px;color:var(--brass-light);font-size:11px;text-decoration:underline;text-underline-offset:3px}
+.disclaimer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line-cool)}
+@media(max-width:900px){.cisco-credentials-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.credentials-section-heading{align-items:start;flex-direction:column;gap:8px}.cisco-credentials-grid,.archive-grid{grid-template-columns:1fr}.cisco-credential-card{grid-template-columns:68px minmax(0,1fr);padding:13px}.cisco-badge-art{width:68px}}
+
+
+/* Original certificate document previews */
+.credentials-page .cisco-credential-card{display:grid;grid-template-columns:minmax(0,1fr);gap:0;overflow:hidden;padding:0}
+.certificate-document-preview{width:100%;height:280px;overflow:hidden;border-bottom:1px solid var(--line-cool);background:#fff}
+.certificate-document-preview iframe{display:block;width:100%;height:100%;border:0;background:#fff}
+.credentials-page .cisco-credential-info{padding:15px 16px 17px}
+.credential-actions{display:flex;flex-wrap:wrap;gap:9px 16px;margin-top:10px}
+.credential-actions .text-link{margin-top:0}
+@media(max-width:600px){
+  .credentials-page .cisco-credential-card{grid-template-columns:minmax(0,1fr);padding:0}
+  .certificate-document-preview{height:260px}
+}
+
+
+/* Verified credential cards — Credly badge + original PDF */
+.credentials-page .cisco-credentials-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:18px}
+.credentials-page .cisco-credential-card{display:grid;grid-template-columns:minmax(0,1fr);gap:0;overflow:hidden;padding:0;border:1px solid rgba(183,155,104,.25);background:linear-gradient(155deg,rgba(27,42,53,.98),rgba(12,20,28,.99));box-shadow:0 14px 34px rgba(0,0,0,.22)}
+.credential-badge-panel{display:grid;justify-items:center;gap:10px;padding:17px 14px 15px;border-bottom:1px solid var(--line-cool);background:radial-gradient(ellipse at 50% 0,rgba(183,155,104,.12),transparent 68%),rgba(7,14,20,.58)}
+.credential-panel-label,.certificate-document-heading>span{color:var(--brass-light);font:700 9px/1.6 ui-monospace,SFMono-Regular,monospace;letter-spacing:.12em}
+.credly-embed-frame{display:flex;justify-content:center;align-items:center;min-height:230px;width:100%;overflow:hidden}
+.credly-embed-frame iframe{max-width:100%;border:0}
+.credential-verify-link{color:var(--brass-light);font-size:11px;text-decoration:none;border-bottom:1px solid rgba(210,189,145,.35);padding-bottom:2px}
+.credentials-page .cisco-credential-info{padding:18px}
+.credentials-page .cisco-credential-info h3{font-size:16px;line-height:1.65;margin:7px 0}
+.credentials-page .credential-issuer{color:var(--brass-light);font-size:12px;margin:0}
+.credentials-page .credential-meta{font-size:11px;gap:6px 14px}
+.credential-description{color:var(--slate-300);font-size:12px;line-height:1.9;margin:13px 0}
+.credential-id{display:grid;gap:5px;padding:10px 11px;border:1px solid var(--line-cool);border-radius:7px;background:rgba(3,9,14,.3)}
+.credential-id span{color:var(--slate-500);font:700 8px ui-monospace,monospace;letter-spacing:.1em}
+.credential-id code{color:var(--brass-light);font-size:10px;overflow-wrap:anywhere}
+.credential-skills{margin-top:15px}
+.credential-skills h4{display:flex;justify-content:space-between;align-items:center;margin:0 0 9px;color:var(--ivory);font-size:12px}
+.credential-skills h4 span{color:var(--slate-500);font:10px ui-monospace,monospace}
+.credential-skill-list{display:flex;flex-wrap:wrap;gap:6px}
+.credential-skill-list span{padding:4px 8px;border:1px solid rgba(183,155,104,.18);border-radius:5px;background:rgba(183,155,104,.055);color:var(--slate-300);font-size:10px;line-height:1.6}
+.certificate-document{margin-top:18px;border:1px solid var(--line-cool);border-radius:8px;overflow:hidden;background:rgba(3,9,14,.25)}
+.certificate-document-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px}
+.certificate-document-heading>span{font-size:8px}
+.certificate-document-heading a{color:var(--brass-light);font-size:10px;text-decoration:none}
+.credentials-page .certificate-document-preview{height:300px;border-top:1px solid var(--line-cool);border-bottom:0}
+.credentials-page .credential-actions{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:13px}
+@media(max-width:850px){.credentials-page .cisco-credentials-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.credentials-page .cisco-credential-info{padding:15px}.credentials-page .certificate-document-preview{height:250px}.credential-id code{font-size:9px}}
