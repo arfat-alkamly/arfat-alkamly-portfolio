@@ -62,3 +62,27 @@
 @media(max-width:850px){.ag-cycle-track{grid-template-columns:repeat(3,minmax(0,1fr))}.ag-cycle-track article:nth-child(3)>span{display:none}.ag-maturity-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.ag-diagram{padding:13px;border-radius:11px}.ag-diagram-head{font-size:8px}.ag-flow-sources{grid-template-columns:repeat(2,minmax(0,1fr))}.ag-flow-sources span{min-height:40px}.ag-flow-down{font-size:15px}.ag-flow-down small{font-size:7px}.ag-trust-columns,.ag-flow-outcomes{grid-template-columns:1fr}.ag-cycle-track{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.ag-cycle-track article{min-height:112px}.ag-cycle-track article>span{right:calc(50% - 5px);top:auto;bottom:-16px;transform:rotate(90deg)}.ag-cycle-track article:nth-child(2n)>span{display:none}.ag-cycle-branches{grid-template-columns:1fr}.ag-maturity-axis{gap:5px;font-size:6px}.ag-maturity-grid{gap:6px}.ag-maturity-grid article{min-height:126px;padding:10px 8px}.ag-maturity-footer{grid-template-columns:auto minmax(0,1fr);gap:9px}.ag-maturity-footer>svg:nth-of-type(2){grid-column:1}.ag-maturity-footer>div:last-child{grid-column:2}.ag-diagram-foot{font-size:7px}}
 @media(prefers-reduced-motion:reduce){.ag-diagram *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* AEGIS module topology — conceptual data and decision flow */
+.ag-module-stage-label{margin:18px 0 9px;color:#69d4e7;font:700 8px ui-monospace,monospace;letter-spacing:.1em}
+.ag-module-inputs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ag-module-inputs article,.ag-module-core article,.ag-module-outcomes article{display:grid;justify-items:center;align-content:center;gap:7px;min-width:0;min-height:105px;padding:12px 8px;border:1px solid rgba(82,199,223,.22);border-radius:8px;background:linear-gradient(150deg,rgba(14,42,58,.9),rgba(7,19,31,.96));text-align:center}
+.ag-module-inputs svg,.ag-module-core svg,.ag-module-outcomes svg{width:21px;height:21px;color:#69d4e7;stroke-width:1.6}
+.ag-module-inputs b,.ag-module-core b,.ag-module-outcomes b{color:#e4f6fa;font:700 8px/1.5 ui-monospace,monospace;overflow-wrap:anywhere}
+.ag-module-inputs small,.ag-module-core small,.ag-module-outcomes small{color:#9bb4c4;font-size:8px;line-height:1.6}
+.ag-module-connector{display:flex;align-items:center;justify-content:center;gap:9px;margin:10px 0;color:#66d3e5}
+.ag-module-connector>span{font:18px ui-monospace,monospace}
+.ag-module-connector small{color:#91acbd;font:8px/1.7 ui-monospace,monospace;text-align:center}
+.ag-module-core{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:10px;max-width:650px;margin:0 auto}
+.ag-module-core article{width:100%;min-height:112px;border-color:rgba(82,199,223,.4);background:linear-gradient(145deg,rgba(17,60,76,.78),rgba(7,23,36,.96))}
+.ag-module-core>i{color:#70d7e8;font:18px ui-monospace,monospace;font-style:normal}
+.ag-module-gate{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:9px;max-width:650px;margin:0 auto;padding:13px;border:1px solid rgba(218,177,103,.4);border-radius:8px;background:linear-gradient(120deg,rgba(63,47,23,.38),rgba(17,29,38,.86))}
+.ag-module-gate>svg{width:21px;height:21px;color:#e5bd78}
+.ag-module-gate>div{display:grid;gap:5px}
+.ag-module-gate b{color:#f0d8ae;font:700 8px ui-monospace,monospace}
+.ag-module-gate small{color:#c5b79f;font-size:8px;line-height:1.7}
+.ag-module-gate>span{grid-column:1/-1;padding-top:8px;border-top:1px solid rgba(218,177,103,.17);color:#e5bd78;font:700 7px ui-monospace,monospace;letter-spacing:.08em;text-align:center}
+.ag-module-outcomes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ag-module-outcomes article{min-height:108px}
+@media(max-width:760px){.ag-module-inputs,.ag-module-outcomes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.ag-module-inputs,.ag-module-outcomes{gap:6px}.ag-module-inputs article,.ag-module-outcomes article{min-height:98px;padding:10px 6px}.ag-module-core{gap:6px}.ag-module-core article{min-height:105px;padding:9px 6px}.ag-module-core b{font-size:7px}.ag-module-gate{padding:10px}}
