@@ -499,3 +499,16 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
 .disclaimer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line-cool)}
 @media(max-width:900px){.cisco-credentials-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.credentials-section-heading{align-items:start;flex-direction:column;gap:8px}.cisco-credentials-grid,.archive-grid{grid-template-columns:1fr}.cisco-credential-card{grid-template-columns:68px minmax(0,1fr);padding:13px}.cisco-badge-art{width:68px}}
+
+
+/* Original certificate document previews */
+.credentials-page .cisco-credential-card{display:grid;grid-template-columns:minmax(0,1fr);gap:0;overflow:hidden;padding:0}
+.certificate-document-preview{width:100%;height:280px;overflow:hidden;border-bottom:1px solid var(--line-cool);background:#fff}
+.certificate-document-preview iframe{display:block;width:100%;height:100%;border:0;background:#fff}
+.credentials-page .cisco-credential-info{padding:15px 16px 17px}
+.credential-actions{display:flex;flex-wrap:wrap;gap:9px 16px;margin-top:10px}
+.credential-actions .text-link{margin-top:0}
+@media(max-width:600px){
+  .credentials-page .cisco-credential-card{grid-template-columns:minmax(0,1fr);padding:0}
+  .certificate-document-preview{height:260px}
+}
