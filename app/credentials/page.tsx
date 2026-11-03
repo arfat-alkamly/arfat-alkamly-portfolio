@@ -60,49 +60,27 @@ export default function CredentialsPage(){
           const pdf=pdfBase+credential.file;
           const verify=credlyBase+credential.id+'/public_url';
           return <article className="credential-showcase" key={credential.id}>
-            <div className="credential-showcase-head">
-              <CiscoMark/>
+            <div className="credential-showcase-head credential-showcase-head-v2">
               <div className="credential-title-block">
                 <span className="credential-index">CREDENTIAL / {String(i+1).padStart(2,'0')}</span>
                 <h3>{credential.name}</h3>
-                <p>المهارات التي اكتسبتها من هذه الدورة التدريبية</p>
+                <p>الاعتماد الرقمي والوثيقة الأصلية والمهارات المكتسبة</p>
               </div>
               <span className="credential-status"><i>✓</i> اعتماد موثق</span>
             </div>
-            <div className="credential-showcase-grid">
-              <section className="credential-left-column">
-                <div className="credential-badge-panel">
-                  <span className="credential-panel-label">DIGITAL CREDENTIAL · CREDLY</span>
-                  <div className="credly-embed-frame">
-                    <div data-iframe-width="180" data-iframe-height="230" data-share-badge-id={credential.id} data-share-badge-host="https://www.credly.com"></div>
-                  </div>
-                  <a className="credential-verify-link" href={verify} target="_blank" rel="noopener noreferrer">عرض الشارة والتحقق منها على Credly ↗</a>
+            <div className="credential-showcase-grid credential-showcase-grid-v2">
+              <section className="credential-certificate-panel credential-certificate-panel-v2">
+                <div className="certificate-panel-top certificate-panel-brands">
+                  <div className="certificate-issuer-brand"><CiscoMark/><span>ISSUED BY<br/><strong>{credential.issuer}</strong></span></div>
+                  <div className="certificate-credly-brand"><span className="credential-panel-label">DIGITAL BADGE · CREDLY</span><div className="credly-embed-frame credly-embed-frame-compact"><div data-iframe-width="150" data-iframe-height="190" data-share-badge-id={credential.id} data-share-badge-host="https://www.credly.com"></div></div><a className="credential-verify-link" href={verify} target="_blank" rel="noopener noreferrer">التحقق من الشارة ↗</a></div>
                 </div>
-                <div className="credential-facts">
-                  <div><span>الجهة المانحة</span><strong>{credential.issuer}</strong></div>
-                  <div><span>تاريخ الإصدار</span><strong>{credential.date}</strong></div>
-                  <div><span>الصلاحية</span><strong>لا تنتهي صلاحيتها</strong></div>
-                  <div><span>معرّف الشارة</span><code>{credential.id}</code></div>
-                </div>
+                <div className="certificate-document-preview"><CertificatePreview file={pdf} title={credential.name} /></div>
+                <div className="certificate-actions"><a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF</a><a href={verify} target="_blank" rel="noopener noreferrer">فتح الاعتماد على Credly ↗</a></div>
               </section>
-              <section className="credential-right-column">
-                <div className="credential-certificate-panel">
-                  <div className="certificate-panel-top"><span>ORIGINAL CERTIFICATE</span><span>وثيقة الشهادة</span></div>
-                  <div className="certificate-document-preview"><CertificatePreview file={pdf} title={credential.name} /></div>
-                  <div className="certificate-actions">
-                    <a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF</a>
-                    <a href={verify} target="_blank" rel="noopener noreferrer">التحقق عبر Credly ↗</a>
-                  </div>
-                </div>
-                <div className="credential-about-issuer">
-                  <CiscoMark/>
-                  <div><h4>عن Cisco</h4><p>شركة تقنية عالمية تطوّر حلول الشبكات والأمن السيبراني والبنية التحتية الرقمية، وتقدم برامج تعليمية لتنمية المهارات التقنية.</p><a href="https://www.cisco.com/" target="_blank" rel="noopener noreferrer">الموقع الرسمي لـ Cisco ↗</a></div>
-                </div>
+              <section className="credential-facts credential-facts-v2">
+                <div><span>الجهة المانحة</span><strong>{credential.issuer}</strong></div><div><span>تاريخ الإصدار</span><strong>{credential.date}</strong></div><div><span>الصلاحية</span><strong>لا تنتهي صلاحيتها</strong></div><div><span>معرّف الشارة</span><code>{credential.id}</code></div>
               </section>
-              <section className="credential-acquired-skills">
-                <div className="acquired-skills-heading"><span>✦</span><div><h4>المهارات المكتسبة من هذه الدورة</h4><p>{credential.description}</p></div></div>
-                <div className="credential-skill-list">{credential.skills.map(skill=><span key={skill}><i>✓</i>{skill}</span>)}</div>
-              </section>
+              <section className="credential-acquired-skills"><div className="acquired-skills-heading"><span>✦</span><div><h4>المهارات المكتسبة من هذه الدورة</h4><p>{credential.description}</p></div></div><div className="credential-skill-list">{credential.skills.map(skill=><span key={skill}><i>✓</i>{skill}</span>)}</div></section>
             </div>
           </article>;
         })}
