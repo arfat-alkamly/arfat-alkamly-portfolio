@@ -91,6 +91,29 @@ export default function AegisShowcase() {
       <div className="aegis-commercial-note"><span>PRIVATE / INSTITUTIONAL ENGAGEMENT</span><p>التوجه التجاري المستهدف: ترخيص مؤسسي، تخصيص حسب المتطلبات، تكامل مع البيئة القائمة، وخدمات تهيئة ودعم وفق نطاق تعاقدي واضح. تخضع الجاهزية التجارية والامتثال والاعتمادات والاختبارات النهائية للتحقق قبل أي نشر مؤسسي.</p></div>
     </section>
 
+    <section className="aegis-image-gallery" aria-labelledby="aegis-gallery-title">
+      <div className="aegis-gallery-heading">
+        <span>VISUAL CONTEXT / INSTITUTIONAL ENVIRONMENTS</span>
+        <h2 id="aegis-gallery-title">مشاهد من البيئة التي صُممت المنظومة لأجلها.</h2>
+        <p>صور مفاهيمية تعزز السياق المؤسسي والتقني للمشروع، ولا تعرض واجهات تشغيل أو تفاصيل داخلية.</p>
+      </div>
+      <div className="aegis-gallery-grid">
+        <figure className="aegis-gallery-card aegis-gallery-large">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1500&q=85" alt="ممر خوادم في مركز بيانات مؤسسي" loading="lazy"/>
+          <figcaption><span>01 / INFRASTRUCTURE</span><b>Digital Infrastructure</b><small>البنية الرقمية والبيئات المؤسسية</small></figcaption>
+        </figure>
+        <figure className="aegis-gallery-card">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1100&q=85" alt="تفاصيل لوحة إلكترونية ومكونات تقنية" loading="lazy"/>
+          <figcaption><span>02 / ENGINEERING</span><b>Systems Engineering</b><small>الهندسة والأنظمة التقنية</small></figcaption>
+        </figure>
+        <figure className="aegis-gallery-card">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279cfa?auto=format&fit=crop&w=1100&q=85" alt="تصور بصري لشبكة عالمية مترابطة" loading="lazy"/>
+          <figcaption><span>03 / CONNECTIVITY</span><b>Connected Ecosystems</b><small>الشبكات والبيئات المترابطة</small></figcaption>
+        </figure>
+      </div>
+      <p className="aegis-gallery-note">صور سياقية من مصادر خارجية — لا تمثل لقطات فعلية من AEGIS-TITAN.</p>
+    </section>
+
     <section className="aegis-domain-visual">
       <div><span>DEFENSIVE DOMAINS / ONE VISION</span><h2>منظومة واحدة.<br/>مجالات دفاع متعددة.</h2><p>تجميع بصري لمجالات المهمة التي تستهدفها الرؤية المعمارية، دون عرض تفاصيل التنفيذ أو مكونات التشغيل الخاصة.</p></div>
       <img src="/images/aegis/defense-domain.svg" alt="تصور بصري لمجالات الدفاع السيبراني ضمن AEGIS-TITAN" loading="lazy"/>
