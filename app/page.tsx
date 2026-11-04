@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpLeft, ArrowUpRight, ShieldCheck, Code2, FlaskConical, GraduationCap, Fingerprint, Network, Terminal, Github, Linkedin, Award, Layers3 } from 'lucide-react';
 import { projects } from '../data/projects';
 import './home.css';
@@ -35,13 +36,13 @@ export default function HomePage() {
           </div>
           <div className="hv-hero-meta"><span>YEMEN</span><b /> <span>CYBERSECURITY & NETWORKS</span><b /> <span>LEVEL 3</span></div>
         </div>
-        <div className="hv-hero-visual" aria-label="رمز بصري لهوية عرفات الكاملي التقنية">
+        <div className="hv-hero-visual hv-portrait-visual" aria-label="الصورة الشخصية لعرفات الكاملي">
+          <div className="hv-portrait-grid" aria-hidden="true" />
+          <Image src="/images/arfat-alkamali.jpg" alt="عرفات الكاملي" fill priority sizes="(max-width: 640px) 90vw, 42vw" className="hv-portrait-image" />
+          <div className="hv-portrait-shade" />
           <div className="hv-visual-top"><span>AK / 01</span><span>ENGINEERING PROFILE</span></div>
-          <div className="hv-radar hv-radar-a" /><div className="hv-radar hv-radar-b" /><div className="hv-radar hv-radar-c" />
-          <div className="hv-cross hv-cross-one" /><div className="hv-cross hv-cross-two" />
-          <div className="hv-monogram"><ShieldCheck size={58} strokeWidth={1.15} /><strong>AK</strong></div>
-          <div className="hv-visual-caption"><span>RESEARCH</span><span>BUILD</span><span>DEFEND</span></div>
-          <div className="hv-visual-foot"><span>PERSONAL ENGINEERING ARCHIVE</span><span>EST. 2024</span></div>
+          <div className="hv-portrait-stamp"><ShieldCheck size={18}/><span>RESEARCH<br/>BUILD<br/>DEFEND</span></div>
+          <div className="hv-visual-foot"><span>ARFAT ALKAMALI</span><span>YEMEN · 2026</span></div>
         </div>
         <div className="hv-scroll-cue"><span /> SCROLL TO EXPLORE</div>
       </section>
@@ -60,7 +61,7 @@ export default function HomePage() {
         <div className="hv-project-grid">
           {featured.map((project, index) => <Link href={'/projects/' + project.slug} className={'hv-project-card hv-project-' + (index + 1)} key={project.slug}>
             <div className="hv-project-top"><span>0{index + 1} / FEATURED</span><ArrowUpLeft size={18} /></div>
-            <div className="hv-project-symbol">{index === 0 ? <ShieldCheck size={36} /> : index === 1 ? <Code2 size={34} /> : <Layers3 size={34} />}</div>
+            <div className="hv-project-art">{project.slug === 'aegis-titan' ? <Image src="/images/aegis/defensive-command-environment.svg" alt="تصور بصري لبيئة القيادة الدفاعية" fill sizes="(max-width: 640px) 90vw, 30vw" /> : project.slug === 'cryptolab-pro' ? <div className="hv-art-code"><span>CRYPTO LAB / 01</span><b>AES<span>256</span></b><small>ENCRYPT · HASH · VERIFY</small></div> : <div className="hv-art-academic"><Layers3 size={48}/><span>ACADEMIC OS</span><small>OFFLINE · ORGANIZED · PRIVATE</small></div>}</div>
             <div className="hv-project-copy"><span className="hv-project-label">{project.label}</span><h3>{project.name}</h3><p>{project.summary}</p></div>
             <div className="hv-project-bottom"><span>{project.stack.slice(0, 3).join(' / ')}</span><b>EXPLORE <ArrowUpLeft size={14} /></b></div>
           </Link>)}
