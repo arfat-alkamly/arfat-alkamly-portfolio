@@ -56,3 +56,24 @@
 .research-orcid>a strong{font:600 14px Arial;letter-spacing:.04em;direction:ltr}
 .research-orcid>a span{font-size:11px}
 @media(max-width:600px){.research-orcid{align-items:flex-start;flex-direction:column}.research-orcid>a{align-items:flex-start}.home-v2 .hv-hero-orcid{font-size:11px;gap:7px}}
+
+
+/* Visual refresh: real portrait, project artwork and editorial image treatments */
+.home-v2 .hv-portrait-visual{isolation:isolate;background:#07111b;clip-path:none;border-radius:2px;box-shadow:0 28px 70px rgba(0,0,0,.38);border:1px solid rgba(98,216,239,.3)}
+.home-v2 .hv-portrait-image{object-fit:cover;object-position:center 28%;z-index:-2;filter:saturate(.72) contrast(1.06)}
+.home-v2 .hv-portrait-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,10,17,.18),transparent 35%,rgba(4,10,17,.78)),linear-gradient(90deg,rgba(4,10,17,.2),transparent 55%)}
+.home-v2 .hv-portrait-grid{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(118,205,224,.25) 1px,transparent 1px),linear-gradient(90deg,rgba(118,205,224,.25) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(135deg,black,transparent 70%)}
+.home-v2 .hv-portrait-stamp{position:absolute;z-index:3;left:22px;bottom:62px;display:flex;align-items:center;gap:10px;padding:10px 13px;border:1px solid rgba(98,216,239,.35);background:rgba(5,14,22,.72);backdrop-filter:blur(10px);color:var(--hv-cyan)}
+.home-v2 .hv-portrait-stamp span{font:700 8px/1.7 Arial;letter-spacing:.14em;color:#d8edf3}
+.home-v2 .hv-portrait-visual:before,.home-v2 .hv-portrait-visual:after{display:none}
+.home-v2 .hv-project-art{height:145px;position:relative;overflow:hidden;margin:17px -22px 18px;background:radial-gradient(circle at 50% 45%,rgba(48,142,169,.22),transparent 58%),#08121b;border-block:1px solid rgba(98,216,239,.13)}
+.home-v2 .hv-project-art>img{object-fit:cover;object-position:center;opacity:.82;transition:transform .6s ease,opacity .4s ease}
+.home-v2 .hv-project-card:hover .hv-project-art>img{transform:scale(1.04);opacity:1}
+.home-v2 .hv-art-code,.home-v2 .hv-art-academic{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:9px;color:#74d9ed;background-image:linear-gradient(rgba(98,216,239,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(98,216,239,.055) 1px,transparent 1px);background-size:24px 24px}
+.home-v2 .hv-art-code>span,.home-v2 .hv-art-academic>span{font:8px Arial;letter-spacing:.18em;color:#9eb7c5}
+.home-v2 .hv-art-code>b{font:800 45px Arial;letter-spacing:-.08em;color:#e6f7fb}
+.home-v2 .hv-art-code>b span{font-size:17px;color:#66d5e9;vertical-align:top}
+.home-v2 .hv-art-code>small,.home-v2 .hv-art-academic>small{font:8px Arial;letter-spacing:.14em;color:#83a6b8}
+.home-v2 .hv-art-academic svg{stroke-width:1}
+.home-v2 .hv-project-symbol{display:none}
+@media(max-width:640px){.home-v2 .hv-portrait-visual{height:390px;max-width:100%}.home-v2 .hv-portrait-image{object-position:center 25%}.home-v2 .hv-project-art{height:155px}}
