@@ -1,20 +1,107 @@
 import Link from 'next/link';
-import {ArrowLeft,ArrowUpRight,ShieldCheck,Activity,Network,Database,Code2,Workflow,LockKeyhole,ScanSearch,RadioTower,Layers3,Eye,FileSearch,GitBranch,Server,Fingerprint,BrainCircuit,Flame,Scale,Monitor} from 'lucide-react';
-export const metadata={title:'AEGIS-TITAN v9.0 SOVEREIGN | منظومة الدفاع السيبراني',description:'المشروع المحوري في المحفظة: معمارية دفاع سيبراني متعددة الطبقات تشمل تحليل الشيفرات، الرصد والكشف، استخبارات الشبكات، الخداع والاحتواء، والاستجابة والتحقيق الجنائي الرقمي.'};
-const pillars=[['01','Code Intelligence','فهم الشيفرة ومسارات البيانات والثقة'],['02','Detection & Telemetry','تحويل الإشارات الخام إلى سياق قابل للتحقيق'],['03','Network Intelligence','رؤية دفاعية لحركة الشبكة والأصول والاتصالات'],['04','Active Defense','الخداع والاحتواء والاستجابة المقيدة بالسياسات'],['05','DFIR & Evidence','حفظ الأدلة وبناء تسلسل زمني قابل للمراجعة'],['06','Governance & SOC','حوكمة القرار ووضوح الحالة التشغيلية']];
-const nav=[['/aegis-titan/architecture','المعمارية'],['/aegis-titan/modules','المحركات والوحدات'],['/aegis-titan/operations','عقيدة التشغيل'],['/aegis-titan/roadmap','خارطة التطوير']];
-const principles=[['Evidence before action','الدليل قبل الإجراء','كل قرار يرتبط بمصدر وقرائن وسياق يتيح تفسيره ومراجعته.'],['Least privilege','أقل صلاحية','كل محرك يعمل ضمن نطاق محدد وبأقل امتيازات لازمة.'],['Reversible response','استجابة قابلة للتراجع','تخضع إجراءات العزل والحظر لحدود زمنية وآليات استعادة واضحة.'],['Human accountability','المساءلة البشرية','تدعم الأتمتة المحلل وتبقي القرار المؤثر قابلًا للمراجعة والمساءلة.']];
-function ArchitectureMap(){return <div className="aegis-architecture-map" role="img" aria-label="مخطط معماري يوضح طبقات AEGIS-TITAN وتدفق البيانات من مصادر الرصد إلى محركات التحليل ثم الاستجابة وحفظ الأدلة"><div className="aegis-map-heading"><span>AEGIS-TITAN / SYSTEM BLUEPRINT</span><b>DEFENSIVE CONTROL PLANE</b></div><div className="aegis-map-sources"><span>ENDPOINTS</span><span>NETWORK</span><span>APPLICATIONS</span><span>IDENTITY</span></div><div className="aegis-map-arrow">↓ TELEMETRY & EVENTS ↓</div><div className="aegis-map-core"><article><Code2/><b>CODE INTELLIGENCE</b><small>AST · SAST · TAINT FLOW</small></article><article><Activity/><b>DETECTION ENGINE</b><small>RULES · CORRELATION · TRIAGE</small></article><article><Network/><b>NETWORK INTELLIGENCE</b><small>TRAFFIC · ASSETS · CONTEXT</small></article><article><Fingerprint/><b>THREAT CONTEXT</b><small>IDENTITY · BEHAVIOR · RISK</small></article></div><div className="aegis-map-arrow">↓ VERIFIED FINDINGS & POLICY DECISIONS ↓</div><div className="aegis-map-response"><article><ShieldCheck/><b>CONTROLLED RESPONSE</b><small>CONTAIN · ISOLATE · DECEIVE</small></article><article><Database/><b>EVIDENCE VAULT</b><small>HASH · TIMELINE · AUDIT TRAIL</small></article><article><Monitor/><b>SOC COMMAND</b><small>INVESTIGATE · REVIEW · GOVERN</small></article></div><div className="aegis-map-foot"><span>POLICY GATE</span><span>HUMAN REVIEW</span><span>REVERSIBLE ACTIONS</span></div></div>}
-export default function AegisPage(){return <main className="aegis-shell">
-<section className="aegis-hero"><div className="aegis-topline"><Link href="/projects"><ArrowLeft size={15}/> العودة للمشاريع</Link><span>FLAGSHIP PROJECT / DEFENSIVE SECURITY R&D</span></div>
-<div className="aegis-hero-grid"><div><div className="aegis-kicker"><span/> SOVEREIGN DEFENSIVE ARCHITECTURE</div><h1>AEGIS<span>-</span>TITAN</h1><p className="aegis-subtitle">v9.0 — SOVEREIGN</p><p className="aegis-intro">مشروع هندسي بحثي لبناء منظومة دفاع سيبراني متعددة الطبقات. يربط تحليل الشيفرات ومسارات البيانات برصد الشبكات والأنظمة وهندسة الكشف، ثم ينسق الخداع الدفاعي والاحتواء والاستجابة والتحقيق الجنائي الرقمي ضمن معمارية موحدة. جوهر المشروع هو بناء مسار دفاعي يفسر الإشارة، ويربطها بالدليل والسياق، ويضبط الإجراء ويحفظ أثره.</p><div className="aegis-actions"><Link href="/aegis-titan/architecture">استكشف المعمارية <ArrowUpRight size={16}/></Link><Link href="/aegis-titan/modules">استكشف المحركات <ArrowUpRight size={16}/></Link></div><div className="aegis-status"><span><i/> مشروع بحث وتطوير شخصي</span><span>DEFENSE ONLY</span><span>V9 / SOVEREIGN</span></div></div>
-<div className="aegis-emblem"><div className="aegis-orbit orbit-one"/><div className="aegis-orbit orbit-two"/><div className="aegis-core"><ShieldCheck size={62} strokeWidth={1.1}/><b>AEGIS</b><small>SOVEREIGN CORE</small></div><span className="orbit-label label-a">DETECT</span><span className="orbit-label label-b">CONTAIN</span><span className="orbit-label label-c">PRESERVE</span></div></div>
-<div className="aegis-hero-foot"><span>AEGIS-TITAN / SOVEREIGN SYSTEM</span><span>DEFENSIVE ENGINEERING / 09</span></div></section>
-<section className="aegis-section"><div className="aegis-section-head"><span>01 / MISSION & DOCTRINE</span><h2>منظومة تفهم التهديد<br/>وتبني قرارًا دفاعيًا قابلًا للتفسير.</h2><p>تبدأ دورة العمل من مصادر البيانات والأصول، ثم تمر بالتحقق والارتباط وتقدير السياق، وصولًا إلى قرار مضبوط بالسياسة وإجراء موثق. لا تعمل المحركات كأدوات منفصلة؛ بل تتبادل النتائج عبر عقود بيانات وأحداث واضحة.</p></div><div className="aegis-pillars">{pillars.map(([n,title,desc])=><article key={n}><span>{n}</span><h3>{title}</h3><p>{desc}</p></article>)}</div></section>
-<section className="aegis-section aegis-blueprint-section"><div className="aegis-section-head"><span>02 / SYSTEM BLUEPRINT</span><h2>الصورة المعمارية للمنظومة.</h2><p>طبقات الإدخال والتحليل والاستجابة والحوكمة، مع فصل واضح بين اكتشاف المؤشرات وتنفيذ الإجراءات وحفظ الأدلة.</p></div><ArchitectureMap/><Link className="aegis-text-link" href="/aegis-titan/architecture">قراءة المعمارية التفصيلية <ArrowUpRight size={15}/></Link></section>
-<section className="aegis-section aegis-architecture-preview"><div className="aegis-section-head"><span>03 / DEFENSIVE RESPONSE LOOP</span><h2>من الإشارة إلى القرار… ثم إلى الدليل.</h2><p>حلقة تشغيل دفاعية تربط الملاحظة بالتحقق والاستجابة المقيدة بالسياسات وحفظ السجل الجنائي.</p></div><div className="aegis-flow"><div><RadioTower/><b>OBSERVE</b><small>Telemetry & Events</small></div><i>→</i><div><ScanSearch/><b>VALIDATE</b><small>Context & Evidence</small></div><i>→</i><div><ShieldCheck/><b>RESPOND</b><small>Policy & Containment</small></div><i>→</i><div><Database/><b>PRESERVE</b><small>Forensic Trace</small></div></div><Link className="aegis-text-link" href="/aegis-titan/operations">استكشاف عقيدة التشغيل <ArrowUpRight size={15}/></Link></section>
-<section className="aegis-section"><div className="aegis-section-head"><span>04 / ENGINEERING CAPABILITIES</span><h2>محركات مترابطة ضمن نظام واحد.</h2><p>لكل محرك مسؤولية محددة، ومدخلات ومخرجات واضحة، ونقاط تكامل مع بقية طبقات المنظومة.</p></div><div className="aegis-domain-grid"><Link href="/aegis-titan/modules"><Code2/><b>Code Intelligence</b><small>AST · SAST · Taint Analysis</small></Link><Link href="/aegis-titan/modules"><Activity/><b>Detection Engineering</b><small>Telemetry · Correlation · Triage</small></Link><Link href="/aegis-titan/modules"><Network/><b>Network Intelligence</b><small>Traffic · Wi-Fi · Asset Context</small></Link><Link href="/aegis-titan/modules"><Database/><b>DFIR & Evidence</b><small>Forensics · Hash Chain · Timeline</small></Link><Link href="/aegis-titan/modules"><LockKeyhole/><b>Deception & Isolation</b><small>Decoys · Tarpits · Containment</small></Link><Link href="/aegis-titan/modules"><Monitor/><b>SOC Command Surface</b><small>Visibility · Investigation · Control</small></Link></div></section>
-<section className="aegis-section"><div className="aegis-section-head"><span>05 / SOVEREIGN PRINCIPLES</span><h2>مبادئ هندسية تحكم كل طبقة.</h2></div><div className="aegis-pillars">{principles.map(([en,ar,desc],i)=><article key={en}><span>0{i+1}</span><h3>{ar}</h3><small>{en}</small><p>{desc}</p></article>)}</div></section>
-<section className="aegis-section"><div className="aegis-section-head"><span>06 / ENGINEERING DOCUMENTATION</span><h2>التوثيق الهندسي التفصيلي.</h2><p>استعرض معمارية النظام، ومحركاته، وعقيدة التشغيل، وخارطة التطوير.</p></div><div className="aegis-page-links">{nav.map(([href,label],i)=><Link href={href} key={href}><span>0{i+1}</span><b>{label}</b><ArrowUpRight size={17}/></Link>)}</div></section>
-<section className="aegis-disclaimer"><ShieldCheck/><div><b>هوية المشروع ونطاقه</b><p>AEGIS-TITAN مشروع شخصي في هندسة الأمن السيبراني الدفاعي، يتمحور حول بناء معمارية موحدة للرصد والتحليل والكشف والاستجابة والتحقيق الرقمي. الإصدار v9.0 SOVEREIGN يمثل خط التصميم الهندسي الحالي للمشروع. يرتكز نطاقه على الدفاع والاحتواء والخداع الأمني وحفظ الأدلة، ولا يتضمن الاختراق المضاد أو استهداف أطراف خارج النطاق المصرح به.</p></div></section>
-</main>}
+import { ArrowLeft, ArrowUpRight, ShieldCheck, Fingerprint, RadioTower, ScanSearch, Network, LockKeyhole, Activity, Eye, Layers3, Orbit, Radar, Shield, Database, Sparkles } from 'lucide-react';
+
+export const metadata = {
+  title: 'AEGIS-TITAN | Strategic Cyber Defense',
+  description: 'AEGIS-TITAN — منظومة خاصة لهندسة الدفاع السيبراني. القدرات ظاهرة، والتفاصيل الهندسية محمية.'
+};
+
+const capabilities = [
+  { icon: Radar, code: 'DOMAIN 01', title: 'Strategic Threat Intelligence', text: 'رؤية تحليلية للتهديدات ومؤشراتها ضمن سياق دفاعي مترابط.' },
+  { icon: ShieldCheck, code: 'DOMAIN 02', title: 'Advanced Cyber Defense', text: 'قدرات دفاعية متعددة المستويات لحماية البيئات الرقمية.' },
+  { icon: ScanSearch, code: 'DOMAIN 03', title: 'Intelligent Detection', text: 'تمييز الأنماط غير الاعتيادية وتحويل الإشارات إلى وعي أمني.' },
+  { icon: Activity, code: 'DOMAIN 04', title: 'Incident Response', text: 'استجابة منضبطة للحوادث مع مراعاة نطاق الحماية.' },
+  { icon: Fingerprint, code: 'DOMAIN 05', title: 'Digital Forensics', text: 'تحليل الآثار الرقمية وصون موثوقية الأدلة.' },
+  { icon: Network, code: 'DOMAIN 06', title: 'Network Intelligence', text: 'رؤية دفاعية أوسع لحركة الشبكات والبيئات المتصلة.' },
+];
+
+const sectors = [
+  ['01', 'CLASSIFIED SECTOR', 'مجال تخصصي محمي'],
+  ['02', 'RESTRICTED DOMAIN', 'نطاق عمليات خاص'],
+  ['03', 'SOVEREIGN LAYER', 'طبقة هندسية مستقلة'],
+  ['04', 'INTELLIGENCE CORE', 'مجال تحليل متقدم'],
+];
+
+const principles = [
+  ['PRIVATE BY DESIGN', 'خصوصية التصميم'],
+  ['DEFENSE-ORIENTED', 'توجه دفاعي'],
+  ['EVIDENCE-CONSCIOUS', 'وعي بالأدلة'],
+  ['CONTROLLED RESPONSE', 'استجابة منضبطة'],
+];
+
+function Emblem() {
+  return <div className="aegis-emblem aegis-emblem-premium" aria-label="AEGIS-TITAN emblem">
+    <div className="aegis-orbit orbit-one"/><div className="aegis-orbit orbit-two"/>
+    <div className="aegis-orbit orbit-three"/>
+    <div className="aegis-core"><Shield size={58} strokeWidth={1.1}/><b>AEGIS</b><small>PRIVATE DEFENSE SYSTEM</small></div>
+    <span className="orbit-label label-a">DETECT</span><span className="orbit-label label-b">DEFEND</span><span className="orbit-label label-c">PRESERVE</span>
+    <span className="aegis-emblem-index">AT / 09</span>
+  </div>;
+}
+
+function SignalField() {
+  return <div className="aegis-signal-field" aria-hidden="true">
+    <div className="aegis-signal-ring ring-a"/><div className="aegis-signal-ring ring-b"/>
+    <div className="aegis-signal-cross cross-a"/><div className="aegis-signal-cross cross-b"/>
+    <div className="aegis-signal-node node-a"/><div className="aegis-signal-node node-b"/><div className="aegis-signal-node node-c"/>
+    <span className="signal-label signal-one">SECURE / PRIVATE</span><span className="signal-label signal-two">UNKNOWN SURFACE</span>
+  </div>;
+}
+
+export default function AegisPage() {
+  return <main className="aegis-shell aegis-private-shell">
+    <section className="aegis-hero aegis-private-hero">
+      <div className="aegis-topline"><Link href="/projects"><ArrowLeft size={15}/> العودة إلى المشاريع</Link><span>PRIVATE SYSTEM / STRATEGIC DEFENSE</span></div>
+      <div className="aegis-hero-grid aegis-private-grid">
+        <div className="aegis-private-copy">
+          <div className="aegis-kicker"><span/> SOVEREIGN DEFENSIVE ECOSYSTEM</div>
+          <p className="aegis-classified"><LockKeyhole size={12}/> RESTRICTED ENGINEERING PROFILE</p>
+          <h1>AEGIS<span>-</span>TITAN</h1>
+          <p className="aegis-subtitle">v9.0 <i/> SOVEREIGN</p>
+          <h2 className="aegis-private-headline">Beyond Visibility.<br/><em>Beyond Conventional Defense.</em></h2>
+          <p className="aegis-intro">منظومة خاصة لهندسة الدفاع السيبراني، تجمع الرؤية والتحليل والوعي الأمني والاستجابة ضمن توجه هندسي موحد. صُممت لتتعامل مع المشهد الرقمي بمنظور دفاعي واسع، مع إبقاء تفاصيلها الجوهرية ضمن نطاقها الخاص.</p>
+          <div className="aegis-actions"><a href="#capabilities">استكشف مجالات القدرات <ArrowUpRight size={16}/></a><a href="#architect">عن المهندس <ArrowUpRight size={16}/></a></div>
+          <div className="aegis-status aegis-private-status"><span><i/> PRIVATE / PROPRIETARY</span><span>DEFENSE ORIENTED</span><span>SOVEREIGN IDENTITY</span></div>
+        </div>
+        <Emblem/>
+      </div>
+      <div className="aegis-hero-foot"><span>AEGIS-TITAN / PRIVATE ECOSYSTEM</span><span>STRATEGIC CYBER DEFENSE</span></div>
+      <SignalField/>
+    </section>
+
+    <section className="aegis-private-manifesto">
+      <span className="aegis-overline">A DIFFERENT CLASS OF ENGINEERING</span>
+      <h2>القدرات ظاهرة.<br/><em>والهندسة تبقى محمية.</em></h2>
+      <p>ما يظهر هنا هو نطاق المهمة وأثرها الاستراتيجي؛ أما التفاصيل الداخلية، وآليات العمل، والبنية الخاصة، فتبقى خارج العرض العام.</p>
+      <div className="aegis-manifesto-mark"><Orbit/><span>SEALED BY DESIGN</span></div>
+    </section>
+
+    <section className="aegis-section aegis-private-section" id="capabilities">
+      <div className="aegis-section-head"><span>01 / STRATEGIC CAPABILITIES</span><h2>مجالات عمل تتجاوز الأدوات المنفردة.</h2><p>قدرات مترابطة ضمن رؤية دفاعية شاملة، تُعرض هنا على مستوى المهمة دون كشف تفاصيل التنفيذ.</p></div>
+      <div className="aegis-private-capabilities">{capabilities.map(({icon:Icon,code,title,text})=><article key={code}><div className="aegis-cap-icon"><Icon size={21}/></div><span>{code}</span><h3>{title}</h3><p>{text}</p><b className="aegis-card-seal">PRIVATE DOMAIN <LockKeyhole size={11}/></b></article>)}</div>
+    </section>
+
+    <section className="aegis-section aegis-classified-section">
+      <div className="aegis-section-head"><span>02 / RESTRICTED SECTORS</span><h2>مساحات هندسية لا تُعرض تفاصيلها.</h2><p>إشارات إلى اتساع المنظومة وتعدد نطاقاتها، دون نشر أسماء الوحدات أو خرائطها الداخلية.</p></div>
+      <div className="aegis-sector-grid">{sectors.map(([n,title,desc])=><article key={n}><span>{n} / SEALED</span><div className="aegis-sector-lines"><i/><i/><i/></div><h3>{title}</h3><p>{desc}</p><LockKeyhole size={15}/></article>)}</div>
+    </section>
+
+    <section className="aegis-private-visual">
+      <div className="aegis-visual-copy"><span>03 / OPERATIONAL AWARENESS</span><h2>من الرؤية<br/>إلى الوعي الدفاعي.</h2><p>صورة بصرية رمزية لعالم مترابط من الإشارات والقرارات. هذا التصور تجريدي ولا يمثل مخططًا تشغيليًا أو بنية فعلية للنظام.</p></div>
+      <div className="aegis-radar-visual" aria-hidden="true"><div className="radar-sweep"/><div className="radar-ring r1"/><div className="radar-ring r2"/><div className="radar-ring r3"/><div className="radar-center"><ShieldCheck size={34}/></div><i className="radar-dot d1"/><i className="radar-dot d2"/><i className="radar-dot d3"/><span className="radar-coord c1">SIGNAL / 01</span><span className="radar-coord c2">SECURE FIELD</span></div>
+    </section>
+
+    <section className="aegis-section aegis-private-section">
+      <div className="aegis-section-head"><span>04 / DESIGN PRINCIPLES</span><h2>مبادئ ترسم هوية المنظومة.</h2></div>
+      <div className="aegis-principle-grid">{principles.map(([en,ar],i)=><article key={en}><span>0{i+1}</span><b>{en}</b><small>{ar}</small></article>)}</div>
+    </section>
+
+    <section className="aegis-private-founder" id="architect">
+      <div className="aegis-founder-symbol"><ShieldCheck size={42}/><span>ARCHITECT SIGNATURE</span></div>
+      <div><span className="aegis-overline">ENGINEERING LEADERSHIP</span><h2>Arfat Alkamali</h2><p>Founder &amp; Lead Systems Architect</p><small>رؤية هندسية مستقلة. تطوير وبناء منظومة دفاع سيبراني خاصة.</small></div>
+      <div className="aegis-founder-seal">AEGIS<br/>TITAN</div>
+    </section>
+
+    <section className="aegis-private-footer"><div><Sparkles size={16}/><b>THE ARCHITECTURE REMAINS PRIVATE.</b></div><p>تفاصيل المنظومة الهندسية محمية. هذا العرض يعرّف بالهوية والقدرات العامة فقط.</p><span>AEGIS-TITAN © SOVEREIGN DEFENSE ECOSYSTEM</span></section>
+  </main>;
+}
