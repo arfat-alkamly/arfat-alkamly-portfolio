@@ -18,7 +18,25 @@ const filters=[['all','الكل'],['dev','البرمجة'],['security','الأم
 const levelText={'عملي':'تطبيق عملي','جيد':'ممارسة جيدة','معرفة وتطبيق':'معرفة وتطبيق'};
 export default function SkillsExplorer(){
  const [active,setActive]=useState('all');const [query,setQuery]=useState('');const [expanded,setExpanded]=useState<string[]>(['security','dev']);
- const visible=useMemo(()=>domains.filter(d=>(active==='all'||d.id===active)&&((d.title+' '+d.en+' '+d.description+' '+d.skills.map(s=>s.name+' '+(s.note||'')).join(' ')).toLowerCase().includes(query.trim().toLowerCase())),[active,query]);
+ const visible = useMemo(
+  () =>
+    domains.filter(
+      (d) =>
+        (active === 'all' || d.id === active) &&
+        (
+          d.title +
+          ' ' +
+          d.en +
+          ' ' +
+          d.description +
+          ' ' +
+          d.skills.map((s) => s.name + ' ' + (s.note || '')).join(' ')
+        )
+          .toLowerCase()
+          .includes(query.trim().toLowerCase())
+    ),
+  [active, query]
+);
  const total=domains.reduce((n,d)=>n+d.skills.length,0);
  return <main className="content-page skills-page sk-page">
  <div className="sk-topline"><span>CAPABILITY MAP / 2026</span><span>ARFAT ALKAMALI <i/> TECHNICAL PROFILE</span></div>
