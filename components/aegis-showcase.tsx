@@ -62,6 +62,12 @@ export default function AegisShowcase() {
         <Emblem/>
       </div>
       <div className="aegis-hero-foot"><span>AEGIS-TITAN / PRIVATE ECOSYSTEM</span><span>STRATEGIC CYBER DEFENSE</span></div>
+      <div className="aegis-quick-read" aria-label="AEGIS-TITAN at a glance">
+        <article><span>01 / VISION</span><b>DEFENSIVE BY DESIGN</b><small>رؤية دفاعية موحدة</small></article>
+        <article><span>02 / SCOPE</span><b>INSTITUTIONAL</b><small>توجه مؤسسي قابل للتكييف</small></article>
+        <article><span>03 / PRINCIPLE</span><b>EVIDENCE-LED</b><small>قرار يستند إلى السياق والأدلة</small></article>
+        <article><span>04 / IDENTITY</span><b>SOVEREIGN</b><small>هوية وهندسة خاصة</small></article>
+      </div>
       <SignalField/>
     </section>
 
