@@ -99,19 +99,19 @@ export default function AegisShowcase() {
       </div>
       <div className="aegis-gallery-grid">
         <figure className="aegis-gallery-card aegis-gallery-large">
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1500&q=85" alt="ممر خوادم في مركز بيانات مؤسسي" loading="lazy"/>
-          <figcaption><span>01 / INFRASTRUCTURE</span><b>Digital Infrastructure</b><small>البنية الرقمية والبيئات المؤسسية</small></figcaption>
+          <img src="/images/aegis/defensive-command-environment.svg" alt="تصور مفاهيمي لبيئة عمليات الدفاع السيبراني" loading="lazy"/>
+          <figcaption><span>01 / INFRASTRUCTURE</span><b>Defensive Operations</b><small>بيئة عمليات دفاعية موحدة</small></figcaption>
         </figure>
         <figure className="aegis-gallery-card">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1100&q=85" alt="تفاصيل لوحة إلكترونية ومكونات تقنية" loading="lazy"/>
-          <figcaption><span>02 / ENGINEERING</span><b>Systems Engineering</b><small>الهندسة والأنظمة التقنية</small></figcaption>
+          <img src="/images/aegis/secure-network-architecture.svg" alt="تصور هندسي لشبكة مؤسسية محمية" loading="lazy"/>
+          <figcaption><span>02 / ENGINEERING</span><b>Protected Network Architecture</b><small>شبكة مؤسسية مترابطة ومحكومة</small></figcaption>
         </figure>
         <figure className="aegis-gallery-card">
-          <img src="https://images.unsplash.com/photo-1451187580459-43490279cfa?auto=format&fit=crop&w=1100&q=85" alt="تصور بصري لشبكة عالمية مترابطة" loading="lazy"/>
-          <figcaption><span>03 / CONNECTIVITY</span><b>Connected Ecosystems</b><small>الشبكات والبيئات المترابطة</small></figcaption>
+          <img src="/images/aegis/threat-intelligence-field.svg" alt="تصور بصري لتحليل التهديدات وربط الإشارات" loading="lazy"/>
+          <figcaption><span>03 / CONNECTIVITY</span><b>Threat Intelligence</b><small>تحليل الإشارات والوعي بالتهديدات</small></figcaption>
         </figure>
       </div>
-      <p className="aegis-gallery-note">صور سياقية من مصادر خارجية — لا تمثل لقطات فعلية من AEGIS-TITAN.</p>
+      <p className="aegis-gallery-note">رسومات مفاهيمية أصلية لهوية AEGIS-TITAN — لا تمثل واجهات تشغيل أو بيانات حقيقية من النظام.</p>
     </section>
 
     <section className="aegis-domain-visual">
