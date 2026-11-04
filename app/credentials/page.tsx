@@ -117,15 +117,6 @@ export default function CredentialsPage(){
         })}
       </div>
     </section>
-              <section className="credential-facts credential-facts-v2">
-                <div><span>الجهة المانحة</span><strong>{credential.issuer}</strong></div><div><span>تاريخ الإصدار</span><strong>{credential.date}</strong></div><div><span>الصلاحية</span><strong>لا تنتهي صلاحيتها</strong></div><div><span>معرّف الشارة</span><code>{credential.id}</code></div>
-              </section>
-              <section className="credential-acquired-skills"><div className="acquired-skills-heading"><span>✦</span><div><h4>المهارات المكتسبة من هذه الدورة</h4><p>{credential.description}</p></div></div><div className="credential-skill-list">{credential.skills.map(skill=><span key={skill}><i>✓</i>{skill}</span>)}</div></section>
-            </div>
-          </article>;
-        })}
-      </div>
-    </section>
     <p className="disclaimer">تُعرض بيانات كل اعتماد وفق المعلومات المتاحة في سجل الشارة. روابط Credly مخصصة للتحقق من صحة الاعتماد، وملفات PDF هي نسخ الشهادات المرفقة.</p>
   </main>;
 }
