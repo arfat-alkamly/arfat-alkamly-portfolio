@@ -22,14 +22,14 @@ const credentials=[
 
 const pdfBase='https://raw.githubusercontent.com/arfat-alkamly/arfat-alkamly-portfolio/public-certificates-upload/public/certificates/';
 const previewFiles=[
-  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A4%D9%A3%D9%A2_(1).png',
-  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A5%D9%A1%D9%A4_(1).png',
-  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A5%D9%A2%D9%A6_(1).png',
-  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A6%D9%A3%D9%A1_(1).png',
   '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A6%D9%A5%D9%A3_(1).png',
-  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A7%D9%A1%D9%A2_(1).png',
-  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A7%D9%A2%D9%A7_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A4%D9%A3%D9%A2_(1).png',
   '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A7%D9%A4%D9%A6_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A5%D9%A2%D9%A6_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A5%D9%A1%D9%A4_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A7%D9%A2%D9%A7_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A7%D9%A1%D9%A2_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A6%D9%A3%D9%A1_(1).png',
   '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A9%D9%A0%D9%A9_(1).png'
 ];
 const credlyBase='https://www.credly.com/badges/';
