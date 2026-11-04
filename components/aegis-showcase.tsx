@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeft, ArrowUpRight, ShieldCheck, Fingerprint, RadioTower, ScanSearch, Network, LockKeyhole, Activity, Eye, Layers3, Orbit, Radar, Shield, Database, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, ShieldCheck, Fingerprint, RadioTower, ScanSearch, Network, LockKeyhole, Activity, Eye, Layers3, Orbit, Radar, Shield, Database, Sparkles, Building2, Workflow, Globe2, FileCheck2 } from 'lucide-react';
 
 
 const capabilities = [
@@ -55,7 +55,7 @@ export default function AegisShowcase() {
           <h1>AEGIS<span>-</span>TITAN</h1>
           <p className="aegis-subtitle">v9.0 <i/> SOVEREIGN</p>
           <h2 className="aegis-private-headline">Beyond Visibility.<br/><em>Beyond Conventional Defense.</em></h2>
-          <p className="aegis-intro">منظومة خاصة لهندسة الدفاع السيبراني، تجمع الرؤية والتحليل والوعي الأمني والاستجابة ضمن توجه هندسي موحد. صُممت لتتعامل مع المشهد الرقمي بمنظور دفاعي واسع، مع إبقاء تفاصيلها الجوهرية ضمن نطاقها الخاص.</p>
+          <p className="aegis-intro">منظومة دفاع سيبراني سيادية ذات رؤية مؤسسية، صاغ فكرتها وهويتها المعمارية المهندس عرفات عبدالله الكاملي. تستهدف المؤسسات والشركات التي تحتاج إلى منظومة دفاعية قابلة للتخصيص وفق بيئتها ومتطلباتها، مع إبقاء جوهر الهندسة والتفاصيل الداخلية ضمن نطاق خاص.</p>
           <div className="aegis-actions"><a href="#capabilities">استكشف مجالات القدرات <ArrowUpRight size={16}/></a><a href="#architect">عن المهندس <ArrowUpRight size={16}/></a></div>
           <div className="aegis-status aegis-private-status"><span><i/> PRIVATE / PROPRIETARY</span><span>DEFENSE ORIENTED</span><span>SOVEREIGN IDENTITY</span></div>
         </div>
@@ -70,6 +70,24 @@ export default function AegisShowcase() {
       <h2>القدرات ظاهرة.<br/><em>والهندسة تبقى محمية.</em></h2>
       <p>ما يظهر هنا هو نطاق المهمة وأثرها الاستراتيجي؛ أما التفاصيل الداخلية، وآليات العمل، والبنية الخاصة، فتبقى خارج العرض العام.</p>
       <div className="aegis-manifesto-mark"><Orbit/><span>SEALED BY DESIGN</span></div>
+    </section>
+
+    <section className="aegis-enterprise-vision" id="enterprise-vision">
+      <div className="aegis-enterprise-heading"><span>INSTITUTIONAL / SOVEREIGN CYBER DEFENSE</span><h2>رؤية سيادية.<br/><em>مصممة لاحتياجات المؤسسات.</em></h2><p>AEGIS-TITAN ليست واجهة مراقبة فحسب؛ إنها رؤية منتج دفاعي مؤسسي خاص، يستهدف بناء قدرة موحدة للرؤية الأمنية والتحليل والاستجابة والحوكمة، مع قابلية تكييف نطاقه وفق طبيعة كل مؤسسة.</p></div>
+      <div className="aegis-enterprise-image"><img src="/images/aegis/sovereign-core.svg" alt="تصور بصري لهوية AEGIS-TITAN السيادية" loading="lazy"/></div>
+      <div className="aegis-enterprise-pillars">
+        <article><Building2/><b>INSTITUTIONAL FIT</b><h3>ملاءمة مؤسسية</h3><p>تصور قابل للتخصيص بحسب حجم المؤسسة وبيئتها وأولوياتها الدفاعية.</p></article>
+        <article><Workflow/><b>UNIFIED OPERATIONS</b><h3>عمليات مترابطة</h3><p>ربط مجالات الرؤية والتحليل والاستجابة والتحقيق ضمن إطار واحد.</p></article>
+        <article><Globe2/><b>DATA SOVEREIGNTY</b><h3>سيادة البيانات</h3><p>تصميم خيارات نشر واستضافة وحوكمة تُحدد وفق متطلبات الجهة المتعاقدة.</p></article>
+        <article><FileCheck2/><b>GOVERNED ASSURANCE</b><h3>حوكمة وضمان</h3><p>التوجه إلى توثيق الضوابط والاختبارات والقبول الفني لكل بيئة نشر.</p></article>
+      </div>
+      <div className="aegis-enterprise-image aegis-enterprise-wide"><img src="/images/aegis/enterprise-operations.svg" alt="تصور توضيحي لبيئة عمليات أمنية مؤسسية" loading="lazy"/></div>
+      <div className="aegis-commercial-note"><span>PRIVATE / INSTITUTIONAL ENGAGEMENT</span><p>التوجه التجاري المستهدف: ترخيص مؤسسي، تخصيص حسب المتطلبات، تكامل مع البيئة القائمة، وخدمات تهيئة ودعم وفق نطاق تعاقدي واضح. تخضع الجاهزية التجارية والامتثال والاعتمادات والاختبارات النهائية للتحقق قبل أي نشر مؤسسي.</p></div>
+    </section>
+
+    <section className="aegis-domain-visual">
+      <div><span>DEFENSIVE DOMAINS / ONE VISION</span><h2>منظومة واحدة.<br/>مجالات دفاع متعددة.</h2><p>تجميع بصري لمجالات المهمة التي تستهدفها الرؤية المعمارية، دون عرض تفاصيل التنفيذ أو مكونات التشغيل الخاصة.</p></div>
+      <img src="/images/aegis/defense-domain.svg" alt="تصور بصري لمجالات الدفاع السيبراني ضمن AEGIS-TITAN" loading="lazy"/>
     </section>
 
     <section className="aegis-section aegis-private-section" id="capabilities">
@@ -112,13 +130,13 @@ export default function AegisShowcase() {
     </section>
 
     <section className="aegis-section aegis-private-section">
-      <div className="aegis-section-head"><span>05 / DESIGN PRINCIPLES</span><h2>مبادئ ترسم هوية المنظومة.</h2></div>
+      <div className="aegis-section-head"><span>06 / DESIGN PRINCIPLES</span><h2>مبادئ ترسم هوية المنظومة.</h2></div>
       <div className="aegis-principle-grid">{principles.map(([en,ar],i)=><article key={en}><span>0{i+1}</span><b>{en}</b><small>{ar}</small></article>)}</div>
     </section>
 
     <section className="aegis-private-founder" id="architect">
       <div className="aegis-founder-symbol"><ShieldCheck size={42}/><span>ARCHITECT SIGNATURE</span></div>
-      <div><span className="aegis-overline">ENGINEERING LEADERSHIP</span><h2>Arfat Alkamali</h2><p>Founder &amp; Lead Systems Architect</p><small>رؤية هندسية مستقلة. تطوير وبناء منظومة دفاع سيبراني خاصة.</small></div>
+      <div><span className="aegis-overline">ORIGINATOR / FOUNDER / LEAD SYSTEMS ARCHITECT</span><h2>المهندس عرفات عبدالله الكاملي</h2><p>Arfat Abdullah AlKamli · Founder &amp; Lead Systems Architect</p><small>صاحب الفكرة والرؤية المعمارية والهوية الهندسية لـ AEGIS-TITAN. منظومة خاصة صيغت رؤيتها بصورة مستقلة، وتُطوّر لتتجه نحو احتياجات المؤسسات والشركات.</small></div>
       <div className="aegis-founder-seal">AEGIS<br/>TITAN</div>
     </section>
 
