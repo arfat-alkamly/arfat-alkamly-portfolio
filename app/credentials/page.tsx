@@ -21,6 +21,17 @@ const credentials=[
 ];
 
 const pdfBase='https://raw.githubusercontent.com/arfat-alkamly/arfat-alkamly-portfolio/public-certificates-upload/public/certificates/';
+const previewFiles=[
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A4%D9%A3%D9%A2_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A5%D9%A1%D9%A4_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A5%D9%A2%D9%A6_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A6%D9%A3%D9%A1_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A6%D9%A5%D9%A3_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A7%D9%A1%D9%A2_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A7%D9%A2%D9%A7_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A7%D9%A4%D9%A6_(1).png',
+  '/certificates/previews/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A1%D9%A1%D9%A0%D9%A4-%D9%A0%D9%A2%D9%A4%D9%A9%D9%A0%D9%A9_(1).png'
+];
 const credlyBase='https://www.credly.com/badges/';
 
 function CiscoMark(){
@@ -74,7 +85,7 @@ export default function CredentialsPage(){
                   <div className="certificate-issuer-brand"><CiscoMark/><span>ISSUED BY<br/><strong>{credential.issuer}</strong></span></div>
                   <div className="certificate-credly-brand"><span className="credential-panel-label">DIGITAL BADGE · CREDLY</span><div className="credly-embed-frame credly-embed-frame-compact"><div data-iframe-width="150" data-iframe-height="190" data-share-badge-id={credential.id} data-share-badge-host="https://www.credly.com"></div></div><a className="credential-verify-link" href={verify} target="_blank" rel="noopener noreferrer">التحقق من الشارة ↗</a></div>
                 </div>
-                <div className="certificate-document-preview"><CertificatePreview file={pdf} title={credential.name} /></div>
+                <div className="certificate-document-preview"><CertificatePreview file={pdf} image={previewFiles[i]} title={credential.name} /></div>
                 <div className="certificate-actions"><a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF</a><a href={verify} target="_blank" rel="noopener noreferrer">فتح الاعتماد على Credly ↗</a></div>
               </section>
               <section className="credential-facts credential-facts-v2">
