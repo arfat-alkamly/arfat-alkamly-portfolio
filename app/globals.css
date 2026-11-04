@@ -861,3 +861,127 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
   .credentials-page .credential-wallet .certificate-document-preview{min-height:125px}
   .credentials-page .credential-wallet .certificate-image-viewer{min-height:112px}
 }
+
+ 
+/* Credential Wallet v3 — certificate first, then issuer / record / badge+skills */
+.credentials-page .credential-wallet-grid-v3{
+  display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:14px;
+}
+.credentials-page .credential-wallet-grid-v3>.credential-wallet-document{
+  grid-row:1;min-width:0;overflow:hidden;border:1px solid rgba(83,190,239,.32);
+  border-radius:12px;background:linear-gradient(145deg,#0a1b2c,#081523);
+}
+.credentials-page .credential-wallet-grid-v3 .wallet-document-heading{
+  padding:9px 13px;color:#70d6fb;font-size:8px;letter-spacing:.13em;
+}
+.credentials-page .credential-wallet-grid-v3 .certificate-document-preview{
+  min-height:0;height:auto;padding:9px;background:linear-gradient(135deg,#0a1b2b,#0c2032);
+}
+.credentials-page .credential-wallet-grid-v3 .certificate-image-viewer{
+  display:block;min-height:0;height:auto;overflow:hidden;border:1px solid rgba(176,213,237,.45);
+  border-radius:5px;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.22);
+}
+.credentials-page .credential-wallet-grid-v3 .certificate-image-viewer img{
+  display:block;width:100%;height:auto;max-height:none;object-fit:contain;
+}
+.credentials-page .credential-wallet-grid-v3 .certificate-actions{
+  justify-content:flex-end;gap:8px;padding:9px 11px;border-top:1px solid rgba(105,165,202,.15);
+}
+.credentials-page .credential-wallet-grid-v3 .certificate-actions a{
+  min-height:32px;padding:6px 12px;border-radius:7px;font-size:9px;
+}
+.credentials-page .wallet-detail-row{
+  display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.18fr) minmax(0,1fr);
+  align-items:start;gap:11px;min-width:0;
+}
+.credentials-page .wallet-issuer-column,
+.credentials-page .wallet-badge-skills-column{display:grid;align-content:start;gap:9px;min-width:0}
+.credentials-page .wallet-issuer-column,.credentials-page .credential-wallet-verification,
+.credentials-page .wallet-badge-skills-column>.credential-wallet-skills{
+  min-width:0;padding:12px;border:1px solid rgba(83,178,226,.23);border-radius:11px;
+  background:linear-gradient(155deg,rgba(12,34,55,.94),rgba(7,19,34,.96));
+}
+.credentials-page .wallet-issuer-logos-v3{display:grid;grid-template-columns:1fr;gap:8px;margin:0}
+.credentials-page .wallet-issuer-logos-v3 .wallet-issuer-logo{min-height:83px}
+.credentials-page .wallet-issuer-logos-v3 .cisco-brand-mark{width:100%;max-width:112px}
+.credentials-page .wallet-issuer-logos-v3 .wallet-issuer-logo small,
+.credentials-page .wallet-partner-mark small{color:#91abc2;font:7px/1.5 ui-monospace,monospace;text-align:center;letter-spacing:.05em}
+.credentials-page .wallet-partner-mark{
+  display:flex;min-height:66px;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  padding:9px;border:1px solid rgba(105,165,202,.18);border-radius:9px;background:rgba(17,39,60,.58);
+}
+.credentials-page .wallet-partner-mark strong{font-size:18px;letter-spacing:-.04em}
+.credentials-page .splunk-mark strong{color:#65c9ed}
+.credentials-page .openedg-mark strong{color:#d7e7f7;font-size:16px;letter-spacing:0}
+.credentials-page .credential-wallet-grid-v3 .credential-wallet-verification{padding:12px}
+.credentials-page .credential-wallet-grid-v3 .wallet-facts{grid-template-columns:1fr;gap:7px}
+.credentials-page .credential-wallet-grid-v3 .wallet-facts>div{padding:8px 9px}
+.credentials-page .credential-wallet-grid-v3 .wallet-facts strong{font-size:10px}
+.credentials-page .credential-wallet-grid-v3 .wallet-verify-button{margin-top:9px}
+.credentials-page .wallet-badge-logo{
+  display:grid;justify-items:center;gap:5px;min-width:0;padding:9px 7px;
+  border:1px solid rgba(76,178,230,.25);border-radius:11px;
+  background:linear-gradient(145deg,rgba(17,53,80,.7),rgba(10,26,46,.78));
+}
+.credentials-page .wallet-badge-logo .credential-panel-label{color:#75c9ec;font-size:8px}
+.credentials-page .wallet-badge-logo .credly-embed-frame-compact{min-height:0;height:170px;overflow:hidden}
+.credentials-page .wallet-badge-logo .credly-embed-frame iframe{max-width:100%;border:0}
+.credentials-page .wallet-badge-skills-column .credential-wallet-skills{padding:12px}
+.credentials-page .wallet-badge-skills-column .wallet-panel-heading{margin-bottom:9px;padding-bottom:8px}
+.credentials-page .wallet-badge-skills-column .wallet-skills-description{margin:0 0 9px;font-size:9px;line-height:1.7}
+.credentials-page .wallet-badge-skills-column .credential-skill-list{display:flex;flex-wrap:wrap;gap:5px}
+.credentials-page .wallet-badge-skills-column .credential-skill-list span{
+  display:inline-flex;align-items:center;gap:4px;padding:4px 6px;font-size:8px;line-height:1.4;
+}
+.credentials-page .wallet-badge-skills-column .credential-skill-list i{flex:0 0 12px;width:12px;height:12px;font-size:7px}
+@media(max-width:850px){
+  .credentials-page .wallet-detail-row{grid-template-columns:minmax(0,.78fr) minmax(0,1.15fr) minmax(0,1fr);gap:7px}
+  .credentials-page .wallet-issuer-column,.credentials-page .credential-wallet-grid-v3 .credential-wallet-verification,
+  .credentials-page .wallet-badge-skills-column>.credential-wallet-skills{padding:8px}
+  .credentials-page .wallet-issuer-logos-v3 .cisco-brand-mark{max-width:82px}
+  .credentials-page .wallet-partner-mark strong{font-size:14px}
+  .credentials-page .wallet-badge-logo .credly-embed-frame-compact{height:150px}
+  .credentials-page .wallet-badge-skills-column .credential-skill-list span{font-size:7px}
+}
+@media(max-width:600px){
+  .credentials-page .credential-wallet-head{align-items:center;flex-direction:row;gap:8px;padding:11px 13px}
+  .credentials-page .credential-wallet-grid-v3{gap:8px;padding:8px}
+  .credentials-page .credential-wallet-grid-v3 .certificate-document-preview{padding:5px}
+  .credentials-page .credential-wallet-grid-v3 .certificate-actions{justify-content:center;padding:6px;gap:5px}
+  .credentials-page .credential-wallet-grid-v3 .certificate-actions a{flex:1;min-height:28px;padding:5px 4px;font-size:8px;text-align:center}
+  .credentials-page .wallet-detail-row{grid-template-columns:minmax(0,.76fr) minmax(0,1.18fr) minmax(0,1fr);gap:5px}
+  .credentials-page .wallet-issuer-column,.credentials-page .credential-wallet-grid-v3 .credential-wallet-verification,
+  .credentials-page .wallet-badge-skills-column>.credential-wallet-skills{padding:6px;border-radius:8px}
+  .credentials-page .wallet-panel-heading{margin-bottom:6px;padding-bottom:5px}
+  .credentials-page .wallet-panel-heading>span{font-size:6px;letter-spacing:.04em}
+  .credentials-page .wallet-panel-heading h4{font-size:9px;line-height:1.4}
+  .credentials-page .wallet-issuer-logos-v3 .wallet-issuer-logo{min-height:62px;padding:5px 3px}
+  .credentials-page .wallet-issuer-logos-v3 .cisco-brand-mark{max-width:58px}
+  .credentials-page .wallet-issuer-logos-v3 .wallet-issuer-logo small,
+  .credentials-page .wallet-partner-mark small{font-size:5px}
+  .credentials-page .wallet-partner-mark{min-height:48px;padding:4px}
+  .credentials-page .wallet-partner-mark strong{font-size:11px}
+  .credentials-page .wallet-partner-mark.openedg-mark strong{font-size:10px}
+  .credentials-page .credential-wallet-grid-v3 .wallet-facts{gap:4px}
+  .credentials-page .credential-wallet-grid-v3 .wallet-facts>div{gap:2px;padding:5px}
+  .credentials-page .credential-wallet-grid-v3 .wallet-facts span{font-size:6px}
+  .credentials-page .credential-wallet-grid-v3 .wallet-facts strong{font-size:7px;line-height:1.35;overflow-wrap:anywhere}
+  .credentials-page .credential-wallet-grid-v3 .wallet-facts code{font-size:5px;overflow-wrap:anywhere}
+  .credentials-page .credential-wallet-grid-v3 .wallet-verify-button{padding:6px 3px;font-size:6px;line-height:1.4}
+  .credentials-page .wallet-badge-logo{gap:2px;padding:5px 2px;border-radius:7px}
+  .credentials-page .wallet-badge-logo .credential-panel-label{font-size:5px}
+  .credentials-page .wallet-badge-logo .credly-embed-frame-compact{height:112px;min-height:0}
+  .credentials-page .wallet-badge-logo .credly-embed-frame iframe{width:100%!important;max-width:100%!important;transform:scale(.68);transform-origin:top center}
+  .credentials-page .wallet-badge-skills-column .credential-wallet-skills{padding:6px}
+  .credentials-page .wallet-badge-skills-column .wallet-skills-description{font-size:7px;line-height:1.5}
+  .credentials-page .wallet-badge-skills-column .credential-skill-list{gap:3px}
+  .credentials-page .wallet-badge-skills-column .credential-skill-list span{gap:2px;padding:3px;font-size:6px;line-height:1.25;overflow-wrap:anywhere}
+  .credentials-page .wallet-badge-skills-column .credential-skill-list i{flex-basis:9px;width:9px;height:9px;font-size:6px}
+}
+@media(max-width:380px){
+  .credentials-page .wallet-detail-row{grid-template-columns:minmax(0,.7fr) minmax(0,1.2fr) minmax(0,1fr);gap:4px}
+  .credentials-page .wallet-issuer-column,.credentials-page .credential-wallet-grid-v3 .credential-wallet-verification,
+  .credentials-page .wallet-badge-skills-column>.credential-wallet-skills{padding:5px}
+  .credentials-page .wallet-badge-logo .credly-embed-frame-compact{height:100px}
+  .credentials-page .wallet-badge-logo .credly-embed-frame iframe{transform:scale(.6)}
+}
