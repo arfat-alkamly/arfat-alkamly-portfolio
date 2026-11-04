@@ -79,39 +79,46 @@ export default function CredentialsPage(){
               </div>
               <span className="credential-status"><i>✓</i> اعتماد موثق</span>
             </div>
-            <div className="credential-wallet-grid">
-              <aside className="credential-wallet-skills">
-                <div className="wallet-panel-heading"><span>01 / SKILLS</span><h4>المهارات المكتسبة</h4></div>
-                <p className="wallet-skills-description">{credential.description}</p>
-                <div className="credential-skill-list">
-                  {credential.skills.map(skill=><span key={skill}><i>✓</i>{skill}</span>)}
-                </div>
-              </aside>
+            <div className="credential-wallet-grid credential-wallet-grid-v3">
               <section className="credential-wallet-document" aria-label={'وثيقة '+credential.name}>
-                <div className="wallet-document-heading"><span>OFFICIAL CERTIFICATE</span><span>PDF PREVIEW</span></div>
+                <div className="wallet-document-heading"><span>OFFICIAL CERTIFICATE</span><span>ORIGINAL DOCUMENT · PDF</span></div>
                 <div className="certificate-document-preview"><CertificatePreview file={pdf} image={previewFiles[i]} title={credential.name} /></div>
                 <div className="certificate-actions">
-                  <a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF</a>
+                  <a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF ↓</a>
                   <a href={verify} target="_blank" rel="noopener noreferrer">عرض الشهادة ↗</a>
                 </div>
               </section>
-              <aside className="credential-wallet-verification">
-                <div className="wallet-panel-heading"><span>02 / CREDENTIAL</span><h4>بيانات الاعتماد</h4></div>
-                <div className="wallet-issuer-logos">
-                  <div className="wallet-issuer-logo"><CiscoMark/><small>ISSUING ORGANIZATION</small></div>
+              <div className="wallet-detail-row">
+                <aside className="wallet-issuer-column">
+                  <div className="wallet-panel-heading"><span>01 / ISSUERS</span><h4>الجهات المانحة</h4></div>
+                  <div className="wallet-issuer-logos wallet-issuer-logos-v3">
+                    <div className="wallet-issuer-logo"><CiscoMark/><small>CISCO · NETWORKING ACADEMY</small></div>
+                    {credential.issuer.includes('Splunk')&&<div className="wallet-partner-mark splunk-mark"><strong>splunk&gt;</strong><small>LEARNING PARTNER</small></div>}
+                    {credential.issuer.includes('OpenEDG')&&<div className="wallet-partner-mark openedg-mark"><strong>OpenEDG</strong><small>EDUCATION PARTNER</small></div>}
+                  </div>
+                </aside>
+                <section className="credential-wallet-verification">
+                  <div className="wallet-panel-heading"><span>02 / CREDENTIAL RECORD</span><h4>بيانات الاعتماد</h4></div>
+                  <div className="wallet-facts">
+                    <div><span>الجهة المانحة</span><strong>{credential.issuer}</strong></div>
+                    <div><span>تاريخ الإصدار</span><strong>{credential.date}</strong></div>
+                    <div><span>الصلاحية</span><strong>لا تنتهي صلاحيتها</strong></div>
+                    <div><span>معرّف الشارة</span><code>{credential.id}</code></div>
+                  </div>
+                  <a className="wallet-verify-button" href={verify} target="_blank" rel="noopener noreferrer">التحقق من الاعتماد على Credly ↗</a>
+                </section>
+                <aside className="wallet-badge-skills-column">
                   <div className="wallet-badge-logo">
                     <span className="credential-panel-label">DIGITAL BADGE · CREDLY</span>
                     <div className="credly-embed-frame credly-embed-frame-compact"><div data-iframe-width="150" data-iframe-height="170" data-share-badge-id={credential.id} data-share-badge-host="https://www.credly.com"></div></div>
                   </div>
-                </div>
-                <div className="wallet-facts">
-                  <div><span>الجهة المانحة</span><strong>{credential.issuer}</strong></div>
-                  <div><span>تاريخ الإصدار</span><strong>{credential.date}</strong></div>
-                  <div><span>الصلاحية</span><strong>لا تنتهي صلاحيتها</strong></div>
-                  <div><span>معرّف الشارة</span><code>{credential.id}</code></div>
-                </div>
-                <a className="wallet-verify-button" href={verify} target="_blank" rel="noopener noreferrer">التحقق من الاعتماد على Credly ↗</a>
-              </aside>
+                  <div className="credential-wallet-skills">
+                    <div className="wallet-panel-heading"><span>03 / SKILLS</span><h4>المهارات المكتسبة</h4></div>
+                    <p className="wallet-skills-description">{credential.description}</p>
+                    <div className="credential-skill-list">{credential.skills.map(skill=><span key={skill}><i>✓</i>{skill}</span>)}</div>
+                  </div>
+                </aside>
+              </div>
             </div>
           </article>;
         })}
