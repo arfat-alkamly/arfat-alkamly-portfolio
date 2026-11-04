@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowUpLeft, ArrowUpRight, ShieldCheck, Code2, FlaskConical, GraduationCap, Fingerprint, Network, Terminal, Github, Linkedin, Award, Compass, Layers3 } from 'lucide-react';
+import { ArrowUpLeft, ArrowUpRight, ShieldCheck, Code2, FlaskConical, GraduationCap, Fingerprint, Network, Terminal, Github, Linkedin, Award, Layers3 } from 'lucide-react';
 import { projects } from '../data/projects';
 import './home.css';
 
@@ -82,7 +82,7 @@ export default function HomePage() {
       <section className="hv-contact">
         <div className="hv-contact-orbit" aria-hidden="true" />
         <div className="hv-contact-content"><p className="hv-kicker">04 / CONNECT & COLLABORATE</p><h2>لنبنِ شيئًا<br /><em>يستحق أن يُؤمَن.</em></h2><p>للتواصل المهني، ومناقشة المشاريع التقنية، والبحث الأمني، وفرص التعاون.</p><Link href="/contact" className="hv-button hv-button-primary">ابدأ التواصل <ArrowUpLeft size={17} /></Link></div>
-        <div className="hv-social-links"><a href="https://github.com/arfat-alkamly" target="_blank" rel="noopener noreferrer"><Github size={18} /> GitHub <ArrowUpRight size={14} /></a><a href="https://www.linkedin.com/in/arfat-alkamly-399676409" target="_blank" rel="noopener noreferrer"><Linkedin size={18} /> LinkedIn <ArrowUpRight size={14} /></a><a href="https://www.credly.com/users/arfat-alkamly" target="_blank" rel="noopener noreferrer"><GraduationCap size={18} /> Credly <ArrowUpRight size={14} /></a></div>
+        <div className="hv-social-links"><a href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="noopener noreferrer" aria-label="ORCID researcher profile"><span className="hv-orcid-mark">iD</span><span>ORCID</span><small>0009-0008-1348-5146</small><ArrowUpRight size={14} /></a><a href="https://github.com/arfat-alkamly" target="_blank" rel="noopener noreferrer"><Github size={18} /> GitHub <ArrowUpRight size={14} /></a><a href="https://www.linkedin.com/in/arfat-alkamly-399676409" target="_blank" rel="noopener noreferrer"><Linkedin size={18} /> LinkedIn <ArrowUpRight size={14} /></a><a href="https://www.credly.com/users/arfat-alkamly" target="_blank" rel="noopener noreferrer"><GraduationCap size={18} /> Credly <ArrowUpRight size={14} /></a></div>
         <div className="hv-contact-index">AK<span> / 2026</span></div>
       </section>
     </main>
