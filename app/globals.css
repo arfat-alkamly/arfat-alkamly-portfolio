@@ -1310,3 +1310,31 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
 .aegis-mission-diagram .ag-maturity-axis{font-size:7px}
 @media(max-width:900px){.aegis-mission-card,.aegis-mission-reverse{grid-template-columns:1fr}.aegis-mission-reverse .aegis-mission-copy,.aegis-mission-reverse .aegis-mission-diagram{grid-column:1;grid-row:auto}.aegis-mission-copy{padding:4px 5px}.aegis-mission-diagram .ag-module-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.aegis-mission-section{padding:35px 0}.aegis-mission-card{gap:12px;margin:16px 0;padding:11px}.aegis-mission-copy h3{font-size:18px}.aegis-mission-diagram .ag-module-core,.aegis-mission-diagram .ag-module-outcomes{grid-template-columns:repeat(2,minmax(0,1fr))}.aegis-mission-diagram .ag-maturity-axis{flex-wrap:wrap;line-height:1.8}.aegis-mission-diagram .ag-maturity-footer{grid-template-columns:1fr 1fr}.aegis-mission-diagram .ag-maturity-footer>div{min-width:0}}
+
+
+/* AEGIS-TITAN — sovereign institutional product positioning and original artwork */
+.aegis-enterprise-vision{position:relative;margin:58px 0;padding:clamp(20px,4vw,46px);border:1px solid rgba(183,155,104,.28);border-radius:15px;background:radial-gradient(ellipse at 85% 10%,rgba(44,124,143,.16),transparent 44%),linear-gradient(145deg,#101e28,#070e15 70%);overflow:hidden}
+.aegis-enterprise-heading{position:relative;z-index:1;max-width:760px}
+.aegis-enterprise-heading>span,.aegis-domain-visual>div>span{color:#bca477;font:700 9px/1.8 ui-monospace,monospace;letter-spacing:.13em}
+.aegis-enterprise-heading h2{margin:14px 0;color:#e6e7df;font-size:clamp(27px,4vw,43px);line-height:1.55}
+.aegis-enterprise-heading h2 em{color:#80cbd5;font-style:normal}
+.aegis-enterprise-heading p{max-width:720px;color:#aab9bc;font-size:12px;line-height:2.1}
+.aegis-enterprise-image{position:relative;margin:24px 0;border:1px solid rgba(105,177,190,.24);border-radius:11px;overflow:hidden;background:#07111a;box-shadow:0 20px 55px rgba(0,0,0,.3)}
+.aegis-enterprise-image img{display:block;width:100%;height:auto;object-fit:cover}
+.aegis-enterprise-pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:24px 0}
+.aegis-enterprise-pillars article{min-width:0;padding:17px 14px;border:1px solid rgba(105,177,190,.2);border-radius:9px;background:linear-gradient(145deg,rgba(20,43,54,.72),rgba(7,17,25,.9))}
+.aegis-enterprise-pillars svg{width:22px;height:22px;color:#80d4df;stroke-width:1.5}
+.aegis-enterprise-pillars b{display:block;margin-top:14px;color:#bda477;font:700 8px ui-monospace,monospace;letter-spacing:.08em}
+.aegis-enterprise-pillars h3{margin:8px 0;color:#e0e7e4;font-size:13px}
+.aegis-enterprise-pillars p{margin:0;color:#9eafb3;font-size:10px;line-height:1.9}
+.aegis-commercial-note{padding:18px 20px;border-inline-start:2px solid #b69b69;background:rgba(183,155,104,.06)}
+.aegis-commercial-note span{color:#c1a978;font:700 8px ui-monospace,monospace;letter-spacing:.12em}
+.aegis-commercial-note p{margin:9px 0 0;color:#b3c0c0;font-size:11px;line-height:2}
+.aegis-domain-visual{display:grid;grid-template-columns:.65fr 1.35fr;align-items:center;gap:24px;margin:50px 0;padding:clamp(18px,3vw,32px);border:1px solid rgba(89,163,181,.2);border-radius:13px;background:linear-gradient(135deg,#0c1922,#050a10)}
+.aegis-domain-visual h2{margin:12px 0;color:#e5e8e2;font-size:clamp(23px,3vw,34px);line-height:1.6}
+.aegis-domain-visual p{color:#a3b2b4;font-size:11px;line-height:2}
+.aegis-domain-visual img{display:block;width:100%;border:1px solid rgba(105,177,190,.2);border-radius:9px}
+.aegis-private-founder h2{font-size:clamp(19px,3vw,28px)}
+.aegis-private-founder p{line-height:1.9}
+@media(max-width:800px){.aegis-enterprise-pillars{grid-template-columns:repeat(2,minmax(0,1fr))}.aegis-domain-visual{grid-template-columns:1fr}.aegis-domain-visual img{max-width:680px;margin:auto}}
+@media(max-width:480px){.aegis-enterprise-vision{margin:34px 0;padding:17px}.aegis-enterprise-pillars{gap:7px}.aegis-enterprise-pillars article{padding:12px 10px}.aegis-enterprise-pillars h3{font-size:12px}.aegis-enterprise-pillars p{font-size:9px}.aegis-commercial-note{padding:14px}}
