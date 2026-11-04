@@ -1338,3 +1338,43 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
 .aegis-private-founder p{line-height:1.9}
 @media(max-width:800px){.aegis-enterprise-pillars{grid-template-columns:repeat(2,minmax(0,1fr))}.aegis-domain-visual{grid-template-columns:1fr}.aegis-domain-visual img{max-width:680px;margin:auto}}
 @media(max-width:480px){.aegis-enterprise-vision{margin:34px 0;padding:17px}.aegis-enterprise-pillars{gap:7px}.aegis-enterprise-pillars article{padding:12px 10px}.aegis-enterprise-pillars h3{font-size:12px}.aegis-enterprise-pillars p{font-size:9px}.aegis-commercial-note{padding:14px}}
+
+
+/* AEGIS-TITAN — refined first-screen hierarchy and strategic overview */
+.aegis-private-hero{min-height:0}
+.aegis-private-grid{min-height:510px}
+.aegis-private-copy{position:relative;z-index:2}
+.aegis-private-copy .aegis-intro{max-width:610px}
+.aegis-emblem-premium{filter:saturate(.9)}
+.aegis-quick-read{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:22px 0 2px;padding-top:17px;border-top:1px solid rgba(112,177,193,.18)}
+.aegis-quick-read article{display:grid;gap:5px;min-width:0;padding:12px 14px;border-inline-start:1px solid rgba(183,155,104,.28);background:linear-gradient(100deg,rgba(31,57,68,.34),transparent)}
+.aegis-quick-read article>span{color:#a88f63;font:700 7px/1.6 ui-monospace,monospace;letter-spacing:.13em}
+.aegis-quick-read article>b{color:#dce8e6;font:700 9px/1.6 ui-monospace,monospace;letter-spacing:.06em;overflow-wrap:anywhere}
+.aegis-quick-read article>small{color:#93a8ad;font-size:9px;line-height:1.7}
+.aegis-private-manifesto{margin-top:34px}
+.aegis-enterprise-vision,.aegis-domain-visual,.aegis-mission-card,.aegis-private-visual{box-shadow:0 20px 55px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.025)}
+.aegis-enterprise-image img{transition:transform .7s cubic-bezier(.2,.75,.25,1)}
+.aegis-enterprise-image:hover img{transform:scale(1.012)}
+.aegis-domain-visual img{transition:filter .3s ease,border-color .3s ease}
+.aegis-domain-visual img:hover{filter:brightness(1.08);border-color:rgba(105,177,190,.4)}
+.aegis-section-head{max-width:760px}
+.aegis-section-head h2{max-width:700px}
+.aegis-private-capabilities article{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.aegis-private-capabilities article:hover{box-shadow:0 18px 38px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.04)}
+@media(max-width:760px){
+ .aegis-private-grid{min-height:0}
+ .aegis-quick-read{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+ .aegis-quick-read article{padding:10px 9px}
+ .aegis-quick-read article>b{font-size:8px}
+ .aegis-quick-read article>small{font-size:8px}
+}
+@media(max-width:420px){
+ .aegis-quick-read{gap:5px}
+ .aegis-quick-read article{padding:9px 7px}
+ .aegis-quick-read article>span{font-size:6px}
+ .aegis-quick-read article>b{font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){
+ .aegis-enterprise-image img,.aegis-domain-visual img{transition:none}
+ .aegis-enterprise-image:hover img{transform:none}
+}
