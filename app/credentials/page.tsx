@@ -90,7 +90,7 @@ export default function CredentialsPage(){
               </section>
               <div className="wallet-detail-row">
                 <aside className="wallet-issuer-column">
-                  <div className="wallet-panel-heading"><span>01 / ISSUERS</span><h4>الجهات المانحة</h4></div>
+                  <div className="wallet-panel-heading"><span>01 / ISSUERS</span><h4>الجهة المانحة والشريك</h4></div>
                   <div className="wallet-issuer-logos wallet-issuer-logos-v3">
                     <div className="wallet-issuer-logo"><CiscoMark/><small>CISCO · NETWORKING ACADEMY</small></div>
                     {credential.issuer.includes('Splunk')&&<div className="wallet-partner-mark splunk-mark"><strong>splunk&gt;</strong><small>LEARNING PARTNER</small></div>}
@@ -98,7 +98,7 @@ export default function CredentialsPage(){
                   </div>
                 </aside>
                 <section className="credential-wallet-verification">
-                  <div className="wallet-panel-heading"><span>02 / CREDENTIAL RECORD</span><h4>بيانات الاعتماد</h4></div>
+                  <div className="wallet-panel-heading"><span>02 / CREDENTIAL RECORD</span><h4>بيانات الاعتماد والتحقق</h4></div>
                   <div className="wallet-facts">
                     <div><span>الجهة المانحة</span><strong>{credential.issuer}</strong></div>
                     <div><span>تاريخ الإصدار</span><strong>{credential.date}</strong></div>
@@ -107,18 +107,20 @@ export default function CredentialsPage(){
                   </div>
                   <a className="wallet-verify-button" href={verify} target="_blank" rel="noopener noreferrer">التحقق من الاعتماد على Credly ↗</a>
                 </section>
-                <aside className="wallet-badge-skills-column">
+                <aside className="wallet-badge-column">
                   <div className="wallet-badge-logo">
                     <span className="credential-panel-label">DIGITAL BADGE · CREDLY</span>
                     <div className="credly-embed-frame credly-embed-frame-compact"><div data-iframe-width="150" data-iframe-height="170" data-share-badge-id={credential.id} data-share-badge-host="https://www.credly.com"></div></div>
                   </div>
-                  <div className="credential-wallet-skills">
-                    <div className="wallet-panel-heading"><span>03 / SKILLS</span><h4>المهارات المكتسبة</h4></div>
-                    <p className="wallet-skills-description">{credential.description}</p>
-                    <div className="credential-skill-list">{credential.skills.map(skill=><span key={skill}><i>✓</i>{skill}</span>)}</div>
-                  </div>
                 </aside>
               </div>
+              <section className="credential-wallet-skills credential-wallet-skills-wide">
+                <div className="wallet-skills-wide-heading">
+                  <span className="skills-symbol">✦</span>
+                  <div><span className="wallet-panel-kicker">03 / SKILLS ACQUIRED</span><h4>المهارات المكتسبة</h4><p>{credential.description}</p></div>
+                </div>
+                <div className="credential-skill-list">{credential.skills.map(skill=><span key={skill}><i>✓</i>{skill}</span>)}</div>
+              </section>
             </div>
           </article>;
         })}
