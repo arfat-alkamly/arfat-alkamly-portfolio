@@ -1,49 +1,90 @@
 import Link from 'next/link';
-import {ArrowUpLeft,ArrowUpRight,ShieldCheck,Code2,FlaskConical,GraduationCap,Fingerprint,Network,Terminal,Layers3} from 'lucide-react';
-import {projects} from '../data/projects';
+import { ArrowUpLeft, ArrowUpRight, ShieldCheck, Code2, FlaskConical, GraduationCap, Fingerprint, Network, Terminal, Github, Linkedin, Award, Compass, Layers3 } from 'lucide-react';
+import { projects } from '../data/projects';
+import './home.css';
 
-const focusAreas=[
- {icon:Fingerprint,title:'البحث الأمني',detail:'تحليل التطبيقات وتدفقات الهوية والتحقق من المدخلات، وصياغة النتائج الفنية بمنهجية قابلة للمراجعة.'},
- {icon:Network,title:'هندسة الأمن الدفاعي',detail:'رصد الشبكات والأنظمة، هندسة الكشف، تحليل التهديدات، والاستجابة للحوادث مع الحفاظ على الأدلة.'},
- {icon:Terminal,title:'هندسة البرمجيات',detail:'تصميم وبناء تطبيقات الويب والأدوات البرمجية، وتنظيم البنية التقنية وتحويل المتطلبات إلى حلول عملية.'}
+const disciplines = [
+  { icon: Fingerprint, number: '01', title: 'البحث الأمني', text: 'مراجعة أمن التطبيقات، تحليل السلوك، دراسة الثغرات، وكتابة الملاحظات الفنية بصورة قابلة للتحقق.' },
+  { icon: Network, number: '02', title: 'الأمن الدفاعي والشبكات', text: 'مفاهيم الرصد والتحليل والاستجابة للحوادث، أمن الشبكات، والتحقيق الجنائي الرقمي.' },
+  { icon: Terminal, number: '03', title: 'هندسة البرمجيات', text: 'بناء تطبيقات وأدوات تقنية، تصميم الحلول، وتنظيم الشيفرات وتحويل الأفكار إلى منتجات عملية.' }
 ];
 
-export default function HomePage(){
- const featured=projects.filter(p=>p.featured);
- return <main className="site-shell">
-  <section className="home-hero">
-   <div className="hero-copy">
-    <span className="eyebrow">CYBERSECURITY · SOFTWARE ENGINEERING · RESEARCH</span>
-    <h1>عرفات الكاملي <span>الأمن السيبراني وهندسة البرمجيات</span></h1>
-    <p>طالب أمن سيبراني في المرحلة النهائية من دراسته الجامعية، أعمل على بناء مشاريع تقنية وتطوير برمجيات، وأركز على البحث الأمني وهندسة الدفاع السيبراني وأمن الشبكات والتحليل الجنائي الرقمي. أقدّم هنا أعمالي ومشاريعي وتوثيقًا تقنيًا لمسارات التطوير.</p>
-    <div className="hero-actions">
-     <a className="button-primary" href="#featured">استعرض أعمالي ومشاريعي <ArrowUpLeft size={17}/></a>
-     <Link className="button-plain" href="/contact">تواصل مهني <ArrowUpRight size={16}/></Link>
-    </div>
-    <div className="hero-social-proof"><span>CYBERSECURITY · FINAL ACADEMIC LEVEL</span><span>YEMEN · INDEPENDENT & COLLABORATIVE WORK</span></div>
-   </div>
-   <div className="hero-mark" aria-label="الهوية التقنية لعرفات الكاملي">
-    <div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/>
-    <div className="hero-shield"><ShieldCheck size={68}/><b>AK</b></div>
-    <span>RESEARCH / ENGINEER / DEFEND</span><small>PROFESSIONAL TECHNICAL PORTFOLIO</small>
-   </div>
-  </section>
-  <section className="home-focus" aria-labelledby="focus-title">
-   <div className="home-section-kicker" id="focus-title"><span>CORE DISCIPLINES</span><span>01 — 03</span></div>
-   <div className="home-focus-grid">
-    {focusAreas.map((item,i)=><article className="focus-card" key={item.title}><div className="focus-card-top"><item.icon size={22}/><span>0{i+1}</span></div><h2>{item.title}</h2><p>{item.detail}</p></article>)}
-   </div>
-  </section>
-  <section className="featured-section" id="featured">
-   <div className="section-heading"><div><span>SELECTED PROJECTS / ENGINEERING WORK</span><h2>المشاريع والأعمال التقنية</h2><p>مشاريع فردية وأكاديمية وتعاونية، موثقة بحسب نطاق كل عمل ودور المساهمة فيه.</p></div><Link href="/projects">استعرض سجل المشاريع الكامل <ArrowUpLeft size={16}/></Link></div>
-   <div className="featured-grid">{featured.map((p,i)=><Link href={'/projects/'+p.slug} className="featured-card" key={p.slug}><span className="card-index">0{i+1} / FEATURED PROJECT</span><h3>{p.name}</h3><b>{p.label}</b><p>{p.summary}</p><div className="tag-row">{p.stack.slice(0,4).map(t=><small key={t}>{t}</small>)}</div><span className="card-link">استكشف المشروع <ArrowUpLeft size={16}/></span></Link>)}</div>
-   <Link href="/projects" className="all-projects">استعرض سجل المشاريع ({projects.length} مشروعًا) <ArrowUpLeft size={18}/></Link>
-  </section>
-  <section className="overview-grid">
-   <Link href="/skills"><Code2/><span>01 / TECHNICAL SKILLS</span><h3>المهارات والتقنيات</h3><p>مجالات العمل واللغات والأطر وأدوات الأمن والأنظمة.</p></Link>
-   <Link href="/labs"><FlaskConical/><span>02 / TECHNICAL PRACTICE</span><h3>الممارسة التقنية</h3><p>تطبيقات عملية ومسارات بحث وتحليل أمني.</p></Link>
-   <Link href="/credentials"><GraduationCap/><span>03 / EDUCATION & CREDENTIALS</span><h3>التعليم والشهادات</h3><p>المسار الأكاديمي والشهادات والدورات والإنجازات.</p></Link>
-  </section>
-  <section className="home-cta"><div><span>LET’S BUILD SECURE SYSTEMS</span><h2>فرص تعاون ومشاريع تقنية</h2><p>للتواصل حول هندسة الأمن السيبراني والبحث الأمني وتطوير البرمجيات.</p></div><Link href="/contact" className="button-primary">تواصل معي <ArrowUpLeft size={17}/></Link></section>
- </main>;
+const skillGroups = [
+  { title: 'Cybersecurity', detail: 'Defensive Security · Security Research · DFIR · Network Security' },
+  { title: 'Development', detail: 'Python · C# · Dart / Flutter · JavaScript · SQL' },
+  { title: 'Systems & Tools', detail: 'Linux · Kali Linux · Wireshark · Cisco · Git & GitHub' }
+];
+
+export default function HomePage() {
+  const featured = projects.filter((project) => project.featured).slice(0, 3);
+
+  return (
+    <main className="home-v2">
+      <section className="hv-hero" aria-labelledby="home-title">
+        <div className="hv-hero-grid" aria-hidden="true" />
+        <div className="hv-hero-copy">
+          <div className="hv-overline"><span className="hv-live-dot" /> INDEPENDENT TECHNOLOGY PORTFOLIO <span className="hv-overline-line" /></div>
+          <p className="hv-role">CYBERSECURITY <i>×</i> SOFTWARE ENGINEERING</p>
+          <h1 id="home-title">عرفات <span>الكاملي</span></h1>
+          <h2>Building Systems.<br /><em>Securing the Future.</em></h2>
+          <p className="hv-intro">طالب أمن سيبراني وشبكات، ومطوّر مشاريع تقنية مستقل. أهتم بالبحث الأمني، وهندسة الدفاع السيبراني، وبناء البرمجيات والأنظمة التي تجمع بين الفكرة والتنفيذ.</p>
+          <div className="hv-actions">
+            <Link href="/projects" className="hv-button hv-button-primary">استكشف المشاريع <ArrowUpLeft size={17} /></Link>
+            <Link href="/about" className="hv-button hv-button-ghost">اكتشف مساري <ArrowUpRight size={16} /></Link>
+          </div>
+          <div className="hv-hero-meta"><span>YEMEN</span><b /> <span>CYBERSECURITY & NETWORKS</span><b /> <span>LEVEL 3</span></div>
+        </div>
+        <div className="hv-hero-visual" aria-label="رمز بصري لهوية عرفات الكاملي التقنية">
+          <div className="hv-visual-top"><span>AK / 01</span><span>ENGINEERING PROFILE</span></div>
+          <div className="hv-radar hv-radar-a" /><div className="hv-radar hv-radar-b" /><div className="hv-radar hv-radar-c" />
+          <div className="hv-cross hv-cross-one" /><div className="hv-cross hv-cross-two" />
+          <div className="hv-monogram"><ShieldCheck size={58} strokeWidth={1.15} /><strong>AK</strong></div>
+          <div className="hv-visual-caption"><span>RESEARCH</span><span>BUILD</span><span>DEFEND</span></div>
+          <div className="hv-visual-foot"><span>PERSONAL ENGINEERING ARCHIVE</span><span>EST. 2024</span></div>
+        </div>
+        <div className="hv-scroll-cue"><span /> SCROLL TO EXPLORE</div>
+      </section>
+
+      <section className="hv-disciplines" aria-labelledby="disciplines-title">
+        <div className="hv-section-top"><span>01 / AREAS OF FOCUS</span><span>CORE DISCIPLINES</span></div>
+        <div className="hv-section-intro"><div><p className="hv-kicker">WHAT I WORK ON</p><h2 id="disciplines-title">ثلاثة مسارات،<br /><em>رؤية هندسية واحدة.</em></h2></div><p>أجمع بين فهم الأنظمة، التفكير الأمني، والتطوير البرمجي لبناء حلول تقنية مدروسة.</p></div>
+        <div className="hv-discipline-grid">
+          {disciplines.map((item) => <article className="hv-discipline-card" key={item.number}><div className="hv-card-head"><item.icon size={23} strokeWidth={1.5} /><span>{item.number}</span></div><h3>{item.title}</h3><p>{item.text}</p><div className="hv-card-rule" /></article>)}
+        </div>
+      </section>
+
+      <section className="hv-work" id="featured" aria-labelledby="work-title">
+        <div className="hv-section-top"><span>02 / SELECTED WORK</span><span>ENGINEERING ARCHIVE</span></div>
+        <div className="hv-section-intro"><div><p className="hv-kicker">BUILT WITH INTENT</p><h2 id="work-title">من الفكرة<br /><em>إلى التنفيذ.</em></h2></div><div className="hv-work-aside"><p>نماذج مختارة من المشاريع الشخصية والأكاديمية والتعاونية. لكل مشروع نطاقه ودوره وتوثيقه.</p><Link href="/projects">عرض جميع المشاريع <ArrowUpLeft size={16} /></Link></div></div>
+        <div className="hv-project-grid">
+          {featured.map((project, index) => <Link href={'/projects/' + project.slug} className={'hv-project-card hv-project-' + (index + 1)} key={project.slug}>
+            <div className="hv-project-top"><span>0{index + 1} / FEATURED</span><ArrowUpLeft size={18} /></div>
+            <div className="hv-project-symbol">{index === 0 ? <ShieldCheck size={36} /> : index === 1 ? <Code2 size={34} /> : <Layers3 size={34} />}</div>
+            <div className="hv-project-copy"><span className="hv-project-label">{project.label}</span><h3>{project.name}</h3><p>{project.summary}</p></div>
+            <div className="hv-project-bottom"><span>{project.stack.slice(0, 3).join(' / ')}</span><b>EXPLORE <ArrowUpLeft size={14} /></b></div>
+          </Link>)}
+        </div>
+      </section>
+
+      <section className="hv-capabilities" aria-labelledby="capabilities-title">
+        <div className="hv-section-top"><span>03 / TECHNICAL CAPABILITIES</span><span>TOOLS & METHODS</span></div>
+        <div className="hv-cap-layout"><div><p className="hv-kicker">TECHNICAL FOUNDATION</p><h2 id="capabilities-title">معرفة تقنية<br /><em>تتحول إلى ممارسة.</em></h2><p className="hv-cap-intro">مجالات وأدوات أعمل على توظيفها في المشاريع والتطبيق العملي، مع تطوير مستمر للمهارات.</p><Link href="/skills" className="hv-text-link">استعراض المهارات والتقنيات <ArrowUpLeft size={16} /></Link></div>
+          <div className="hv-skill-list">{skillGroups.map((group, index) => <div className="hv-skill-row" key={group.title}><span>0{index + 1}</span><div><h3>{group.title}</h3><p>{group.detail}</p></div><ArrowUpLeft size={17} /></div>)}</div>
+        </div>
+      </section>
+
+      <section className="hv-credentials">
+        <div className="hv-credential-icon"><Award size={29} /></div>
+        <div><p className="hv-kicker">LEARNING / VALIDATION</p><h2>التعلّم المستمر،<em> والتوثيق المهني.</em></h2><p>مسار أكاديمي في الأمن السيبراني والشبكات، إلى جانب شهادات تقنية ودورات موثقة.</p></div>
+        <Link href="/credentials" className="hv-button hv-button-ghost">الشهادات والمؤهلات <ArrowUpLeft size={16} /></Link>
+      </section>
+
+      <section className="hv-contact">
+        <div className="hv-contact-orbit" aria-hidden="true" />
+        <div className="hv-contact-content"><p className="hv-kicker">04 / CONNECT & COLLABORATE</p><h2>لنبنِ شيئًا<br /><em>يستحق أن يُؤمَن.</em></h2><p>للتواصل المهني، ومناقشة المشاريع التقنية، والبحث الأمني، وفرص التعاون.</p><Link href="/contact" className="hv-button hv-button-primary">ابدأ التواصل <ArrowUpLeft size={17} /></Link></div>
+        <div className="hv-social-links"><a href="https://github.com/arfat-alkamly" target="_blank" rel="noopener noreferrer"><Github size={18} /> GitHub <ArrowUpRight size={14} /></a><a href="https://www.linkedin.com/in/arfat-alkamly-399676409" target="_blank" rel="noopener noreferrer"><Linkedin size={18} /> LinkedIn <ArrowUpRight size={14} /></a><a href="https://www.credly.com/users/arfat-alkamly" target="_blank" rel="noopener noreferrer"><GraduationCap size={18} /> Credly <ArrowUpRight size={14} /></a></div>
+        <div className="hv-contact-index">AK<span> / 2026</span></div>
+      </section>
+    </main>
+  );
 }
