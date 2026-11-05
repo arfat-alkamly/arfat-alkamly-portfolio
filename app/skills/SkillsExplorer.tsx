@@ -1,7 +1,7 @@
 "use client";
 import {useMemo,useState} from 'react';
 import Link from 'next/link';
-import {ArrowUpLeft,Braces,Code2,Database,Network,Search,ShieldCheck,Terminal,Workflow,Layers3,FileSearch,Activity,ChevronDown,ExternalLink,Cloud,LockKeyhole,ScanSearch,GitBranch,Server,Cpu,BookOpenCheck} from 'lucide-react';
+import {ArrowUpLeft,Braces,Code2,Database,Network,Search,ShieldCheck,Terminal,Workflow,Layers3,FileSearch,Activity,ChevronDown,ExternalLink,ScanSearch,Server,BookOpenCheck} from 'lucide-react';
 import type {LucideIcon} from 'lucide-react';
 import {projects} from '../../data/projects';
 
