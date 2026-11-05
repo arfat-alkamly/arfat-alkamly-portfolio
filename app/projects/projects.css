@@ -100,7 +100,7 @@
 /* Professional project detail modal — scoped to the projects archive. */
 .portfolio-project-card{width:100%;text-align:right;color:inherit;font:inherit;cursor:pointer;appearance:none;text-decoration:none;transition:transform .22s,border-color .22s,background .22s,box-shadow .22s}
 .portfolio-project-card:focus-visible,.portfolio-featured-footer>button:focus-visible,.project-modal button:focus-visible,.project-modal a:focus-visible{outline:2px solid #75d2e2;outline-offset:3px}
-.portfolio-featured-footer>button{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;padding:10px 13px;border:1px solid rgba(100,196,213,.38);border-radius:6px;background:rgba(39,119,141,.15);color:#d9f4f7;font:700 11px inherit;cursor:pointer}
+.portfolio-featured-footer>button{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;padding:10px 13px;border:1px solid rgba(100,196,213,.38);border-radius:6px;background:rgba(39,119,141,.15);color:#d9f4f7;font-size:11px;font-weight:700;cursor:pointer}
 .portfolio-featured-footer>button:hover{transform:translateY(-2px);background:rgba(39,119,141,.26);border-color:rgba(100,196,213,.65)}
 .project-modal-backdrop{position:fixed;inset:0;z-index:1200;display:grid;place-items:center;padding:22px;background:rgba(2,8,14,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);animation:project-modal-fade .2s ease-out}
 .project-modal{width:min(880px,100%);max-height:min(90vh,900px);overflow:auto;border:1px solid rgba(105,190,207,.34);border-radius:17px;background:linear-gradient(145deg,#142633 0%,#0b1722 62%,#09131d 100%);box-shadow:0 34px 110px rgba(0,0,0,.62),inset 0 1px rgba(255,255,255,.045);color:#eaf1f1;animation:project-modal-rise .24s ease-out;overscroll-behavior:contain}
