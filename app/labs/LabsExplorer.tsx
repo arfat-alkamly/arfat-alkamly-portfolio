@@ -348,7 +348,7 @@ export default function LabsExplorer() {
         <div className="lx-category" aria-label="تصفية حسب التصنيف">{categories.map(c=><button key={c} type="button" className={category===c?'active':''} onClick={()=>{setCategory(c);setSelected('');setActiveBranch(null)}}>{c}</button>)}</div>
       </div>
       <div className="lx-lab-grid">
-        {visible.map((lab,i)=>{const Icon=lab.Icon;return <button key={lab.id} type="button" className={'lx-lab-card'+(selected===lab.id?' active':'')} onClick={()=>{setSelected(lab.id);setActiveBranch(null)}} aria-expanded={selected===lab.id}>
+        {visible.map(lab=>{const Icon=lab.Icon;return <button key={lab.id} type="button" className={'lx-lab-card'+(selected===lab.id?' active':'')} onClick={()=>{setSelected(lab.id);setActiveBranch(null)}} aria-expanded={selected===lab.id}>
           <div className="lx-card-top"><i className="lx-card-icon"><Icon/></i><span className="lx-card-number">LAB / {String(labs.findIndex(x=>x.id===lab.id)+1).padStart(2,'0')}</span></div>
           <h3>{lab.name}</h3><span className="en">{lab.en}</span><p>{lab.summary}</p>
           <div className="lx-card-bottom"><span>{lab.category} · {lab.status}</span><b>{selected===lab.id?'المعمل محدد':'استعراض المسارات'} <ChevronDown/></b></div>
@@ -359,7 +359,7 @@ export default function LabsExplorer() {
       {current&&selected===current.id&&<section className="lx-branch-panel" aria-live="polite">
         <header className="lx-branch-head"><div><small>02 / SPECIALIZED BRANCHES</small><h3>{current.name}</h3><p>اختر أحد المسارات الثلاثة لفتح تفاصيله.</p></div><span className="lx-card-number">03 BRANCHES</span></header>
         <div className="lx-branch-grid">
-          {branches.map((branch,i)=>{const Icon=branch.Icon;return <button key={branch.id} type="button" className="lx-branch-card" onClick={()=>openBranch(branch.id)}>
+          {branches.map(branch=>{const Icon=branch.Icon;return <button key={branch.id} type="button" className="lx-branch-card" onClick={()=>openBranch(branch.id)}>
             <i><Icon/></i><span><b>{branch.title}</b><small>{branch.en}</small></span><ChevronRight/>
           </button>})}
         </div>
