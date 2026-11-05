@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import {
   Activity, ArrowUpLeft, Bug, CheckCircle2, ChevronDown, Code2, FileSearch,
   FlaskConical, LockKeyhole, Network, Search, Shield, ShieldCheck,
@@ -125,6 +126,6 @@ export default function LabsExplorer() {
     </section>
     <section className="labx-method"><div><span>02 / EXPERIMENTAL METHOD</span><h2>منهجية ثابتة لكل تجربة</h2><p>المعمل الجيد لا يقتصر على تشغيل أداة؛ بل يبدأ بنطاق واضح، وبيئة قابلة للاسترجاع، وملاحظة قابلة للتحقق، ثم توثيق يشرح ما حدث وما لا يمكن استنتاجه.</p></div><div className="labx-method-grid"><article><i>01</i><b>Scope</b><small>تحديد النطاق والتصريح</small></article><article><i>02</i><b>Isolate</b><small>تجهيز البيئة والعزل</small></article><article><i>03</i><b>Observe</b><small>تنفيذ ومراقبة التجربة</small></article><article><i>04</i><b>Document</b><small>توثيق الأدلة والنتائج</small></article></div></section>
     <aside className="labx-note"><ShieldCheck/><p><b>ملاحظة مهنية:</b> حالة «مسار تعلم» أو «قيد التصميم» تصف وضع المعمل، ولا تعني اكتمال تجربة أو وجود تقرير منشور. ستُضاف روابط التقارير ونتائج الاختبارات عند توفر توثيق فعلي قابل للمراجعة.</p></aside>
-    <footer className="labx-footer"><span>ARFAT ALKAMALI / APPLIED LABS</span><b>Building Systems. Securing the Future.</b><a href="/projects">استعراض المشاريع <ArrowUpLeft/></a></footer>
+    <footer className="labx-footer"><span>ARFAT ALKAMALI / APPLIED LABS</span><b>Building Systems. Securing the Future.</b><Link href="/projects">استعراض المشاريع <ArrowUpLeft/></Link></footer>
   </main>;
 }
