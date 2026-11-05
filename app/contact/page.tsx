@@ -33,7 +33,7 @@ export default function ContactPage(){
     </div>
    </div>
    <div className={styles.heroMark} aria-label="رمز الهوية AK">
-    <div className={styles.orbit orbitOne}/><div className={styles.orbit orbitTwo}/>
+    <div className={`${styles.orbit} ${styles.orbitOne}`}/><div className={`${styles.orbit} ${styles.orbitTwo}`}/>
     <div className={styles.markCore}><span>AK</span><small>CONNECT / 01</small></div>
     <div className={styles.markFoot}>BUILDING SYSTEMS.<br/>SECURING THE FUTURE.</div>
    </div>
