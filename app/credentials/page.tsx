@@ -1,5 +1,4 @@
 import type {Metadata} from 'next';
-import Script from 'next/script';
 import CertificatePreview from './CertificatePreview';
 
 export const metadata:Metadata={
@@ -34,98 +33,71 @@ const previewFiles=[
 ];
 const credlyBase='https://www.credly.com/badges/';
 
-function CiscoMark(){
-  return <div className="cisco-brand-mark" aria-label="Cisco">
-    <svg viewBox="0 0 150 78" role="img" aria-hidden="true">
-      <g fill="currentColor">
-        <rect x="12" y="14" width="5" height="18" rx="2"/><rect x="27" y="5" width="5" height="27" rx="2"/>
-        <rect x="42" y="18" width="5" height="14" rx="2"/><rect x="57" y="1" width="5" height="31" rx="2"/>
-        <rect x="72" y="12" width="5" height="20" rx="2"/><rect x="87" y="1" width="5" height="31" rx="2"/>
-        <rect x="102" y="18" width="5" height="14" rx="2"/><rect x="117" y="5" width="5" height="27" rx="2"/>
-        <rect x="132" y="14" width="5" height="18" rx="2"/>
-      </g>
-      <text x="75" y="67" textAnchor="middle" fill="currentColor" fontSize="25" fontWeight="800" letterSpacing="4">CISCO</text>
-    </svg>
-  </div>;
-}
-
 export default function CredentialsPage(){
   return <main className="content-page credentials-page">
-    <Script src="https://cdn.credly.com/assets/utilities/embed.js" strategy="lazyOnload" />
     <header className="credentials-hero">
-      <div className="credentials-brand"><CiscoMark/><span></span></div>
       <div className="credentials-hero-copy">
         <span className="eyebrow">VERIFIED PROFESSIONAL CREDENTIALS</span>
-        <h1>الشهادات والشارات الرقمية</h1>
-        <p>سجل الإنجازات التعليمية والمهارات المكتسبة من برامج Cisco، مع شارات Credly الرقمية ووثائق الشهادات الأصلية.</p>
+        <h1>الشهادات والاعتمادات المهنية</h1>
+        <p>سجل موثق للشهادات التعليمية والمهارات المكتسبة، مع عرض صور الشهادات الأصلية وإمكانية التحقق من كل اعتماد عبر Credly.</p>
       </div>
-      <div className="credentials-verified"><span>✓</span> شهادات موثقة</div>
+      <div className="credentials-verified"><span>✓</span> 9 شهادات موثقة</div>
     </header>
+
     <section className="credentials-section" aria-labelledby="cisco-credentials-title">
       <div className="credentials-section-heading">
-        <div><span className="eyebrow">CISCO NETWORKING ACADEMY · CREDLY</span><h2 id="cisco-credentials-title">الشهادات والشارات المهنية</h2></div>
-        <span className="credentials-count">09 CREDENTIALS</span>
+        <div><span className="eyebrow">CISCO NETWORKING ACADEMY · CREDLY</span><h2 id="cisco-credentials-title">سجل الشهادات</h2></div>
+        <span className="credentials-count">09 CERTIFICATES</span>
       </div>
       <div className="credentials-list credentials-wallet-list">
         {credentials.map((credential,i)=>{
           const pdf=pdfBase+credential.file;
           const verify=credlyBase+credential.id+'/public_url';
-          return <article className="credential-showcase credential-wallet" key={credential.id}>
-            <div className="credential-showcase-head credential-wallet-head">
+          return <article className="credential-showcase credential-wallet credential-record-card" key={credential.id}>
+            <header className="credential-showcase-head credential-wallet-head">
               <div className="credential-title-block">
-                <span className="credential-index">CREDENTIAL / {String(i+1).padStart(2,'0')}</span>
+                <span className="credential-index">CERTIFICATE / {String(i+1).padStart(2,'0')}</span>
                 <h3>{credential.name}</h3>
-                <p>Verified digital credential · {credential.date}</p>
+                <p>{credential.issuer} · {credential.date}</p>
               </div>
-              <span className="credential-status"><i>✓</i> اعتماد موثق</span>
-            </div>
-            <div className="credential-wallet-grid credential-wallet-grid-v3">
-              <section className="credential-wallet-document" aria-label={'وثيقة '+credential.name}>
-                <div className="wallet-document-heading"><span>OFFICIAL CERTIFICATE</span><span>ORIGINAL DOCUMENT · PDF</span></div>
-                <div className="certificate-document-preview"><CertificatePreview file={pdf} image={previewFiles[i]} title={credential.name} /></div>
-                <div className="certificate-actions">
-                  <a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF ↓</a>
-                  <a href={verify} target="_blank" rel="noopener noreferrer">عرض الشهادة ↗</a>
+              <span className="credential-status"><i>✓</i> شهادة موثقة</span>
+            </header>
+
+            <div className="credential-record-layout">
+              <section className="credential-record-document" aria-label={'وثيقة '+credential.name}>
+                <div className="wallet-document-heading"><span>ORIGINAL CERTIFICATE</span><span>OFFICIAL DOCUMENT</span></div>
+                <div className="certificate-document-preview">
+                  <CertificatePreview file={pdf} image={previewFiles[i]} title={credential.name} />
+                </div>
+                <div className="credential-record-actions">
+                  <a className="wallet-verify-button" href={verify} target="_blank" rel="noopener noreferrer">التحقق من الشهادة عبر Credly ↗</a>
+                  <a className="credential-pdf-link" href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل ملف الشهادة PDF ↓</a>
                 </div>
               </section>
-              <div className="wallet-detail-row">
-                <aside className="wallet-issuer-column">
-                  <div className="wallet-panel-heading"><span>01 / ISSUERS</span><h4>الجهة المانحة والشريك</h4></div>
-                  <div className="wallet-issuer-logos wallet-issuer-logos-v3">
-                    <div className="wallet-issuer-logo"><CiscoMark/><small>CISCO · NETWORKING ACADEMY</small></div>
-                    {credential.issuer.includes('Splunk')&&<div className="wallet-partner-mark splunk-mark"><strong>splunk&gt;</strong><small>LEARNING PARTNER</small></div>}
-                    {credential.issuer.includes('OpenEDG')&&<div className="wallet-partner-mark openedg-mark"><strong>OpenEDG</strong><small>EDUCATION PARTNER</small></div>}
-                  </div>
-                </aside>
+
+              <div className="credential-record-details">
                 <section className="credential-wallet-verification">
-                  <div className="wallet-panel-heading"><span>02 / CREDENTIAL RECORD</span><h4>بيانات الاعتماد والتحقق</h4></div>
+                  <div className="wallet-panel-heading"><span>01 / CERTIFICATE RECORD</span><h4>بيانات الشهادة</h4></div>
                   <div className="wallet-facts">
                     <div><span>الجهة المانحة</span><strong>{credential.issuer}</strong></div>
                     <div><span>تاريخ الإصدار</span><strong>{credential.date}</strong></div>
                     <div><span>الصلاحية</span><strong>لا تنتهي صلاحيتها</strong></div>
-                    <div><span>معرّف الشارة</span><code>{credential.id}</code></div>
+                    <div><span>معرّف الاعتماد</span><code>{credential.id}</code></div>
                   </div>
-                  <a className="wallet-verify-button" href={verify} target="_blank" rel="noopener noreferrer">التحقق من الاعتماد على Credly ↗</a>
                 </section>
-                <aside className="wallet-badge-column">
-                  <div className="wallet-badge-logo">
-                    <span className="credential-panel-label">DIGITAL BADGE · CREDLY</span>
-                    <div className="credly-embed-frame credly-embed-frame-compact"><div data-iframe-width="150" data-iframe-height="170" data-share-badge-id={credential.id} data-share-badge-host="https://www.credly.com"></div></div>
+                <section className="credential-wallet-skills credential-wallet-skills-wide">
+                  <div className="wallet-skills-wide-heading">
+                    <span className="skills-symbol">✦</span>
+                    <div><span className="wallet-panel-kicker">02 / SKILLS ACQUIRED</span><h4>المهارات المكتسبة</h4><p>{credential.description}</p></div>
                   </div>
-                </aside>
+                  <div className="credential-skill-list">{credential.skills.map(skill=><span key={skill}><i>✓</i>{skill}</span>)}</div>
+                </section>
               </div>
-              <section className="credential-wallet-skills credential-wallet-skills-wide">
-                <div className="wallet-skills-wide-heading">
-                  <span className="skills-symbol">✦</span>
-                  <div><span className="wallet-panel-kicker">03 / SKILLS ACQUIRED</span><h4>المهارات المكتسبة</h4><p>{credential.description}</p></div>
-                </div>
-                <div className="credential-skill-list">{credential.skills.map(skill=><span key={skill}><i>✓</i>{skill}</span>)}</div>
-              </section>
             </div>
           </article>;
         })}
       </div>
     </section>
-    <p className="disclaimer">تُعرض بيانات كل اعتماد وفق المعلومات المتاحة في سجل الشارة. روابط Credly مخصصة للتحقق من صحة الاعتماد، وملفات PDF هي نسخ الشهادات المرفقة.</p>
+    <p className="disclaimer">صور الشهادات المعروضة مأخوذة من وثائق الشهادات المحفوظة في المستودع. زر «التحقق من الشهادة عبر Credly» يفتح سجل الاعتماد للتحقق من مصدره وصحته. لا تُستخدم صور شارات بديلة أو خلفيات مصممة بدل الشارات الرسمية.</p>
   </main>;
 }
