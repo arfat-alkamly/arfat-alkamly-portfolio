@@ -2,6 +2,7 @@
 
 import {useEffect,useMemo,useState} from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {projects,Project,ProjectCategory} from '../../data/projects';
 import {
   ArrowLeft,ArrowUpLeft,ArrowUpRight,Code2,FolderGit2,
@@ -78,6 +79,28 @@ export default function ProjectsPage(){
           <button type="button" onClick={()=>setSelectedProject(featured)}>استكشف المنظومة <ArrowUpLeft size={17}/></button>
         </div>
       </div>
+    </section>}
+
+    {featuredVisible&&<section className="portfolio-aegis-gallery" aria-labelledby="aegis-gallery-title">
+      <div className="portfolio-aegis-gallery-heading">
+        <div><span>AEGIS-TITAN / VISUAL ENGINEERING NOTES</span><h2 id="aegis-gallery-title">لمحة عن التصور الهندسي</h2><p>مخططات توضيحية عالية المستوى تساعد على فهم مجالات المنظومة؛ ولا تمثل واجهات تشغيل فعلية أو كشفًا للبنية الداخلية.</p></div>
+        <span className="portfolio-aegis-gallery-index">VISUAL ARCHIVE / 03</span>
+      </div>
+      <div className="portfolio-aegis-gallery-grid">
+        <article className="portfolio-aegis-visual-card">
+          <div className="portfolio-aegis-visual-frame"><Image src="/images/aegis/defensive-command-environment.svg" alt="تصور توضيحي لبيئة القيادة الدفاعية في AEGIS-TITAN" fill sizes="(max-width: 650px) 92vw, (max-width: 1000px) 45vw, 30vw" /></div>
+          <div><span>01 / COMMAND ENVIRONMENT</span><h3>بيئة القيادة الدفاعية</h3><p>تصور بصري لمشهد عمليات دفاعية ومتابعة الإشارات.</p></div>
+        </article>
+        <article className="portfolio-aegis-visual-card">
+          <div className="portfolio-aegis-visual-frame"><Image src="/images/aegis/defense-domain.svg" alt="مخطط توضيحي لمجالات الدفاع السيبراني" fill sizes="(max-width: 650px) 92vw, (max-width: 1000px) 45vw, 30vw" /></div>
+          <div><span>02 / DEFENSE DOMAINS</span><h3>مجالات الدفاع السيبراني</h3><p>عرض مفاهيمي للمجالات الدفاعية التي تتكامل ضمن الرؤية العامة.</p></div>
+        </article>
+        <article className="portfolio-aegis-visual-card">
+          <div className="portfolio-aegis-visual-frame"><Image src="/images/aegis/enterprise-operations.svg" alt="تصور توضيحي للعمليات المؤسسية" fill sizes="(max-width: 650px) 92vw, (max-width: 1000px) 45vw, 30vw" /></div>
+          <div><span>03 / ENTERPRISE OPERATIONS</span><h3>العمليات المؤسسية</h3><p>تصور للعلاقة بين الرؤية التشغيلية والتنظيم المؤسسي.</p></div>
+        </article>
+      </div>
+      <Link href="/projects/aegis-titan" className="portfolio-aegis-gallery-link">استعراض الملف الهندسي الكامل لـ AEGIS-TITAN <ArrowUpLeft size={16}/></Link>
     </section>}
 
     <section className="portfolio-archive-collection" id="project-collection">
