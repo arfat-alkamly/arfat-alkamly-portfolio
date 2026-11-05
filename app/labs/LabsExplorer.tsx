@@ -372,6 +372,7 @@ export default function LabsExplorer() {
         </button>})}
         {visible.length===0&&<div className="lx-empty">لا توجد نتائج مطابقة. جرّب كلمة بحث أخرى.</div>}
       </div>
+    </section>
 
     {current&&selectedBranch&&<div className="lx-modal-backdrop" role="presentation" onMouseDown={e=>{if(e.target===e.currentTarget)closeBranch()}}>
       <section className="lx-modal" role="dialog" aria-modal="true" aria-labelledby="lx-modal-heading">
