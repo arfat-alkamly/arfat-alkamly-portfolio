@@ -334,7 +334,6 @@ export default function LabsExplorer() {
       @media(max-width:1000px){.lx-lab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lx-hero{grid-template-columns:1fr  .8fr}.lx-workspace{grid-template-columns:1fr}}
       @media(max-width:700px){.labx-page{padding:14px 10px 44px}.lx-mast{font-size:7px;letter-spacing:.04em}.lx-live{font-size:6px}.lx-hero{grid-template-columns:1fr;padding:24px 0 18px}.lx-architecture{min-height:175px}.lx-node{padding:7px}.lx-node.n1,.lx-node.n3{left:9px}.lx-node.n2,.lx-node.n4{right:9px}.lx-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:18px}.lx-metric{padding:10px}.lx-metric b{font-size:18px}.lx-metric span{font-size:8px}.lx-directory-head{padding:15px;display:block}.lx-toolsbar{padding:12px;display:grid}.lx-search{max-width:none}.lx-category{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.lx-category button{white-space:nowrap}.lx-lab-grid{grid-template-columns:1fr;padding:11px;gap:8px}.lx-lab-card{min-height:0;padding:13px}.lx-card-top{margin-bottom:9px}.lx-card-icon{width:39px;height:39px}.lx-lab-card p{margin:7px 0 10px}.lx-branch-panel{margin:0 11px 11px;padding:12px}.lx-branch-grid{grid-template-columns:1fr}.lx-branch-card{padding:11px}.lx-modal-backdrop{padding:9px;align-items:end}.lx-modal{width:100%;max-height:92vh;border-radius:13px 13px 9px 9px}.lx-modal-head{padding:12px}.lx-modal-body{padding:13px}.lx-modal-grid{grid-template-columns:1fr}.lx-modal-title h2{font-size:14px}.lx-modal-intro{font-size:10px}}
       @media(prefers-reduced-motion:reduce){.lx-lab-card,.lx-branch-card{transition:none}}
-    `}
       /* Clear, accessible selectors for lab information and detail panels */
       .lx-category button{border:1px solid rgba(125,158,160,.24);background:linear-gradient(145deg,rgba(25,43,50,.78),rgba(12,23,29,.92));color:#b5c4c0;padding:8px 12px;transition:background .2s,border-color .2s,color .2s,transform .2s}
       .lx-category button:hover{border-color:rgba(203,177,125,.58);background:#172a31;color:#f0dfb8;transform:translateY(-1px)}
@@ -349,6 +348,7 @@ export default function LabsExplorer() {
       .lx-branch-card:hover{transform:translateY(-2px);border-color:rgba(203,177,125,.62);box-shadow:0 8px 20px rgba(0,0,0,.18)}
       @media(max-width:700px){.lx-modal-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.lx-modal-tabs button{min-width:0;padding:9px 5px;font-size:9px}.lx-category button{padding:8px 11px}}
       @media(prefers-reduced-motion:reduce){.lx-modal-tabs button,.lx-category button,.lx-branch-card{transition:none}.lx-modal-tabs button:hover,.lx-category button:hover,.lx-branch-card:hover{transform:none}}
+    `}
 </style>
 
     <div className="lx-mast"><span>ARFAT ALKAMALI <b>/</b> ENGINEERING DIVISION</span><span className="lx-live"><i/> LAB SYSTEM <b>·</b> CONTROLLED ENVIRONMENTS</span></div>
