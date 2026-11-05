@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import {ArrowLeft,ArrowUpLeft,ArrowUpRight,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageSquareText,Microscope,ShieldCheck} from 'lucide-react';
+import {ArrowLeft,ArrowUpLeft,ArrowUpRight,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send,ShieldCheck} from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
@@ -14,7 +14,9 @@ const channels=[
  {name:'GitHub',detail:'المشاريع والشيفرات البرمجية',value:'arfat-alkamly',href:'https://github.com/arfat-alkamly',icon:Github,kind:'code'},
  {name:'Email',detail:'للاستفسارات والرسائل المباشرة',value:'alkamlyrfat@gmail.com',href:'mailto:alkamlyrfat@gmail.com',icon:Mail,kind:'email'},
  {name:'ORCID',detail:'الهوية والسجل البحثي',value:'0009-0008-1348-5146',href:'https://orcid.org/0009-0008-1348-5146',icon:Microscope,kind:'research'},
- {name:'Credly',detail:'الشارات والاعتمادات المهنية',value:'عرض الشهادات الرقمية',href:'https://www.credly.com/users/arfat-alkamly',icon:GraduationCap,kind:'credentials'}
+ {name:'Credly',detail:'الشارات والاعتمادات المهنية',value:'عرض الشهادات الرقمية',href:'https://www.credly.com/users/arfat-alkamly',icon:GraduationCap,kind:'credentials'},
+ {name:'WhatsApp',detail:'تواصل مباشر عبر واتساب',value:'إرسال رسالة مباشرة',href:'https://wa.me/967772814959?text='+encodeURIComponent('مرحباً عرفات، تواصلت معك عبر موقعك المهني.'),icon:MessageCircle,kind:'messaging'},
+ {name:'Telegram',detail:'التواصل عبر تيليجرام',value:'@A_AB_ALK',href:'https://t.me/A_AB_ALK',icon:Send,kind:'messaging'}
 ];
 
 export default function ContactPage(){
@@ -41,7 +43,7 @@ export default function ContactPage(){
   </section>
 
   <section className={styles.channelsSection} aria-labelledby="channels-title">
-   <div className={styles.sectionHeading}><div><span className={styles.sectionIndex}>01 / DIRECT CHANNELS</span><h2 id="channels-title">اختر قناة التواصل المناسبة</h2><p>قنوات رسمية للوصول إلى ملفاتي المهنية ومشاريعي وهويتي البحثية.</p></div><span className={styles.headingCode}>SECURE CONNECTIONS · 05</span></div>
+   <div className={styles.sectionHeading}><div><span className={styles.sectionIndex}>01 / PROFESSIONAL & DIRECT CHANNELS</span><h2 id="channels-title">اختر قناة التواصل المناسبة</h2><p>الشبكات المهنية والبحثية، إلى جانب قنوات التواصل المباشر.</p></div><span className={styles.headingCode}>SECURE CONNECTIONS · 07</span></div>
    <div className={styles.channelGrid}>
     {channels.map((item,index)=>{const Icon=item.icon;return <a className={styles.channelCard} href={item.href} key={item.name} target={item.href.startsWith('mailto:')?'_self':'_blank'} rel={item.href.startsWith('mailto:')?undefined:'noopener noreferrer'}>
       <div className={styles.cardTop}><span className={styles.cardNumber}>0{index+1}</span><span className={styles.cardIcon}><Icon size={19}/></span><ArrowUpRight className={styles.cardArrow} size={16}/></div>
