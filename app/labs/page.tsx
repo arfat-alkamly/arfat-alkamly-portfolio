@@ -1,2 +1,12 @@
-import type {Metadata} from 'next'; import {labs} from '../../data/labs'; export const metadata:Metadata={title:'المعامل التطبيقية',alternates:{canonical:'/labs'},description:'بيئات التعلم والتجارب في الأمن السيبراني وتحليل الشبكات.'};
-export default function LabsPage(){return <main className="content-page"><span className="eyebrow">APPLIED CYBERSECURITY / LABS</span><h1>المعامل والتجارب التطبيقية</h1><p className="lead">مسارات تدريبية منظمة للتجربة داخل بيئات افتراضية ومعزولة. توضح البطاقات أهداف كل معمل وبيئته وحالة توثيقه الحالية.</p><div className="archive-grid">{labs.map((lab,i)=><article className="archive-card lab-card" key={lab.name}><span>LAB / 0{i+1} · {lab.status}</span><h2>{lab.name}</h2><h3>الهدف التقني</h3><p>{lab.goal}</p><h3>بيئة العمل</h3><p>{lab.environment}</p><div className="report-preview"><b>التقرير والتوثيق</b><p>{lab.report}</p></div></article>)}</div></main>}
+import type { Metadata } from 'next';
+import LabsExplorer from './LabsExplorer';
+
+export const metadata: Metadata = {
+  title: 'المعامل التطبيقية',
+  alternates: { canonical: '/labs' },
+  description: 'معامل الأمن السيبراني التطبيقية: اختبار أمن الويب، Active Directory، تحليل حركة الشبكة، أمن الشبكات اللاسلكية، وتحليل البرمجيات الخبيثة ضمن بيئات معزولة ومصرح بها.',
+};
+
+export default function LabsPage() {
+  return <LabsExplorer />;
+}
