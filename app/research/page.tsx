@@ -1,9 +1,5 @@
 import type {Metadata} from 'next';
-import {
-  Activity, ArrowUpLeft, ArrowUpRight, BrainCircuit, Bug, Cloud,
-  Code2, Database, FileSearch, Fingerprint, Globe2, LockKeyhole,
-  Network, Radar, ShieldCheck, Workflow
-} from 'lucide-react';
+import {ArrowUpLeft, ArrowUpRight, Fingerprint, ShieldCheck} from 'lucide-react';
 
 export const metadata:Metadata={
   title:'الأبحاث والدراسات الأمنية',
@@ -144,11 +140,6 @@ const researchPrograms=[
   }
 ];
 
-const statusLabel={
-  approved:'خطة بحثية معتمدة ضمن المسار الشخصي',
-  preparing:'قيد التجهيز',
-  active:'قيد التطوير البحثي'
-};
 
 export default function ResearchPage(){
   return <main className="content-page rs-page">
