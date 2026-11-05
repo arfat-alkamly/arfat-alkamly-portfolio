@@ -226,101 +226,145 @@ const labs: Lab[] = [
 const filters = ['الكل', 'الدفاع والشبكات', 'التقييم الهجومي', 'التحقيق والاستجابة', 'أمن التطبيقات', 'أمن البيانات والهوية', 'الأجهزة والأنظمة المتخصصة', 'المحاكاة والتدريب'];
 
 export default function LabsExplorer() {
-  const [active, setActive] = useState('الكل');
-  const [query, setQuery] = useState('');
   const [selected, setSelected] = useState('network-defense');
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('الكل');
+  const [panel, setPanel] = useState<'overview'|'method'|'outputs'>('overview');
   const visible = useMemo(() => labs.filter(l =>
-    (active === 'الكل' || l.category === active) &&
+    (category === 'الكل' || l.category === category) &&
     (l.name + ' ' + l.en + ' ' + l.summary + ' ' + l.tools.join(' ') + ' ' + l.objectives.join(' ')).toLowerCase().includes(query.trim().toLowerCase())
-  ), [active, query]);
+  ), [category, query]);
   const current = visible.find(l => l.id === selected) ?? visible[0];
-  const SelectedIcon = current?.Icon ?? FlaskConical;
+  const CurrentIcon = current?.Icon ?? FlaskConical;
+  const categories = ['الكل', ...Array.from(new Set(labs.map(l => l.category)))];
+  const index = current ? labs.findIndex(l => l.id === current.id) + 1 : 0;
 
   return <main className="content-page labx-page">
-    <style jsx global>{`
-      .labx-page{padding-top:30px;padding-bottom:58px}
-      .labx-topline{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-bottom:13px;border-bottom:1px solid var(--line);color:#bda77d;font:8px/1.6 ui-monospace,monospace;letter-spacing:.11em}
-      .labx-topline span:last-child{color:#8f9b9c}.labx-topline i{display:inline-block;width:5px;height:5px;margin:0 7px 1px;border-radius:50%;background:var(--brass)}
-      .labx-hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(210px,.7fr);align-items:center;gap:25px;padding:43px 0 28px}
-      .labx-kicker{display:flex;align-items:center;gap:8px;color:var(--brass-light);font:8px/1.6 ui-monospace,monospace;letter-spacing:.09em}.labx-kicker svg{width:15px;height:15px}
-      .labx-hero h1{margin:13px 0 12px;font-size:clamp(32px,5vw,52px);line-height:1.35;letter-spacing:-.04em}.labx-hero h1 em{color:var(--brass-light);font-style:normal}
-      .labx-hero-copy>p{max-width:720px;margin:0;color:#b2bbb8;font-size:13px;line-height:2.15}
-      .labx-hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.labx-hero-tags span{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border:1px solid var(--line-cool);border-radius:5px;color:#c6c4b9;font:8px ui-monospace,monospace}.labx-hero-tags svg{width:13px;height:13px;color:var(--brass-light)}
-      .labx-hero-visual{display:grid;justify-items:center;gap:10px}.labx-orbit{position:relative;display:grid;place-items:center;width:190px;height:190px;border:1px solid rgba(183,155,104,.2);border-radius:50%;background:radial-gradient(circle,rgba(183,155,104,.09),transparent 68%)}
-      .labx-orbit:before,.labx-orbit:after{content:"";position:absolute;border:1px dashed rgba(183,155,104,.19);border-radius:50%}.labx-orbit:before{inset:15px}.labx-orbit:after{inset:35px}
-      .labx-orbit>div{z-index:1;display:grid;justify-items:center;gap:4px;color:var(--brass-light)}.labx-orbit>div svg{width:27px;height:27px}.labx-orbit>div b{font:700 19px ui-monospace,monospace;letter-spacing:.12em}.labx-orbit>div small{color:#8e9996;font:7px ui-monospace,monospace;letter-spacing:.2em}
-      .labx-orbit>i{position:absolute;width:7px;height:7px;border:1px solid #d1b985;border-radius:50%;background:#927d57;box-shadow:0 0 14px rgba(183,155,104,.5)}.labx-orbit>i:nth-of-type(1){top:24px;left:55px}.labx-orbit>i:nth-of-type(2){right:20px;bottom:58px}.labx-orbit>i:nth-of-type(3){left:31px;bottom:43px}
-      .labx-hero-visual>span{color:#8e9b98;font:7px ui-monospace,monospace;letter-spacing:.14em}
-      .labx-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:9px;background:linear-gradient(110deg,rgba(183,155,104,.06),rgba(255,255,255,.012));overflow:hidden}
-      .labx-stats article{display:grid;gap:2px;padding:15px 18px;border-right:1px solid var(--line-cool)}.labx-stats article:last-child{border:0}.labx-stats b{color:var(--brass-light);font:700 23px ui-monospace,monospace}.labx-stats span{color:#aeb7b2;font-size:9px}
-      .labx-intro{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:39px 0 14px}.labx-intro>div>span,.labx-method>div:first-child>span{color:var(--brass-light);font:8px ui-monospace,monospace;letter-spacing:.12em}
-      .labx-intro h2,.labx-method h2{margin:7px 0 4px;font-size:20px}.labx-intro p,.labx-method p{margin:0;color:#9da9a5;font-size:10px;line-height:1.9}
-      .labx-search{display:flex;align-items:center;gap:8px;width:min(310px,100%);padding:9px 11px;border:1px solid var(--line-cool);border-radius:7px;background:rgba(255,255,255,.018)}.labx-search svg{width:15px;height:15px;color:var(--brass-light)}.labx-search input{width:100%;border:0;outline:0;background:transparent;color:var(--ivory);font-size:10px}.labx-search input::placeholder{color:#77827f}
-      .labx-filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.labx-filters button{padding:6px 11px;border:1px solid var(--line-cool);border-radius:5px;background:transparent;color:#aeb8b2;font-size:9px}.labx-filters button:hover,.labx-filters button.active{border-color:rgba(183,155,104,.55);background:rgba(183,155,104,.1);color:var(--brass-light)}
-      .labx-layout{display:grid;grid-template-columns:minmax(260px,.82fr) minmax(0,1.55fr);align-items:start;gap:14px}.labx-list{display:grid;gap:8px;max-height:920px;overflow:auto;padding:1px 3px 1px 1px;scrollbar-width:thin;scrollbar-color:rgba(183,155,104,.35) transparent}
-      .labx-card{position:relative;display:grid;grid-template-columns:35px minmax(0,1fr) auto;align-items:center;gap:9px;width:100%;padding:12px;text-align:right;border:1px solid var(--line-cool);border-radius:8px;background:linear-gradient(145deg,rgba(31,45,51,.68),rgba(12,20,27,.9));color:var(--ivory);cursor:pointer}
-      .labx-card:hover,.labx-card.is-active{border-color:rgba(183,155,104,.52);background:linear-gradient(145deg,rgba(55,55,43,.45),rgba(15,24,30,.96));box-shadow:0 8px 22px rgba(0,0,0,.13)}
-      .labx-card-index{grid-column:1/-1;color:#b9a478;font:7px ui-monospace,monospace;letter-spacing:.12em}.labx-card-icon{display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(183,155,104,.22);border-radius:7px;color:var(--brass-light)}.labx-card-icon svg{width:17px;height:17px}
-      .labx-card-title{display:grid;gap:2px;min-width:0}.labx-card-title b{font-size:10px}.labx-card-title small{color:#899792;font:7px ui-monospace,monospace;letter-spacing:.03em;overflow-wrap:anywhere}
-      .labx-card-status{grid-column:2/-1;justify-self:start;padding:3px 6px;border-radius:4px;background:rgba(183,155,104,.09);color:#c5b68f;font-size:8px}.labx-card-summary{grid-column:1/-1;color:#9eaaa5;font-size:9px;line-height:1.8}
-      .labx-card-tools{grid-column:1/-1;display:flex;gap:5px;flex-wrap:wrap}.labx-card-tools i,.labx-tool-list span{padding:3px 6px;border:1px solid rgba(183,155,104,.16);border-radius:4px;color:#b9b8aa;font:7px ui-monospace,monospace;font-style:normal}
-      .labx-card>svg{position:absolute;top:17px;left:11px;width:13px;height:13px;color:#8b9993;transform:rotate(90deg)}.labx-empty{padding:25px;border:1px dashed var(--line);border-radius:8px;color:#aeb8b2;font-size:11px;text-align:center}
-      .labx-detail{min-width:0;padding:20px;border:1px solid rgba(183,155,104,.28);border-radius:10px;background:linear-gradient(145deg,rgba(29,43,50,.88),rgba(12,20,27,.96));box-shadow:var(--shadow-soft);animation:labx-in .25s ease}
-      @keyframes labx-in{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-      .labx-detail-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line-cool);color:#bda77d;font:7px ui-monospace,monospace;letter-spacing:.1em}.labx-status{display:inline-flex;align-items:center;gap:6px;color:#c5b68f;letter-spacing:0}.labx-status i{width:6px;height:6px;border-radius:50%;background:#bda77d}
-      .labx-detail-title{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0 12px}.labx-detail-title small{color:#9b9e91;font:7px ui-monospace,monospace;letter-spacing:.1em}.labx-detail-title h2{margin:4px 0 0;font-size:22px}.labx-detail-title>svg{width:30px;height:30px;color:var(--brass-light)}
-      .labx-detail-block{margin-top:14px}.labx-detail-block h3{display:flex;align-items:center;gap:7px;margin:0 0 6px;color:#d4c7a7;font-size:11px}.labx-detail-block h3 svg{width:14px;height:14px;color:var(--brass-light)}.labx-detail-block p{margin:0;color:#aeb9b4;font-size:10px;line-height:2}
-      .labx-tool-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.labx-detail-block ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 16px;margin:8px 0 0;padding:0 17px 0 0;color:#aeb9b4;font-size:9px;line-height:1.8}.labx-detail-block li::marker{color:var(--brass-light)}
-      .labx-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:9px}.labx-steps>div{display:grid;gap:6px;align-content:start;min-height:70px;padding:9px;border:1px solid var(--line-cool);border-radius:6px;background:rgba(255,255,255,.018)}.labx-steps i{color:var(--brass-light);font:8px ui-monospace,monospace;font-style:normal}.labx-steps span{color:#b8c0ba;font-size:8px;line-height:1.7}
-      .labx-safety{display:grid;grid-template-columns:20px minmax(0,1fr);gap:9px;margin-top:18px;padding:12px;border:1px solid rgba(183,155,104,.24);border-radius:7px;background:rgba(183,155,104,.055)}.labx-safety>svg{width:18px;height:18px;color:var(--brass-light)}.labx-safety b{color:#d6c59f;font-size:9px}.labx-safety p{margin:3px 0 0;color:#aeb6ad;font-size:9px;line-height:1.9}
-      .labx-report{margin-top:10px;padding:12px;border:1px dashed rgba(183,155,104,.25);border-radius:7px;background:rgba(0,0,0,.12)}.labx-report>div{display:grid;gap:3px}.labx-report>div span{color:#bda77d;font:7px ui-monospace,monospace;letter-spacing:.1em}.labx-report>div b{color:#d6d0c2;font-size:10px}.labx-report ul{display:flex;gap:7px 16px;flex-wrap:wrap;margin:8px 0 0;padding:0 16px 0 0;color:#9fa9a2;font-size:9px;line-height:1.8}
-      .labx-method{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:25px;align-items:center;margin:38px 0 22px;padding:21px;border:1px solid var(--line);border-radius:9px;background:linear-gradient(110deg,rgba(183,155,104,.06),rgba(255,255,255,.012))}
-      .labx-method-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.labx-method-grid article{display:grid;gap:6px;padding:10px 8px;border:1px solid var(--line-cool);border-radius:6px;background:rgba(0,0,0,.12)}.labx-method-grid i{color:var(--brass-light);font:8px ui-monospace,monospace;font-style:normal}.labx-method-grid b{color:#ded8ca;font:700 9px ui-monospace,monospace}.labx-method-grid small{color:#9ba7a0;font-size:8px;line-height:1.6}
-      .labx-note{display:flex;align-items:flex-start;gap:11px;padding:14px;border:1px solid var(--line-cool);border-radius:8px;background:rgba(255,255,255,.015)}.labx-note svg{width:18px;height:18px;flex:0 0 18px;color:var(--brass-light)}.labx-note p{margin:0;color:#aeb8b2;font-size:9px;line-height:2}.labx-note b{color:#d6c59f}
-      .labx-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;padding-top:13px;border-top:1px solid var(--line-cool)}.labx-footer span{color:#9b9e91;font:7px ui-monospace,monospace;letter-spacing:.1em}.labx-footer b{color:#c6b58c;font:italic 10px Georgia,serif}.labx-footer a{display:inline-flex;align-items:center;gap:5px;color:var(--brass-light);font-size:9px}.labx-footer a svg{width:13px;height:13px}
-      @media(max-width:850px){.labx-layout{grid-template-columns:1fr}.labx-list{grid-template-columns:repeat(2,minmax(0,1fr));max-height:none}.labx-method{grid-template-columns:1fr}}
-      @media(max-width:600px){.labx-page{padding-top:20px}.labx-hero{grid-template-columns:1fr;padding:30px 0 22px}.labx-hero-visual{display:none}.labx-hero h1{font-size:34px}.labx-hero-copy>p{font-size:11px}.labx-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.labx-stats article{padding:12px;border-bottom:1px solid var(--line-cool)}.labx-stats article:nth-child(2){border-left:0}.labx-stats article:nth-child(3),.labx-stats article:nth-child(4){border-bottom:0}.labx-intro{align-items:stretch;flex-direction:column;margin-top:29px}.labx-search{width:100%}.labx-list{grid-template-columns:1fr}.labx-detail{padding:14px}.labx-detail-title h2{font-size:18px}.labx-detail-block ul{grid-template-columns:1fr}.labx-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.labx-method{padding:14px}.labx-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.labx-footer{align-items:flex-start;flex-direction:column}}
-      @media(prefers-reduced-motion:reduce){.labx-detail{animation:none}}
-    `}</style>
-    <div className="labx-topline"><span>CYBERSECURITY / APPLIED LABORATORIES</span><span>ARFAT ALKAMALI <i/> TECHNICAL PRACTICE</span></div>
-    <section className="labx-hero">
-      <div className="labx-hero-copy">
-        <span className="labx-kicker"><FlaskConical/> CONTROLLED EXPERIMENTS · ENGINEERING PRACTICE</span>
-        <h1>المعامل <em>التطبيقية</em></h1>
-        <p>منظومة معامل تخصصية تغطي دورة الأمن السيبراني: بناء الأنظمة وتأمينها، التقييم الهجومي المصرح، الرصد والتحقيق، أمن البرمجيات والبيانات، والتقنيات الناشئة. لكل معمل نطاق وبيئة وأهداف ومخرجات قابلة للتوثيق.</p>
-        <div className="labx-hero-tags"><span><ShieldCheck/> Authorized Scope</span><span><Network/> Isolated Environments</span><span><FileSearch/> Evidence & Reports</span></div>
+    <style jsx global>{\`
+      .labx-page{padding:24px 0 60px;color:#e7e8e2}
+      .labx-page *{box-sizing:border-box}
+      .lx-mast{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 0 15px;border-bottom:1px solid var(--line-cool);color:#92a3a5;font:8px ui-monospace,monospace;letter-spacing:.14em}
+      .lx-mast b{color:#cbb17d;font-weight:600}.lx-live{display:inline-flex;align-items:center;gap:7px}.lx-live i{width:6px;height:6px;border-radius:50%;background:#76b99b;box-shadow:0 0 10px #76b99b}
+      .lx-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:25px;align-items:center;padding:34px 0 27px}
+      .lx-eyebrow{display:flex;align-items:center;gap:8px;color:#cbb17d;font:8px ui-monospace,monospace;letter-spacing:.14em}.lx-eyebrow svg{width:15px}
+      .lx-hero h1{margin:12px 0 9px;font-size:clamp(29px,4.8vw,49px);line-height:1.35;letter-spacing:-.04em}.lx-hero h1 em{font-style:normal;color:#cbb17d}
+      .lx-hero p{max-width:720px;margin:0;color:#aab7b5;font-size:12px;line-height:2.1}
+      .lx-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}.lx-tags span{padding:6px 9px;border:1px solid var(--line-cool);border-radius:4px;color:#b7c1bd;font:7px ui-monospace,monospace;letter-spacing:.05em}
+      .lx-architecture{position:relative;min-height:185px;padding:15px;border:1px solid rgba(183,155,104,.23);border-radius:9px;background:radial-gradient(ellipse at 50% 50%,rgba(76,139,145,.12),transparent 65%),#0c171e;overflow:hidden}
+      .lx-architecture>small{color:#8d9fa0;font:7px ui-monospace,monospace;letter-spacing:.13em}
+      .lx-arch-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:4px;width:86px;height:86px;place-content:center;border:1px solid rgba(203,177,125,.5);border-radius:50%;background:#14252c;box-shadow:0 0 35px rgba(83,147,151,.13)}
+      .lx-arch-core svg{width:22px;height:22px;color:#d2b982}.lx-arch-core b{font:700 13px ui-monospace,monospace;letter-spacing:.1em}.lx-arch-core span{color:#91a3a2;font:6px ui-monospace,monospace}
+      .lx-node{position:absolute;display:grid;gap:3px;padding:7px 9px;border:1px solid rgba(116,157,160,.23);border-radius:5px;background:#122129;color:#b8c7c2;font:7px ui-monospace,monospace}
+      .lx-node b{color:#d3bc8e;font-size:7px}.lx-node.n1{top:37px;left:17px}.lx-node.n2{top:37px;right:17px}.lx-node.n3{bottom:20px;left:17px}.lx-node.n4{bottom:20px;right:17px}
+      .lx-arch-line{position:absolute;left:50%;top:50%;width:70%;height:1px;background:linear-gradient(90deg,transparent,rgba(126,177,178,.5),transparent);transform:translate(-50%,-50%)}
+      .lx-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 28px}
+      .lx-metric{padding:13px 15px;border:1px solid var(--line-cool);border-radius:7px;background:linear-gradient(135deg,rgba(31,51,58,.62),rgba(11,20,26,.8))}
+      .lx-metric b{display:block;color:#d4bc8b;font:700 22px ui-monospace,monospace}.lx-metric span{color:#98a9a6;font-size:8px}
+      .lx-workspace{display:grid;grid-template-columns:255px minmax(0,1fr);gap:12px;align-items:stretch}
+      .lx-rail,.lx-console{border:1px solid var(--line-cool);border-radius:9px;background:#0d171e;min-width:0}
+      .lx-rail-head{padding:14px 13px 11px;border-bottom:1px solid var(--line-cool)}
+      .lx-rail-head small,.lx-console-kicker,.lx-section-kicker{color:#bda477;font:7px ui-monospace,monospace;letter-spacing:.13em}
+      .lx-rail-head b{display:block;margin-top:5px;font-size:12px}.lx-search{display:flex;align-items:center;gap:7px;margin-top:11px;padding:8px;border:1px solid var(--line-cool);border-radius:5px;background:#091218}.lx-search svg{width:13px;color:#bda477}.lx-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#e5e7df;font-size:9px}.lx-search input::placeholder{color:#74858a}
+      .lx-category{display:flex;gap:5px;flex-wrap:wrap;padding:10px 11px;border-bottom:1px solid var(--line-cool)}.lx-category button{padding:4px 7px;border:1px solid transparent;border-radius:4px;background:transparent;color:#899b9d;font-size:7px}.lx-category button.active{border-color:rgba(203,177,125,.35);background:rgba(203,177,125,.08);color:#ddc99f}
+      .lx-registry{display:grid;gap:3px;padding:7px;max-height:780px;overflow:auto;scrollbar-width:thin;scrollbar-color:#344b51 transparent}
+      .lx-registry button{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:8px;width:100%;padding:9px 8px;border:1px solid transparent;border-radius:5px;background:transparent;text-align:right;color:#aab7b3;cursor:pointer}
+      .lx-registry button:hover{background:rgba(255,255,255,.025)}.lx-registry button.active{border-color:rgba(203,177,125,.3);background:linear-gradient(90deg,rgba(203,177,125,.09),rgba(79,135,140,.07));color:#f0e9d9}
+      .lx-registry button>i{display:grid;place-items:center;width:26px;height:26px;border:1px solid rgba(122,161,164,.18);border-radius:5px;color:#bba477;font:7px ui-monospace,monospace;font-style:normal}
+      .lx-registry button>span{display:grid;gap:2px;min-width:0}.lx-registry button b{font-size:8px;font-weight:600;line-height:1.7}.lx-registry button small{color:#72868a;font:6px ui-monospace,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lx-registry button>em{color:#7f9b91;font:6px ui-monospace,monospace;font-style:normal}
+      .lx-console{padding:17px;background:linear-gradient(145deg,rgba(24,39,46,.82),rgba(9,17,23,.98))}
+      .lx-console-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line-cool)}
+      .lx-console-id{display:flex;align-items:center;gap:8px;color:#93a6a4;font:7px ui-monospace,monospace;letter-spacing:.1em}.lx-console-id i{display:grid;place-items:center;width:28px;height:28px;border:1px solid rgba(203,177,125,.3);border-radius:6px;color:#d1b782;font-style:normal}.lx-console-id svg{width:15px}
+      .lx-state{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border:1px solid rgba(203,177,125,.24);border-radius:4px;color:#d2bf91;font-size:7px}.lx-state i{width:5px;height:5px;border-radius:50%;background:#c4a66f}
+      .lx-title{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;padding:18px 0 13px}.lx-title small{color:#bda477;font:7px ui-monospace,monospace;letter-spacing:.1em}.lx-title h2{margin:5px 0 4px;font-size:clamp(17px,2.5vw,25px);line-height:1.6}.lx-title p{max-width:700px;margin:0;color:#9eafaa;font-size:10px;line-height:1.9}.lx-title>svg{width:29px;height:29px;flex:0 0 29px;color:#d0b681}
+      .lx-tabs{display:flex;gap:5px;flex-wrap:wrap;margin:5px 0 15px;padding-bottom:10px;border-bottom:1px solid var(--line-cool)}.lx-tabs button{padding:7px 10px;border:1px solid transparent;border-radius:4px;background:transparent;color:#8fa09f;font-size:8px}.lx-tabs button.active{border-color:rgba(203,177,125,.35);background:rgba(203,177,125,.08);color:#e0cca0}
+      .lx-overview-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(220px,.9fr);gap:10px}
+      .lx-panel{min-width:0;padding:13px;border:1px solid var(--line-cool);border-radius:6px;background:rgba(4,11,16,.34)}
+      .lx-panel h3{display:flex;align-items:center;gap:7px;margin:0 0 9px;color:#d9c69e;font-size:10px}.lx-panel h3 svg{width:14px;height:14px;color:#c8ac77}
+      .lx-panel p{margin:0;color:#a8b6b0;font-size:9px;line-height:2}
+      .lx-objectives{display:grid;gap:7px;margin:0;padding:0;list-style:none}.lx-objectives li{display:grid;grid-template-columns:15px 1fr;gap:6px;color:#aab7b1;font-size:8px;line-height:1.8}.lx-objectives li:before{content:"+";display:grid;place-items:center;width:13px;height:13px;border:1px solid rgba(203,177,125,.25);border-radius:3px;color:#d2b781;font:9px ui-monospace,monospace}
+      .lx-tools{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}.lx-tools span{padding:5px 7px;border:1px solid rgba(115,157,161,.18);border-radius:4px;background:rgba(89,141,145,.045);color:#aebfba;font:7px ui-monospace,monospace}
+      .lx-protocol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.lx-protocol article{position:relative;min-height:83px;padding:10px;border:1px solid var(--line-cool);border-radius:5px;background:rgba(255,255,255,.015)}.lx-protocol article small{color:#bda477;font:7px ui-monospace,monospace}.lx-protocol article b{display:block;margin:6px 0 3px;color:#d8ded6;font-size:8px;line-height:1.7}.lx-protocol article span{color:#819392;font-size:7px;line-height:1.7}
+      .lx-safety{display:grid;grid-template-columns:19px 1fr;gap:8px;margin-top:11px;padding:10px;border:1px solid rgba(183,155,104,.2);border-radius:5px;background:rgba(183,155,104,.045)}.lx-safety svg{width:17px;color:#cfb47e}.lx-safety b{color:#d5c397;font-size:8px}.lx-safety p{margin:3px 0 0;color:#9baaa4;font-size:8px;line-height:1.9}
+      .lx-outputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.lx-outputs article{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid var(--line-cool);border-radius:5px;color:#b5c0b9;font-size:8px}.lx-outputs svg{width:14px;flex:0 0 14px;color:#cbb17d}
+      .lx-blueprint{margin-top:13px;padding:13px;border:1px solid rgba(108,157,162,.2);border-radius:6px;background:linear-gradient(110deg,rgba(56,106,112,.08),rgba(4,11,16,.3))}
+      .lx-blueprint-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:10px}.lx-blueprint-head b{color:#d5c59e;font-size:9px}.lx-blueprint-head small{color:#81989a;font:6px ui-monospace,monospace;letter-spacing:.08em}
+      .lx-blueprint-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.lx-blueprint-flow span{display:grid;place-items:center;min-height:38px;padding:6px;border:1px solid rgba(111,157,160,.19);border-radius:4px;color:#a9bab4;font-size:7px;text-align:center}.lx-blueprint-flow span:not(:last-child):after{content:"";display:none}
+      .lx-empty{padding:25px;text-align:center;color:#9eafaa;font-size:10px}
+      .lx-footnote{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:15px;padding-top:12px;border-top:1px solid var(--line-cool);color:#81918f;font:7px ui-monospace,monospace;letter-spacing:.04em}
+      .lx-footnote b{color:#cbb17d}
+      .lx-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:15px 0 0}.lx-principles article{padding:12px;border:1px solid var(--line-cool);border-radius:6px;background:rgba(255,255,255,.015)}.lx-principles svg{width:17px;color:#cbb17d}.lx-principles b{display:block;margin:6px 0 3px;color:#d7ddd5;font-size:8px}.lx-principles p{margin:0;color:#849795;font-size:7px;line-height:1.8}
+      @media(max-width:850px){.lx-workspace{grid-template-columns:210px minmax(0,1fr)}.lx-overview-grid{grid-template-columns:1fr}.lx-architecture{min-height:170px}}
+      @media(max-width:650px){.labx-page{padding-top:14px}.lx-mast{font-size:6px}.lx-hero{grid-template-columns:1fr;padding:25px 0 19px}.lx-architecture{min-height:155px}.lx-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-bottom:18px}.lx-metric{padding:10px}.lx-metric b{font-size:19px}.lx-workspace{grid-template-columns:1fr}.lx-rail{order:2}.lx-console{order:1;padding:12px}.lx-registry{grid-template-columns:repeat(2,minmax(0,1fr));max-height:370px}.lx-registry button{grid-template-columns:24px minmax(0,1fr);gap:6px;padding:7px 5px}.lx-registry button>i{width:22px;height:22px}.lx-registry button>em{display:none}.lx-registry button b{font-size:7px}.lx-registry button small{font-size:5px}.lx-title h2{font-size:17px}.lx-protocol{grid-template-columns:repeat(2,minmax(0,1fr))}.lx-outputs{grid-template-columns:1fr}.lx-principles{grid-template-columns:1fr}.lx-blueprint-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      @media(prefers-reduced-motion:reduce){.lx-registry button,.lx-tabs button{transition:none}}
+    \`}</style>
+
+    <div className="lx-mast"><span>ARFAT ALKAMALI <b>/</b> ENGINEERING DIVISION</span><span className="lx-live"><i/> LAB DIRECTORY SYSTEM <b>·</b> CONTROLLED ENVIRONMENTS</span></div>
+    <section className="lx-hero">
+      <div>
+        <span className="lx-eyebrow"><FlaskConical/> RESEARCH · VALIDATION · SECURITY ENGINEERING</span>
+        <h1>منظومة المعامل <em>الهندسية</em></h1>
+        <p>بيئة عمل تخصصية لاستكشاف الأنظمة، بناء النماذج، اختبار الضوابط الأمنية، وتحليل النتائج. كل معمل موصوف بنطاقه وبيئته ومنهجيته ومخرجاته المتوقعة، مع فصل واضح بين المسارات المخططة والتجارب المنفذة.</p>
+        <div className="lx-tags"><span>LAB OPERATIONS</span><span>RESEARCH & DEVELOPMENT</span><span>AUTHORIZED TESTING</span></div>
       </div>
-      <div className="labx-hero-visual" aria-hidden="true"><div className="labx-orbit"><div><FlaskConical/><b>LAB</b><small>01—16</small></div><i/><i/><i/></div><span>DESIGN / TEST / VERIFY / DOCUMENT</span></div>
+      <div className="lx-architecture" aria-label="تصور معماري لمنظومة المعامل">
+        <small>LAB ECOSYSTEM / REFERENCE ARCHITECTURE</small><div className="lx-arch-line"/>
+        <div className="lx-arch-core"><ShieldCheck/><b>AEGIS</b><span>LAB CORE</span></div>
+        <div className="lx-node n1"><b>01 / BUILD</b><span>Design & Configure</span></div><div className="lx-node n2"><b>02 / TEST</b><span>Assess & Validate</span></div><div className="lx-node n3"><b>03 / OBSERVE</b><span>Monitor & Analyze</span></div><div className="lx-node n4"><b>04 / REPORT</b><span>Evidence & Improve</span></div>
+      </div>
     </section>
-    <section className="labx-stats" aria-label="ملخص المعامل">
-      <article><b>{String(labs.length).padStart(2,'0')}</b><span>معمل ومسار تخصصي</span></article>
-      <article><b>07</b><span>مجالات تقنية رئيسية</span></article>
-      <article><b>04</b><span>مراحل منهجية موحدة</span></article>
-      <article><b>100%</b><span>نطاق مصرح وبيئات مضبوطة</span></article>
+
+    <section className="lx-metrics" aria-label="مؤشرات دليل المعامل">
+      <div className="lx-metric"><b>{String(labs.length).padStart(2,'0')}</b><span>تخصصًا ومجالًا مختبريًا</span></div>
+      <div className="lx-metric"><b>07</b><span>عائلات هندسية رئيسية</span></div>
+      <div className="lx-metric"><b>04</b><span>مراحل في دورة العمل</span></div>
+      <div className="lx-metric"><b>01</b><span>مبدأ حاكم: الاختبار المصرح</span></div>
     </section>
-    <section className="labx-intro"><div><span>01 / LAB DIRECTORY</span><h2>دليل المعامل التخصصية</h2><p>استعرض المعامل أو صفِّ حسب المجال، وابحث باسم التقنية أو الأداة أو هدف التجربة.</p></div>
-      <label className="labx-search"><Search/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث عن معمل أو أداة أو مجال..." aria-label="البحث في المعامل"/></label>
+
+    <section className="lx-workspace">
+      <aside className="lx-rail">
+        <div className="lx-rail-head"><small>01 / LAB REGISTRY</small><b>سجل المعامل والتخصصات</b>
+          <label className="lx-search"><Search/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث عن تخصص أو أداة..." aria-label="البحث في المعامل"/></label>
+        </div>
+        <div className="lx-category">{categories.map(c=><button key={c} type="button" className={category===c?'active':''} onClick={()=>{setCategory(c);setSelected('network-defense')}}>{c}</button>)}</div>
+        <nav className="lx-registry" aria-label="اختيار المعمل">
+          {visible.map(l=>{const n=labs.findIndex(x=>x.id===l.id)+1;const Icon=l.Icon;return <button key={l.id} type="button" className={current?.id===l.id?'active':''} onClick={()=>{setSelected(l.id);setPanel('overview')}} aria-current={current?.id===l.id?'page':undefined}>
+            <i>{String(n).padStart(2,'0')}</i><span><b>{l.name}</b><small>{l.en}</small></span><em>LAB</em>
+          </button>})}
+          {visible.length===0&&<div className="lx-empty">لا توجد نتائج مطابقة.</div>}
+        </nav>
+      </aside>
+
+      {current ? <section className="lx-console" aria-live="polite">
+        <div className="lx-console-top"><div className="lx-console-id"><i><CurrentIcon/></i><span>LAB PROFILE / {String(index).padStart(2,'0')} · {current.id.toUpperCase()}</span></div><span className="lx-state"><i/>{current.status}</span></div>
+        <header className="lx-title"><div><small>{current.en}</small><h2>{current.name}</h2><p>{current.summary}</p></div><CurrentIcon/></header>
+        <div className="lx-tabs" role="tablist" aria-label="أقسام ملف المعمل">
+          <button type="button" role="tab" aria-selected={panel==='overview'} className={panel==='overview'?'active':''} onClick={()=>setPanel('overview')}>01 / نظرة هندسية</button>
+          <button type="button" role="tab" aria-selected={panel==='method'} className={panel==='method'?'active':''} onClick={()=>setPanel('method')}>02 / منهجية التشغيل</button>
+          <button type="button" role="tab" aria-selected={panel==='outputs'} className={panel==='outputs'?'active':''} onClick={()=>setPanel('outputs')}>03 / المخرجات والتوثيق</button>
+        </div>
+
+        {panel==='overview'&&<div className="lx-overview-grid">
+          <article className="lx-panel"><h3><TargetIcon/> الغرض والنطاق الهندسي</h3><p>{current.goal}</p><div className="lx-blueprint"><div className="lx-blueprint-head"><b>ENVIRONMENT BLUEPRINT</b><small>CONCEPTUAL / LAB ISOLATED</small></div><div className="lx-blueprint-flow"><span>مصادر وأصول الاختبار</span><span>بيئة معزولة ومضبوطة</span><span>أدوات القياس والتحليل</span><span>أدلة ونتائج قابلة للمراجعة</span></div></div></article>
+          <article className="lx-panel"><h3><Server/> البنية والبيئة التشغيلية</h3><p>{current.environment}</p><div className="lx-tools">{current.tools.map(t=><span key={t}>{t}</span>)}</div></article>
+          <article className="lx-panel"><h3><ScanSearch/> مجالات العمل والتحقق</h3><ul className="lx-objectives">{current.objectives.map(x=><li key={x}>{x}</li>)}</ul></article>
+          <article className="lx-panel"><h3><ShieldCheck/> ضوابط السلامة والنطاق</h3><p>{current.safety}</p></article>
+        </div>}
+
+        {panel==='method'&&<div>
+          <article className="lx-panel"><h3><Workflow/> بروتوكول تنفيذ التجربة</h3><div className="lx-protocol">{current.workflow.map((step,i)=><article key={step}><small>PHASE 0{i+1}</small><b>{step}</b><span>{['تهيئة المدخلات وحدود الاختبار','تنفيذ مضبوط داخل النطاق','جمع القياسات ومراجعة النتائج','تحليل النتائج وتوثيق القرار'][i]}</span></article>)}</div></article>
+          <div className="lx-principles"><article><ShieldCheck/><b>Scope Control</b><p>نطاق واضح وتصريح قبل بدء أي اختبار.</p></article><article><Activity/><b>Repeatability</b><p>خطوات قابلة للتكرار ونتائج يمكن مراجعتها.</p></article><article><FileSearch/><b>Evidence First</b><p>الاستنتاجات تستند إلى أدلة وقياسات موثقة.</p></article></div>
+        </div>}
+
+        {panel==='outputs'&&<div>
+          <article className="lx-panel"><h3><FileSearch/> حزمة المخرجات الفنية المتوقعة</h3><p>المخرجات التالية تصف ما ينبغي إنتاجه عند تنفيذ العمل في هذا المجال؛ ولا تُعرض بوصفها نتائج منجزة ما لم تتوفر ملفات وتقارير فعلية.</p><div className="lx-outputs">{current.outputs.map(x=><article key={x}><CheckCircle2/>{x}</article>)}</div></article>
+          <div className="lx-safety"><ShieldCheck/><div><b>سياسة نزاهة العرض</b><p>لا تُنسب تجربة أو نتيجة أو جاهزية تشغيلية إلى المعمل دون تنفيذها والتحقق منها. حالة هذا المسار الحالية: {current.status}.</p></div></div>
+        </div>}
+        <footer className="lx-footnote"><span>CLASSIFICATION: TRAINING / RESEARCH SCOPE</span><span>LAB REF <b>{String(index).padStart(2,'0')}-{current.id.toUpperCase()}</b></span><span>BUILD · TEST · VERIFY · DOCUMENT</span></footer>
+      </section> : <section className="lx-console"><div className="lx-empty">اختر معملًا من سجل التخصصات لعرض ملفه الهندسي.</div></section>}
     </section>
-    <div className="labx-filters" role="group" aria-label="تصفية المعامل">{filters.map(f=><button type="button" key={f} className={active===f?'active':''} aria-pressed={active===f} onClick={()=>{setActive(f);setSelected('')}}>{f}</button>)}</div>
-    <section className="labx-layout">
-      <div className="labx-list">{visible.map((lab,i)=>{const Icon=lab.Icon;return <button type="button" key={lab.id} className={'labx-card '+(current?.id===lab.id?'is-active':'')} onClick={()=>setSelected(lab.id)} aria-pressed={current?.id===lab.id}>
-        <span className="labx-card-index">LAB / {String(labs.findIndex(x=>x.id===lab.id)+1).padStart(2,'0')} · {lab.category}</span>
-        <span className="labx-card-icon"><Icon/></span><span className="labx-card-title"><b>{lab.name}</b><small>{lab.en}</small></span><span className="labx-card-status">{lab.status}</span>
-        <span className="labx-card-summary">{lab.summary}</span><span className="labx-card-tools">{lab.tools.slice(0,3).map(t=><i key={t}>{t}</i>)}</span><ChevronDown/>
-      </button>})}{visible.length===0&&<div className="labx-empty">لا توجد نتائج مطابقة. جرّب كلمة أخرى أو اختر «الكل».</div>}</div>
-      {current&&<article className="labx-detail" key={current.id}>
-        <div className="labx-detail-head"><span>LAB PROFILE / {current.id.toUpperCase()}</span><span className="labx-status"><i/>{current.status}</span></div>
-        <div className="labx-detail-title"><div><small>{current.en}</small><h2>{current.name}</h2></div><SelectedIcon/></div>
-        <div className="labx-detail-block"><h3><Shield/> الهدف التقني</h3><p>{current.goal}</p></div>
-        <div className="labx-detail-block"><h3><Terminal/> بيئة العمل والبنية</h3><p>{current.environment}</p><div className="labx-tool-list">{current.tools.map(t=><span key={t}>{t}</span>)}</div></div>
-        <div className="labx-detail-block"><h3><CheckCircle2/> مجالات التركيز وأهداف التطبيق</h3><ul>{current.objectives.map(x=><li key={x}>{x}</li>)}</ul></div>
-        <div className="labx-detail-block"><h3><Activity/> سير العمل التجريبي</h3><div className="labx-steps">{current.workflow.map((x,i)=><div key={x}><i>0{i+1}</i><span>{x}</span></div>)}</div></div>
-        <div className="labx-safety"><ShieldCheck/><div><b>حدود السلامة والنطاق</b><p>{current.safety}</p></div></div>
-        <div className="labx-report"><div><span>EXPECTED OUTPUTS / DOCUMENTATION</span><b>المخرجات الفنية القابلة للتوثيق</b></div><ul>{current.outputs.map(x=><li key={x}>{x}</li>)}</ul></div>
-      </article>}
-    </section>
-    <section className="labx-method"><div><span>02 / ENGINEERING WORKFLOW</span><h2>منهجية هندسية موحدة</h2><p>قيمة المعمل ليست في عدد الأدوات، بل في وضوح السؤال، وسلامة البيئة، وقابلية تكرار التجربة، وجودة الأدلة والتوصيات.</p></div><div className="labx-method-grid"><article><i>01</i><b>Scope</b><small>تحديد النطاق والتصريح</small></article><article><i>02</i><b>Prepare</b><small>عزل البيئة وتجهيزها</small></article><article><i>03</i><b>Validate</b><small>تنفيذ ومراقبة وقياس</small></article><article><i>04</i><b>Document</b><small>توثيق الأدلة والمعالجة</small></article></div></section>
-    <aside className="labx-note"><ShieldCheck/><p><b>الشفافية المهنية:</b> هذا الدليل يعرض مجالات ومعامل مقترحة للتعلم والتطبيق، ولا يعني أن جميع البيئات مجهزة فعلياً أو أن كل اختبار قد نُفذ. ستُعرض التقارير والنتائج وروابط المشاريع فقط بعد إنجازها والتحقق منها، مع تمييز حالة كل مسار بوضوح.</p></aside>
-    <footer className="labx-footer"><span>ARFAT ALKAMALI / CYBERSECURITY LABS</span><b>Building Systems. Securing the Future.</b><Link href="/projects">استعراض المشاريع <ArrowUpLeft/></Link></footer>
   </main>;
+}
+
+function TargetIcon() {
+  return <ScanSearch aria-hidden="true"/>;
 }
