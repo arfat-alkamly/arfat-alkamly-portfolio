@@ -259,7 +259,10 @@ export default function LabsExplorer() {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') closeBranch();
+      if (event.key === 'Escape') {
+        setActiveBranch(null);
+        setSelected('');
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => {
