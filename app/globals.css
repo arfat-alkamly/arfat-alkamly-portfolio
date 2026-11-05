@@ -1460,3 +1460,33 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
 @media(max-width:800px){.sk-hero{gap:10px}.sk-orbit{width:180px}.sk-snapshot{margin-bottom:35px}.sk-skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sk-method{grid-template-columns:1fr}.sk-project-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.sk-page{padding-top:12px}.sk-hero{grid-template-columns:1fr;padding:29px 8px;text-align:center}.sk-hero-copy>p{margin-inline:auto;font-size:11px}.sk-hero-tags{justify-content:center}.sk-hero-aside{display:none}.sk-snapshot{grid-template-columns:repeat(2,1fr);gap:6px;margin:14px 0 34px}.sk-snapshot article{padding:11px}.sk-snapshot b{font-size:20px}.sk-section-head{display:grid;gap:13px}.sk-search{width:100%}.sk-filters{gap:5px}.sk-filters button{padding:6px 9px;font-size:8px}.sk-domain-toggle{grid-template-columns:37px minmax(0,1fr) 14px;gap:9px;padding:13px 11px}.sk-domain-icon{width:36px;height:36px}.sk-domain-icon svg{width:18px}.sk-domain-count{display:none}.sk-domain-title b{font-size:12px}.sk-domain-title em{font-size:8px}.sk-skill-grid{grid-template-columns:1fr;padding:0 11px 12px}.sk-skill{padding:10px}.sk-method{margin:35px 0;padding:16px}.sk-method-flow{grid-template-columns:repeat(2,1fr)}.sk-project-head{align-items:start}.sk-project-grid{grid-template-columns:1fr}.sk-footer{justify-content:center;text-align:center}.sk-footer b{width:100%;order:3}}
 @media(prefers-reduced-motion:reduce){.sk-domain-toggle>svg{transition:none}}
+
+
+/* Skills directory expansion — capability pillars, proof and workflow */
+.sk-pathways{margin:0 0 48px}
+.sk-extra-heading{margin-bottom:17px}
+.sk-extra-heading>span,.sk-proof>div>div>span{color:var(--brass-light);font:700 8px ui-monospace,monospace;letter-spacing:.14em}
+.sk-extra-heading h2,.sk-proof h2{margin:8px 0;color:var(--ivory);font-size:clamp(20px,3vw,28px)}
+.sk-extra-heading p,.sk-proof p{margin:0;color:#9ba9a8;font-size:10px;line-height:2}
+.sk-pathway-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.sk-pathway-grid article{display:grid;align-content:start;gap:9px;min-width:0;padding:19px;border:1px solid var(--line-cool);border-radius:9px;background:linear-gradient(145deg,rgba(31,45,51,.72),rgba(12,20,27,.92));box-shadow:var(--shadow-soft)}
+.sk-pathway-index{color:#bba477;font:8px ui-monospace,monospace;letter-spacing:.1em}
+.sk-pathway-grid article>svg{width:24px;height:24px;color:var(--brass-light)}
+.sk-pathway-grid h3{margin:0;color:#e8e4d9;font-size:14px}
+.sk-pathway-grid p{margin:0;color:#9eadaa;font-size:10px;line-height:2}
+.sk-pathway-grid small{margin-top:4px;padding-top:10px;border-top:1px solid var(--line-cool);color:#c0ae88;font:8px/1.8 ui-monospace,monospace;overflow-wrap:anywhere}
+.sk-inline-link{display:inline-flex;align-items:center;gap:7px;margin-top:15px;color:var(--brass-light);font-size:10px}
+.sk-inline-link svg{width:15px;height:15px}
+.sk-proof{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:38px 0;padding:20px;border:1px solid rgba(183,155,104,.25);border-radius:10px;background:linear-gradient(115deg,rgba(183,155,104,.08),rgba(255,255,255,.015))}
+.sk-proof>div{display:flex;align-items:flex-start;gap:14px;min-width:0}
+.sk-proof>div>svg{width:25px;height:25px;flex:0 0 25px;color:var(--brass-light)}
+.sk-proof h2{font-size:16px}
+.sk-proof> a{display:inline-flex;align-items:center;gap:7px;flex:0 0 auto;color:var(--brass-light);font-size:9px}
+.sk-proof>a svg{width:15px;height:15px}
+.sk-domain-toggle:focus-visible,.sk-filters button:focus-visible{outline:2px solid var(--brass-light);outline-offset:3px}
+.sk-skill{transition:border-color .18s ease,background .18s ease}
+.sk-skill:hover{border-color:rgba(183,155,104,.3);background:rgba(183,155,104,.035)}
+.sk-level.is-practical{background:rgba(107,171,145,.13);color:#a8d4bd}
+@media(max-width:800px){.sk-pathway-grid{grid-template-columns:1fr 1fr}.sk-proof{align-items:flex-start;flex-direction:column}}
+@media(max-width:600px){.sk-pathways{margin-bottom:35px}.sk-pathway-grid{grid-template-columns:1fr}.sk-pathway-grid article{padding:15px}.sk-proof{padding:15px}.sk-proof>div{gap:10px}.sk-proof h2{font-size:14px}.sk-proof>a{align-self:flex-start}}
+@media(prefers-reduced-motion:reduce){.sk-skill{transition:none}}
