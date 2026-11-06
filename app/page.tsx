@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {
  ArrowUpLeft, ArrowUpRight, ShieldCheck, Code2, FlaskConical,
  GraduationCap, Fingerprint, Network, Terminal, BrainCircuit,
- LockKeyhole, BadgeCheck, BookOpen, Cpu, Laptop
+ LockKeyhole, BadgeCheck, Cpu, Laptop
 } from 'lucide-react';
 import {projects} from '../data/projects';
 
