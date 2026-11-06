@@ -1,6 +1,24 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import {ArrowUpLeft,ArrowUpRight,ShieldCheck,Code2,FlaskConical,GraduationCap,Fingerprint,Network,Terminal,Layers3} from 'lucide-react';
+import {
+ ArrowUpLeft, ArrowUpRight, ShieldCheck, Code2, FlaskConical,
+ GraduationCap, Fingerprint, Network, Terminal, BrainCircuit,
+ LockKeyhole, BadgeCheck, BookOpen, Cpu, Laptop
+} from 'lucide-react';
 import {projects} from '../data/projects';
+
+const credlyProfile='https://www.credly.com/users/arfat-alkamly';
+const credentials=[
+ {name:'Cybersecurity Defense Analyst Career Path',issuer:'Cisco Networking Academy',icon:ShieldCheck,url:credlyProfile},
+ {name:'Network Defense',issuer:'Cisco Networking Academy',icon:Network,url:credlyProfile},
+ {name:'Networking Basics',issuer:'Cisco Networking Academy',icon:Network,url:credlyProfile},
+ {name:'Python Essentials 2',issuer:'Cisco Networking Academy',icon:Code2,url:credlyProfile},
+ {name:'Python Essentials 1',issuer:'Cisco Networking Academy',icon:Code2,url:credlyProfile},
+ {name:'Introduction to Modern AI',issuer:'Cisco Networking Academy',icon:BrainCircuit,url:credlyProfile},
+ {name:'Endpoint Security',issuer:'Cisco Networking Academy',icon:LockKeyhole,url:'https://www.credly.com/badges/f0520c01-63aa-4440-9df4-69c7303d8762/public_url'},
+ {name:'Introduction to Cybersecurity',issuer:'Cisco Networking Academy',icon:BadgeCheck,url:credlyProfile},
+ {name:'Create Digital Content, Communicate and Collaborate Online',issuer:'Cisco Networking Academy',icon:Laptop,url:credlyProfile}
+];
 
 const focusAreas=[
  {icon:Fingerprint,title:'البحث الأمني',detail:'تحليل التطبيقات وتدفقات الهوية والتحقق من المدخلات، وصياغة النتائج الفنية بمنهجية قابلة للمراجعة.'},
@@ -8,25 +26,39 @@ const focusAreas=[
  {icon:Terminal,title:'هندسة البرمجيات',detail:'تصميم وبناء تطبيقات الويب والأدوات البرمجية، وتنظيم البنية التقنية وتحويل المتطلبات إلى حلول عملية.'}
 ];
 
+function CredentialTrack(){return <section className="credential-track" aria-label="الشهادات والاعتمادات الموثقة">
+ <div className="credential-track-heading"><div><span>VERIFIED CREDENTIALS</span><h2>الشهادات والاعتمادات</h2></div><Link href="/credentials">جميع الاعتمادات <ArrowUpLeft size={15}/></Link></div>
+ <div className="credential-marquee" tabIndex={0} aria-label="شريط متحرك بالشهادات؛ مرر المؤشر أو المس لإيقاف الحركة مؤقتًا">
+  <div className="credential-marquee-track">
+   {[0,1].map(copy=><div className="credential-marquee-group" key={copy} aria-hidden={copy===1}>
+    {credentials.map((item,index)=>{const Icon=item.icon;return <a className="credential-mini-card" href={item.url} target="_blank" rel="noopener noreferrer" key={item.name} tabIndex={copy===1?-1:0}>
+      <span className="credential-mini-icon"><Icon size={25}/></span><span className="credential-mini-copy"><b>{item.name}</b><small>{item.issuer}</small><em>Credly ↗</em></span>
+    </a>})}
+   </div>)}
+  </div>
+ </div>
+ <div className="credential-track-foot"><span><BadgeCheck size={15}/> روابط تحقق من الجهات المصدرة</span><b>+{credentials.length-3} اعتمادات أخرى</b></div>
+ </section>}
+
 export default function HomePage(){
  const featured=projects.filter(p=>p.featured);
  return <main className="site-shell">
-  <section className="home-hero">
-   <div className="hero-copy">
-    <span className="eyebrow">CYBERSECURITY · SOFTWARE ENGINEERING · RESEARCH</span>
-    <h1>عرفات الكاملي <span>الأمن السيبراني وهندسة البرمجيات</span></h1>
-    <p>طالب أمن سيبراني في المرحلة النهائية من دراسته الجامعية، أعمل على بناء مشاريع تقنية وتطوير برمجيات، وأركز على البحث الأمني وهندسة الدفاع السيبراني وأمن الشبكات والتحليل الجنائي الرقمي. أقدّم هنا أعمالي ومشاريعي وتوثيقًا تقنيًا لمسارات التطوير.</p>
-    <div className="hero-actions">
-     <a className="button-primary" href="#featured">استعرض أعمالي ومشاريعي <ArrowUpLeft size={17}/></a>
-     <Link className="button-plain" href="/contact">تواصل مهني <ArrowUpRight size={16}/></Link>
+  <section className="portfolio-hero">
+   <div className="portfolio-hero-grid">
+    <div className="portfolio-portrait-column">
+     <div className="portfolio-portrait-frame"><Image src="/images/arfat-alkamali.jpg" alt="الصورة الشخصية لعرفات الكاملي" width={640} height={640} priority className="portfolio-portrait"/></div>
+     <div className="portrait-credential-stamp"><span><BadgeCheck size={15}/> VERIFIED CREDENTIALS</span><div><i><ShieldCheck size={22}/></i><i><Network size={22}/></i><i><Code2 size={22}/></i><i><Cpu size={22}/></i></div></div>
     </div>
-    <div className="hero-social-proof"><span>CYBERSECURITY · FINAL ACADEMIC LEVEL</span><span>YEMEN · INDEPENDENT & COLLABORATIVE WORK</span></div>
+    <div className="portfolio-hero-copy">
+     <span className="portfolio-hero-kicker"><ShieldCheck size={19}/> CYBERSECURITY · SOFTWARE · RESEARCH</span>
+     <h1>عرفات الكاملي <span>Arfat Alkamali</span></h1>
+     <h2>باحث أمني ومطور برمجيات</h2>
+     <p>طالب أمن سيبراني ومهتم بالبحث الأمني وهندسة الدفاع وتطوير البرمجيات. أعمل على بناء حلول تقنية، وتحليل الأنظمة والتطبيقات، وتطوير أدوات ومشاريع تجمع بين الأمن والهندسة.</p>
+     <div className="portfolio-hero-actions"><Link className="button-primary" href="/projects">استعراض المشاريع <ArrowUpLeft size={17}/></Link><Link className="button-plain" href="/contact">تواصل مهني <ArrowUpRight size={16}/></Link></div>
+     <div className="portfolio-hero-proof"><span>RESEARCH</span><span>ENGINEERING</span><span>DEFENSIVE SECURITY</span></div>
+    </div>
    </div>
-   <div className="hero-mark" aria-label="الهوية التقنية لعرفات الكاملي">
-    <div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/>
-    <div className="hero-shield"><ShieldCheck size={68}/><b>AK</b></div>
-    <span>RESEARCH / ENGINEER / DEFEND</span><small>PROFESSIONAL TECHNICAL PORTFOLIO</small>
-   </div>
+   <CredentialTrack/>
   </section>
   <section className="home-focus" aria-labelledby="focus-title">
    <div className="home-section-kicker" id="focus-title"><span>CORE DISCIPLINES</span><span>01 — 03</span></div>
