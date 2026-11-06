@@ -515,7 +515,7 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
 .credential-track-foot svg{color:#e4bb75}
 .credential-track-foot>b{color:#e7c17d;font-weight:700}
 @keyframes credential-marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.credential-marquee:hover .credential-marquee-track,.credential-marquee:focus-within .credential-marquee-track{animation-play-state:paused}
+.credential-marquee:hover .credential-marquee-track,.credential-marquee:focus-within .credential-marquee-track,.credential-marquee:active .credential-marquee-track{animation-play-state:paused}
 @media(max-width:760px){
  .portfolio-hero{padding-top:25px}
  .portfolio-hero-grid{grid-template-columns:minmax(0,1fr);gap:26px;margin-bottom:25px}
