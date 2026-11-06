@@ -1813,3 +1813,41 @@ a:active {
 @keyframes route-loading-spin{to{transform:rotate(360deg)}}
 @keyframes route-loading-progress{from{transform:translateX(-10%)}to{transform:translateX(150%)}}
 @media(prefers-reduced-motion:reduce){.route-loading-mark,.route-loading-track i{animation:none!important}}
+
+
+/* Header navigation: lightweight visible pulse and top-edge signal.
+   Opacity-only animation avoids continuous filter/box-shadow repaint work. */
+.site-header nav a{
+  overflow:hidden;
+}
+.site-header nav a::after{
+  content:"";
+  position:absolute;
+  top:3px;
+  inset-inline-start:50%;
+  width:18px;
+  height:2px;
+  border-radius:999px;
+  transform:translateX(-50%);
+  background:var(--brass-light);
+  box-shadow:0 0 7px rgba(210,189,145,.48);
+  opacity:.28;
+  pointer-events:none;
+  display:block !important;
+  animation:header-nav-signal 2.4s ease-in-out infinite;
+}
+.site-header nav a:nth-child(2)::after{animation-delay:.18s}
+.site-header nav a:nth-child(3)::after{animation-delay:.36s}
+.site-header nav a:nth-child(4)::after{animation-delay:.54s}
+.site-header nav a:nth-child(5)::after{animation-delay:.72s}
+.site-header nav a:nth-child(6)::after{animation-delay:.9s}
+.site-header nav a:nth-child(7)::after{animation-delay:1.08s}
+.site-header nav a:nth-child(8)::after{animation-delay:1.26s}
+@keyframes header-nav-signal{
+  0%,100%{opacity:.22}
+  50%{opacity:.95}
+}
+.site-header nav a:active::after{opacity:1;animation:none}
+@media(prefers-reduced-motion:reduce){
+  .site-header nav a::after{animation:none!important;opacity:.7}
+}
