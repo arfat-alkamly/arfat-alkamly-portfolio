@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ArrowUpLeft, ArrowUpRight, Fingerprint, ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cybersecurity Research | Arfat Alkamali',
+  title: 'Cybersecurity Research | Arfat Alkamli',
   description: 'Independent research concepts in cybersecurity engineering, defensive systems, AI security, digital forensics, and secure software.',
   alternates: { canonical: '/en/research' },
 };
@@ -25,10 +25,10 @@ const programs = [
 
 export default function ResearchPageEnglish(){
  return <main className="content-page rs-page" dir="ltr">
-  <div className="rs-topline"><span>ARFAT ALKAMALI / RESEARCH OFFICE</span><span>CYBERSECURITY · ENGINEERING · APPLIED RESEARCH</span></div>
+  <div className="rs-topline"><span>ARFAT ALKAMLI / RESEARCH OFFICE</span><span>CYBERSECURITY · ENGINEERING · APPLIED RESEARCH</span></div>
   <section className="rs-identity">
    <div className="rs-identity-grid" aria-hidden="true"><i/><i/><i/><i/></div>
-   <div className="rs-identity-copy"><span className="rs-kicker"><span className="rs-live-dot"/> PERSONAL RESEARCH IDENTITY / 2026</span><p className="rs-overline">CYBERSECURITY RESEARCH & SECURITY ENGINEERING</p><h1>Research <em>Identity</em></h1><h2>Arfat Alkamali</h2><p className="rs-intro">An independent research direction focused on cybersecurity engineering, vulnerability analysis, intelligent defensive systems, digital forensics, and software and network security. It connects theoretical understanding with systematic analysis and testable engineering design.</p><div className="rs-focus-tags"><span>Security Research</span><span>Defensive Engineering</span><span>AI for Cybersecurity</span><span>DFIR</span></div></div>
+   <div className="rs-identity-copy"><span className="rs-kicker"><span className="rs-live-dot"/> PERSONAL RESEARCH IDENTITY / 2026</span><p className="rs-overline">CYBERSECURITY RESEARCH & SECURITY ENGINEERING</p><h1>Research <em>Identity</em></h1><h2>Arfat Alkamli</h2><p className="rs-intro">An independent research direction focused on cybersecurity engineering, vulnerability analysis, intelligent defensive systems, digital forensics, and software and network security. It connects theoretical understanding with systematic analysis and testable engineering design.</p><div className="rs-focus-tags"><span>Security Research</span><span>Defensive Engineering</span><span>AI for Cybersecurity</span><span>DFIR</span></div></div>
    <div className="rs-seal"><div className="rs-seal-ring"><div className="rs-seal-core"><ShieldCheck/><b>AK</b><small>RESEARCH</small></div></div><span>INDEPENDENT RESEARCH PROGRAM</span><strong>RESEARCH · ANALYZE · ENGINEER</strong></div>
    <div className="rs-identity-footer"><span>RESEARCH PROFILE / AK-2026</span><span>YEMEN <i/> INDEPENDENT TECHNICAL RESEARCH</span></div>
   </section>
@@ -43,11 +43,11 @@ export default function ResearchPageEnglish(){
     <div className="rs-paper-detail"><b>Proposed methodology</b><p>{item.method}</p></div>
     <div className="rs-paper-outcome"><b>Expected outputs</b><p>{item.outcome}</p></div>
     <div className="rs-paper-tags">{item.tags.map(tag=><span key={tag}>{tag}</span>)}</div>
-    <div className="rs-paper-foot"><span>CONCEPT AUTHOR</span><b>Arfat Alkamali</b></div>
+    <div className="rs-paper-foot"><span>CONCEPT AUTHOR</span><b>Arfat Alkamli</b></div>
    </article>)}
   </section>
   <section className="rs-method"><div><span className="rs-section-kicker">RESEARCH GOVERNANCE / 02</span><h2>Research Methodology</h2><p>Each study begins with a defined question, a review of literature and primary sources, and an interpretable, repeatable method. Findings are evaluated within explicit limitations. Hypotheses are not presented as facts, and results are not claimed before they are tested and documented.</p></div><div className="rs-method-steps"><article><b>01</b><strong>Define the problem</strong><small>Scope, question, and hypotheses</small></article><article><b>02</b><strong>Review the literature</strong><small>Standards and prior research</small></article><article><b>03</b><strong>Design and experiment</strong><small>Repeatable methodology</small></article><article><b>04</b><strong>Evaluate and document</strong><small>Findings, limitations, and references</small></article></div></section>
-  <aside className="rs-authorship-note"><div className="rs-note-icon"><Fingerprint/></div><div><span>AUTHORSHIP & RESEARCH STATUS</span><h2>Authorship and Research Status</h2><p>These concepts, titles, and preliminary frameworks are research proposals prepared by Arfat Alkamali as part of an independent personal research program. Their statuses range from personal planning to preparation and ongoing research development. A personal research plan does not imply approval by a university or publication body.</p><p>This page describes the ideas, questions, methods, and expected outputs. It does not claim that completed studies, experimental results, or published papers already exist. Each status will be updated when its stage is completed and documented, with references, data, and actual findings added when available.</p></div></aside>
-  <footer className="rs-footer"><span>ARFAT ALKAMALI / RESEARCH PORTFOLIO</span><b>BUILDING KNOWLEDGE. ENGINEERING SECURITY.</b><a href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="noopener noreferrer">ORCID PROFILE <ArrowUpLeft size={14}/></a></footer>
+  <aside className="rs-authorship-note"><div className="rs-note-icon"><Fingerprint/></div><div><span>AUTHORSHIP & RESEARCH STATUS</span><h2>Authorship and Research Status</h2><p>These concepts, titles, and preliminary frameworks are research proposals prepared by Arfat Alkamli as part of an independent personal research program. Their statuses range from personal planning to preparation and ongoing research development. A personal research plan does not imply approval by a university or publication body.</p><p>This page describes the ideas, questions, methods, and expected outputs. It does not claim that completed studies, experimental results, or published papers already exist. Each status will be updated when its stage is completed and documented, with references, data, and actual findings added when available.</p></div></aside>
+  <footer className="rs-footer"><span>ARFAT ALKAMLI / RESEARCH PORTFOLIO</span><b>BUILDING KNOWLEDGE. ENGINEERING SECURITY.</b><a href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="noopener noreferrer">ORCID PROFILE <ArrowUpLeft size={14}/></a></footer>
  </main>;
 }
