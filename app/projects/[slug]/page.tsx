@@ -47,7 +47,7 @@ export async function generateMetadata({params}:{params:Promise<{slug:string}>})
   const {slug}=await params;
   const p=projects.find(x=>x.slug===slug);
   if (!p) return {};
-  if(en) return {title: (slug==='waynah'?'Waynah':p.name)+' | Project Case Study | Arfat Alkamali',description:'Project overview, architecture, technology stack, contribution, project status, and available technical evidence.',alternates:localizedAlternates('/projects/'+slug,'en'),openGraph:{title:(slug==='waynah'?'Waynah':p.name)+' | Arfat Alkamali',description:'Project case study and engineering documentation.',type:'article'}};
+  if(en) return {title: (slug==='waynah'?'Waynah':p.name)+' | Project Case Study | Arfat Alkamli',description:'Project overview, architecture, technology stack, contribution, project status, and available technical evidence.',alternates:localizedAlternates('/projects/'+slug,'en'),openGraph:{title:(slug==='waynah'?'Waynah':p.name)+' | Arfat Alkamli',description:'Project case study and engineering documentation.',type:'article'}};
   if (slug === 'aegis-titan') {
     const title='AEGIS-TITAN — Defensive Cyber Architecture (Source Reviewed) | Arfat AlKamli';
     const description='منظومة دفاع سيبراني مؤسسي — رؤية معمارية، كود مفحوص، ومكونات تنفيذية موثقة ضمن مراجعة مصدرية محددة النطاق. بقلم عرفات الكاملي، باحث أمن سيبراني يمني.';
