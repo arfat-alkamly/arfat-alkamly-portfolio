@@ -1,0 +1,106 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1874 >>
+stream
+BT /F1 16 Tf 48 794 Td (AEGIS-TITAN SOURCE REVIEW REPORT) Tj ET
+BT /F1 9 Tf 48 765 Td 12 TL
+(Engineering Evidence and Review Limitations) Tj T*
+(Review date: 06 November 2026) Tj T*
+(Reviewed source reference: 0be0ee4c57cd1e1a98527f4ae5b3a3efd6a61e94) Tj T*
+(Repository visibility: Private - access on request) Tj T*
+(Review type: AI-assisted inspection of selected source files) Tj T*
+() Tj T*
+(1. EXECUTIVE SUMMARY) Tj T*
+(The inspected source includes an event-driven core, network and host-integrity) Tj T*
+(components, a digital-forensics analyzer, Linux enforcement code, and a persistent) Tj T*
+(SQLite evidence ledger using SHA-256 hash chaining.) Tj T*
+(This is not an independent security audit, penetration test, or certification.) Tj T*
+() Tj T*
+(2. REVIEW SCOPE) Tj T*
+(Files inspected include core/contracts.py, core/event_bus.py,) Tj T*
+(core/orchestrator.py, core/forensic_ledger.py, core/manual_registry.py,) Tj T*
+(modules/network_intel/network_sentinel.py, modules/host_integrity/fim_sentinel.py,) Tj T*
+(modules/dfir_core/digital_forensics.py, modules/active_defense/firewall_enforcer.py,) Tj T*
+(and tests/test_defensive_engines.py.) Tj T*
+(Full repository file count and total lines of code were not established.) Tj T*
+() Tj T*
+(3. TECHNOLOGY EVIDENCE) Tj T*
+(Python 3.10+ \(stated in contracts\), Rich, asyncio, threading, sqlite3, hashlib,) Tj T*
+(socket, struct, Pillow \(PIL imports\), and Scapy in wireless verification scripts.) Tj T*
+(No complete dependency manifest or pinned package-version inventory was verified.) Tj T*
+() Tj T*
+(4. VERIFIED SOURCE COMPONENTS) Tj T*
+(Event bus and contracts; network packet inspection; host file-integrity monitoring;) Tj T*
+(digital forensics and artifact analysis; Linux firewall enforcement and file quarantine;) Tj T*
+(persistent SQLite forensic ledger with SHA-256 block-chain verification.) Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 2020 >>
+stream
+BT /F1 16 Tf 48 794 Td (5. TEST SOURCE REVIEW) Tj ET
+BT /F1 9 Tf 48 765 Td 12 TL
+(tests/test_defensive_engines.py contains seven test_* methods and asserts that) Tj T*
+(the manual registry contains 22 entries. The test suite was not executed during) Tj T*
+(this review. No pass/fail result or coverage percentage is claimed.) Tj T*
+(Additional phase-verification scripts exist; their execution was not reproduced.) Tj T*
+() Tj T*
+(6. ENGINEERING DECISIONS AND TRADE-OFFS) Tj T*
+(Async event dispatch supports multiple consumers but increases concurrency complexity.) Tj T*
+(SQLite keeps evidence storage local and self-contained; distributed use needs more design.) Tj T*
+(Canonical JSON plus SHA-256 helps detect changes on re-verification; it is not a) Tj T*
+(replacement for digital signatures or immutable external storage.) Tj T*
+(Thread-to-async bridging integrates blocking workers but adds lifecycle complexity.) Tj T*
+(Linux iptables enforcement provides native control but reduces cross-platform portability.) Tj T*
+() Tj T*
+(7. FINDING) Tj T*
+(The inspected Event Bus _safe_dispatch catches handler exceptions and currently) Tj T*
+(uses pass. This isolates subscriber failures but does not provide visible logging) Tj T*
+(in that method. Structured exception logging and failure metrics are recommended.) Tj T*
+() Tj T*
+(8. ROADMAP) Tj T*
+(Execute tests in a controlled environment; add structured event logging; inventory) Tj T*
+(and pin dependencies; benchmark precision, recall and false positives; obtain an) Tj T*
+(independent security review before making certification claims.) Tj T*
+() Tj T*
+(9. EXPLICIT LIMITATIONS) Tj T*
+(Not verified: total file count, total LOC, full dependency versions, test execution,) Tj T*
+(coverage, benchmark accuracy, false-positive rate, production readiness, or) Tj T*
+(independent security certification.) Tj T*
+() Tj T*
+(Prepared for: Arfat Abdullah Hussein Al-Kamli) Tj T*
+(Method: AI-assisted source inspection of selected files at the stated source ref.) Tj T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000002172 00000 n 
+0000002298 00000 n 
+0000004369 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+4439
+%%EOF
