@@ -83,11 +83,11 @@ export default function AegisShowcase() {
 
     <section className="aegis-enterprise-vision" id="enterprise-vision">
       <div className="aegis-enterprise-heading"><span>INSTITUTIONAL / DEFENSIVE CYBER ARCHITECTURE</span><h2>رؤية دفاعية.<br/><em>مصممة لاحتياجات المؤسسات.</em></h2><p>AEGIS-TITAN ليست واجهة مراقبة فحسب؛ إنها رؤية منتج دفاعي مؤسسي خاص، يستهدف بناء قدرة موحدة للرؤية الأمنية والتحليل والاستجابة والحوكمة، مع قابلية تكييف نطاقه وفق طبيعة كل مؤسسة.</p></div>
-      <div className="aegis-enterprise-image"><img src="/images/aegis/sovereign-core.svg" alt="تصور بصري لهوية AEGIS-TITAN السيادية" loading="lazy"/></div>
+      <div className="aegis-enterprise-image"><img src="/images/aegis/sovereign-core.svg" alt="تصور بصري لهوية AEGIS-TITAN الهندسية" loading="lazy"/></div>
       <div className="aegis-enterprise-pillars">
         <article><Building2/><b>INSTITUTIONAL FIT</b><h3>ملاءمة مؤسسية</h3><p>تصور قابل للتخصيص بحسب حجم المؤسسة وبيئتها وأولوياتها الدفاعية.</p></article>
         <article><Workflow/><b>UNIFIED OPERATIONS</b><h3>عمليات مترابطة</h3><p>ربط مجالات الرؤية والتحليل والاستجابة والتحقيق ضمن إطار واحد.</p></article>
-        <article><Globe2/><b>DATA DEFENSIVETY</b><h3>حوكمة البيانات</h3><p>تصميم خيارات نشر واستضافة وحوكمة تُحدد وفق متطلبات الجهة المتعاقدة.</p></article>
+        <article><Globe2/><b>DATA GOVERNANCE</b><h3>حوكمة البيانات</h3><p>تصميم خيارات نشر واستضافة وحوكمة تُحدد وفق متطلبات الجهة المتعاقدة.</p></article>
         <article><FileCheck2/><b>GOVERNED ASSURANCE</b><h3>حوكمة وضمان</h3><p>التوجه إلى توثيق الضوابط والاختبارات والقبول الفني لكل بيئة نشر.</p></article>
       </div>
       <div className="aegis-enterprise-image aegis-enterprise-wide"><img src="/images/aegis/enterprise-operations.svg" alt="تصور توضيحي لبيئة عمليات أمنية مؤسسية" loading="lazy"/></div>
