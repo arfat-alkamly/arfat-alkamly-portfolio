@@ -9,15 +9,15 @@ import {projects} from '../data/projects';
 
 const credlyProfile='https://www.credly.com/users/arfat-alkamly';
 const credentials=[
- {name:'Cybersecurity Defense Analyst Career Path',issuer:'Cisco Networking Academy',icon:ShieldCheck,url:credlyProfile},
- {name:'Network Defense',issuer:'Cisco Networking Academy',icon:Network,url:credlyProfile},
- {name:'Networking Basics',issuer:'Cisco Networking Academy',icon:Network,url:credlyProfile},
- {name:'Python Essentials 2',issuer:'Cisco Networking Academy',icon:Code2,url:credlyProfile},
- {name:'Python Essentials 1',issuer:'Cisco Networking Academy',icon:Code2,url:credlyProfile},
- {name:'Introduction to Modern AI',issuer:'Cisco Networking Academy',icon:BrainCircuit,url:credlyProfile},
- {name:'Endpoint Security',issuer:'Cisco Networking Academy',icon:LockKeyhole,url:'https://www.credly.com/badges/f0520c01-63aa-4440-9df4-69c7303d8762/public_url'},
- {name:'Introduction to Cybersecurity',issuer:'Cisco Networking Academy',icon:BadgeCheck,url:credlyProfile},
- {name:'Create Digital Content, Communicate and Collaborate Online',issuer:'Cisco Networking Academy',icon:Laptop,url:credlyProfile}
+ {name:'Cybersecurity Defense Analyst Career Path',issuer:'Cisco Networking Academy',icon:ShieldCheck,url:'https://www.credly.com/badges/c5e45344-5db0-4e0c-a8de-d3137b4bc601'},
+ {name:'Network Defense',issuer:'Cisco Networking Academy',icon:Network,image:'https://images.credly.com/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png',url:'https://www.credly.com/org/cisco/badge/network-defense'},
+ {name:'Networking Basics',issuer:'Cisco Networking Academy',icon:Network,image:'https://images.credly.com/images/5bdd6a39-3e03-4444-9510-ecff80c9ce79/image.png',url:'https://www.credly.com/org/cisco/badge/networking-basics'},
+ {name:'Python Essentials 2',issuer:'Cisco Networking Academy',icon:Code2,image:'https://images.credly.com/images/3f802526-7274-4230-91ab-f6d1a35340e6/image.png',url:'https://www.credly.com/org/cisco/badge/python-essentials-2/'},
+ {name:'Python Essentials 1',issuer:'Cisco Networking Academy',icon:Code2,image:'https://images.credly.com/images/68c0b94d-f6ac-40b1-a0e0-921439eb092e/image.png',url:'https://www.credly.com/org/cisco/badge/python-essentials-1.1'},
+ {name:'Introduction to Modern AI',issuer:'Cisco Networking Academy',icon:BrainCircuit,image:'https://images.credly.com/images/e2d12302-10f9-40d4-8ff1-066a7008b61d/blob',url:'https://www.credly.com/org/cisco/badge/introduction-to-modern-ai'},
+ {name:'Endpoint Security',issuer:'Cisco Networking Academy',icon:LockKeyhole,image:'https://images.credly.com/images/0ca5f542-fb5e-4a22-9b7a-c1a1ce4c3db7/EndpointSecurity.png',url:'https://www.credly.com/badges/f0520c01-63aa-4440-9df4-69c7303d8762/public_url'},
+ {name:'Introduction to Cybersecurity',issuer:'Cisco Networking Academy',icon:BadgeCheck,image:'https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png',url:'https://www.credly.com/badges/cff1a2d3-82ce-47d7-addb-ac3d8a7dd788'},
+ {name:'Create Digital Content, Communicate and Collaborate Online',issuer:'Cisco Networking Academy',icon:Laptop,image:'https://images.credly.com/images/af525f6d-70fb-4345-80d4-ca62fca81b45/blob',url:'https://www.credly.com/org/cisco/badge/create-digital-content-communicate-and-collaborate-/'}
 ];
 
 const focusAreas=[
@@ -32,7 +32,7 @@ function CredentialTrack(){return <section className="credential-track" aria-lab
   <div className="credential-marquee-track">
    {[0,1].map(copy=><div className="credential-marquee-group" key={copy} aria-hidden={copy===1}>
     {credentials.map((item,index)=>{const Icon=item.icon;return <a className="credential-mini-card" href={item.url} target="_blank" rel="noopener noreferrer" key={item.name} tabIndex={copy===1?-1:0}>
-      <span className="credential-mini-icon"><Icon size={25}/></span><span className="credential-mini-copy"><b>{item.name}</b><small>{item.issuer}</small><em>Credly ↗</em></span>
+      <span className="credential-mini-icon">{item.image?<img className="credential-mini-image" src={item.image} alt="" loading="lazy"/>:<Icon size={25}/>}</span><span className="credential-mini-copy"><b>{item.name}</b><small>{item.issuer}</small><em>Credly ↗</em></span>
     </a>})}
    </div>)}
   </div>
