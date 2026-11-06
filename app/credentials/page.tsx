@@ -4,6 +4,7 @@ import CredentialsPageEnglish from './CredentialsPageEnglish';
 import {localizedAlternates} from '../../lib/seo';
 import Script from 'next/script';
 import CertificatePreview from './CertificatePreview';
+import {credentialsJsonLd} from '../../lib/structured-data';
 
 export async function generateMetadata(): Promise<Metadata> {
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
@@ -137,5 +138,5 @@ function CredentialsPageArabic(){
 
 export default async function CredentialsPage(){
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
-  return en ? <CredentialsPageEnglish /> : <CredentialsPageArabic />;
+  return <><Script id="credentials-structured-data" type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(credentialsJsonLd()).replace(/</g,'\\u003c')}} />{en ? <CredentialsPageEnglish /> : <CredentialsPageArabic />}</>;
 }
