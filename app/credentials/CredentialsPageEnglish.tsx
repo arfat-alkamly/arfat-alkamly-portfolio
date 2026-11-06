@@ -30,7 +30,7 @@ function CiscoMark(){return <div className="cisco-brand-mark" aria-label="Cisco"
 
 export default function CredentialsPageEnglish(){
  return <main className="content-page credentials-page" dir="ltr">
-  <Script src="https://cdn.credly.com/assets/utilities/embed.js" strategy="lazyOnLoad"/>
+  <Script src="https://cdn.credly.com/assets/utilities/embed.js" strategy="lazyOnload"/>
   <header className="credentials-hero"><div className="credentials-brand"><CiscoMark/><span/></div><div className="credentials-hero-copy"><span className="eyebrow">VERIFIED PROFESSIONAL CREDENTIALS</span><h1>Digital Credentials & Badges</h1><p>A record of learning achievements and skills developed through Cisco programs, featuring Credly digital badges and original certificate documents.</p></div><div className="credentials-verified"><span>✓</span> Verified Credentials</div></header>
   <section className="credentials-section" aria-labelledby="cisco-credentials-title"><div className="credentials-section-heading"><div><span className="eyebrow">CISCO NETWORKING ACADEMY · CREDLY</span><h2 id="cisco-credentials-title">Professional Certificates & Badges</h2></div><span className="credentials-count">09 CREDENTIALS</span></div>
    <div className="credentials-list credentials-wallet-list">
