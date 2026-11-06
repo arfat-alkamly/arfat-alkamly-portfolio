@@ -77,3 +77,54 @@
 .home-v2 .hv-art-academic svg{stroke-width:1}
 .home-v2 .hv-project-symbol{display:none}
 @media(max-width:640px){.home-v2 .hv-portrait-visual{height:390px;max-width:100%}.home-v2 .hv-portrait-image{object-position:center 25%}.home-v2 .hv-project-art{height:155px}}
+
+
+/* Homepage hero navigation: restrained attention cue */
+.home-v2 .hv-actions .hv-button{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  transform:translateZ(0);
+  animation:hv-nav-breathe 3.8s ease-in-out infinite;
+}
+.home-v2 .hv-actions .hv-button:nth-child(2){animation-delay:1.9s}
+.home-v2 .hv-actions .hv-button::after{
+  content:"";
+  position:absolute;
+  inset:-45% auto -45% -55%;
+  width:38%;
+  z-index:-1;
+  pointer-events:none;
+  transform:skewX(-22deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);
+  animation:hv-nav-shimmer 5.8s ease-in-out infinite;
+}
+.home-v2 .hv-actions .hv-button:nth-child(2)::after{animation-delay:2.9s}
+.home-v2 .hv-actions .hv-button-primary{
+  box-shadow:0 0 0 0 rgba(98,216,239,.22);
+}
+.home-v2 .hv-actions .hv-button-ghost{
+  box-shadow:0 0 0 0 rgba(98,216,239,.12);
+}
+.home-v2 .hv-actions .hv-button:focus-visible{
+  outline:2px solid var(--hv-cyan);
+  outline-offset:4px;
+}
+.home-v2 .hv-actions .hv-button:hover{
+  animation-play-state:paused;
+  box-shadow:0 0 22px rgba(98,216,239,.2);
+}
+@keyframes hv-nav-breathe{
+  0%,100%{box-shadow:0 0 0 0 rgba(98,216,239,0)}
+  50%{box-shadow:0 0 0 5px rgba(98,216,239,.075),0 0 17px rgba(98,216,239,.11)}
+}
+@keyframes hv-nav-shimmer{
+  0%,18%{left:-55%;opacity:0}
+  28%{opacity:.75}
+  52%{left:125%;opacity:0}
+  100%{left:125%;opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .home-v2 .hv-actions .hv-button,
+  .home-v2 .hv-actions .hv-button::after{animation:none!important}
+}
