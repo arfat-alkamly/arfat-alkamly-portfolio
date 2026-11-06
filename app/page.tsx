@@ -7,7 +7,7 @@ import { projects } from '../data/projects';
 import './home.css';
 import type {Metadata} from 'next';
 import {localizedAlternates} from '../lib/seo';
-export async function generateMetadata():Promise<Metadata>{const en=(await cookies()).get('portfolio-locale')?.value==='en';return en?{title:'Cybersecurity & Software Portfolio',description:'Arfat Alkamali — Cybersecurity and Networks student focused on defensive security, security research, software engineering, and practical technical projects.',alternates:localizedAlternates('/','en')}:{title:'الملف المهني | عرفات الكاملي',description:'الملف المهني لعرفات الكاملي، طالب الأمن السيبراني والشبكات، المهتم بالأمن الدفاعي والبحث الأمني وهندسة البرمجيات والمشاريع التقنية.',alternates:localizedAlternates('/','ar')}}
+export async function generateMetadata():Promise<Metadata>{const en=(await cookies()).get('portfolio-locale')?.value==='en';return en?{title:'Cybersecurity & Software Portfolio',description:'Arfat Alkamli — Cybersecurity and Networks student focused on defensive security, security research, software engineering, and practical technical projects.',alternates:localizedAlternates('/','en')}:{title:'الملف المهني | عرفات الكاملي',description:'الملف المهني لعرفات الكاملي، طالب الأمن السيبراني والشبكات، المهتم بالأمن الدفاعي والبحث الأمني وهندسة البرمجيات والمشاريع التقنية.',alternates:localizedAlternates('/','ar')}}
 
 const disciplines = [
   { icon: Fingerprint, number: '01', title: 'البحث الأمني', text: 'مراجعة أمن التطبيقات، تحليل السلوك، دراسة الثغرات، وكتابة الملاحظات الفنية بصورة قابلة للتحقق.' },
@@ -49,7 +49,7 @@ export default async function HomePage() {
           <div className="hv-portrait-shade" />
           <div className="hv-visual-top"><span>AK / 01</span><span>ENGINEERING PROFILE</span></div>
           <div className="hv-portrait-stamp"><ShieldCheck size={18}/><span>RESEARCH<br/>BUILD<br/>DEFEND</span></div>
-          <div className="hv-visual-foot"><span>ARFAT ALKAMALI</span><span>YEMEN · 2026</span></div>
+          <div className="hv-visual-foot"><span>ARFAT ALKAMLI</span><span>YEMEN · 2026</span></div>
         </div>
         <div className="hv-scroll-cue"><span /> SCROLL TO EXPLORE</div>
       </section>
