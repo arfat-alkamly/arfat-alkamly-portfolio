@@ -1,6 +1,6 @@
 # ARFAT ALKAMLI — Professional Portfolio
 
-An Arabic-first professional portfolio for Arfat Abdullah Hussein Al-Kamly, focused on cybersecurity, networks, software development, and technical research.
+An Arabic-first professional portfolio for Arfat Abdullah Hussein AlKamli, focused on cybersecurity, networks, software development, and technical research.
 
 ## Stack
 - Next.js 15
