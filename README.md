@@ -1,4 +1,4 @@
-# ARFAT ALKAMALI — Professional Portfolio
+# ARFAT ALKAMLI — Professional Portfolio
 
 An Arabic-first professional portfolio for Arfat Abdullah Hussein Al-Kamly, focused on cybersecurity, networks, software development, and technical research.
 
