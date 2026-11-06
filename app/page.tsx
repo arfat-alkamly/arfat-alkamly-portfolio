@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import {cookies} from 'next/headers';
+import HomePageEnglish from './HomePageEnglish';
 import Image from 'next/image';
 import { ArrowUpLeft, ArrowUpRight, ShieldCheck, Code2, FlaskConical, GraduationCap, Fingerprint, Network, Terminal, Github, Linkedin, Award, Layers3 } from 'lucide-react';
 import { projects } from '../data/projects';
@@ -16,7 +18,9 @@ const skillGroups = [
   { title: 'Systems & Tools', detail: 'Linux · Kali Linux · Wireshark · Cisco · Git & GitHub' }
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const locale=(await cookies()).get('portfolio-locale')?.value;
+  if(locale==='en') return <HomePageEnglish/>;
   const featured = projects.filter((project) => project.featured).slice(0, 3);
 
   return (
