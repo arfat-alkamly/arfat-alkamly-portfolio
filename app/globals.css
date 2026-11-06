@@ -540,3 +540,5 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
  .credential-track-foot{font-size:8px}
 }
 @media(prefers-reduced-motion:reduce){.credential-marquee-track{animation:none;transform:none}.credential-marquee{overflow-x:auto;scrollbar-width:thin}}
+
+.credential-mini-image{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;}
