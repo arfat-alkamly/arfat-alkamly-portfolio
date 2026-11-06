@@ -31,7 +31,7 @@ const aegisStructuredData = {
   url:'https://arfat-phi.vercel.app/ar/projects/aegis-titan',
   author:{
     '@type':'Person',
-    name:'Arfat AlKamli',
+    name:'Arfat Alkamli',
     url:'https://arfat-phi.vercel.app/',
     sameAs:[
       'https://github.com/arfat-alkamly',
@@ -49,7 +49,7 @@ export async function generateMetadata({params}:{params:Promise<{slug:string}>})
   if (!p) return {};
   if(en) return {title: (slug==='waynah'?'Waynah':p.name)+' | Project Case Study | Arfat Alkamli',description:'Project overview, architecture, technology stack, contribution, project status, and available technical evidence.',alternates:localizedAlternates('/projects/'+slug,'en'),openGraph:{title:(slug==='waynah'?'Waynah':p.name)+' | Arfat Alkamli',description:'Project case study and engineering documentation.',type:'article'}};
   if (slug === 'aegis-titan') {
-    const title='AEGIS-TITAN — Defensive Cyber Architecture (Source Reviewed) | Arfat AlKamli';
+    const title='AEGIS-TITAN — Defensive Cyber Architecture (Source Reviewed) | Arfat Alkamli';
     const description='منظومة دفاع سيبراني مؤسسي — رؤية معمارية، كود مفحوص، ومكونات تنفيذية موثقة ضمن مراجعة مصدرية محددة النطاق. بقلم عرفات الكاملي، باحث أمن سيبراني يمني.';
     return {
       title,
