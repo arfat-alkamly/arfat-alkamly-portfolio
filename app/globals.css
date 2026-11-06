@@ -1735,13 +1735,13 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
 
 
 /* Unified in-page interactive controls: tactile frame, gentle pulse, moving highlight */
-:where(button:not(:disabled),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-actions-link,a.aegis-next,a.filter-tabs-link,a.case-action,a.all-projects,a.aegis-page-link,a.aegis-text-link,a.aegis-proof-report-download,a.ab-tabs button:not(.is-active),.filter-tabs button:not(:disabled),.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-cta-actions button,.aegis-proof-report-download){
+:where(button:not(.ab-tabs button):not(:disabled),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-actions-link,a.aegis-next,a.filter-tabs-link,a.case-action,a.all-projects,a.aegis-page-link,a.aegis-text-link,a.aegis-proof-report-download,a.ab-tabs button:not(.is-active),.filter-tabs button:not(:disabled),.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-cta-actions button,.aegis-proof-report-download){
   position:relative;
   isolation:isolate;
   overflow:hidden;
   animation:inpage-control-pulse 3.8s ease-in-out infinite;
 }
-:where(button:not(:disabled),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button:not(:disabled),.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download)::after{
+:where(button:not(.ab-tabs button):not(:disabled),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button:not(:disabled),.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download)::after{
   content:"";
   position:absolute;
   z-index:2;
@@ -1754,8 +1754,8 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
   background:linear-gradient(90deg,transparent,rgba(239,220,180,.28),transparent);
   animation:inpage-control-shine 6.2s ease-in-out infinite;
 }
-:where(button:not(:disabled),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button:not(:disabled),.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download):hover,
-:where(button:not(:disabled),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button:not(:disabled),.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download):focus-visible{
+:where(button:not(.ab-tabs button):not(:disabled),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button:not(:disabled),.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download):hover,
+:where(button:not(.ab-tabs button):not(:disabled),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button:not(:disabled),.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download):focus-visible{
   animation-play-state:paused;
   box-shadow:0 0 0 2px rgba(210,189,145,.12),0 0 18px rgba(210,189,145,.2);
 }
@@ -1770,10 +1770,10 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
   100%{left:135%;opacity:0}
 }
 @media(prefers-reduced-motion:reduce){
-  :where(button,[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download){
+  :where(button:not(.ab-tabs button),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download){
     animation:none!important;
   }
-  :where(button,[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download)::after{
+  :where(button:not(.ab-tabs button),[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download)::after{
     animation:none!important;display:none!important;
   }
 }
