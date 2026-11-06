@@ -1777,3 +1777,22 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
     animation:none!important;display:none!important;
   }
 }
+
+
+/* Mobile interaction performance: avoid continuous paint-heavy control effects. */
+.site-header nav a,
+:where(button,[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-actions-link,a.aegis-next,a.filter-tabs-link,a.case-action,a.all-projects,a.aegis-page-link,a.aegis-text-link,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-cta-actions button,.aegis-proof-report-download) {
+  animation: none !important;
+  filter: none !important;
+  transition: color .12s ease, background-color .12s ease, border-color .12s ease, transform .12s ease !important;
+}
+.site-header nav a::after,
+:where(button,[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download)::after {
+  animation: none !important;
+  display: none !important;
+}
+button:active,
+[role="button"]:active,
+a:active {
+  transform: scale(.985);
+}
