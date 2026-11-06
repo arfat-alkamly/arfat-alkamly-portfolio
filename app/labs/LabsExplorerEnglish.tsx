@@ -374,7 +374,7 @@ export default function LabsExplorer() {
     `}
 </style>
 
-    <div className="lx-mast"><span>ARFAT ALKAMALI <b>/</b> ENGINEERING DIVISION</span><span className="lx-live"><i/> LAB SYSTEM <b>·</b> CONTROLLED ENVIRONMENTS</span></div>
+    <div className="lx-mast"><span>ARFAT ALKAMLI <b>/</b> ENGINEERING DIVISION</span><span className="lx-live"><i/> LAB SYSTEM <b>·</b> CONTROLLED ENVIRONMENTS</span></div>
     <section className="lx-hero">
       <div>
         <span className="lx-eyebrow"><FlaskConical/> RESEARCH · VALIDATION · SECURITY ENGINEERING</span>
