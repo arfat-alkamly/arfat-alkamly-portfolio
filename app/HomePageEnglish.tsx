@@ -36,13 +36,13 @@ export default function HomePageEnglish(){
     </div>
     <div className="hv-hero-meta"><span>YEMEN</span><b/><span>CYBERSECURITY & NETWORKS</span><b/><span>LEVEL 3</span></div>
    </div>
-   <div className="hv-hero-visual hv-portrait-visual" aria-label="Portrait of Arfat Alkamali">
+   <div className="hv-hero-visual hv-portrait-visual" aria-label="Portrait of Arfat Alkamli">
     <div className="hv-portrait-grid" aria-hidden="true"/>
-    <Image src="/images/arfat-alkamali.jpg" alt="Arfat Alkamali" fill priority sizes="(max-width: 640px) 90vw, 42vw" className="hv-portrait-image"/>
+    <Image src="/images/arfat-alkamali.jpg" alt="Arfat Alkamli" fill priority sizes="(max-width: 640px) 90vw, 42vw" className="hv-portrait-image"/>
     <div className="hv-portrait-shade"/>
     <div className="hv-visual-top"><span>AK / 01</span><span>ENGINEERING PROFILE</span></div>
     <div className="hv-portrait-stamp"><ShieldCheck size={18}/><span>RESEARCH<br/>BUILD<br/>DEFEND</span></div>
-    <div className="hv-visual-foot"><span>ARFAT ALKAMALI</span><span>YEMEN · 2026</span></div>
+    <div className="hv-visual-foot"><span>ARFAT ALKAMLI</span><span>YEMEN · 2026</span></div>
    </div>
    <div className="hv-scroll-cue"><span/> SCROLL TO EXPLORE</div>
   </section>
