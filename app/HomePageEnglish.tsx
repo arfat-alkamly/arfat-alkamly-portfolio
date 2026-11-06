@@ -3,6 +3,11 @@ import Image from 'next/image';
 import {ArrowUpLeft,ArrowUpRight,ShieldCheck,GraduationCap,Layers3, Github,Linkedin,Award} from 'lucide-react';
 import {projects} from '../data/projects';
 
+const projectCopy:Record<string,{label:string;summary:string}>={
+ 'aegis-titan':{label:'Cybersecurity Defense Engineering',summary:'A personal cybersecurity defense system developed around security monitoring, analysis, detection workflows, controlled response, deception concepts, and digital forensics. Internal engineering details are available on request.'},
+ 'cryptolab-pro':{label:'Educational Cryptography & Analysis Platform',summary:'A responsive cryptography learning lab featuring classical ciphers, AES-256-GCM text and binary-file encryption, SHA-256 hashing, and HMAC-SHA-256 integrity verification.'},
+ 'academic-os':{label:'Cross-platform Academic Assistant',summary:'A personal student-focused application designed around an offline-first approach, clean architecture, and local data storage.'}
+};
 const disciplines=[
  {number:'01',title:'Security Research',text:'Reviewing application security, studying vulnerabilities, analyzing behavior, and documenting technical findings that can be independently verified.'},
  {number:'02',title:'Defensive Security & Networks',text:'Monitoring and analysis concepts, incident response, network security, and digital forensics.'},
@@ -52,7 +57,7 @@ export default function HomePageEnglish(){
    <div className="hv-project-grid">{featured.map((project,index)=><Link href={'/en/projects/'+project.slug} className={'hv-project-card hv-project-'+(index+1)} key={project.slug}>
     <div className="hv-project-top"><span>0{index+1} / FEATURED</span><ArrowUpRight size={18}/></div>
     <div className="hv-project-art">{project.slug==='aegis-titan'?<Image src="/images/aegis/defensive-command-environment.svg" alt="Defensive command environment concept" fill sizes="(max-width: 640px) 90vw, 30vw"/>:project.slug==='cryptolab-pro'?<div className="hv-art-code"><span>CRYPTO LAB / 01</span><b>AES<span>256</span></b><small>ENCRYPT · HASH · VERIFY</small></div>:<div className="hv-art-academic"><Layers3 size={48}/><span>ACADEMIC OS</span><small>OFFLINE · ORGANIZED · PRIVATE</small></div>}</div>
-    <div className="hv-project-copy"><span className="hv-project-label">{project.label}</span><h3>{project.name}</h3><p>{project.summary}</p></div>
+    <div className="hv-project-copy"><span className="hv-project-label">{projectCopy[project.slug]?.label||'Personal & Academic Project'}</span><h3>{project.name}</h3><p>{projectCopy[project.slug]?.summary||'A technical project documented with its current scope and available evidence.'}</p></div>
     <div className="hv-project-bottom"><span>{project.stack.slice(0,3).join(' / ')}</span><b>EXPLORE <ArrowUpRight size={14}/></b></div>
    </Link>)}</div>
   </section>
