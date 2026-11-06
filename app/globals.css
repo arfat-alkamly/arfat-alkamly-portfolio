@@ -1773,7 +1773,7 @@ button.selected,.filter-tabs button.selected{border-color:var(--brass-light);bac
   :where(button,[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download){
     animation:none!important;
   }
-  :where(button,[role="button],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download)::after{
+  :where(button,[role="button"],a.button-primary,a.button-secondary,a.button-plain,a.aegis-next,.filter-tabs button,.case-actions a,.aegis-actions a,.aegis-page-links a,.aegis-proof-cta-actions a,.aegis-proof-report-download)::after{
     animation:none!important;display:none!important;
   }
 }
