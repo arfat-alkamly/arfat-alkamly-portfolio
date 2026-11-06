@@ -1,13 +1,14 @@
 import type {Metadata} from 'next';
 import { cookies } from 'next/headers';
 import ResearchPageEnglish from './ResearchPageEnglish';
+import {localizedAlternates} from '../../lib/seo';
 import {ArrowUpLeft, ArrowUpRight, Fingerprint, ShieldCheck} from 'lucide-react';
 
 export async function generateMetadata(): Promise<Metadata> {
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
   return en
-    ? { title: 'Cybersecurity Research | Arfat Alkamali', description: 'Independent research concepts in cybersecurity engineering, defensive systems, AI security, digital forensics, and secure software.', alternates: { canonical: '/en/research' } }
-    : { title: 'الأبحاث والدراسات الأمنية', description: 'الهوية البحثية والمقترحات العلمية في الأمن السيبراني، الذكاء الاصطناعي، هندسة الدفاع والتحقيق الرقمي.', alternates: { canonical: '/ar/research' } };
+    ? { title: 'Cybersecurity Research | Arfat Alkamali', description: 'Independent research concepts in cybersecurity engineering, defensive systems, AI security, digital forensics, and secure software.', alternates: localizedAlternates('/research','en') }
+    : { title: 'الأبحاث والدراسات الأمنية', description: 'الهوية البحثية والمقترحات العلمية في الأمن السيبراني، الذكاء الاصطناعي، هندسة الدفاع والتحقيق الرقمي.', alternates: localizedAlternates('/research','ar') };
 }
 
 const researchPrograms=[
