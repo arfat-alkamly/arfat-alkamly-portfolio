@@ -4,13 +4,13 @@ import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
 export const metadata:Metadata={
- title:'Professional Contact | Arfat Alkamali',
- description:'Connect with Arfat Alkamali about cybersecurity engineering, security research, technical projects, and professional collaboration.',
+ title:'Professional Contact | Arfat Alkamli',
+ description:'Connect with Arfat Alkamli about cybersecurity engineering, security research, technical projects, and professional collaboration.',
  alternates:{canonical:'/en/contact'}
 };
 
 const channels=[
- {name:'LinkedIn',detail:'Professional networking and opportunities',value:'Arfat Alkamali',href:'https://www.linkedin.com/in/arfat-alkamly-399676409',icon:Linkedin},
+ {name:'LinkedIn',detail:'Professional networking and opportunities',value:'Arfat Alkamli',href:'https://www.linkedin.com/in/arfat-alkamly-399676409',icon:Linkedin},
  {name:'GitHub',detail:'Projects and source code',value:'arfat-alkamly',href:'https://github.com/arfat-alkamly',icon:Github},
  {name:'Email',detail:'Inquiries and direct messages',value:'alkamlyrfat@gmail.com',href:'mailto:alkamlyrfat@gmail.com',icon:Mail},
  {name:'ORCID',detail:'Research identity and record',value:'0009-0008-1348-5146',href:'https://orcid.org/0009-0008-1348-5146',icon:Microscope},
@@ -21,7 +21,7 @@ const channels=[
 
 export default function ContactPageEnglish(){
  return <main className={styles.page} dir="ltr">
-  <div className={styles.topline}><span>CONTACT / PROFESSIONAL NETWORK</span><span>ARFAT ALKAMALI <i/></span></div>
+  <div className={styles.topline}><span>CONTACT / PROFESSIONAL NETWORK</span><span>ARFAT ALKAMLI <i/></span></div>
   <section className={styles.hero}>
    <div className={styles.heroGrid} aria-hidden="true"/>
    <div className={styles.heroCopy}>
@@ -42,6 +42,6 @@ export default function ContactPageEnglish(){
    <div className={styles.messageIntro}><span className={styles.sectionIndex}>02 / SEND A MESSAGE</span><div className={styles.messageIcon}><MessageSquareText size={22}/></div><h2>Have an idea or<br/><em>something to discuss?</em></h2><p>Share the details of your message. Please clarify the topic and include only the information needed to respond.</p><div className={styles.privacyNote}><LockKeyhole size={17}/><span><b>Privacy & security</b><small>Google verification helps reduce spam. We do not request access to your email or files.</small></span></div><div className={styles.messageTopics}><span><ShieldCheck size={14}/> Cybersecurity</span><span><Microscope size={14}/> Research</span><span><Code2 size={14}/> Development</span><span><BookOpen size={14}/> Academic</span></div></div>
    <div className={styles.formPanel}><div className={styles.formPanelHead}><span>CONTACT FORM</span><span><i/> VERIFIED SESSION</span></div><ContactForm locale="en"/></div>
   </section>
-  <footer className={styles.footer}><span>ARFAT ALKAMALI</span><span>Building Systems. Securing the Future.</span><a href="/en">Back to home <ArrowLeft size={14}/></a></footer>
+  <footer className={styles.footer}><span>ARFAT ALKAMLI</span><span>Building Systems. Securing the Future.</span><a href="/en">Back to home <ArrowLeft size={14}/></a></footer>
  </main>;
 }
