@@ -4,10 +4,10 @@ import {usePathname} from 'next/navigation';
 type Locale='ar'|'en';
 const links=[['/','الرئيسية','Home'],['/about','نبذة','About'],['/skills','المهارات','Skills'],['/projects','المشاريع','Projects'],['/labs','المعامل','Labs'],['/research','الأبحاث','Research'],['/credentials','الشهادات','Credentials'],['/contact','التواصل','Contact']] as const;
 export default function SiteHeader({locale='ar'}:{locale?:Locale}){
- const path=usePathname()||'/';
+ const rawPath=usePathname()||'/';
+ const current=rawPath.replace(/^\/(ar|en)(?=\/|$)/,'')||'/';
  const isEn=locale==='en';
  const prefix=(href:string)=>href==='/'?`/${locale}`:`/${locale}${href}`;
- const current=path;
  const switchPath=prefix(current);
  return <header className="site-header" dir={isEn?'ltr':'rtl'}>
   <Link href={prefix('/')} className="site-logo"><span>AK</span><b>ARFAT ALKAMALI</b></Link>
