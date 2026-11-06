@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import { cookies } from 'next/headers';
 import ContactPageEnglish from './ContactPageEnglish';
+import {localizedAlternates} from '../../lib/seo';
 import {ArrowLeft,ArrowUpLeft,ArrowUpRight,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send,ShieldCheck} from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
@@ -8,8 +9,8 @@ import styles from './contact.module.css';
 export async function generateMetadata(): Promise<Metadata> {
  const en = (await cookies()).get('portfolio-locale')?.value === 'en';
  return en
-  ? { title:'Professional Contact | Arfat Alkamali', description:'Connect with Arfat Alkamali about cybersecurity engineering, security research, technical projects, and professional collaboration.', alternates:{canonical:'/en/contact'} }
-  : { title:'التواصل المهني | عرفات الكاملي', description:'تواصل مع عرفات الكاملي بشأن هندسة الأمن السيبراني والبحث الأمني والمشاريع التقنية والتعاون المهني.', alternates:{canonical:'/ar/contact'} };
+  ? { title:'Professional Contact | Arfat Alkamali', description:'Connect with Arfat Alkamali about cybersecurity engineering, security research, technical projects, and professional collaboration.', alternates:localizedAlternates('/contact','en') }
+  : { title:'التواصل المهني | عرفات الكاملي', description:'تواصل مع عرفات الكاملي بشأن هندسة الأمن السيبراني والبحث الأمني والمشاريع التقنية والتعاون المهني.', alternates:localizedAlternates('/contact','ar') };
 }
 
 const channels=[
