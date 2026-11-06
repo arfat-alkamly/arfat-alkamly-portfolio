@@ -1,12 +1,16 @@
 import type {Metadata} from 'next';
+import { cookies } from 'next/headers';
+import CredentialsPageEnglish from './CredentialsPageEnglish';
+import {localizedAlternates} from '../../lib/seo';
 import Script from 'next/script';
 import CertificatePreview from './CertificatePreview';
 
-export const metadata:Metadata={
-  title:'الشهادات والشارات الرقمية',
-  alternates:{canonical:'/credentials'},
-  description:'سجل الشهادات الأصلية والشارات الرقمية المعتمدة من Cisco وCredly، مع المهارات وروابط التحقق.'
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const en = (await cookies()).get('portfolio-locale')?.value === 'en';
+  return en
+    ? { title: 'Digital Credentials | Arfat Alkamali', description: 'Verified Cisco and Credly credentials, digital badges, acquired skills, and verification links.', alternates: localizedAlternates('/credentials','en') }
+    : { title: 'الشهادات والشارات الرقمية', description: 'سجل الشهادات الأصلية والشارات الرقمية المعتمدة من Cisco وCredly، مع المهارات وروابط التحقق.', alternates: localizedAlternates('/credentials','ar') };
+}
 
 const credentials=[
   {name:'Cybersecurity Defense Analyst Career Path',date:'29 يوليو 2026',issuer:'Cisco بالتعاون مع Splunk',id:'23bda189-2470-4ce0-8065-ee904979ba21',skills:['Cybersecurity','Cybersecurity Standards','Security','Splunk','Threat Detection','Analyst','Big Data Analysis','Cyber Kill Chain Framework','Cyber Risk','Cyber Safety','Cybersecurity Systems','Monitoring','SOC','Threat-Hunting'],file:'CybersecurityDefenseAnalystCareerPathv120261103-20-1nonu3.pdf',description:'مسار مهني يركز على فهم مشهد التهديدات السيبرانية والعمل داخل مركز العمليات الأمنية SOC، واستخدام تقنيات Splunk للمراقبة والتحقيق والبحث عن التهديدات والاستجابة للحوادث.'},
@@ -49,7 +53,7 @@ function CiscoMark(){
   </div>;
 }
 
-export default function CredentialsPage(){
+function CredentialsPageArabic(){
   return <main className="content-page credentials-page">
     <Script src="https://cdn.credly.com/assets/utilities/embed.js" strategy="lazyOnload" />
     <header className="credentials-hero">
@@ -128,4 +132,10 @@ export default function CredentialsPage(){
     </section>
     <p className="disclaimer">تُعرض بيانات كل اعتماد وفق المعلومات المتاحة في سجل الشارة. روابط Credly مخصصة للتحقق من صحة الاعتماد، وملفات PDF هي نسخ الشهادات المرفقة.</p>
   </main>;
+}
+
+
+export default async function CredentialsPage(){
+  const en = (await cookies()).get('portfolio-locale')?.value === 'en';
+  return en ? <CredentialsPageEnglish /> : <CredentialsPageArabic />;
 }

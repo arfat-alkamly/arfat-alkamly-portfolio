@@ -1,13 +1,17 @@
 import type {Metadata} from 'next';
+import { cookies } from 'next/headers';
+import ContactPageEnglish from './ContactPageEnglish';
+import {localizedAlternates} from '../../lib/seo';
 import {ArrowLeft,ArrowUpLeft,ArrowUpRight,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send,ShieldCheck} from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
-export const metadata:Metadata={
- title:'التواصل المهني | عرفات الكاملي',
- description:'تواصل مع عرفات الكاملي بشأن هندسة الأمن السيبراني والبحث الأمني والمشاريع التقنية والتعاون المهني.',
- alternates:{canonical:'/contact'}
-};
+export async function generateMetadata(): Promise<Metadata> {
+ const en = (await cookies()).get('portfolio-locale')?.value === 'en';
+ return en
+  ? { title:'Professional Contact | Arfat Alkamali', description:'Connect with Arfat Alkamali about cybersecurity engineering, security research, technical projects, and professional collaboration.', alternates:localizedAlternates('/contact','en') }
+  : { title:'التواصل المهني | عرفات الكاملي', description:'تواصل مع عرفات الكاملي بشأن هندسة الأمن السيبراني والبحث الأمني والمشاريع التقنية والتعاون المهني.', alternates:localizedAlternates('/contact','ar') };
+}
 
 const channels=[
  {name:'LinkedIn',detail:'التواصل المهني والفرص',value:'Arfat Alkamali',href:'https://www.linkedin.com/in/arfat-alkamly-399676409',icon:Linkedin,kind:'network'},
@@ -19,7 +23,7 @@ const channels=[
  {name:'Telegram',detail:'التواصل عبر تيليجرام',value:'@A_AB_ALK',href:'https://t.me/A_AB_ALK',icon:Send,kind:'messaging'}
 ];
 
-export default function ContactPage(){
+function ContactPageArabic(){
  return <main className={styles.page}>
   <div className={styles.topline}><span>CONTACT / PROFESSIONAL NETWORK</span><span>ARFAT ALKAMALI <i/></span></div>
   <section className={styles.hero}>
@@ -61,9 +65,15 @@ export default function ContactPage(){
     <div className={styles.privacyNote}><LockKeyhole size={17}/><span><b>خصوصية وأمان</b><small>يُستخدم التحقق من Google لتقليل الرسائل المزعجة. لا نطلب صلاحية الوصول إلى بريدك أو ملفاتك.</small></span></div>
     <div className={styles.messageTopics}><span><ShieldCheck size={14}/> Cybersecurity</span><span><Microscope size={14}/> Research</span><span><Code2 size={14}/> Development</span><span><BookOpen size={14}/> Academic</span></div>
    </div>
-   <div className={styles.formPanel}><div className={styles.formPanelHead}><span>CONTACT FORM</span><span><i/> ENCRYPTED SESSION</span></div><ContactForm/></div>
+   <div className={styles.formPanel}><div className={styles.formPanelHead}><span>CONTACT FORM</span><span><i/> ENCRYPTED SESSION</span></div><ContactForm locale="ar"/></div>
   </section>
 
-  <footer className={styles.footer}><span>ARFAT ALKAMALI</span><span>Building Systems. Securing the Future.</span><a href="/">العودة إلى الرئيسية <ArrowLeft size={14}/></a></footer>
+  <footer className={styles.footer}><span>ARFAT ALKAMALI</span><span>Building Systems. Securing the Future.</span><a href="/ar">العودة إلى الرئيسية <ArrowLeft size={14}/></a></footer>
  </main>;
+}
+
+
+export default async function ContactPage(){
+ const en = (await cookies()).get('portfolio-locale')?.value === 'en';
+ return en ? <ContactPageEnglish /> : <ContactPageArabic />;
 }

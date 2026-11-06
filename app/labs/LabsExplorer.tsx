@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import {
   Activity, ArrowUpLeft, Binary, Bug, CheckCircle2, ChevronDown, ChevronRight, Cloud,
@@ -231,6 +231,8 @@ export default function LabsExplorer() {
   const [category, setCategory] = useState('الكل');
   const [activeBranch, setActiveBranch] = useState<string | null>(null);
   const [panel, setPanel] = useState<'overview'|'method'|'outputs'>('overview');
+  const modalRef = useRef<HTMLElement | null>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
 
   const categories = ['الكل', ...Array.from(new Set(labs.map(l => l.category)))];
   const visible = useMemo(() => labs.filter(l =>
@@ -248,6 +250,7 @@ export default function LabsExplorer() {
   ] : [];
 
   const openBranch = (id: string) => {
+    returnFocusRef.current = document.activeElement as HTMLElement | null;
     setActiveBranch(id);
     setPanel('overview');
   };
@@ -258,16 +261,33 @@ export default function LabsExplorer() {
     if (!activeBranch) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    const modal = modalRef.current;
+    const focusable = () => Array.from(modal?.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    ) ?? []);
+    modal?.querySelector<HTMLElement>('[data-modal-close]')?.focus();
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setActiveBranch(null);
         setSelected('');
+        return;
+      }
+      if (event.key === 'Tab') {
+        const items = focusable();
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault(); last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault(); first.focus();
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKeyDown);
+      if (returnFocusRef.current?.isConnected) returnFocusRef.current.focus();
     };
   }, [activeBranch]);
 
@@ -377,10 +397,10 @@ export default function LabsExplorer() {
       <header className="lx-directory-head"><div><small>01 / ENGINEERING LAB DIRECTORY</small><h2>دليل المعامل والتخصصات</h2><p>اختر معملًا لعرض مساراته الهندسية المتخصصة.</p></div></header>
       <div className="lx-toolsbar">
         <label className="lx-search"><Search/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث عن معمل أو أداة..." aria-label="البحث في المعامل"/></label>
-        <div className="lx-category" aria-label="تصفية حسب التصنيف">{categories.map(c=><button key={c} type="button" className={category===c?'active':''} onClick={()=>{setCategory(c);setSelected('');setActiveBranch(null)}}>{c}</button>)}</div>
+        <div className="lx-category" role="group" aria-label="تصفية حسب التصنيف">{categories.map(c=><button key={c} type="button" className={category===c?'active':''} aria-pressed={category===c} onClick={()=>{setCategory(c);setSelected('');setActiveBranch(null)}}>{c}</button>)}</div>
       </div>
       <div className="lx-lab-grid">
-        {visible.map(lab=>{const Icon=lab.Icon;return <button key={lab.id} type="button" className={'lx-lab-card'+(selected===lab.id?' active':'')} onClick={()=>{setSelected(lab.id);openBranch('scope')}} aria-haspopup="dialog">
+        {visible.map(lab=>{const Icon=lab.Icon;return <button key={lab.id} type="button" className={'lx-lab-card'+(selected===lab.id?' active':'')} aria-pressed={selected===lab.id} onClick={()=>{setSelected(lab.id);openBranch('scope')}} aria-haspopup="dialog">
           <div className="lx-card-top"><i className="lx-card-icon"><Icon/></i><span className="lx-card-number">LAB / {String(labs.findIndex(x=>x.id===lab.id)+1).padStart(2,'0')}</span></div>
           <h3>{lab.name}</h3><span className="en">{lab.en}</span><p>{lab.summary}</p>
           <div className="lx-card-bottom"><span>{lab.category} · {lab.status}</span><b>فتح الملف الهندسي <ArrowUpLeft/></b></div>
@@ -390,29 +410,29 @@ export default function LabsExplorer() {
     </section>
 
     {current&&selectedBranch&&<div className="lx-modal-backdrop" role="presentation" onMouseDown={e=>{if(e.target===e.currentTarget)closeBranch()}}>
-      <section className="lx-modal" role="dialog" aria-modal="true" aria-labelledby="lx-modal-heading">
+      <section ref={modalRef} className="lx-modal" role="dialog" tabIndex={-1} aria-modal="true" aria-labelledby="lx-modal-heading">
         <header className="lx-modal-head">
           <div className="lx-modal-title"><i><CurrentIcon/></i><div><small>ENGINEERING LAB / {String(index).padStart(2,'0')}</small><h2 id="lx-modal-heading">{current.name}</h2></div></div>
-          <button type="button" className="lx-modal-close" onClick={closeBranch} aria-label="إغلاق النافذة"><X/></button>
+          <button type="button" className="lx-modal-close" data-modal-close onClick={closeBranch} aria-label="إغلاق النافذة"><X/></button>
         </header>
         <div className="lx-modal-body">
           <p className="lx-modal-intro">{current.summary}</p>
           <div className="lx-modal-tabs" role="tablist" aria-label="تفاصيل الفرع">
-            <button type="button" className={panel==='overview'?'active':''} onClick={()=>setPanel('overview')}>النظرة الفنية</button>
-            <button type="button" className={panel==='method'?'active':''} onClick={()=>setPanel('method')}>منهجية العمل</button>
-            <button type="button" className={panel==='outputs'?'active':''} onClick={()=>setPanel('outputs')}>المخرجات والتوثيق</button>
+            <button type="button" role="tab" id="lx-tab-overview" aria-controls="lx-panel-overview" aria-selected={panel==='overview'} tabIndex={panel==='overview'?0:-1} className={panel==='overview'?'active':''} onClick={()=>setPanel('overview')}>النظرة الفنية</button>
+            <button type="button" role="tab" id="lx-tab-method" aria-controls="lx-panel-method" aria-selected={panel==='method'} tabIndex={panel==='method'?0:-1} className={panel==='method'?'active':''} onClick={()=>setPanel('method')}>منهجية العمل</button>
+            <button type="button" role="tab" id="lx-tab-outputs" aria-controls="lx-panel-outputs" aria-selected={panel==='outputs'} tabIndex={panel==='outputs'?0:-1} className={panel==='outputs'?'active':''} onClick={()=>setPanel('outputs')}>المخرجات والتوثيق</button>
           </div>
-          {panel==='overview'&&<div className="lx-modal-grid">
+          {panel==='overview'&&<div id="lx-panel-overview" role="tabpanel" aria-labelledby="lx-tab-overview" tabIndex={0} className="lx-modal-grid">
             <article className="lx-modal-panel"><h3><TargetIcon/> الغرض والنطاق الهندسي</h3><p>{selectedBranch.description}</p></article>
             <article className="lx-modal-panel"><h3><Server/> عناصر هذا المسار</h3><ul className="lx-modal-list">{selectedBranch.items.map(item=><li key={item}><CheckCircle2/>{item}</li>)}</ul></article>
             <article className="lx-modal-panel"><h3><ShieldCheck/> ضوابط السلامة</h3><p>{current.safety}</p></article>
             <article className="lx-modal-panel"><h3><Wrench/> الأدوات والبيئة</h3><div className="lx-modal-chips">{current.tools.map(tool=><span key={tool}>{tool}</span>)}</div></article>
           </div>}
-          {panel==='method'&&<div className="lx-modal-grid">
+          {panel==='method'&&<div id="lx-panel-method" role="tabpanel" aria-labelledby="lx-tab-method" tabIndex={0} className="lx-modal-grid">
             <article className="lx-modal-panel"><h3><Workflow/> تسلسل التنفيذ</h3><ul className="lx-modal-list">{current.workflow.map(step=><li key={step}><ChevronRight/>{step}</li>)}</ul></article>
             <article className="lx-modal-panel"><h3><Activity/> مبادئ التشغيل</h3><ul className="lx-modal-list"><li><ShieldCheck/>نطاق واضح وتصريح قبل بدء أي اختبار.</li><li><Activity/>خطوات قابلة للتكرار وقياسات قابلة للمراجعة.</li><li><FileSearch/>الاستنتاجات تستند إلى أدلة موثقة.</li></ul></article>
           </div>}
-          {panel==='outputs'&&<div className="lx-modal-grid">
+          {panel==='outputs'&&<div id="lx-panel-outputs" role="tabpanel" aria-labelledby="lx-tab-outputs" tabIndex={0} className="lx-modal-grid">
             <article className="lx-modal-panel"><h3><FileSearch/> المخرجات الفنية المتوقعة</h3><ul className="lx-modal-list">{current.outputs.map(item=><li key={item}><CheckCircle2/>{item}</li>)}</ul></article>
             <article className="lx-modal-panel"><h3><ShieldCheck/> حالة المسار</h3><p>{current.status}. المخرجات المعروضة تصف ما ينبغي إنتاجه عند التنفيذ، ولا تمثل نتائج منجزة دون أدلة فعلية.</p></article>
           </div>}

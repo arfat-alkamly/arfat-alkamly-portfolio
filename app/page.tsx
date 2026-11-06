@@ -1,8 +1,13 @@
 import Link from 'next/link';
+import {cookies} from 'next/headers';
+import HomePageEnglish from './HomePageEnglish';
 import Image from 'next/image';
 import { ArrowUpLeft, ArrowUpRight, ShieldCheck, Code2, FlaskConical, GraduationCap, Fingerprint, Network, Terminal, Github, Linkedin, Award, Layers3 } from 'lucide-react';
 import { projects } from '../data/projects';
 import './home.css';
+import type {Metadata} from 'next';
+import {localizedAlternates} from '../lib/seo';
+export async function generateMetadata():Promise<Metadata>{const en=(await cookies()).get('portfolio-locale')?.value==='en';return en?{title:'Cybersecurity & Software Portfolio',description:'Arfat Alkamali — Cybersecurity and Networks student focused on defensive security, security research, software engineering, and practical technical projects.',alternates:localizedAlternates('/','en')}:{title:'الملف المهني | عرفات الكاملي',description:'الملف المهني لعرفات الكاملي، طالب الأمن السيبراني والشبكات، المهتم بالأمن الدفاعي والبحث الأمني وهندسة البرمجيات والمشاريع التقنية.',alternates:localizedAlternates('/','ar')}}
 
 const disciplines = [
   { icon: Fingerprint, number: '01', title: 'البحث الأمني', text: 'مراجعة أمن التطبيقات، تحليل السلوك، دراسة الثغرات، وكتابة الملاحظات الفنية بصورة قابلة للتحقق.' },
@@ -16,7 +21,9 @@ const skillGroups = [
   { title: 'Systems & Tools', detail: 'Linux · Kali Linux · Wireshark · Cisco · Git & GitHub' }
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const locale=(await cookies()).get('portfolio-locale')?.value;
+  if(locale==='en') return <HomePageEnglish/>;
   const featured = projects.filter((project) => project.featured).slice(0, 3);
 
   return (

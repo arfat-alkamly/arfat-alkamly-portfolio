@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import {cookies} from 'next/headers';
+import ProjectDetailEnglish from './ProjectDetailEnglish';
+import {localizedAlternates} from '../../../lib/seo';
 import {notFound} from 'next/navigation';
 import {ArrowLeft,ArrowUpRight} from 'lucide-react';
 import {projects} from '../../../data/projects';
@@ -25,7 +28,7 @@ const aegisStructuredData = {
   description:'منظومة دفاع سيبراني مؤسسي — رؤية معمارية ومكونات تنفيذية موثقة ضمن مراجعة مصدرية محددة النطاق.',
   applicationCategory:'SecurityApplication',
   operatingSystem:'Linux',
-  url:'https://arfat-phi.vercel.app/projects/aegis-titan',
+  url:'https://arfat-phi.vercel.app/ar/projects/aegis-titan',
   author:{
     '@type':'Person',
     name:'Arfat AlKamli',
@@ -40,20 +43,28 @@ const aegisStructuredData = {
 
 export function generateStaticParams(){return projects.map(p=>({slug:p.slug}));}
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}) {
+  const en=(await cookies()).get('portfolio-locale')?.value==='en';
   const {slug}=await params;
   const p=projects.find(x=>x.slug===slug);
   if (!p) return {};
+  if(en) return {title: (slug==='waynah'?'Waynah':p.name)+' | Project Case Study | Arfat Alkamali',description:'Project overview, architecture, technology stack, contribution, project status, and available technical evidence.',alternates:localizedAlternates('/projects/'+slug,'en'),openGraph:{title:(slug==='waynah'?'Waynah':p.name)+' | Arfat Alkamali',description:'Project case study and engineering documentation.',type:'article'}};
   if (slug === 'aegis-titan') {
     const title='AEGIS-TITAN — Defensive Cyber Architecture (Source Reviewed) | Arfat AlKamli';
     const description='منظومة دفاع سيبراني مؤسسي — رؤية معمارية، كود مفحوص، ومكونات تنفيذية موثقة ضمن مراجعة مصدرية محددة النطاق. بقلم عرفات الكاملي، باحث أمن سيبراني يمني.';
     return {
       title,
       description,
-      alternates:{canonical:'/projects/aegis-titan'},
+      alternates:localizedAlternates('/projects/aegis-titan','ar'),
       openGraph:{title,description,type:'article',url:'https://arfat-phi.vercel.app/projects/aegis-titan',images:[{url:'/images/og/aegis-titan.svg',width:1200,height:630,alt:'AEGIS-TITAN Defensive Cyber Architecture'}]},
       twitter:{card:'summary_large_image',title,description,images:['/images/og/aegis-titan.svg']}
     };
   }
-  return {title:p.name,description:p.summary,alternates:{canonical:'/projects/'+slug},openGraph:{title:p.name,description:p.summary,type:'article'}};
+  return {title:p.name,description:p.summary,alternates:localizedAlternates('/projects/'+slug,'ar'),openGraph:{title:p.name,description:p.summary,type:'article'}};
 }
-export default async function ProjectPage({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();if(slug==='aegis-titan') return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(aegisStructuredData).replace(/</g,'\\u003c')}}/><AegisShowcase/></>;const d=details[slug]??{overview:p.summary,purpose:'تطبيق المفاهيم التقنية المرتبطة بالمشروع ضمن نطاقه الأكاديمي أو العملي.',architecture:p.stack,role:p.status};return <main className="content-page project-case"><Link className="back-link" href="/projects"><ArrowLeft size={16}/> العودة إلى أرشيف المشاريع</Link><span className="eyebrow">PROJECT PROFILE / {p.category.toUpperCase()}</span><h1>{p.name}</h1><p className="lead">{p.summary}</p><div className="case-meta"><span>{p.label}</span><span>{p.status}</span></div><section className="content-panel"><h2>01 / نظرة عامة</h2><p>{d.overview}</p></section><section className="content-panel"><h2>02 / الهدف</h2><p>{d.purpose}</p></section><section className="content-panel"><h2>03 / البنية والمكونات التقنية</h2><div className="architecture-list">{d.architecture.map((x,i)=><div key={x}><b>{String(i+1).padStart(2,'0')}</b>{x}</div>)}</div></section><section className="content-panel"><h2>04 / المكدس التقني</h2><div className="skill-tags">{p.stack.map(x=><span key={x}>{x}</span>)}</div></section><section className="content-panel"><h2>05 / المساهمة الشخصية</h2><p>{p.contribution}</p><h3>حالة المشروع</h3><p>{d.role}</p>{d.note&&<p className="disclaimer">{d.note}</p>}</section><section className="content-panel"><h2>06 / الأدلة والمراجع التقنية</h2>{evidence[slug]?<><b>{evidence[slug].level}</b><p>{evidence[slug].description}</p>{evidence[slug].links.length>0&&<div className="case-actions">{evidence[slug].links.map(link=><a key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.label} <ArrowUpRight size={16}/></a>)}</div>}</>:<p className="disclaimer">لا يتوفر حاليًا رابط مستودع أو توثيق عام لهذا المشروع؛ لذلك يقتصر العرض على وصف نطاقه وتقنياته المعروفة دون تقديمها كدليل تنفيذ منشور.</p>}</section><div className="case-actions">{slug==='aegis-titan'&&<Link href="/aegis-titan">الدخول إلى مساحة AEGIS-TITAN المستقلة <ArrowUpRight size={16}/></Link>}{p.repository&&<a href={p.repository} target="_blank" rel="noreferrer">مستودع GitHub <ArrowUpRight size={16}/></a>}<Link href="/projects">مشاريع أخرى <ArrowUpRight size={16}/></Link></div></main>}
+async function ProjectPageArabic({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();if(slug==='aegis-titan') return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(aegisStructuredData).replace(/</g,'\\u003c')}}/><AegisShowcase/></>;const d=details[slug]??{overview:p.summary,purpose:'تطبيق المفاهيم التقنية المرتبطة بالمشروع ضمن نطاقه الأكاديمي أو العملي.',architecture:p.stack,role:p.status};return <main className="content-page project-case"><Link className="back-link" href="/projects"><ArrowLeft size={16}/> العودة إلى أرشيف المشاريع</Link><span className="eyebrow">PROJECT PROFILE / {p.category.toUpperCase()}</span><h1>{p.name}</h1><p className="lead">{p.summary}</p><div className="case-meta"><span>{p.label}</span><span>{p.status}</span></div><section className="content-panel"><h2>01 / نظرة عامة</h2><p>{d.overview}</p></section><section className="content-panel"><h2>02 / الهدف</h2><p>{d.purpose}</p></section><section className="content-panel"><h2>03 / البنية والمكونات التقنية</h2><div className="architecture-list">{d.architecture.map((x,i)=><div key={x}><b>{String(i+1).padStart(2,'0')}</b>{x}</div>)}</div></section><section className="content-panel"><h2>04 / المكدس التقني</h2><div className="skill-tags">{p.stack.map(x=><span key={x}>{x}</span>)}</div></section><section className="content-panel"><h2>05 / المساهمة الشخصية</h2><p>{p.contribution}</p><h3>حالة المشروع</h3><p>{d.role}</p>{d.note&&<p className="disclaimer">{d.note}</p>}</section><section className="content-panel"><h2>06 / الأدلة والمراجع التقنية</h2>{evidence[slug]?<><b>{evidence[slug].level}</b><p>{evidence[slug].description}</p>{evidence[slug].links.length>0&&<div className="case-actions">{evidence[slug].links.map(link=><a key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.label} <ArrowUpRight size={16}/></a>)}</div>}</>:<p className="disclaimer">لا يتوفر حاليًا رابط مستودع أو توثيق عام لهذا المشروع؛ لذلك يقتصر العرض على وصف نطاقه وتقنياته المعروفة دون تقديمها كدليل تنفيذ منشور.</p>}</section><div className="case-actions">{slug==='aegis-titan'&&<Link href="/aegis-titan">الدخول إلى مساحة AEGIS-TITAN المستقلة <ArrowUpRight size={16}/></Link>}{p.repository&&<a href={p.repository} target="_blank" rel="noreferrer">مستودع GitHub <ArrowUpRight size={16}/></a>}<Link href="/projects">مشاريع أخرى <ArrowUpRight size={16}/></Link></div></main>}
+
+export default async function ProjectPage({params}:{params:Promise<{slug:string}>}){
+ const [{slug},localeCookie]=await Promise.all([params,cookies()]);
+ const en=localeCookie.get('portfolio-locale')?.value==='en';
+ return en ? <ProjectDetailEnglish slug={slug}/> : <ProjectPageArabic params={Promise.resolve({slug})}/>;
+}
