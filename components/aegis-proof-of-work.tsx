@@ -93,7 +93,7 @@ export default function AegisProofOfWork() {
         <div className="aegis-proof-subhead"><span>04 / CODE EXCERPT</span><h3>مقتطف من الكود الفعلي</h3></div>
         <div className="aegis-proof-code">
           <div className="aegis-proof-codebar"><span><Code2 size={14}/> core/forensic_ledger.py</span><span>PYTHON · SHA-256</span></div>
-          <pre aria-label="Python source excerpt"><code>{excerpt.map((line, index) => <span className="aegis-code-line" key={index}><i>{String(index + 1).padStart(2, '0')}</i>{line || ' '}{'\n'}</span>)}</code></pre>
+          <pre aria-label="Python source excerpt"><code>{excerpt.map((line, index) => { const trimmed=line.trim(); const kind=trimmed.startsWith('class ')||trimmed.startsWith('def ')||trimmed.startsWith('return ') ? 'keyword' : trimmed.startsWith('"""') ? 'string' : trimmed.startsWith('"') ? 'property' : 'plain'; return <span className="aegis-code-line" data-kind={kind} key={index}><i>{String(index + 1).padStart(2, '0')}</i>{line || ' '}{'\n'}</span>; })}</code></pre>
           <p>مقتطف فعلي من المستودع الخاص — <code>core/forensic_ledger.py</code>. يعرض طريقة ترتيب مفاتيح JSON وحساب SHA-256؛ ولا يثبت وحده مقاومة كل أشكال التلاعب.</p>
         </div>
       </div>
