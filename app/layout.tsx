@@ -4,6 +4,7 @@ import './globals.css';
 import '../components/LanguageStyles.css';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import {localizedAlternates} from '../lib/seo';
 const siteUrl='https://arfat-phi.vercel.app';
 const personJsonLd={
  '@context':'https://schema.org','@type':'Person',name:'عرفات الكاملي',alternateName:'Arfat Alkamali',url:siteUrl,
@@ -19,8 +20,8 @@ export async function generateMetadata():Promise<Metadata>{
  return {
   metadataBase:new URL(siteUrl),title:{default:title,template:en?'%s | Arfat Alkamali':'%s | عرفات الكاملي'},description,
   applicationName:'ARFAT ALKAMALI',keywords:['Arfat Alkamali','عرفات الكاملي','Cybersecurity Yemen','Defensive Security','Security Research','Software Development','DFIR'],
-  authors:[{name:'Arfat Alkamali',url:siteUrl}],alternates:{languages:{ar:'/ar',en:'/en'}},
-  openGraph:{type:'website',locale:en?'en_US':'ar_YE',url:siteUrl,siteName:'ARFAT ALKAMALI',title,description,images:[{url:'/opengraph-image',width:1200,height:630,alt:en?'Arfat Alkamali — Cybersecurity & Technology':'عرفات الكاملي — الأمن السيبراني والتقنية'}]},
+  authors:[{name:'Arfat Alkamali',url:siteUrl}],alternates:localizedAlternates('/',locale),
+  openGraph:{type:'website',locale:en?'en_US':'ar_YE',url:siteUrl+'/'+locale,siteName:'ARFAT ALKAMALI',title,description,images:[{url:'/opengraph-image',width:1200,height:630,alt:en?'Arfat Alkamali — Cybersecurity & Technology':'عرفات الكاملي — الأمن السيبراني والتقنية'}]},
   twitter:{card:'summary_large_image',title,description,images:['/opengraph-image']},robots:{index:true,follow:true}
  };
 }
