@@ -2,15 +2,15 @@ import type {Metadata} from 'next';
 export const metadata:Metadata={title:'الشهادات والدورات',alternates:{canonical:'/credentials'},description:'الشهادات والدورات التقنية وروابط التحقق المتاحة.'};
 const credlyProfile='https://www.credly.com/users/arfat-alkamly';
 const items=[
- {name:'Cybersecurity Defense Analyst Career Path',issuer:'Cisco Networking Academy',url:credlyProfile,kind:'مسار مهني'},
- {name:'Network Defense',issuer:'Cisco Networking Academy',url:credlyProfile,kind:'شارة رقمية'},
- {name:'Networking Basics',issuer:'Cisco Networking Academy',url:credlyProfile,kind:'شارة رقمية'},
- {name:'Python Essentials 2',issuer:'Cisco Networking Academy',url:credlyProfile,kind:'شارة رقمية'},
- {name:'Python Essentials 1',issuer:'Cisco Networking Academy',url:credlyProfile,kind:'شارة رقمية'},
- {name:'Introduction to Modern AI',issuer:'Cisco Networking Academy',url:credlyProfile,kind:'شارة رقمية'},
+ {name:'Cybersecurity Defense Analyst Career Path',issuer:'Cisco Networking Academy',url:'https://www.credly.com/badges/c5e45344-5db0-4e0c-a8de-d3137b4bc601',kind:'مسار مهني'},
+ {name:'Network Defense',issuer:'Cisco Networking Academy',url:'https://www.credly.com/org/cisco/badge/network-defense',kind:'شارة رقمية'},
+ {name:'Networking Basics',issuer:'Cisco Networking Academy',url:'https://www.credly.com/org/cisco/badge/networking-basics',kind:'شارة رقمية'},
+ {name:'Python Essentials 2',issuer:'Cisco Networking Academy',url:'https://www.credly.com/org/cisco/badge/python-essentials-2/',kind:'شارة رقمية'},
+ {name:'Python Essentials 1',issuer:'Cisco Networking Academy',url:'https://www.credly.com/badges/5b1c3400-5bea-44c3-a100-2e3d442b22d2/public_url',kind:'شارة رقمية'},
+ {name:'Introduction to Modern AI',issuer:'Cisco Networking Academy',url:'https://www.credly.com/org/cisco/badge/introduction-to-modern-ai',kind:'شارة رقمية'},
  {name:'Endpoint Security',issuer:'Cisco Networking Academy',url:'https://www.credly.com/badges/f0520c01-63aa-4440-9df4-69c7303d8762/public_url',kind:'شارة رقمية'},
- {name:'Introduction to Cybersecurity',issuer:'Cisco Networking Academy',url:credlyProfile,kind:'شارة رقمية'},
- {name:'Create Digital Content, Communicate and Collaborate Online',issuer:'Cisco Networking Academy',url:credlyProfile,kind:'شارة رقمية'},
+ {name:'Introduction to Cybersecurity',issuer:'Cisco Networking Academy',url:'https://www.credly.com/badges/cff1a2d3-82ce-47d7-addb-ac3d8a7dd788',kind:'شارة رقمية'},
+ {name:'Create Digital Content, Communicate and Collaborate Online',issuer:'Cisco Networking Academy',url:'https://www.credly.com/org/cisco/badge/create-digital-content-communicate-and-collaborate-/',kind:'شارة رقمية'},
  {name:'IT Customer Support Basics',issuer:'Credly',url:'https://www.credly.com/badges/dd68b74c-65f9-468f-9a51-3bb78adad239/public_url',kind:'شارة رقمية'},
  {name:'Cisco Learn-A-Thon 2026',issuer:'Cisco',url:'https://www.credly.com/badges/a370a36f-7ce1-4531-b44b-b909e56ee52d/public_url',kind:'شارة مشاركة'},
  {name:'Introduction to Artificial Intelligence',issuer:'LinkedIn',url:'https://lnkd.in/dRCcTwf5',kind:'دورة / شهادة إتمام'}
