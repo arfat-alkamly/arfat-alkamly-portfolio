@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {ArrowLeft,ArrowUpRight,ShieldCheck,LockKeyhole,FileSearch} from 'lucide-react';
+import {ArrowLeft,ArrowUpRight,ShieldCheck,LockKeyhole} from 'lucide-react';
 import {notFound} from 'next/navigation';
 import {projects} from '../../../data/projects';
 
@@ -41,6 +41,6 @@ export default function ProjectDetailEnglish({slug}:{slug:string}){
   <section className="content-panel"><h2>04 / Technology Stack</h2><div className="skill-tags">{p.stack.map(x=><span key={x}>{x}</span>)}</div></section>
   <section className="content-panel"><h2>05 / Contribution & Project Status</h2><p>{d.contribution}</p><h3>Project status</h3><p>{d.role}</p>{d.note&&<p className="disclaimer">{d.note}</p>}</section>
   <section className="content-panel"><h2>06 / Evidence & Technical References</h2>{ev?<><b>{ev.level}</b><p>{ev.description}</p>{ev.links.length>0&&<div className="case-actions">{ev.links.map(link=><a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <ArrowUpRight size={16}/></a>)}</div>}</>:<p className="disclaimer">No public repository or technical documentation is currently available for this project. This page therefore describes its known scope and technologies without presenting them as publicly verifiable implementation evidence.</p>}</section>
-  <div className="case-actions">{slug==='aegis-titan'&&<Link href="/en/aegis-titan">Open the dedicated AEGIS-TITAN workspace <ArrowUpRight size={16}/></Link>}{p.repository&&<a href={p.repository} target="_blank" rel="noopener noreferrer">GitHub repository <ArrowUpRight size={16}/></a>}<Link href="/en/projects">Explore other projects <ArrowUpRight size={16}/></Link></div>
+  <div className="case-actions">{slug==='aegis-titan'&&<a href="mailto:alkamlyrfat@gmail.com?subject=AEGIS-TITAN%20Project%20Access">Request scoped project access <ArrowUpRight size={16}/></a>}{p.repository&&<a href={p.repository} target="_blank" rel="noopener noreferrer">GitHub repository <ArrowUpRight size={16}/></a>}<Link href="/en/projects">Explore other projects <ArrowUpRight size={16}/></Link></div>
  </main>;
 }
