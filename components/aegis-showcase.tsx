@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AegisProofOfWork from './aegis-proof-of-work';
 import { ArrowLeft, ArrowUpRight, ShieldCheck, Fingerprint, RadioTower, ScanSearch, Network, LockKeyhole, Activity, Eye, Layers3, Orbit, Radar, Shield, Database, Sparkles, Building2, Workflow, Globe2, FileCheck2 } from 'lucide-react';
 
 
@@ -12,9 +13,9 @@ const capabilities = [
 ];
 
 const sectors = [
-  ['01', 'CLASSIFIED SECTOR', 'مجال تخصصي محمي'],
-  ['02', 'RESTRICTED DOMAIN', 'نطاق عمليات خاص'],
-  ['03', 'SOVEREIGN LAYER', 'طبقة هندسية مستقلة'],
+  ['01', 'ROADMAP DOMAIN', 'مجال ضمن خارطة التطوير'],
+  ['02', 'INTERNAL DESIGN', 'قرارات وبنية التصميم'],
+  ['03', 'PROTECTED COMPONENTS', 'مكونات محمية'],
   ['04', 'INTELLIGENCE CORE', 'مجال تحليل متقدم'],
 ];
 
@@ -40,55 +41,57 @@ function SignalField() {
     <div className="aegis-signal-ring ring-a"/><div className="aegis-signal-ring ring-b"/>
     <div className="aegis-signal-cross cross-a"/><div className="aegis-signal-cross cross-b"/>
     <div className="aegis-signal-node node-a"/><div className="aegis-signal-node node-b"/><div className="aegis-signal-node node-c"/>
-    <span className="signal-label signal-one">SECURE / PRIVATE</span><span className="signal-label signal-two">UNKNOWN SURFACE</span>
+    <span className="signal-label signal-one">PROTECTED / DEFENSIVE</span><span className="signal-label signal-two">UNKNOWN SURFACE</span>
   </div>;
 }
 
 export default function AegisShowcase() {
   return <main className="aegis-shell aegis-private-shell">
     <section className="aegis-hero aegis-private-hero">
-      <div className="aegis-topline"><Link href="/projects"><ArrowLeft size={15}/> العودة إلى المشاريع</Link><span>PRIVATE SYSTEM / STRATEGIC DEFENSE</span></div>
+      <div className="aegis-topline"><Link href="/projects"><ArrowLeft size={15}/> العودة إلى المشاريع</Link><span>PROTECTED COMPONENTS / DEFENSIVE ENGINEERING</span></div>
       <div className="aegis-hero-grid aegis-private-grid">
         <div className="aegis-private-copy">
-          <div className="aegis-kicker"><span/> SOVEREIGN DEFENSIVE ECOSYSTEM</div>
-          <p className="aegis-classified"><LockKeyhole size={12}/> RESTRICTED ENGINEERING PROFILE</p>
+          <div className="aegis-kicker"><span/> DEFENSIVE CYBER ARCHITECTURE</div>
+          <p className="aegis-classified"><LockKeyhole size={12}/> INTERNAL DESIGN / ENGINEERING PROFILE</p>
           <h1>AEGIS<span>-</span>TITAN</h1>
-          <p className="aegis-subtitle">v9.0 <i/> SOVEREIGN</p>
+          <p className="aegis-subtitle">v9.0 <i/> DEFENSIVE ARCHITECTURE</p>
           <h2 className="aegis-private-headline">Beyond Visibility.<br/><em>Beyond Conventional Defense.</em></h2>
-          <p className="aegis-intro">منظومة دفاع سيبراني سيادية ذات رؤية مؤسسية، صاغ فكرتها وهويتها المعمارية المهندس عرفات عبدالله الكاملي. تستهدف المؤسسات والشركات التي تحتاج إلى منظومة دفاعية قابلة للتخصيص وفق بيئتها ومتطلباتها، مع إبقاء جوهر الهندسة والتفاصيل الداخلية ضمن نطاق خاص.</p>
+          <p className="aegis-intro">منظومة دفاع سيبراني ذات توجه مؤسسي، صاغ فكرتها وهويتها المعمارية المهندس عرفات عبدالله الكاملي. تستهدف المؤسسات والشركات التي تحتاج إلى منظومة دفاعية قابلة للتخصيص وفق بيئتها ومتطلباتها، مع إبقاء جوهر الهندسة والتفاصيل الداخلية ضمن نطاق خاص.</p>
           <div className="aegis-actions"><a href="#capabilities">استكشف مجالات القدرات <ArrowUpRight size={16}/></a><a href="#architect">عن المهندس <ArrowUpRight size={16}/></a></div>
-          <div className="aegis-status aegis-private-status"><span><i/> PRIVATE / PROPRIETARY</span><span>DEFENSE ORIENTED</span><span>SOVEREIGN IDENTITY</span></div>
+          <div className="aegis-status aegis-private-status"><span><i/> PROTECTED COMPONENTS</span><span>DEFENSE ORIENTED</span><span>ENGINEERING IDENTITY</span></div>
         </div>
         <Emblem/>
       </div>
-      <div className="aegis-hero-foot"><span>AEGIS-TITAN / PRIVATE ECOSYSTEM</span><span>STRATEGIC CYBER DEFENSE</span></div>
+      <div className="aegis-hero-foot"><span>AEGIS-TITAN / PROTECTED ECOSYSTEM</span><span>STRATEGIC CYBER DEFENSE</span></div>
       <div className="aegis-quick-read" aria-label="AEGIS-TITAN at a glance">
         <article><span>01 / VISION</span><b>DEFENSIVE BY DESIGN</b><small>رؤية دفاعية موحدة</small></article>
         <article><span>02 / SCOPE</span><b>INSTITUTIONAL</b><small>توجه مؤسسي قابل للتكييف</small></article>
         <article><span>03 / PRINCIPLE</span><b>EVIDENCE-LED</b><small>قرار يستند إلى السياق والأدلة</small></article>
-        <article><span>04 / IDENTITY</span><b>SOVEREIGN</b><small>هوية وهندسة خاصة</small></article>
+        <article><span>04 / IDENTITY</span><b>ENGINEERING</b><small>هوية وهندسة خاصة</small></article>
       </div>
       <SignalField/>
     </section>
+
+    <AegisProofOfWork />
 
     <section className="aegis-private-manifesto">
       <span className="aegis-overline">A DIFFERENT CLASS OF ENGINEERING</span>
       <h2>القدرات ظاهرة.<br/><em>والهندسة تبقى محمية.</em></h2>
       <p>ما يظهر هنا هو نطاق المهمة وأثرها الاستراتيجي؛ أما التفاصيل الداخلية، وآليات العمل، والبنية الخاصة، فتبقى خارج العرض العام.</p>
-      <div className="aegis-manifesto-mark"><Orbit/><span>SEALED BY DESIGN</span></div>
+      <div className="aegis-manifesto-mark"><Orbit/><span>PROTECTED COMPONENTS</span></div>
     </section>
 
     <section className="aegis-enterprise-vision" id="enterprise-vision">
-      <div className="aegis-enterprise-heading"><span>INSTITUTIONAL / SOVEREIGN CYBER DEFENSE</span><h2>رؤية سيادية.<br/><em>مصممة لاحتياجات المؤسسات.</em></h2><p>AEGIS-TITAN ليست واجهة مراقبة فحسب؛ إنها رؤية منتج دفاعي مؤسسي خاص، يستهدف بناء قدرة موحدة للرؤية الأمنية والتحليل والاستجابة والحوكمة، مع قابلية تكييف نطاقه وفق طبيعة كل مؤسسة.</p></div>
+      <div className="aegis-enterprise-heading"><span>INSTITUTIONAL / DEFENSIVE CYBER ARCHITECTURE</span><h2>رؤية دفاعية.<br/><em>مصممة لاحتياجات المؤسسات.</em></h2><p>AEGIS-TITAN ليست واجهة مراقبة فحسب؛ إنها رؤية منتج دفاعي مؤسسي خاص، يستهدف بناء قدرة موحدة للرؤية الأمنية والتحليل والاستجابة والحوكمة، مع قابلية تكييف نطاقه وفق طبيعة كل مؤسسة.</p></div>
       <div className="aegis-enterprise-image"><img src="/images/aegis/sovereign-core.svg" alt="تصور بصري لهوية AEGIS-TITAN السيادية" loading="lazy"/></div>
       <div className="aegis-enterprise-pillars">
         <article><Building2/><b>INSTITUTIONAL FIT</b><h3>ملاءمة مؤسسية</h3><p>تصور قابل للتخصيص بحسب حجم المؤسسة وبيئتها وأولوياتها الدفاعية.</p></article>
         <article><Workflow/><b>UNIFIED OPERATIONS</b><h3>عمليات مترابطة</h3><p>ربط مجالات الرؤية والتحليل والاستجابة والتحقيق ضمن إطار واحد.</p></article>
-        <article><Globe2/><b>DATA SOVEREIGNTY</b><h3>سيادة البيانات</h3><p>تصميم خيارات نشر واستضافة وحوكمة تُحدد وفق متطلبات الجهة المتعاقدة.</p></article>
+        <article><Globe2/><b>DATA DEFENSIVETY</b><h3>حوكمة البيانات</h3><p>تصميم خيارات نشر واستضافة وحوكمة تُحدد وفق متطلبات الجهة المتعاقدة.</p></article>
         <article><FileCheck2/><b>GOVERNED ASSURANCE</b><h3>حوكمة وضمان</h3><p>التوجه إلى توثيق الضوابط والاختبارات والقبول الفني لكل بيئة نشر.</p></article>
       </div>
       <div className="aegis-enterprise-image aegis-enterprise-wide"><img src="/images/aegis/enterprise-operations.svg" alt="تصور توضيحي لبيئة عمليات أمنية مؤسسية" loading="lazy"/></div>
-      <div className="aegis-commercial-note"><span>PRIVATE / INSTITUTIONAL ENGAGEMENT</span><p>التوجه التجاري المستهدف: ترخيص مؤسسي، تخصيص حسب المتطلبات، تكامل مع البيئة القائمة، وخدمات تهيئة ودعم وفق نطاق تعاقدي واضح. تخضع الجاهزية التجارية والامتثال والاعتمادات والاختبارات النهائية للتحقق قبل أي نشر مؤسسي.</p></div>
+      <div className="aegis-commercial-note"><span>PROTECTED COMPONENTS / INSTITUTIONAL ENGAGEMENT</span><p>التوجه التجاري المستهدف: ترخيص مؤسسي، تخصيص حسب المتطلبات، تكامل مع البيئة القائمة، وخدمات تهيئة ودعم وفق نطاق تعاقدي واضح. تخضع الجاهزية التجارية والامتثال والاعتمادات والاختبارات النهائية للتحقق قبل أي نشر مؤسسي.</p></div>
     </section>
 
     <section className="aegis-image-gallery" aria-labelledby="aegis-gallery-title">
@@ -121,11 +124,11 @@ export default function AegisShowcase() {
 
     <section className="aegis-section aegis-private-section" id="capabilities">
       <div className="aegis-section-head"><span>01 / STRATEGIC CAPABILITIES</span><h2>مجالات عمل تتجاوز الأدوات المنفردة.</h2><p>قدرات مترابطة ضمن رؤية دفاعية شاملة، تُعرض هنا على مستوى المهمة دون كشف تفاصيل التنفيذ.</p></div>
-      <div className="aegis-private-capabilities">{capabilities.map(({icon:Icon,code,title,text})=><article key={code}><div className="aegis-cap-icon"><Icon size={21}/></div><span>{code}</span><h3>{title}</h3><p>{text}</p><b className="aegis-card-seal">PRIVATE DOMAIN <LockKeyhole size={11}/></b></article>)}</div>
+      <div className="aegis-private-capabilities">{capabilities.map(({icon:Icon,code,title,text})=><article key={code}><div className="aegis-cap-icon"><Icon size={21}/></div><span>{code}</span><h3>{title}</h3><p>{text}</p><b className="aegis-card-seal">PROTECTED COMPONENTS <LockKeyhole size={11}/></b></article>)}</div>
     </section>
 
     <section className="aegis-section aegis-classified-section">
-      <div className="aegis-section-head"><span>02 / RESTRICTED SECTORS</span><h2>مساحات هندسية لا تُعرض تفاصيلها.</h2><p>إشارات إلى اتساع المنظومة وتعدد نطاقاتها، دون نشر أسماء الوحدات أو خرائطها الداخلية.</p></div>
+      <div className="aegis-section-head"><span>02 / INTERNAL DESIGN & ROADMAP DOMAINS</span><h2>التصميم الداخلي ومجالات التطوير.</h2><p>إشارات إلى اتساع المنظومة وتعدد نطاقاتها، دون نشر أسماء الوحدات أو خرائطها الداخلية.</p></div>
       <div className="aegis-sector-grid">{sectors.map(([n,title,desc])=><article key={n}><span>{n} / SEALED</span><div className="aegis-sector-lines"><i/><i/><i/></div><h3>{title}</h3><p>{desc}</p><LockKeyhole size={15}/></article>)}</div>
     </section>
 
@@ -169,6 +172,6 @@ export default function AegisShowcase() {
       <div className="aegis-founder-seal">AEGIS<br/>TITAN</div>
     </section>
 
-    <section className="aegis-private-footer"><div><Sparkles size={16}/><b>THE ARCHITECTURE REMAINS PRIVATE.</b></div><p>تفاصيل المنظومة الهندسية محمية. هذا العرض يعرّف بالهوية والقدرات العامة فقط.</p><span>AEGIS-TITAN © SOVEREIGN DEFENSE ECOSYSTEM</span></section>
+    <section className="aegis-private-footer"><div><Sparkles size={16}/><b>PROTECTED COMPONENTS / INTERNAL DESIGN</b></div><p>تفاصيل المنظومة الهندسية محمية. هذا العرض يعرّف بالهوية والقدرات العامة فقط.</p><span>AEGIS-TITAN © DEFENSIVE CYBER ARCHITECTURE</span></section>
   </main>;
 }
