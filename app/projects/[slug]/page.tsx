@@ -65,5 +65,5 @@ async function ProjectPageArabic({params}:{params:Promise<{slug:string}>}){const
 export default async function ProjectPage({params}:{params:Promise<{slug:string}>}){
  const [{slug},localeCookie]=await Promise.all([params,cookies()]);
  const en=localeCookie.get('portfolio-locale')?.value==='en';
- return en ? <ProjectDetailEnglish slug={slug}/> : <ProjectPageArabic({params:Promise.resolve({slug})})/>;
+ return en ? <ProjectDetailEnglish slug={slug}/> : <ProjectPageArabic params={Promise.resolve({slug})}/>;
 }
