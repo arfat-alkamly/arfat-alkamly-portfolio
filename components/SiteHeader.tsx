@@ -12,9 +12,9 @@ export default function SiteHeader({locale='ar'}:{locale?:Locale}){
   <Link href={prefix('/')} className="site-logo"><span>AK</span><b>ARFAT ALKAMALI</b></Link>
   <nav aria-label={isEn?'Main navigation':'التنقل الرئيسي'}>{links.map(([href,ar,en])=>{const active=current===href||(href!=='/'&&current.startsWith(href+'/'));return <Link key={href} href={prefix(href)} aria-current={active?'page':undefined} className={active?'nav-active':''}>{isEn?en:ar}</Link>;})}</nav>
   <div className="site-language" aria-label={isEn?'Select language':'اختيار اللغة'}>
-   <Link href={`/en${current==='/'?'':current}`} lang="en" aria-current={isEn?'page':undefined}>EN</Link>
+   <a href={`/en${current==='/'?'':current}`} lang="en" aria-current={isEn?'page':undefined}>EN</a>
    <span aria-hidden="true">|</span>
-   <Link href={`/ar${current==='/'?'':current}`} lang="ar" aria-current={!isEn?'page':undefined}>AR</Link>
+   <a href={`/ar${current==='/'?'':current}`} lang="ar" aria-current={!isEn?'page':undefined}>AR</a>
   </div>
  </header>;
 }
