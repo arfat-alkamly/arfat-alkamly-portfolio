@@ -7,7 +7,7 @@ import {ArrowUpLeft, ArrowUpRight, Fingerprint, ShieldCheck} from 'lucide-react'
 export async function generateMetadata(): Promise<Metadata> {
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
   return en
-    ? { title: 'Cybersecurity Research | Arfat Alkamali', description: 'Independent research concepts in cybersecurity engineering, defensive systems, AI security, digital forensics, and secure software.', alternates: localizedAlternates('/research','en') }
+    ? { title: 'Cybersecurity Research | Arfat Alkamli', description: 'Independent research concepts in cybersecurity engineering, defensive systems, AI security, digital forensics, and secure software.', alternates: localizedAlternates('/research','en') }
     : { title: 'الأبحاث والدراسات الأمنية', description: 'الهوية البحثية والمقترحات العلمية في الأمن السيبراني، الذكاء الاصطناعي، هندسة الدفاع والتحقيق الرقمي.', alternates: localizedAlternates('/research','ar') };
 }
 
@@ -147,7 +147,7 @@ const researchPrograms=[
 
 async function ResearchPageArabic(){
   return <main className="content-page rs-page">
-    <div className="rs-topline"><span>ARFAT ALKAMALI / RESEARCH OFFICE</span><span>CYBERSECURITY · ENGINEERING · APPLIED RESEARCH</span></div>
+    <div className="rs-topline"><span>ARFAT ALKAMLI / RESEARCH OFFICE</span><span>CYBERSECURITY · ENGINEERING · APPLIED RESEARCH</span></div>
 
     <section className="rs-identity">
       <div className="rs-identity-grid" aria-hidden="true"><i/><i/><i/><i/></div>
@@ -216,7 +216,7 @@ async function ResearchPageArabic(){
       </div>
     </aside>
 
-    <footer className="rs-footer"><span>ARFAT ALKAMALI / RESEARCH PORTFOLIO</span><b>BUILDING KNOWLEDGE. ENGINEERING SECURITY.</b><a href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="noopener noreferrer">ORCID PROFILE <ArrowUpLeft size={14}/></a></footer>
+    <footer className="rs-footer"><span>ARFAT ALKAMLI / RESEARCH PORTFOLIO</span><b>BUILDING KNOWLEDGE. ENGINEERING SECURITY.</b><a href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="noopener noreferrer">ORCID PROFILE <ArrowUpLeft size={14}/></a></footer>
   </main>;
 }
 
