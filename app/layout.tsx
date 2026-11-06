@@ -11,16 +11,19 @@ const personJsonLd={
  email:'mailto:alkamlyrfat@gmail.com',sameAs:['https://github.com/arfat-alkamly','https://www.linkedin.com/in/arfat-alkamly-399676409','https://www.credly.com/users/arfat-alkamly','https://orcid.org/0009-0008-1348-5146'],
  knowsAbout:['Cybersecurity','Defensive Security','Security Research','Digital Forensics and Incident Response','Network Security','Software Engineering','Python','Cloud Computing']
 };
-export const metadata:Metadata={
- metadataBase:new URL(siteUrl),title:{default:'Arfat Alkamali | Cybersecurity & Software',template:'%s | Arfat Alkamali'},
- description:'Arfat Alkamali — Cybersecurity and Networks student focused on defensive security, security research, software development and digital forensics.',
- applicationName:'ARFAT ALKAMALI',keywords:['Arfat Alkamali','عرفات الكاملي','Cybersecurity Yemen','Defensive Security','Security Research','Software Development','DFIR'],
- authors:[{name:'Arfat Alkamali',url:siteUrl}],
- alternates:{languages:{ar:'/ar',en:'/en'}},
- openGraph:{type:'website',locale:'ar_YE',url:siteUrl,siteName:'ARFAT ALKAMALI',title:'Arfat Alkamali | Cybersecurity & Software',description:'Defensive security, security research and software engineering.',images:[{url:'/opengraph-image',width:1200,height:630,alt:'Arfat Alkamali — Cybersecurity & Technology'}]},
- twitter:{card:'summary_large_image',title:'Arfat Alkamali | Cybersecurity & Technology',description:'Security research, defensive security and software development.',images:['/opengraph-image']},
- robots:{index:true,follow:true}
-};
+export async function generateMetadata():Promise<Metadata>{
+ const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
+ const en=locale==='en';
+ const title=en?'Arfat Alkamali | Cybersecurity & Software':'عرفات الكاملي | الأمن السيبراني والتقنية';
+ const description=en?'Cybersecurity and Networks student focused on defensive security, security research, software development and digital forensics.':'طالب أمن سيبراني وشبكات مهتم بالأمن الدفاعي والبحث الأمني وتطوير البرمجيات والتحليل الجنائي الرقمي.';
+ return {
+  metadataBase:new URL(siteUrl),title:{default:title,template:en?'%s | Arfat Alkamali':'%s | عرفات الكاملي'},description,
+  applicationName:'ARFAT ALKAMALI',keywords:['Arfat Alkamali','عرفات الكاملي','Cybersecurity Yemen','Defensive Security','Security Research','Software Development','DFIR'],
+  authors:[{name:'Arfat Alkamali',url:siteUrl}],alternates:{languages:{ar:'/ar',en:'/en'}},
+  openGraph:{type:'website',locale:en?'en_US':'ar_YE',url:siteUrl,siteName:'ARFAT ALKAMALI',title,description,images:[{url:'/opengraph-image',width:1200,height:630,alt:en?'Arfat Alkamali — Cybersecurity & Technology':'عرفات الكاملي — الأمن السيبراني والتقنية'}]},
+  twitter:{card:'summary_large_image',title,description,images:['/opengraph-image']},robots:{index:true,follow:true}
+ };
+}
 export const viewport:Viewport={width:'device-width',initialScale:1,themeColor:'#0b1117'};
 export default async function RootLayout({children}:{children:React.ReactNode}){
  const cookieStore=await cookies();
