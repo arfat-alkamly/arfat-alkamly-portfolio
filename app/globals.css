@@ -1802,3 +1802,14 @@ button:active,
 a:active {
   transform: scale(.985);
 }
+
+
+/* Fast, lightweight feedback while prefetched routes finish rendering */
+.route-loading{display:grid;place-items:center;align-content:center;gap:13px;min-height:48vh;padding:40px 20px;color:var(--brass-light);text-align:center}
+.route-loading-mark{width:28px;height:28px;border:2px solid rgba(210,189,145,.22);border-top-color:var(--brass-light);border-radius:50%;animation:route-loading-spin .65s linear infinite}
+.route-loading-label{font-size:12px;letter-spacing:.04em}
+.route-loading-track{display:block;overflow:hidden;width:min(150px,45vw);height:2px;border-radius:2px;background:rgba(183,155,104,.14)}
+.route-loading-track i{display:block;width:42%;height:100%;border-radius:inherit;background:var(--brass-light);animation:route-loading-progress .9s ease-in-out infinite alternate}
+@keyframes route-loading-spin{to{transform:rotate(360deg)}}
+@keyframes route-loading-progress{from{transform:translateX(-10%)}to{transform:translateX(150%)}}
+@media(prefers-reduced-motion:reduce){.route-loading-mark,.route-loading-track i{animation:none!important}}
