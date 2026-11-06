@@ -74,7 +74,7 @@ export default function ProjectsPage(){
         <p>{featured.summary}</p>
         <div className="portfolio-featured-tags">{featured.stack.slice(0,4).map(x=><span key={x}>{x}</span>)}</div>
         <div className="portfolio-featured-footer">
-          <span>FOUNDER &amp; LEAD SYSTEMS ARCHITECT<br/><b>ARFAT ALKAMALI</b></span>
+          <span>FOUNDER &amp; LEAD SYSTEMS ARCHITECT<br/><b>ARFAT ALKAMLI</b></span>
           <button type="button" onClick={()=>setSelectedProject(featured)}>استكشف المنظومة <ArrowUpLeft size={17}/></button>
         </div>
       </div>
@@ -137,7 +137,7 @@ export default function ProjectsPage(){
     {selectedProject&&<div className="project-modal-backdrop" role="presentation" onMouseDown={event=>{if(event.target===event.currentTarget)setSelectedProject(null)}}>
       <section className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" dir="rtl">
         <header className="project-modal-header">
-          <div className="project-modal-brand"><span className="project-modal-brand-icon"><Layers3 size={21}/></span><span><small>ARFAT ALKAMALI / PROJECT PROFILE</small><b>ملف المشروع الهندسي</b></span></div>
+          <div className="project-modal-brand"><span className="project-modal-brand-icon"><Layers3 size={21}/></span><span><small>ARFAT ALKAMLI / PROJECT PROFILE</small><b>ملف المشروع الهندسي</b></span></div>
           <button type="button" className="project-modal-close" onClick={()=>setSelectedProject(null)} aria-label="إغلاق النافذة"><X size={19}/></button>
         </header>
         <div className="project-modal-content">
