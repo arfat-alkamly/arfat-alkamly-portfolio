@@ -25,7 +25,7 @@ const decisions = [
 const excerpt = [
   'class ForensicBlock:',
   '    """كتلة تشفيرية دائمة موثقة بالهاش"""',
-  '    def __init__(self, index, timestamp, event_payload, prev_hash, block_hash=""):',
+  '    def __init__(self, index: int, timestamp: float, event_payload: Dict[str, Any], prev_hash: str, block_hash: str = ""):',
   '        self.index = index',
   '        self.timestamp = timestamp',
   '        self.event_payload = event_payload',
@@ -114,7 +114,7 @@ export default function AegisProofOfWork() {
           </ul>
         </div>
         <div className="aegis-proof-roadmap"><b>ROADMAP / NEXT VERIFICATION</b><div><span>01</span> تشغيل الاختبارات في بيئة معزولة وتوثيق النتائج</div><div><span>02</span> إضافة تسجيل منظم لأخطاء المشتركين ومؤشرات فشل المعالجة</div><div><span>03</span> توثيق الاعتماديات وإصداراتها وفحصها أمنياً</div><div><span>04</span> قياس Precision / Recall / F1 على مجموعة بيانات معلنة</div></div>
-        <p className="aegis-proof-report-note">تقرير الفحص PDF: لم يُنشر بعد. لن نضع رابط تنزيل قبل إنشاء تقرير نهائي يتضمن نطاق المراجعة ونتائج التشغيل الفعلية.</p>
+        <a className="aegis-proof-report-download" href="/documents/aegis-titan-source-review.pdf" download><FileText size={15}/> تحميل تقرير الفحص PDF <ArrowUpRight size={14}/></a>
       </div>
 
       <div className="aegis-proof-block">
@@ -135,6 +135,7 @@ export default function AegisProofOfWork() {
           <Link href="/contact?subject=AEGIS-TITAN%20Technical%20Walkthrough">طلب عرض تقني <ArrowUpRight size={15}/></Link>
           <Link href="/contact?subject=AEGIS-TITAN%20Repository%20Access">طلب وصول للمستودع <ArrowUpRight size={15}/></Link>
           <Link href="/contact?subject=AEGIS-TITAN%20Vision%20Document">طلب وثيقة الرؤية <FileText size={15}/></Link>
+          <a href="/documents/aegis-titan-source-review.pdf" download>تحميل تقرير الفحص PDF <FileText size={15}/></a>
         </div>
       </div>
     </section>
