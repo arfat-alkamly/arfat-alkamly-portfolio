@@ -9,12 +9,12 @@ import styles from './contact.module.css';
 export async function generateMetadata(): Promise<Metadata> {
  const en = (await cookies()).get('portfolio-locale')?.value === 'en';
  return en
-  ? { title:'Professional Contact | Arfat Alkamali', description:'Connect with Arfat Alkamali about cybersecurity engineering, security research, technical projects, and professional collaboration.', alternates:localizedAlternates('/contact','en') }
+  ? { title:'Professional Contact | Arfat Alkamli', description:'Connect with Arfat Alkamli about cybersecurity engineering, security research, technical projects, and professional collaboration.', alternates:localizedAlternates('/contact','en') }
   : { title:'التواصل المهني | عرفات الكاملي', description:'تواصل مع عرفات الكاملي بشأن هندسة الأمن السيبراني والبحث الأمني والمشاريع التقنية والتعاون المهني.', alternates:localizedAlternates('/contact','ar') };
 }
 
 const channels=[
- {name:'LinkedIn',detail:'التواصل المهني والفرص',value:'Arfat Alkamali',href:'https://www.linkedin.com/in/arfat-alkamly-399676409',icon:Linkedin,kind:'network'},
+ {name:'LinkedIn',detail:'التواصل المهني والفرص',value:'Arfat Alkamli',href:'https://www.linkedin.com/in/arfat-alkamly-399676409',icon:Linkedin,kind:'network'},
  {name:'GitHub',detail:'المشاريع والشيفرات البرمجية',value:'arfat-alkamly',href:'https://github.com/arfat-alkamly',icon:Github,kind:'code'},
  {name:'Email',detail:'للاستفسارات والرسائل المباشرة',value:'alkamlyrfat@gmail.com',href:'mailto:alkamlyrfat@gmail.com',icon:Mail,kind:'email'},
  {name:'ORCID',detail:'الهوية والسجل البحثي',value:'0009-0008-1348-5146',href:'https://orcid.org/0009-0008-1348-5146',icon:Microscope,kind:'research'},
@@ -25,7 +25,7 @@ const channels=[
 
 function ContactPageArabic(){
  return <main className={styles.page}>
-  <div className={styles.topline}><span>CONTACT / PROFESSIONAL NETWORK</span><span>ARFAT ALKAMALI <i/></span></div>
+  <div className={styles.topline}><span>CONTACT / PROFESSIONAL NETWORK</span><span>ARFAT ALKAMLI <i/></span></div>
   <section className={styles.hero}>
    <div className={styles.heroGrid} aria-hidden="true"/>
    <div className={styles.heroCopy}>
@@ -68,7 +68,7 @@ function ContactPageArabic(){
    <div className={styles.formPanel}><div className={styles.formPanelHead}><span>CONTACT FORM</span><span><i/> ENCRYPTED SESSION</span></div><ContactForm locale="ar"/></div>
   </section>
 
-  <footer className={styles.footer}><span>ARFAT ALKAMALI</span><span>Building Systems. Securing the Future.</span><a href="/ar">العودة إلى الرئيسية <ArrowLeft size={14}/></a></footer>
+  <footer className={styles.footer}><span>ARFAT ALKAMLI</span><span>Building Systems. Securing the Future.</span><a href="/ar">العودة إلى الرئيسية <ArrowLeft size={14}/></a></footer>
  </main>;
 }
 
