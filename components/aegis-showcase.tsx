@@ -20,7 +20,7 @@ const sectors = [
 ];
 
 const principles = [
-  ['PRIVATE BY DESIGN', 'خصوصية التصميم'],
+  ['PROTECTED BY DESIGN', 'خصوصية التصميم'],
   ['DEFENSE-ORIENTED', 'توجه دفاعي'],
   ['EVIDENCE-CONSCIOUS', 'وعي بالأدلة'],
   ['CONTROLLED RESPONSE', 'استجابة منضبطة'],
