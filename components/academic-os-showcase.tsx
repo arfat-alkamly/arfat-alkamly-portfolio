@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import {
   ArrowLeft, ArrowUpRight, BookOpen, CalendarDays, CheckSquare,
-  ClipboardCheck, Clock3, FileText, GraduationCap, LayoutDashboard,
-  LockKeyhole, Sparkles, Bell, Layers3, ShieldCheck, Timer
+  ClipboardCheck, FileText, GraduationCap, LockKeyhole, Sparkles,
+  Layers3, Timer
 } from 'lucide-react';
 
 const modules = [
