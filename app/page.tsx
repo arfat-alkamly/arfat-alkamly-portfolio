@@ -64,7 +64,7 @@ export default async function HomePage() {
 
       <section className="hv-work" id="featured" aria-labelledby="work-title">
         <div className="hv-section-top"><span>02 / SELECTED WORK</span><span>ENGINEERING ARCHIVE</span></div>
-        <div className="hv-section-intro"><div><p className="hv-kicker">BUILT WITH INTENT</p><h2 id="work-title">من الفكرة<br /><em>إلى التنفيذ.</em></h2></div><div className="hv-work-aside"><p>نماذج مختارة من المشاريع الشخصية والأكاديمية والتعاونية. لكل مشروع نطاقه ودوره وتوثيقه.</p><Link href="/projects">عرض جميع المشاريع <ArrowUpLeft size={16} /></Link></div></div>
+        <div className="hv-section-intro"><div><p className="hv-kicker">BUILT WITH INTENT</p><h2 id="work-title">من الفكرة<br /><em>إلى التنفيذ.</em></h2></div><div className="hv-work-aside"><p>{projects.length.toString().padStart(2,'0')} مشروعًا في الأرشيف، تشمل أعمالًا شخصية وأكاديمية وتعاونية. لكل مشروع نطاقه ودوره وتوثيقه.</p><Link href="/projects">عرض جميع المشاريع <ArrowUpLeft size={16} /></Link></div></div>
         <div className="hv-project-grid">
           {featured.map((project, index) => <Link href={'/projects/' + project.slug} className={'hv-project-card hv-project-' + (index + 1)} key={project.slug}>
             <div className="hv-project-top"><span>0{index + 1} / FEATURED</span><ArrowUpLeft size={18} /></div>
