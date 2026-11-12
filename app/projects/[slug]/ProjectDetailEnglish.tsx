@@ -3,6 +3,7 @@ import {ArrowLeft,ArrowUpRight,ShieldCheck,LockKeyhole} from 'lucide-react';
 import {notFound} from 'next/navigation';
 import {projects} from '../../../data/projects';
 import {projectJsonLd} from '../../../lib/structured-data';
+import AcademicOSShowcase from '../../../components/academic-os-showcase';
 
 const copy:Record<string,{name?:string;label:string;summary:string;status:string;contribution:string;overview:string;purpose:string;architecture:string[];role:string;note?:string;highlights?:{title:string;description:string}[]}> = {
 'aegis-titan':{label:'Defensive Cybersecurity Architecture',summary:'A personal cybersecurity defense system concept connecting threat analysis, network and host monitoring, detection engineering, defensive deception, controlled containment, incident response, and digital forensics.',status:'Private project · Access on request',contribution:'Personal project. The architecture, engineering direction, and implementation are led independently by Arfat Alkamli. The source repository is private; access may be requested for a scoped review.',overview:'AEGIS-TITAN is a defensive cybersecurity engineering project designed around connected security capabilities rather than isolated tools. Its documented direction brings together code and data-flow analysis, network and system telemetry, detection and correlation concepts, defensive deception, controlled isolation, incident response, and digital evidence handling.',purpose:'Develop a modular defensive architecture that connects telemetry sources to analysis and detection components, supports policy-aware decisions and response, and preserves evidence and operational context.',architecture:['Python-based security tooling','Source-code review and SAST-oriented workflows','Telemetry collection and detection concepts','Defensive deception and controlled isolation','Digital forensics and evidence handling','SOC-oriented monitoring interface'],role:'An independently developed personal project in defensive cybersecurity engineering. The work spans architectural design, implementation of components, integration, and source-level review.',note:'The repository is private. This page describes the project direction and selected documented components; it does not claim independent certification, production readiness, comprehensive penetration testing, or benchmark results.'},
@@ -30,6 +31,7 @@ const evidence:Record<string,{level:string;description:string;links:{label:strin
 
 export default function ProjectDetailEnglish({slug}:{slug:string}){
  const p=projects.find(x=>x.slug===slug);if(!p)notFound();
+ if(slug==='academic-os') return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(projectJsonLd(p)).replace(/</g,'\\u003c')}}/><AcademicOSShowcase locale="en"/></>;
  const d=copy[slug]??{label:p.label,summary:p.summary,status:p.status,contribution:p.contribution,overview:p.summary,purpose:'Apply the technical concepts associated with this project within its academic or practical scope.',architecture:p.stack,role:p.status};
  const ev=evidence[slug];
  const structuredData=projectJsonLd(p);
