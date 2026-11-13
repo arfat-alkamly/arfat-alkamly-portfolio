@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {
   ArrowLeft, ArrowUpRight, BookOpen, CalendarDays, CheckSquare,
   ClipboardCheck, FileText, GraduationCap, LockKeyhole, Sparkles,
-  Layers3, Timer, ChevronDown, Workflow, Target, Bell, UserRound
+  Layers3, Timer, ChevronDown, Target, Bell
 } from 'lucide-react';
 
 const modules = [
