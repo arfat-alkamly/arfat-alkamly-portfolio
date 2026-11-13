@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AcademicOSShowcase from '../../../components/academic-os-showcase';
 import {ArrowLeft,ArrowUpRight,ShieldCheck,LockKeyhole} from 'lucide-react';
 import {notFound} from 'next/navigation';
 import {projects} from '../../../data/projects';
@@ -29,7 +30,7 @@ const evidence:Record<string,{level:string;description:string;links:{label:strin
 };
 
 export default function ProjectDetailEnglish({slug}:{slug:string}){
- const p=projects.find(x=>x.slug===slug);if(!p)notFound();
+ const p=projects.find(x=>x.slug===slug);if(!p)notFound();if(slug==='academic-os')return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(projectJsonLd(p)).replace(/</g,'\\u003c')}}/><AcademicOSShowcase locale="en"/></>; 
  const d=copy[slug]??{label:p.label,summary:p.summary,status:p.status,contribution:p.contribution,overview:p.summary,purpose:'Apply the technical concepts associated with this project within its academic or practical scope.',architecture:p.stack,role:p.status};
  const ev=evidence[slug];
  const structuredData=projectJsonLd(p);
