@@ -33,7 +33,7 @@ export default function ProjectDetailEnglish({slug}:{slug:string}){
  const p=projects.find(x=>x.slug===slug);if(!p)notFound();if(slug==='academic-os')return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(projectJsonLd(p,'en')).replace(/</g,'\\u003c')}}/><AcademicOSShowcase locale="en"/></>; 
  const d=copy[slug]??{label:p.label,summary:p.summary,status:p.status,contribution:p.contribution,overview:p.summary,purpose:'Apply the technical concepts associated with this project within its academic or practical scope.',architecture:p.stack,role:p.status};
  const ev=evidence[slug];
- const structuredData=projectJsonLd(p);
+ const structuredData=projectJsonLd(p,'en');
  return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,'\\u003c')}}/><main className="content-page project-case" dir="ltr">
   <Link className="back-link" href="/en/projects"><ArrowLeft size={16}/> Back to project archive</Link>
   <span className="eyebrow">PROJECT PROFILE / {p.category.replace('-',' ').toUpperCase()}</span>
