@@ -9,7 +9,7 @@ import {credentialsJsonLd} from '../../lib/structured-data';
 export async function generateMetadata(): Promise<Metadata> {
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
   return en
-    ? { title: 'Digital Credentials | Arfat Alkamli', description: 'Verified Cisco and Credly credentials, digital badges, acquired skills, and verification links.', alternates: localizedAlternates('/credentials','en') }
+    ? { title: 'Digital Credentials', description: 'Verified Cisco and Credly credentials, digital badges, acquired skills, and verification links.', alternates: localizedAlternates('/credentials','en') }
     : { title: 'الشهادات والشارات الرقمية', description: 'سجل الشهادات الأصلية والشارات الرقمية المعتمدة من Cisco وCredly، مع المهارات وروابط التحقق.', alternates: localizedAlternates('/credentials','ar') };
 }
 
