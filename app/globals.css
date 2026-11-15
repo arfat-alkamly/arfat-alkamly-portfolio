@@ -1805,7 +1805,7 @@ a:active {
 
 
 /* Fast, lightweight feedback while prefetched routes finish rendering */
-.route-loading{display:grid;place-items:center;align-content:center;gap:13px;min-height:48vh;padding:40px 20px;color:var(--brass-light);text-align:center}
+.route-loading{position:fixed;inset:0;z-index:50;display:grid;place-items:center;align-content:center;gap:13px;min-height:100vh;padding:40px 20px;background:rgba(255,255,255,.88);backdrop-filter:blur(5px);color:var(--brass-light);text-align:center}
 .route-loading-mark{width:28px;height:28px;border:2px solid rgba(210,189,145,.22);border-top-color:var(--brass-light);border-radius:50%;animation:route-loading-spin .65s linear infinite}
 .route-loading-label{font-size:12px;letter-spacing:.04em}
 .route-loading-track{display:block;overflow:hidden;width:min(150px,45vw);height:2px;border-radius:2px;background:rgba(183,155,104,.14)}
@@ -2065,3 +2065,4 @@ button.selected,.filter-tabs button.selected{
 }
 .site-footer>small,.site-footer>nav a,.site-footer>div a{color:#334155}
 .site-footer>nav a:hover,.site-footer>div a:hover{color:#17618e}
+@media(min-width:640px){.home-v2 .hv-social-links{display:flex;flex-wrap:wrap;gap:12px}}
