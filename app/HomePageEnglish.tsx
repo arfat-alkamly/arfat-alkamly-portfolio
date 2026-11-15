@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import {ArrowUpLeft,ArrowUpRight,ShieldCheck,GraduationCap,Layers3, Github,Linkedin,Award} from 'lucide-react';
+import {ArrowUpRight,ShieldCheck,GraduationCap,Layers3, Github,Linkedin} from 'lucide-react';
 import {projects} from '../data/projects';
 
 const projectCopy:Record<string,{label:string;summary:string}>={
@@ -13,11 +13,7 @@ const disciplines=[
  {number:'02',title:'Defensive Security & Networks',text:'Monitoring and analysis concepts, incident response, network security, and digital forensics.'},
  {number:'03',title:'Software Engineering',text:'Building practical applications and technical tools, designing solutions, and turning ideas into maintainable software.'}
 ];
-const skillGroups=[
- {title:'Cybersecurity',detail:'Defensive Security · Security Research · DFIR · Network Security'},
- {title:'Development',detail:'Python · C# · Dart / Flutter · JavaScript · SQL'},
- {title:'Systems & Tools',detail:'Linux · Kali Linux · Wireshark · Cisco · Git & GitHub'}
-];
+
 export default function HomePageEnglish(){
  const featured=projects.filter(project=>project.featured).slice(0,3);
  return <main className="home-v2" dir="ltr">
