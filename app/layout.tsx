@@ -25,7 +25,7 @@ export async function generateMetadata():Promise<Metadata>{
   twitter:{card:'summary_large_image',title,description,images:['/opengraph-image']},robots:{index:true,follow:true}
  };
 }
-export const viewport:Viewport={width:'device-width',initialScale:1,themeColor:'#0b1117'};
+export const viewport:Viewport={width:'device-width',initialScale:1,themeColor:'#EAF6FC'};
 export default async function RootLayout({children}:{children:React.ReactNode}){
  const cookieStore=await cookies();
  const locale=cookieStore.get('portfolio-locale')?.value==='en'?'en':'ar';
