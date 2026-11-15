@@ -66,7 +66,7 @@ export default async function HomePage() {
             <div className="hv-project-top"><span>0{index + 1} / FEATURED</span><ArrowUpLeft size={18} /></div>
             <div className="hv-project-art">{project.slug === 'aegis-titan' ? <Image src="/images/aegis/defensive-command-environment.svg" alt="تصور بصري لبيئة القيادة الدفاعية" fill sizes="(max-width: 640px) 90vw, 30vw" /> : project.slug === 'cryptolab-pro' ? <div className="hv-art-code"><span>CRYPTO LAB / 01</span><b>AES<span>256</span></b><small>ENCRYPT · HASH · VERIFY</small></div> : <div className="hv-art-academic"><Layers3 size={48}/><span>ACADEMIC OS</span><small>OFFLINE · ORGANIZED · PRIVATE</small></div>}</div>
             <div className="hv-project-copy"><span className="hv-project-label">{project.label}</span><h3>{project.name}</h3><p>{project.summary}</p></div>
-            <div className="hv-project-bottom"><span>{project.stack.slice(0, 3).join(' / ')}</span><b>EXPLORE <ArrowUpLeft size={14} /></b></div>
+            <div className="hv-project-bottom"><span>{project.stack.slice(0, 3).join(' / ')}</span><b>استكشف المشروع ↖</b></div>
           </Link>)}
         </div>
       </section>
@@ -74,7 +74,7 @@ export default async function HomePage() {
       <section className="hv-contact">
         <div className="hv-contact-orbit" aria-hidden="true" />
         <div className="hv-contact-content"><p className="hv-kicker">03 / CONNECT</p><h2>لنبنِ شيئًا<br /><em>يستحق أن يُؤمَن.</em></h2><p>للتواصل المهني، ومناقشة المشاريع التقنية، والبحث الأمني، وفرص التعاون.</p><Link href={`/${locale}/contact`} className="hv-button hv-button-primary">ابدأ التواصل <ArrowUpLeft size={17} /></Link></div>
-        <div className="hv-social-links"><a href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="noopener noreferrer" aria-label="ORCID researcher profile"><span className="hv-orcid-mark">iD</span><span>ORCID</span><small>0009-0008-1348-5146</small><ArrowUpRight size={14} /></a><a href="https://github.com/arfat-alkamly" target="_blank" rel="noopener noreferrer"><Github size={18} /> GitHub <ArrowUpRight size={14} /></a><a href="https://www.linkedin.com/in/arfat-alkamly-399676409" target="_blank" rel="noopener noreferrer"><Linkedin size={18} /> LinkedIn <ArrowUpRight size={14} /></a><a href="https://www.credly.com/users/arfat-alkamly" target="_blank" rel="noopener noreferrer"><GraduationCap size={18} /> Credly <ArrowUpRight size={14} /></a></div>
+        <div className="hv-social-links"><a href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="noopener noreferrer" aria-label="ORCID researcher profile"><span className="hv-orcid-mark">iD</span><span>ORCID</span><small>0009-0008-1348-5146</small><ArrowUpLeft size={14} /></a><a href="https://github.com/arfat-alkamly" target="_blank" rel="noopener noreferrer"><Github size={18} /> GitHub <ArrowUpLeft size={14} /></a><a href="https://www.linkedin.com/in/arfat-alkamly-399676409" target="_blank" rel="noopener noreferrer"><Linkedin size={18} /> LinkedIn <ArrowUpLeft size={14} /></a><a href="https://www.credly.com/users/arfat-alkamly" target="_blank" rel="noopener noreferrer"><GraduationCap size={18} /> Credly <ArrowUpLeft size={14} /></a></div>
         <div className="hv-contact-index">AK<span> / 2026</span></div>
       </section>
     </main>
