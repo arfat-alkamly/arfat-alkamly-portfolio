@@ -35,14 +35,14 @@ export function credentialsJsonLd(){
  };
 }
 
-export function projectJsonLd(project:{slug:string;name:string;summary:string;stack:string[];repository?:string}){
+export function projectJsonLd(project:{slug:string;name:string;summary:string;stack:string[];repository?:string},locale:'ar'|'en'='ar'){
  return {
   '@context':'https://schema.org',
   '@type':'CreativeWork',
   name:project.name,
   description:project.summary,
-  url:`${siteUrl}/projects/${project.slug}`,
-  inLanguage:['ar','en'],
+  url:`${siteUrl}/${locale}/projects/${project.slug}`,
+  inLanguage:locale,
   author:person,
   keywords:project.stack,
   ...(project.repository?{codeRepository:project.repository}:{})
