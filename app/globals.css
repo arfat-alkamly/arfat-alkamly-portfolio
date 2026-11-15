@@ -1937,3 +1937,118 @@ a:active {
 @media(max-width:850px){.aos-journey-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aos-evidence{grid-template-columns:1fr}}
 @media(max-width:560px){.aos-proofline{gap:9px 12px;font-size:8px}.aos-journey{margin-top:42px}.aos-journey-grid{gap:8px}.aos-journey-step{padding:13px}.aos-journey-step h3{font-size:12px}.aos-journey-step p{font-size:9px}.aos-module>summary{padding:13px}.aos-module-detail{padding:0 13px 13px}.aos-module-detail ul{font-size:9px}.aos-evidence{gap:15px;padding:17px}.aos-visual-caption{font-size:7px}}
 @media(prefers-reduced-motion:reduce){.aos-module-chevron,.aos-evidence-links a{transition:none}}
+
+
+/* =========================================================
+   SKY INSTITUTIONAL — accessible light portfolio identity
+   Shared shell and reusable academic/professional surfaces.
+   Intentional engineering workspaces (AEGIS diagrams/terminals)
+   retain their dark visual language for technical contrast.
+   ========================================================= */
+:root{
+  color-scheme:light;
+  --ink-950:#f4f9fc;
+  --ink-900:#edf6fb;
+  --ink-850:#e7f2f9;
+  --ink-800:#dceefa;
+  --ink-700:#c8e2f1;
+  --slate-500:#647d8e;
+  --slate-300:#8ca2b1;
+  --ivory:#19364b;
+  --ivory-dim:#35556b;
+  --brass:#287da9;
+  --brass-light:#17618e;
+  --copper:#b77952;
+  --line:rgba(23,97,142,.18);
+  --line-cool:rgba(49,112,151,.16);
+  --panel:linear-gradient(155deg,#ffffff 0%,#f6fbfe 100%);
+  --panel-soft:rgba(255,255,255,.88);
+  --shadow-soft:0 12px 32px rgba(42,103,139,.08);
+  --shadow-raised:0 3px 0 rgba(23,97,142,.10),0 9px 22px rgba(42,103,139,.10),inset 0 1px rgba(255,255,255,.95);
+  --shadow-pressed:0 1px 0 rgba(23,97,142,.12),0 3px 8px rgba(42,103,139,.08),inset 0 2px 5px rgba(23,97,142,.08);
+}
+html{background:#fff;color-scheme:light}
+body{
+  background:linear-gradient(180deg,#fff 0%,#f8fcfe 34%,#eaf6fc 100%);
+  color:#19364b;
+}
+body:before{
+  opacity:.34;
+  background-image:linear-gradient(rgba(49,126,166,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(49,126,166,.035) 1px,transparent 1px);
+}
+::selection{background:rgba(66,169,212,.22);color:#123a58}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline-color:#2789ba}
+.site-header{
+  border-bottom:1px solid #dceaf2;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 5px 22px rgba(42,103,139,.07);
+}
+.site-logo{color:#19364b}
+.site-logo>span{
+  border-color:#c5dfed;
+  background:linear-gradient(145deg,#fff,#eaf6fc);
+  color:#17618e;
+  box-shadow:inset 0 1px #fff,0 3px 9px rgba(42,103,139,.10);
+}
+.site-header nav a{color:#526f83}
+.site-header nav a:before{background:radial-gradient(ellipse,rgba(66,169,212,.2),transparent 72%)}
+.site-header nav a:hover,.site-header nav a:focus-visible{
+  border-color:#c6e2f1;
+  background:linear-gradient(145deg,#f3faff,#e8f5fc);
+  color:#174b70;
+  box-shadow:0 0 0 1px rgba(66,169,212,.07),0 5px 15px rgba(42,103,139,.09);
+}
+.site-header nav a.nav-active{
+  border-color:#c3dfed;
+  background:linear-gradient(145deg,#eaf6fc,#dceffa);
+  color:#174b70;
+  box-shadow:inset 0 1px #fff,0 4px 12px rgba(42,103,139,.08);
+}
+.site-header nav a.nav-active:before{opacity:.45}
+.site-header nav a:after{background:#42a9d4;box-shadow:0 0 7px rgba(66,169,212,.35)}
+.site-footer{border-top-color:#dceaf2}
+.site-footer>small{color:#70899a}
+.site-footer>div a{color:#526f83}
+.site-footer>div a:hover{color:#17618e}
+.button-primary,.button-secondary,.button-plain,.aegis-actions a,.aegis-next,.filter-tabs button,.case-actions a,.all-projects,.aegis-page-links a,.aegis-text-link{
+  border-color:#c5dfed;
+  background:linear-gradient(180deg,#fff 0%,#edf7fc 100%);
+  color:#174b70;
+  box-shadow:var(--shadow-raised);
+}
+.button-primary{
+  border-color:#17618e;
+  background:linear-gradient(180deg,#287da9,#17618e);
+  color:#fff;
+  box-shadow:0 4px 0 #124d73,0 10px 20px rgba(23,97,142,.16),inset 0 1px rgba(255,255,255,.25);
+}
+.button-primary:hover{background:linear-gradient(180deg,#3697c5,#1d709f);color:#fff}
+.button-primary:active{box-shadow:var(--shadow-pressed)}
+.button-plain{background:linear-gradient(180deg,#fff,#f1f8fc);color:#35556b}
+.button-primary:hover,.button-secondary:hover,.aegis-actions a:hover,.aegis-next:hover,.filter-tabs button:hover,.case-actions a:hover,.all-projects:hover,.aegis-page-links a:hover,.aegis-text-link:hover{
+  border-color:#8dc5e1;background:linear-gradient(180deg,#fff,#eaf6fc);color:#123f60;box-shadow:0 5px 0 rgba(23,97,142,.10),0 12px 22px rgba(42,103,139,.12);
+}
+.button-primary:hover{background:linear-gradient(180deg,#3697c5,#1d709f);color:#fff}
+button.selected,.filter-tabs button.selected{
+  border-color:#17618e;background:linear-gradient(180deg,#287da9,#17618e);color:#fff;
+}
+.content-page>h1{color:#19364b}
+.lead{color:#526f83}
+.content-panel,.archive-card{
+  border-color:#dceaf2;
+  background:linear-gradient(155deg,#fff,#f7fbfe);
+  box-shadow:var(--shadow-soft),inset 0 1px #fff;
+}
+.content-panel h2,.archive-card h2{color:#17618e}
+.content-panel h3,.archive-card h3{color:#244b66}
+.content-panel p,.archive-card p{color:#526f83}
+.archive-card>span,.archive-card>small,.eyebrow,.home-section-kicker,.section-heading>div>span,.panel-index{color:#287da9}
+.archive-card:hover{border-color:#afd4e8;box-shadow:0 16px 30px rgba(42,103,139,.12),inset 0 1px #fff}
+.text-link{color:#17618e}
+.text-link:hover{color:#287da9}
+.hero-copy h1{color:#19364b}
+.hero-copy h1 span{color:#17618e}
+.hero-copy>p{color:#526f83}
+.disclaimer{background:rgba(183,121,82,.07);color:#647d8e}
+.site-header nav a:after{background:#42a9d4;box-shadow:0 0 7px rgba(66,169,212,.38)}
+@media(prefers-reduced-motion:reduce){.site-header nav a:after{animation:none!important}}
