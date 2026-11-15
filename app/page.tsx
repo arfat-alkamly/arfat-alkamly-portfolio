@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {cookies} from 'next/headers';
 import HomePageEnglish from './HomePageEnglish';
 import Image from 'next/image';
-import { ArrowUpLeft, ArrowUpRight, ShieldCheck, Code2, FlaskConical, GraduationCap, Fingerprint, Network, Terminal, Github, Linkedin, Award, Layers3 } from 'lucide-react';
+import { ArrowUpLeft, ArrowUpRight, ShieldCheck, GraduationCap, Fingerprint, Network, Terminal, Github, Linkedin, Layers3 } from 'lucide-react';
 import { projects } from '../data/projects';
 import './home.css';
 import type {Metadata} from 'next';
