@@ -12,10 +12,5 @@ export default function SiteFooter({locale='ar'}:{locale?:Locale}){
    <Link href={`/${locale}/skills`}>{en?'Skills':'المهارات'}</Link>
    <Link href={`/${locale}/contact`}>{en?'Contact':'التواصل'}</Link>
   </nav>
-  <div className="site-footer-social">
-   <a href="https://github.com/arfat-alkamly" target="_blank" rel="noopener noreferrer">GitHub</a>
-   <a href="https://www.linkedin.com/in/arfat-alkamly-399676409" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-   <a href="mailto:alkamlyrfat@gmail.com">Email</a>
-  </div>
  </footer>;
 }
