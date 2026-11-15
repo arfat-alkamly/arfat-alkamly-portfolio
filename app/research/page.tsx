@@ -7,7 +7,7 @@ import {ArrowUpLeft, ArrowUpRight, Fingerprint, ShieldCheck} from 'lucide-react'
 export async function generateMetadata(): Promise<Metadata> {
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
   return en
-    ? { title: 'Cybersecurity Research | Arfat Alkamli', description: 'Independent research concepts in cybersecurity engineering, defensive systems, AI security, digital forensics, and secure software.', alternates: localizedAlternates('/research','en') }
+    ? { title: 'Cybersecurity Research', description: 'Independent research concepts in cybersecurity engineering, defensive systems, AI security, digital forensics, and secure software.', alternates: localizedAlternates('/research','en') }
     : { title: 'الأبحاث والدراسات الأمنية', description: 'الهوية البحثية والمقترحات العلمية في الأمن السيبراني، الذكاء الاصطناعي، هندسة الدفاع والتحقيق الرقمي.', alternates: localizedAlternates('/research','ar') };
 }
 

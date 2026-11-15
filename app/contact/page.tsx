@@ -9,8 +9,8 @@ import styles from './contact.module.css';
 export async function generateMetadata(): Promise<Metadata> {
  const en = (await cookies()).get('portfolio-locale')?.value === 'en';
  return en
-  ? { title:'Professional Contact | Arfat Alkamli', description:'Connect with Arfat Alkamli about cybersecurity engineering, security research, technical projects, and professional collaboration.', alternates:localizedAlternates('/contact','en') }
-  : { title:'التواصل المهني | عرفات الكاملي', description:'تواصل مع عرفات الكاملي بشأن هندسة الأمن السيبراني والبحث الأمني والمشاريع التقنية والتعاون المهني.', alternates:localizedAlternates('/contact','ar') };
+  ? { title:'Professional Contact', description:'Connect with Arfat Alkamli about cybersecurity engineering, security research, technical projects, and professional collaboration.', alternates:localizedAlternates('/contact','en') }
+  : { title:'التواصل المهني', description:'تواصل مع عرفات الكاملي بشأن هندسة الأمن السيبراني والبحث الأمني والمشاريع التقنية والتعاون المهني.', alternates:localizedAlternates('/contact','ar') };
 }
 
 const channels=[
