@@ -204,3 +204,8 @@
 .home-v2 .hv-discipline-card:focus-visible{outline:2px solid #2789ba;outline-offset:4px}
 .home-v2 .hv-hero{padding-bottom:46px}
 .home-v2 .hv-hero-visual{margin-bottom:0}
+
+/* Four-profile contact grid: two columns on phones, flexible row on wider screens. */
+.home-v2 .hv-social-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-width:0}
+.home-v2 .hv-social-links>a{min-width:0}
+@media(min-width:640px){.home-v2 .hv-social-links{display:flex;flex-wrap:wrap;gap:12px}}
