@@ -12,8 +12,6 @@ export async function generateMetadata():Promise<Metadata>{
 }
 
 const channels=[
-
-const channels=[
  {name:'LinkedIn',detail:'التواصل المهني والفرص',value:'Arfat Alkamli',href:'https://www.linkedin.com/in/arfat-alkamly-399676409',icon:Linkedin,kind:'network'},
  {name:'GitHub',detail:'المشاريع والشيفرات البرمجية',value:'arfat-alkamly',href:'https://github.com/arfat-alkamly',icon:Github,kind:'code'},
  {name:'Email',detail:'للاستفسارات والرسائل المباشرة',value:'alkamlyrfat@gmail.com',href:'mailto:alkamlyrfat@gmail.com',icon:Mail,kind:'email'},
