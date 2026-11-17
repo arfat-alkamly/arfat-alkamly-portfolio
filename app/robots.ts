@@ -1,3 +1,15 @@
 import type {MetadataRoute} from 'next';
+
 const siteUrl='https://arfat-phi.vercel.app';
-export default function robots():MetadataRoute.Robots{return {rules:{userAgent:'*',allow:'/'},sitemap:`${siteUrl}/sitemap.xml`,host:siteUrl};}
+
+export default function robots():MetadataRoute.Robots{
+ return {
+  rules:[{
+   userAgent:'*',
+   allow:['/','/ar/','/en/','/llms.txt'],
+   disallow:['/api','/api/','/_next/'],
+  }],
+  sitemap:`${siteUrl}/sitemap.xml`,
+  host:siteUrl,
+ };
+}

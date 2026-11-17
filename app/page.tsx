@@ -6,8 +6,14 @@ import { ArrowUpLeft, ArrowUpRight, ShieldCheck, GraduationCap, Fingerprint, Net
 import { projects } from '../data/projects';
 import './home.css';
 import type {Metadata} from 'next';
-import {localizedAlternates} from '../lib/seo';
-export async function generateMetadata():Promise<Metadata>{const en=(await cookies()).get('portfolio-locale')?.value==='en';return en?{title:'Cybersecurity & Software Portfolio',description:'Arfat Alkamli — Cybersecurity and Networks student focused on defensive security, security research, software engineering, and practical technical projects.',alternates:localizedAlternates('/','en')}:{title:'الملف المهني | عرفات الكاملي',description:'الملف المهني لعرفات الكاملي، طالب الأمن السيبراني والشبكات، المهتم بالأمن الدفاعي والبحث الأمني وهندسة البرمجيات والمشاريع التقنية.',alternates:localizedAlternates('/','ar')}}
+import {localizedPageMetadata} from '../lib/seo';
+import JsonLd from '../components/seo/JsonLd';
+import {personAndWebsiteJsonLd} from '../lib/structured-data';
+export async function generateMetadata():Promise<Metadata>{
+ const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
+ return localizedPageMetadata({path:'/',locale,pageTitle:locale==='en'?'Professional Portfolio':'الملف المهني',description:locale==='en'?'Cybersecurity, software engineering, applied research, and documented technical projects.':'الأمن السيبراني وهندسة البرمجيات والبحث التطبيقي والمشاريع التقنية الموثقة.'});
+}
+
 
 const disciplines = [
   { icon: Fingerprint, number: '01', title: 'البحث الأمني', text: 'مراجعة أمن التطبيقات، تحليل السلوك، دراسة الثغرات، وكتابة الملاحظات الفنية بصورة قابلة للتحقق.' },
@@ -19,11 +25,11 @@ const disciplines = [
 
 export default async function HomePage() {
   const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
-  if(locale==='en') return <HomePageEnglish/>;
+  if(locale==='en') return <><JsonLd data={personAndWebsiteJsonLd('en')}/><HomePageEnglish/></>;
   const featured = projects.filter((project) => project.featured).slice(0, 3);
 
   return (
-    <main className="home-v2">
+    <main className="home-v2"><JsonLd data={personAndWebsiteJsonLd('ar')}/>
       <section className="hv-hero" aria-labelledby="home-title">
         <div className="hv-hero-grid" aria-hidden="true" />
         <div className="hv-hero-copy">

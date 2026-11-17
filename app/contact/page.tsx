@@ -1,16 +1,14 @@
 import type {Metadata} from 'next';
 import { cookies } from 'next/headers';
 import ContactPageEnglish from './ContactPageEnglish';
-import {localizedAlternates} from '../../lib/seo';
-import {ArrowLeft,ArrowUpLeft,ArrowUpRight,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send,ShieldCheck} from 'lucide-react';
+import {localizedPageMetadata} from '../../lib/seo';
+import {ArrowLeft,ArrowUpLeft,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageSquareText,Microscope,Send,ShieldCheck} from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
-export async function generateMetadata(): Promise<Metadata> {
- const en = (await cookies()).get('portfolio-locale')?.value === 'en';
- return en
-  ? { title:'Professional Contact', description:'Connect with Arfat Alkamli about cybersecurity engineering, security research, technical projects, and professional collaboration.', alternates:localizedAlternates('/contact','en') }
-  : { title:'التواصل المهني', description:'تواصل مع عرفات الكاملي بشأن هندسة الأمن السيبراني والبحث الأمني والمشاريع التقنية والتعاون المهني.', alternates:localizedAlternates('/contact','ar') };
+export async function generateMetadata():Promise<Metadata>{
+ const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
+ return localizedPageMetadata({path:'/contact',locale,pageTitle:locale==='en'?'Professional Contact':'التواصل المهني',description:locale==='en'?'Professional contact for cybersecurity engineering, security research, software projects, and collaboration.':'قنوات التواصل المهني بشأن هندسة الأمن السيبراني والبحث الأمني وتطوير البرمجيات والتعاون التقني.'});
 }
 
 const channels=[
@@ -19,7 +17,6 @@ const channels=[
  {name:'Email',detail:'للاستفسارات والرسائل المباشرة',value:'alkamlyrfat@gmail.com',href:'mailto:alkamlyrfat@gmail.com',icon:Mail,kind:'email'},
  {name:'ORCID',detail:'الهوية والسجل البحثي',value:'0009-0008-1348-5146',href:'https://orcid.org/0009-0008-1348-5146',icon:Microscope,kind:'research'},
  {name:'Credly',detail:'الشارات والاعتمادات المهنية',value:'عرض الشهادات الرقمية',href:'https://www.credly.com/users/arfat-alkamly',icon:GraduationCap,kind:'credentials'},
- {name:'WhatsApp',detail:'تواصل مباشر عبر واتساب',value:'إرسال رسالة مباشرة',href:'https://wa.me/967772814959?text='+encodeURIComponent('مرحباً عرفات، تواصلت معك عبر موقعك المهني.'),icon:MessageCircle,kind:'messaging'},
  {name:'Telegram',detail:'التواصل عبر تيليجرام',value:'@A_AB_ALK',href:'https://t.me/A_AB_ALK',icon:Send,kind:'messaging'}
 ];
 
@@ -35,23 +32,23 @@ function ContactPageArabic(){
     <p className={styles.intro}>أرحّب بالتواصل حول هندسة الأمن السيبراني، والبحث الأمني، وتطوير البرمجيات، ومناقشة الأفكار والمشاريع التقنية ذات القيمة.</p>
     <div className={styles.heroActions}>
      <a className={styles.primaryAction} href="#send-message">أرسل رسالة <ArrowUpLeft size={17}/></a>
-     <a className={styles.secondaryAction} href="mailto:alkamlyrfat@gmail.com">تواصل عبر البريد <ArrowUpRight size={16}/></a>
+     <a className={styles.secondaryAction} href="mailto:alkamlyrfat@gmail.com">تواصل عبر البريد <ArrowUpLeft size={16}/></a>
     </div>
    </div>
    <div className={styles.heroMark} aria-label="رمز الهوية AK">
     <div className={`${styles.orbit} ${styles.orbitOne}`}/><div className={`${styles.orbit} ${styles.orbitTwo}`}/>
     <div className={styles.markCore}><span>AK</span><small>CONNECT / 01</small></div>
-    <div className={styles.markFoot}>BUILDING SYSTEMS.<br/>SECURING THE FUTURE.</div>
+    <div className={styles.markFoot} dir="ltr">BUILDING SYSTEMS.<br/>SECURING THE FUTURE.</div>
    </div>
    <div className={styles.heroFooter}><span>CYBERSECURITY</span><span>RESEARCH</span><span>SOFTWARE ENGINEERING</span><span>COLLABORATION</span></div>
   </section>
 
   <section className={styles.channelsSection} aria-labelledby="channels-title">
-   <div className={styles.sectionHeading}><div><span className={styles.sectionIndex}>01 / PROFESSIONAL & DIRECT CHANNELS</span><h2 id="channels-title">اختر قناة التواصل المناسبة</h2><p>الشبكات المهنية والبحثية، إلى جانب قنوات التواصل المباشر.</p></div><span className={styles.headingCode}>SECURE CONNECTIONS · 07</span></div>
+   <div className={styles.sectionHeading}><div><span className={styles.sectionIndex}>01 / PROFESSIONAL & DIRECT CHANNELS</span><h2 id="channels-title">اختر قناة التواصل المناسبة</h2><p>الشبكات المهنية والبحثية، إلى جانب قنوات التواصل المباشر.</p></div><span className={styles.headingCode}>SECURE CONNECTIONS · 06</span></div>
    <div className={styles.channelGrid}>
-    {channels.map((item,index)=>{const Icon=item.icon;return <a className={styles.channelCard} href={item.href} key={item.name} target={item.href.startsWith('mailto:')?'_self':'_blank'} rel={item.href.startsWith('mailto:')?undefined:'noopener noreferrer'}>
-      <div className={styles.cardTop}><span className={styles.cardNumber}>0{index+1}</span><span className={styles.cardIcon}><Icon size={19}/></span><ArrowUpRight className={styles.cardArrow} size={16}/></div>
-      <div className={styles.cardText}><h3>{item.name}</h3><p>{item.detail}</p><strong>{item.value}</strong></div>
+    {channels.map((item,index)=>{const Icon=item.icon;return <a className={styles.channelCard} href={item.href} key={item.name} target={item.href.startsWith('mailto:')?'_self':'_blank'} rel={item.href.startsWith('mailto:')?undefined:['GitHub','LinkedIn','ORCID','Credly'].includes(item.name)?'me noopener noreferrer':'noopener noreferrer'}>
+      <div className={styles.cardTop}><span className={styles.cardNumber}>0{index+1}</span><span className={styles.cardIcon}><Icon size={19}/></span><ArrowUpLeft className={styles.cardArrow} size={16}/></div>
+      <div className={styles.cardText}><h3>{item.name}</h3><p>{item.detail}</p><strong dir={item.name==='Telegram'?'ltr':undefined}>{item.value}</strong></div>
      </a>})}
    </div>
   </section>
