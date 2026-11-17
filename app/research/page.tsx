@@ -1,15 +1,18 @@
 import type {Metadata} from 'next';
 import { cookies } from 'next/headers';
 import ResearchPageEnglish from './ResearchPageEnglish';
-import {localizedAlternates} from '../../lib/seo';
+import {localizedPageMetadata} from '../../lib/seo';
+import JsonLd from '../../components/seo/JsonLd';
+import {researchJsonLd} from '../../lib/structured-data';
+import {researchProgramsEnglish} from './ResearchPageEnglish';
 import {ArrowUpLeft, ArrowUpRight, Fingerprint, ShieldCheck} from 'lucide-react';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const en = (await cookies()).get('portfolio-locale')?.value === 'en';
-  return en
-    ? { title: 'Cybersecurity Research', description: 'Independent research concepts in cybersecurity engineering, defensive systems, AI security, digital forensics, and secure software.', alternates: localizedAlternates('/research','en') }
-    : { title: 'الأبحاث والدراسات الأمنية', description: 'الهوية البحثية والمقترحات العلمية في الأمن السيبراني، الذكاء الاصطناعي، هندسة الدفاع والتحقيق الرقمي.', alternates: localizedAlternates('/research','ar') };
+export async function generateMetadata():Promise<Metadata>{
+ const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
+ return localizedPageMetadata({path:'/research',locale,pageTitle:locale==='en'?'Cybersecurity Research':'الأبحاث والدراسات الأمنية',description:locale==='en'?'Independent research proposals in defensive security, AI security, digital forensics, vulnerability analysis, and secure software.':'مقترحات بحثية مستقلة في الأمن الدفاعي والذكاء الاصطناعي والتحقيق الرقمي وتحليل الثغرات وهندسة البرمجيات الآمنة.'});
 }
+
+export const researchPrograms=[
 
 const researchPrograms=[
   {
