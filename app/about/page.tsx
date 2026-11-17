@@ -9,4 +9,4 @@ export async function generateMetadata():Promise<Metadata>{
  const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
  return localizedPageMetadata({path:'/about',locale,pageTitle:locale==='en'?'About':'نبذة عني',description:locale==='en'?'Academic journey, technical interests, projects, research direction, and professional profile.':'المسار الأكاديمي والاهتمامات التقنية والمشاريع والتوجه البحثي والملف المهني.',image:'/images/arfat-alkamali.jpg'});
 }
-export default async function AboutPage(){const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';return locale==='en'?<AboutTabsEnglish/>:<AboutTabs locale={locale}/>}
+export default async function AboutPage(){const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';return <><JsonLd data={personAndWebsiteJsonLd(locale)}/>{locale==='en'?<AboutTabsEnglish/>:<AboutTabs locale={locale}/>}</>;}
