@@ -14,7 +14,7 @@ function languageAlternates(path:string){
 }
 
 export default function sitemap():MetadataRoute.Sitemap{
- const routes=['','/about','/skills','/projects','/labs','/research','/credentials','/contact'];
+ const routes=['','/about','/cv','/skills','/projects','/labs','/research','/credentials','/contact'];
 
  const staticPages=routes.flatMap(route=>locales.map(locale=>({
   url:`${siteUrl}/${locale}${route}`,
