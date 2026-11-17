@@ -3,7 +3,7 @@ import {cookies} from 'next/headers';
 import {projects,type Project} from '../../data/projects';
 import CVPrintToolbar from './CVPrintToolbar';
 import styles from './cv.module.css';
-import {localizedAlternates} from '../../lib/seo';
+import {localizedPageMetadata} from '../../lib/seo';
 
 const siteUrl='https://arfat-phi.vercel.app';
 const orcid='0009-0008-1348-5146';
@@ -77,8 +77,9 @@ const copy={
 export async function generateMetadata():Promise<Metadata>{
  const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
  const t=copy[locale];
- return {title:t.pageTitle,description:t.pageDescription,alternates:localizedAlternates('/cv',locale),robots:{index:true,follow:true}};
+ return {...localizedPageMetadata({path:'/cv',locale,pageTitle:t.pageTitle,description:t.pageDescription}),robots:{index:true,follow:true}};
 }
+
 
 export default async function CVPage(){
  const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
