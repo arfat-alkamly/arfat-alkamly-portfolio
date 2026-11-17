@@ -25,11 +25,11 @@ const disciplines = [
 
 export default async function HomePage() {
   const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
-  if(locale==='en') return <HomePageEnglish/>;
+  if(locale==='en') return <><JsonLd data={personAndWebsiteJsonLd('en')}/><HomePageEnglish/></>;
   const featured = projects.filter((project) => project.featured).slice(0, 3);
 
   return (
-    <main className="home-v2">
+    <main className="home-v2"><JsonLd data={personAndWebsiteJsonLd('ar')}/>
       <section className="hv-hero" aria-labelledby="home-title">
         <div className="hv-hero-grid" aria-hidden="true" />
         <div className="hv-hero-copy">
