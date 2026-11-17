@@ -61,7 +61,7 @@ type ResearchProposal={id:string;title:string;summary:string;question?:string;me
 export function researchJsonLd(items:ResearchProposal[],locale:'ar'|'en'='en'){
  return {'@context':'https://schema.org','@type':'ItemList',name:locale==='ar'?'مقترحات أبحاث الأمن السيبراني':'Cybersecurity research proposals',numberOfItems:items.length,itemListElement:items.map((item,index)=>({
   '@type':'ListItem',position:index+1,item:{
-   '@type':'ScholarlyArticle',name:item.title,description:item.summary,author,
+   '@type':'CreativeWork',genre:'Cybersecurity research proposal',name:item.title,description:item.summary,author,
    inLanguage:locale,isPartOf:{'@type':'ResearchProject',name:'Independent Cybersecurity Research Program'},
    creativeWorkStatus:item.status??'Research proposal',keywords:item.tags??[],
    url:`${siteUrl}/${locale}/research#proposal-${item.id}`,
