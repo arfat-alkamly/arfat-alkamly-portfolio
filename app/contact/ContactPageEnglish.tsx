@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ArrowLeft,ArrowUpLeft,ArrowUpRight,BookOpen,Code2,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageSquareText,Microscope,Send,ShieldCheck } from 'lucide-react';
+import { ArrowLeft,ArrowUpLeft,ArrowUpRight,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageSquareText,Microscope,Send } from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
@@ -38,7 +38,7 @@ export default function ContactPageEnglish(){
    <div className={styles.channelGrid}>{channels.map((item,index)=>{const Icon=item.icon;return <a className={styles.channelCard} href={item.href} key={item.name} target={item.href.startsWith('mailto:')?'_self':'_blank'} rel={item.href.startsWith('mailto:')?undefined:['GitHub','LinkedIn','ORCID','Credly'].includes(item.name)?'me noopener noreferrer':'noopener noreferrer'}><div className={styles.cardTop}><span className={styles.cardNumber}>0{index+1}</span><span className={styles.cardIcon}><Icon size={19}/></span><ArrowUpRight className={styles.cardArrow} size={16}/></div><div className={styles.cardText}><h3>{item.name}</h3><p>{item.detail}</p><strong>{item.value}</strong></div></a>})}</div>
   </section>
   <section className={styles.messageSection} id="send-message">
-   <div className={styles.messageIntro}><span className={styles.sectionIndex}>02 / SEND A MESSAGE</span><div className={styles.messageIcon}><MessageSquareText size={22}/></div><h2>Have an idea or<br/><em>something to discuss?</em></h2><p>Share the details of your message. Please clarify the topic and include only the information needed to respond.</p><div className={styles.privacyNote}><LockKeyhole size={17}/><span><b>Privacy & security</b><small>Google verification helps reduce spam. We do not request access to your email or files.</small></span></div><div className={styles.messageTopics}><span><ShieldCheck size={14}/> Cybersecurity</span><span><Microscope size={14}/> Research</span><span><Code2 size={14}/> Development</span><span><BookOpen size={14}/> Academic</span></div></div>
+   <div className={styles.messageIntro}><span className={styles.sectionIndex}>02 / SEND A MESSAGE</span><div className={styles.messageIcon}><MessageSquareText size={22}/></div><h2>Have an idea or<br/><em>something to discuss?</em></h2><p>Share the details of your message. Please clarify the topic and include only the information needed to respond.</p><div className={styles.privacyNote}><LockKeyhole size={17}/><span><b>Privacy & security</b><small>Google verification helps reduce spam. We do not request access to your email or files.</small></span></div></div>
    <div className={styles.formPanel}><div className={styles.formPanelHead}><span>CONTACT FORM</span><span><i/> VERIFIED SESSION</span></div><ContactForm locale="en"/></div>
   </section>
   <footer className={styles.footer}><span>ARFAT ALKAMLI</span><span>Building Systems. Securing the Future.</span><a href="/en">Back to home <ArrowLeft size={14}/></a></footer>
