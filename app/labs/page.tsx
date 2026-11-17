@@ -2,22 +2,13 @@ import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import LabsExplorer from './LabsExplorer';
 import LabsExplorerEnglish from './LabsExplorerEnglish';
-import {localizedAlternates} from '../../lib/seo';
+import {localizedPageMetadata} from '../../lib/seo';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const en = (await cookies()).get('portfolio-locale')?.value === 'en';
-  return en
-    ? {
-        title: 'Applied Security Labs',
-        alternates: localizedAlternates('/labs','en'),
-        description: 'Explore structured cybersecurity lab tracks for network defense, penetration testing, digital forensics, malware analysis, application security, cryptography, cloud security, and AI security.',
-      }
-    : {
-        title: 'المعامل التطبيقية',
-        alternates: localizedAlternates('/labs','ar'),
-        description: 'معامل الأمن السيبراني التطبيقية: اختبار أمن الويب، Active Directory، تحليل حركة الشبكة، أمن الشبكات اللاسلكية، وتحليل البرمجيات الخبيثة ضمن بيئات معزولة ومصرح بها.',
-      };
+export async function generateMetadata():Promise<Metadata>{
+ const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
+ return localizedPageMetadata({path:'/labs',locale,pageTitle:locale==='en'?'Applied Security Labs':'المعامل التطبيقية',description:locale==='en'?'Applied cybersecurity labs for network defense, penetration testing, digital forensics, malware analysis, application security, cryptography, cloud, and AI security.':'معامل تطبيقية للدفاع الشبكي واختبار الاختراق والتحقيق الرقمي وتحليل البرمجيات الخبيثة وأمن التطبيقات والتشفير والسحابة والذكاء الاصطناعي.'});
 }
+
 
 export default async function LabsPage() {
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
