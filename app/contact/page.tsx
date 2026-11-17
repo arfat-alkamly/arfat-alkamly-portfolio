@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import { cookies } from 'next/headers';
 import ContactPageEnglish from './ContactPageEnglish';
 import {localizedAlternates} from '../../lib/seo';
-import {ArrowLeft,ArrowUpLeft,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send,ShieldCheck} from 'lucide-react';
+import {ArrowUpLeft,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send} from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
@@ -68,8 +68,7 @@ function ContactPageArabic(){
    <div className={styles.formPanel}><div className={styles.formPanelHead}><span>CONTACT FORM</span><span><i/> ENCRYPTED SESSION</span></div><ContactForm locale="ar"/></div>
   </section>
 
-  <footer className={styles.footer}><span>ARFAT ALKAMLI</span><span>Building Systems. Securing the Future.</span><a href="/ar">العودة إلى الرئيسية <ArrowLeft size={14}/></a></footer>
- </main>;
+   </main>;
 }
 
 
