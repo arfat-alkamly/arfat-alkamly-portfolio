@@ -2154,3 +2154,9 @@ button.selected,.filter-tabs button.selected{
 .sk-note b{color:#0B2E46}
 .sk-note svg{color:#0F4C75}
 @media(max-width:600px){.sk-method-links{align-items:stretch;flex-direction:column}.sk-method-links a{width:fit-content}}
+
+.sk-topline{color:#475569}
+.sk-hero-aside{color:#475569}
+.sk-orbit-core{color:#0B2E46}
+.sk-orbit-core svg{color:#0F4C75}
+.sk-orbit-core small{color:#334155}
