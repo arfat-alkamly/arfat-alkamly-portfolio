@@ -7,4 +7,4 @@ export async function generateMetadata():Promise<Metadata>{
  const en=(await cookies()).get('portfolio-locale')?.value==='en';
  return en?{title:'Skills & Capabilities',description:'Interactive directory of technical skills across software engineering, cybersecurity, networking, systems, and applied research.',alternates:localizedAlternates('/skills','en')}:{title:'المهارات والقدرات',description:'خريطة تفاعلية للمهارات التقنية في البرمجة والأمن السيبراني والشبكات والأنظمة والبحث التطبيقي.',alternates:localizedAlternates('/skills','ar')};
 }
-export default async function SkillsPage(){const en=(await cookies()).get('portfolio-locale')?.value==='en';return en?<SkillsExplorerEnglish/>:<SkillsExplorer/>;}
+export default async function SkillsPage(){const en=(await cookies()).get('portfolio-locale')?.value==='en';return en?<SkillsExplorerEnglish locale="en"/>:<SkillsExplorer locale="ar"/>;}
