@@ -1,0 +1,41 @@
+.cvPage{min-height:100vh;padding:28px 18px 50px;background:#f1f5f9;color:#1E293B}
+.document{width:min(100%,210mm);min-height:260mm;margin:0 auto;padding:15mm;background:#FFFFFF;color:#1E293B;box-shadow:0 12px 40px rgba(15,23,42,.10);font-family:Arial,"Noto Sans Arabic",Tahoma,sans-serif;font-size:10pt;line-height:1.55}
+.header{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:start;padding-bottom:16px;border-bottom:2px solid #0B2E46}
+.nameBlock{min-width:0}.eyebrow{margin:0 0 5px;color:#0284c7;font-size:8pt;font-weight:700;letter-spacing:.12em}
+.nameBlock h1{margin:0;color:#0B2E46;font-size:27pt;line-height:1.2;font-weight:800}
+.nameBlock h2{margin:7px 0 0;color:#0f4c75;font-size:12pt;font-weight:700}
+.contact{display:grid;gap:3px;min-width:220px;text-align:end;font-size:8.2pt;line-height:1.45}
+.contact a{color:#1e293b;text-decoration:none;overflow-wrap:anywhere}.contact span{color:#475569}
+.section{margin-top:15px;break-inside:avoid;page-break-inside:avoid}
+.section>h2{margin:0 0 7px;padding-bottom:5px;border-bottom:1px solid #CBD5E1;color:#0b2e46;font-size:10.5pt;font-weight:800;letter-spacing:.02em}
+.summary{margin:0;color:#1e293b;font-size:9.3pt;line-height:1.65}
+.skillGroups{display:grid;gap:7px}.skillGroup{break-inside:avoid;page-break-inside:avoid}
+.skillGroup h3{margin:0 0 2px;color:#0f4c75;font-size:9pt;font-weight:700}
+.skillGroup p{margin:0;color:#334155;font-size:8.6pt;line-height:1.55}
+.projects{display:grid;gap:8px}.project{break-inside:avoid;page-break-inside:avoid}
+.projectHeading{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.projectHeading h3{margin:0;color:#0f4c75;font-size:9.5pt;font-weight:800}
+.projectHeading span{color:#64748b;font-size:7.2pt;text-align:end}
+.project>p{margin:3px 0 0;color:#334155;font-size:8.3pt;line-height:1.5}
+.project .stack{color:#475569;font-size:7.6pt}
+.stack b{color:#0b2e46}
+.certifications{display:grid;grid-template-columns:1fr 1fr;gap:7px 18px;margin:0;padding:0;list-style:none}
+.certifications li{display:flex;align-items:start;justify-content:space-between;gap:8px;break-inside:avoid;page-break-inside:avoid}
+.certifications li>span{display:grid;gap:1px}.certifications strong{color:#1e293b;font-size:8.2pt;line-height:1.35}.certifications small{color:#64748b;font-size:7.5pt}
+.certifications a{flex-shrink:0;color:#0369a1;font-size:7.2pt;text-decoration:none}
+.education{display:grid;gap:4px}.education p{margin:0;color:#1e293b;font-size:8.8pt}
+.documentFooter{display:flex;justify-content:space-between;gap:12px;margin-top:16px;padding-top:7px;border-top:1px solid #cbd5e1;color:#64748b;font-size:7pt;letter-spacing:.08em}
+.toolbar{display:flex;justify-content:space-between;gap:12px;width:min(100%,210mm);margin:0 auto 14px}
+.toolbar a,.toolbar button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 15px;border:1px solid #0b2e46;border-radius:6px;background:#fff;color:#0b2e46;font:700 13px Arial,sans-serif;text-decoration:none;cursor:pointer}
+.toolbar button{background:#0b2e46;color:#fff}
+@media(max-width:650px){.cvPage{padding:14px 8px 28px}.document{padding:20px 16px;font-size:9pt}.header{grid-template-columns:1fr;gap:10px}.contact{text-align:start;min-width:0;grid-template-columns:1fr 1fr;column-gap:10px}.nameBlock h1{font-size:23pt}.certifications{grid-template-columns:1fr}.projectHeading{align-items:start;flex-direction:column;gap:1px}.documentFooter{font-size:6pt}}
+@page{size:A4;margin:12mm}
+@media print{
+ .cvPage{min-height:0;padding:0!important;background:#fff!important}
+ .document{width:auto;min-height:0;margin:0;padding:0;box-shadow:none;font-size:9pt}
+ .toolbar{display:none!important}
+ .section,.skillGroup,.project,.certifications li,.education{break-inside:avoid;page-break-inside:avoid}
+ .header{break-inside:avoid;page-break-inside:avoid}
+ .contact a{color:#1e293b!important}
+ .documentFooter{margin-top:10px}
+}
