@@ -31,7 +31,7 @@ const copy={
   education:'المؤهل الأكاديمي',
   verify:'التحقق من الشهادة',
   roleLabel:'الدور',
-  stackLabel:'التقنيات',
+  stackLabel:'النطاق والتقنيات',
   statusLabel:'الحالة',
   projectRole:{
    'aegis-titan':'صاحب الفكرة والرؤية المعمارية ومؤسس ومطوّر المنظومة؛ تصور دفاعي مؤسسي يربط الرصد والتحليل والاستجابة والتحقيق والحوكمة ضمن بنية واحدة.',
@@ -57,7 +57,7 @@ const copy={
   education:'EDUCATION',
   verify:'Verify credential',
   roleLabel:'ROLE',
-  stackLabel:'TECHNOLOGIES',
+  stackLabel:'TECHNICAL SCOPE / STACK',
   statusLabel:'STATUS',
   projectRole:{
    'aegis-titan':'Originator, architectural lead, founder, and developer. An institutional defensive-security concept connecting monitoring, analysis, response, investigation, and governance in one system.',
