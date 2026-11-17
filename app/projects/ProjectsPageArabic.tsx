@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type {Project,ProjectFilter} from '../../data/projects';
 import {
-  ArrowLeft,ArrowUpLeft,ArrowUpRight,Code2,FolderGit2,
+  ArrowUpLeft,ArrowUpRight,Code2,FolderGit2,
   GraduationCap,Layers3,ShieldCheck,Sparkles,X,ExternalLink,Terminal,GitBranch,FileText,ArrowUpRight as ArrowRightIcon
 } from 'lucide-react';
 import './projects.css';
@@ -108,15 +108,15 @@ export default function ProjectsPage({projects,filters,locale}:ProjectsPageProps
         {visible.map((p,i)=>{
           const meta=categoryMeta[p.category];
           const Icon=meta.Icon;
-          return <button type="button" className="portfolio-project-card" onClick={()=>setSelectedProject(p)} key={p.slug} aria-haspopup="dialog" aria-label={'عرض تفاصيل '+p.name}>
+          return <article className="portfolio-project-card" key={p.slug}>
             <div className="portfolio-project-card-top"><span className="portfolio-project-icon"><Icon size={19}/></span><span className="portfolio-project-number">{String(i+1).padStart(2,'0')} / {meta.label}</span><ArrowUpRight className="portfolio-project-open" size={17}/></div>
             <div className="portfolio-project-status"><i/>{p.status}</div>
             <h3>{p.name}</h3>
             <b className="portfolio-project-label">{p.label}</b>
             <p>{p.summary}</p>
             <div className="portfolio-project-stack">{p.stack.slice(0,4).map(x=><span key={x}>{x}</span>)}</div>
-            <div className="portfolio-project-bottom"><span>{p.repository?'REPOSITORY LINKED':'PROJECT PROFILE'}</span><strong>التفاصيل <ArrowUpLeft size={15}/></strong></div>
-          </button>;
+            <div className="portfolio-project-bottom"><span>{p.repository?'REPOSITORY LINKED':'PROJECT PROFILE'}</span><button type="button" onClick={()=>setSelectedProject(p)} aria-haspopup="dialog">التفاصيل <ArrowUpLeft size={15}/></button><Link href={'/'+locale+'/projects/'+p.slug}>صفحة المشروع ↖</Link></div>
+          </article>;
         })}
       </div>
       {visible.length===0&&<div className="portfolio-archive-empty">لا توجد مشاريع ضمن هذا التصنيف حاليًا.</div>}
