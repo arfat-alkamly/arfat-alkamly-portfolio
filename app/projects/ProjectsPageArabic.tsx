@@ -68,7 +68,7 @@ export default function ProjectsPage({projects,filters,locale}:ProjectsPageProps
         <div className="portfolio-featured-tags">{featured.stack.slice(0,4).map(x=><span key={x}>{x}</span>)}</div>
         <div className="portfolio-featured-footer">
           <span>FOUNDER &amp; LEAD SYSTEMS ARCHITECT<br/><b>ARFAT ALKAMLI</b></span>
-          <button type="button" onClick={()=>setSelectedProject(featured)}>استكشف المنظومة <ArrowUpLeft size={17}/></button>
+          <button type="button" onClick={()=>setSelectedProject(featured)}>استكشف المنظومة <ArrowUpLeft size={17}/></button><Link href={'/'+locale+'/projects/aegis-titan'}>الملف الهندسي ↖</Link>
         </div>
       </div>
     </section>}
