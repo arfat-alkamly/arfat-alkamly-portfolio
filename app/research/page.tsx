@@ -13,8 +13,6 @@ export async function generateMetadata():Promise<Metadata>{
 }
 
 export const researchPrograms=[
-
-const researchPrograms=[
   {
     id:'01',category:'هندسة الأمن الدفاعي',en:'DEFENSIVE SECURITY ENGINEERING',
     title:'هندسة منظومة دفاع سيبراني مترابطة متعددة الطبقات',
@@ -187,7 +185,7 @@ async function ResearchPageArabic(){
     </div>
 
     <section className="rs-research-grid" aria-label="المقترحات البحثية">
-      {researchPrograms.map(item=><article className="rs-paper" key={item.id}>
+      {researchPrograms.map(item=><article id={`proposal-${item.id}`} className="rs-paper" key={item.id}>
         <div className="rs-paper-top"><span className="rs-paper-number">RESEARCH / {item.id}</span><span className={'rs-status '+item.tone}>{item.status}</span></div>
         <span className="rs-paper-category">{item.category}</span>
         <h3>{item.title}</h3>
@@ -225,6 +223,7 @@ async function ResearchPageArabic(){
 
 
 export default async function ResearchPage(){
-  const en = (await cookies()).get('portfolio-locale')?.value === 'en';
-  return en ? <ResearchPageEnglish /> : <ResearchPageArabic />;
+  const en=(await cookies()).get('portfolio-locale')?.value==='en';
+  const proposals=en?researchProgramsEnglish:researchPrograms;
+  return <><JsonLd data={researchJsonLd(proposals,en?'en':'ar')}/>{en?<ResearchPageEnglish/>:<ResearchPageArabic/>}</>;
 }
