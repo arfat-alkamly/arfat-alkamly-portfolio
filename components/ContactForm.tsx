@@ -2,7 +2,7 @@
 import {FormEvent,useEffect,useState} from 'react';
 import {BookOpen,Code2,Microscope,ShieldCheck} from 'lucide-react';
 type User={email:string;name:string};
-const topics=[{value:'Cybersecurity',label:'Cybersecurity',icon:ShieldCheck},{value:'Research',label:'Research',icon:Microscope},{value:'Development',label:'Development',icon:Code2},{value:'Academic',label:'Academic',icon:BookOpen}];
+const topics=[{value:'Cybersecurity',label:'Cybersecurity',arLabel:'الأمن السيبراني',icon:ShieldCheck},{value:'Research',label:'Research',arLabel:'البحث العلمي',icon:Microscope},{value:'Development',label:'Development',arLabel:'تطوير البرمجيات',icon:Code2},{value:'Academic',label:'Academic',arLabel:'الشؤون الأكاديمية',icon:BookOpen}];
 const TOPIC_STORAGE_KEY='portfolio-contact-topic';
 export default function ContactForm({locale='ar'}:{locale?:'ar'|'en'}){
  const en=locale==='en';
@@ -10,9 +10,9 @@ export default function ContactForm({locale='ar'}:{locale?:'ar'|'en'}){
  const [topic,setTopic]=useState('');
  const [subject,setSubject]=useState('');
  async function refresh(){try{const r=await fetch('/api/auth/session',{cache:'no-store'});const d=await r.json();setUser(d.authenticated?d.user:null);}catch{setUser(null);}finally{setLoading(false);}}
- useEffect(()=>{try{const saved=sessionStorage.getItem(TOPIC_STORAGE_KEY);if(saved&&topics.some(item=>item.value===saved)){setTopic(saved);setSubject(saved);}}catch{}},[]);
+ useEffect(()=>{try{const saved=sessionStorage.getItem(TOPIC_STORAGE_KEY);const selected=topics.find(item=>item.value===saved);if(selected){setTopic(selected.value);setSubject(en?selected.label:selected.arLabel);}}catch{}},[en]);
  useEffect(()=>{void refresh();const params=new URLSearchParams(window.location.search);if(params.get('auth')==='failed')setNotice(en?'Google account verification failed. Please try again.':'تعذر تأكيد حساب Google. حاول مرة أخرى.');if(params.has('auth'))window.history.replaceState({},'',window.location.pathname);},[en]);
- function chooseTopic(value:string){setTopic(value);setSubject(value);try{sessionStorage.setItem(TOPIC_STORAGE_KEY,value);}catch{}}
+ function chooseTopic(value:string){const selected=topics.find(item=>item.value===value);setTopic(value);setSubject(selected?(en?selected.label:selected.arLabel):'');try{sessionStorage.setItem(TOPIC_STORAGE_KEY,value);}catch{}}
  async function logout(){await fetch('/api/auth/session',{method:'DELETE'});setUser(null);setNotice(en?'Account disconnected.':'تم فصل الحساب.');}
  async function submit(event:FormEvent<HTMLFormElement>){
   event.preventDefault();if(!user||status==='sending')return;
@@ -23,7 +23,7 @@ export default function ContactForm({locale='ar'}:{locale?:'ar'|'en'}){
  if(loading)return <div className="contact-auth-status" role="status">{en?'Checking sign-in status…':'جارٍ التحقق من حالة تسجيل الدخول…'}</div>;
  return <div className="contact-form-wrap">
   <div className="messageTopics" role="group" aria-label={en?'Choose a message topic':'اختر تصنيف الرسالة'}>
-   {topics.map(item=>{const Icon=item.icon;return <button key={item.value} type="button" aria-pressed={topic===item.value} onClick={()=>chooseTopic(item.value)}><Icon size={14}/>{item.label}</button>;})}
+   {topics.map(item=>{const Icon=item.icon;return <button key={item.value} type="button" aria-pressed={topic===item.value} onClick={()=>chooseTopic(item.value)}><Icon size={14}/>{en?item.label:item.arLabel}</button>;})}
   </div>
   {!user?<div className="google-auth-panel"><p>{en?'Before sending a message, verify your identity with Google to help prevent automated spam. We do not request access to your email or files.':'قبل إرسال الرسالة، أكّد هويتك عبر حساب Google للحد من الرسائل الآلية. لا نطلب الوصول إلى بريدك أو ملفاتك.'}</p><a className="button-primary google-auth-button" href="/api/auth/google"><span aria-hidden="true">G</span> {en?'Continue with Google':'المتابعة باستخدام Google'}</a><p className="contact-mailto">{en?'Prefer not to sign in?':'تفضّل المراسلة دون تسجيل الدخول؟'} <a href="mailto:alkamlyrfat@gmail.com">{en?'Send a direct email':'راسلني مباشرة عبر البريد'}</a></p></div>:<div className="verified-account"><div><strong>{en?'Account verified':'تم تأكيد الحساب'}</strong><span>{user.email}</span></div><button type="button" className="button-secondary" onClick={logout}>{en?'Switch account':'تغيير الحساب'}</button></div>}
   {user&&<form className="contact-form" onSubmit={submit}>
