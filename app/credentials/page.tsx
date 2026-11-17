@@ -1,17 +1,18 @@
 import type {Metadata} from 'next';
 import { cookies } from 'next/headers';
 import CredentialsPageEnglish from './CredentialsPageEnglish';
-import {localizedAlternates} from '../../lib/seo';
+import {localizedPageMetadata} from '../../lib/seo';
+import JsonLd from '../../components/seo/JsonLd';
 import Script from 'next/script';
 import CertificatePreview from './CertificatePreview';
 import {credentialsJsonLd} from '../../lib/structured-data';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const en = (await cookies()).get('portfolio-locale')?.value === 'en';
-  return en
-    ? { title: 'Digital Credentials', description: 'Verified Cisco and Credly credentials, digital badges, acquired skills, and verification links.', alternates: localizedAlternates('/credentials','en') }
-    : { title: 'الشهادات والشارات الرقمية', description: 'سجل الشهادات الأصلية والشارات الرقمية المعتمدة من Cisco وCredly، مع المهارات وروابط التحقق.', alternates: localizedAlternates('/credentials','ar') };
+export async function generateMetadata():Promise<Metadata>{
+ const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
+ return localizedPageMetadata({path:'/credentials',locale,pageTitle:locale==='en'?'Digital Credentials':'الشهادات والشارات الرقمية',description:locale==='en'?'Nine verifiable Cisco learning credentials, digital badges, acquired skills, and official Credly records.':'تسع شهادات وشارات تعليمية قابلة للتحقق من Cisco وشركائها، مع المهارات وروابط سجلات Credly الرسمية.'});
 }
+
+const credentials=[
 
 const credentials=[
   {name:'Cybersecurity Defense Analyst Career Path',date:'29 يوليو 2026',issuer:'Cisco بالتعاون مع Splunk',id:'23bda189-2470-4ce0-8065-ee904979ba21',skills:['Cybersecurity','Cybersecurity Standards','Security','Splunk','Threat Detection','Analyst','Big Data Analysis','Cyber Kill Chain Framework','Cyber Risk','Cyber Safety','Cybersecurity Systems','Monitoring','SOC','Threat-Hunting'],file:'CybersecurityDefenseAnalystCareerPathv120261103-20-1nonu3.pdf',description:'مسار مهني يركز على فهم مشهد التهديدات السيبرانية والعمل داخل مركز العمليات الأمنية SOC، واستخدام تقنيات Splunk للمراقبة والتحقيق والبحث عن التهديدات والاستجابة للحوادث.'},
