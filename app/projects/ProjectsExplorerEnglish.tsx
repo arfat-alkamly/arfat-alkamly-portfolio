@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type {Project,ProjectFilter} from '../../data/projects';
 import {ArrowUpRight,Code2,FolderGit2,GraduationCap,Layers3,ShieldCheck,Sparkles,X,ExternalLink,Terminal,GitBranch,FileText} from 'lucide-react';
-import './projects.css';
 const categoryMeta={
  'cyber-defense':{label:'CYBERSECURITY',name:'Cybersecurity',Icon:ShieldCheck},
  software:{label:'SOFTWARE ENGINEERING',name:'Software engineering',Icon:Code2},
