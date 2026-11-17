@@ -1,9 +1,8 @@
 "use client";
 import {useMemo,useState} from 'react';
 import Link from 'next/link';
-import {ArrowUpLeft,Braces,Code2,Database,Network,Search,ShieldCheck,Terminal,Workflow,Layers3,FileSearch,Activity,ChevronDown,ExternalLink,ScanSearch,Server,BookOpenCheck} from 'lucide-react';
+import {ArrowUpLeft,Braces,Code2,Database,Network,Search,ShieldCheck,Workflow,Layers3,FileSearch,Activity,ChevronDown,ScanSearch,Server,BookOpenCheck} from 'lucide-react';
 import type {LucideIcon} from 'lucide-react';
-import {projects} from '../../data/projects';
 
 type Level='تطبيق عملي'|'ممارسة جيدة'|'معرفة وتطبيق';
 type Skill={name:string;level:Level;note:string};
@@ -42,7 +41,7 @@ const domains:Domain[]=[
 {name:'Wireshark',level:'تطبيق عملي',note:'التقاط الحزم وتحليل حركة الشبكة'},
 {name:'Network Troubleshooting',level:'تطبيق عملي',note:'تتبع المشكلات وتحليل الاتصال'},
 {name:'Network Monitoring',level:'تطبيق عملي',note:'مراقبة الاتصالات ومؤشرات السلوك'},
-{name:'DNS · DHCP · IP Addressing',level:'ممارسة جيدة',note:'خدمات الشبكات والعنونة وإدارة الاتصال'}
+{name:'DNS · DHCP · IP Addressing',level:'معرفة وتطبيق',note:'خدمات الشبكات والعنونة وإدارة الاتصال'}
 ]},
 {id:'systems',title:'الأنظمة والبيئات والبنية التحتية',en:'SYSTEMS & INFRASTRUCTURE',description:'إدارة بيئات التشغيل والعمل على الأنظمة الافتراضية وأدوات التطوير.',Icon:Server,skills:[
 {name:'Kali Linux',level:'تطبيق عملي',note:'بيئة العمل والتحليل الأمني'},
@@ -69,13 +68,8 @@ const domains:Domain[]=[
 ]}
 ];
 const filters=[['all','كل المجالات'],['engineering','البرمجة'],['cyber-defense','الدفاع وSOC'],['security-testing','اختبار الأمن'],['networking','الشبكات'],['systems','الأنظمة'],['data','قواعد البيانات'],['research','التحليل والبحث']];
-const pathways=[
-{Icon:Braces,title:'Build',ar:'البناء والتطوير',detail:'تصميم البرمجيات، كتابة الشيفرات، بناء الواجهات وربط قواعد البيانات.',tools:'Python · C# · Flutter · JavaScript · SQL'},
-{Icon:ShieldCheck,title:'Defend',ar:'الحماية والدفاع',detail:'مراقبة الأنظمة، تحليل التهديدات، تقييم المخاطر والاستجابة للحوادث.',tools:'SOC · DFIR · Wireshark · Network Security'},
-{Icon:ScanSearch,title:'Investigate',ar:'الفحص والتحقيق',detail:'مراجعة الشيفرات والمستودعات، تتبع السلوك، وفحص النتائج وتوثيقها.',tools:'Code Review · Threat Analysis · Digital Forensics'}
-];
 const workflow=[{Icon:Layers3,t:'Understand',a:'فهم النظام والسياق'},{Icon:Search,t:'Investigate',a:'التحليل والفحص'},{Icon:Braces,t:'Build',a:'التطوير والتنفيذ'},{Icon:FileSearch,t:'Validate',a:'التحقق والتوثيق'}];
-export default function SkillsExplorer(){
+export default function SkillsExplorer({locale='ar'}:{locale?:'ar'|'en'}){
  const [active,setActive]=useState('all');
  const [query,setQuery]=useState('');
  const [expanded,setExpanded]=useState<string[]>(['cyber-defense','engineering']);
@@ -87,14 +81,12 @@ export default function SkillsExplorer(){
   <div className="sk-topline"><span>CAPABILITY MAP / 2026</span><span>ARFAT ALKAMLI <i/> TECHNICAL PROFILE</span></div>
   <section className="sk-hero"><div className="sk-hero-copy"><span className="sk-kicker">ENGINEERING · SECURITY · RESEARCH</span><h1>المهارات <em>والقدرات</em></h1><p>ملف تقني يوضح ما أطبّقه في تطوير البرمجيات والأمن السيبراني والشبكات، والأدوات التي أستخدمها في بناء الأنظمة وتحليلها وحمايتها. التركيز هنا على المهارة القابلة للتطبيق، لا على جمع أسماء التقنيات.</p><div className="sk-hero-tags"><span><Code2/> Software Engineering</span><span><ShieldCheck/> Cyber Defense</span><span><Activity/> Technical Research</span></div></div><div className="sk-hero-aside"><div className="sk-orbit"><div className="sk-orbit-core"><ShieldCheck/><b>AK</b><small>ENGINEERING</small></div><i/><i/><i/></div><span>BUILD / DEFEND / INVESTIGATE</span></div></section>
   <section className="sk-snapshot" aria-label="ملخص المهارات"><article><b>{total}</b><span>مهارة وتقنية موثقة</span></article><article><b>{domains.length}</b><span>مجالات تقنية</span></article><article><b>{practical}</b><span>تطبيق عملي مُدرج</span></article><article><b>03</b><span>مسارات عمل مترابطة</span></article></section>
-  <section className="sk-pathways"><div className="sk-extra-heading"><span>01 / ENGINEERING PILLARS</span><h2>ثلاثة مسارات تشكّل هويتي التقنية</h2><p>تتقاطع هذه المسارات في المشاريع: أبني الأنظمة، أختبرها وأحميها، ثم أحلل نتائجها وأطوّرها.</p></div><div className="sk-pathway-grid">{pathways.map(({Icon,title,ar,detail,tools:stack},i)=><article key={title}><span className="sk-pathway-index">0{i+1} / {title}</span><Icon/><h3>{ar}</h3><p>{detail}</p><small>{stack}</small></article>)}</div></section>
-  <section className="sk-section-head"><div><span>02 / CAPABILITY DIRECTORY</span><h2>دليل المهارات التفصيلي</h2><p>ابحث باسم المهارة أو الأداة، أو اختر مجالاً محدداً. اضغط على أي مجال لعرض تفاصيل التقنيات ومستوى الممارسة.</p></div><label className="sk-search"><Search/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث عن لغة أو أداة أو مجال..." aria-label="ابحث عن مهارة أو أداة"/></label></section>
+  <section className="sk-section-head"><div><span>01 / CAPABILITY DIRECTORY</span><h2>دليل المهارات التفصيلي</h2><p>ابحث باسم المهارة أو الأداة، أو اختر مجالاً محدداً. اضغط على أي مجال لعرض تفاصيل التقنيات ومستوى الممارسة.</p></div><label className="sk-search"><Search/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث عن لغة أو أداة أو مجال..." aria-label="ابحث عن مهارة أو أداة"/></label></section>
   <div className="sk-filters" role="group" aria-label="تصفية المجالات">{filters.map(([id,label])=><button key={id} type="button" className={active===id?'active':''} aria-pressed={active===id} onClick={()=>setActive(id)}>{label}</button>)}</div>
-  <section className="sk-domain-list">{visible.map((d,i)=>{const Icon=d.Icon;const isOpen=expanded.includes(d.id)||query.length>0;return <article className="sk-domain" key={d.id}><button className="sk-domain-toggle" type="button" aria-expanded={isOpen} onClick={()=>toggle(d.id)}><span className="sk-domain-icon"><Icon/></span><span className="sk-domain-title"><small>{String(i+1).padStart(2,'0')} / {d.en}</small><b>{d.title}</b><em>{d.description}</em></span><span className="sk-domain-count">{d.skills.length} مهارة</span><ChevronDown className={isOpen?'rotated':''}/></button>{isOpen&&<div className="sk-skill-grid">{d.skills.map(s=><div className="sk-skill" key={s.name}><div><b>{s.name}</b><span className={'sk-level '+(s.level==='تطبيق عملي'?'is-practical':s.level==='ممارسة جيدة'?'is-good':'is-learning')}>{s.level}</span></div><small>{s.note}</small></div>)}</div>}</article>})}{visible.length===0&&<div className="sk-empty">لا توجد نتائج مطابقة. جرّب كلمة بحث أخرى أو اختر كل المجالات.</div>}</section>
-  <section className="sk-method"><div><span>03 / ENGINEERING WORKFLOW</span><h2>منهجية العمل قبل اختيار الأداة.</h2><p>لا تبدأ المعالجة باسم أداة؛ بل بفهم النظام وحدود المهمة. بعدها يأتي الفحص والتحليل، ثم التطوير أو الاستجابة، وأخيراً التحقق والتوثيق. هذه الدورة هي ما يربط البرمجة بالأمن السيبراني.</p><Link href="/research" className="sk-inline-link">مسار البحث والتطوير <ArrowUpLeft/></Link></div><div className="sk-method-flow">{workflow.map(({Icon,t,a},i)=><article key={t}><span>0{i+1}</span><Icon/><b>{t}</b><small>{a}</small></article>)}</div></section>
-  <section className="sk-projects"><div className="sk-project-head"><div><span>04 / SKILLS IN PRACTICE</span><h2>المهارات داخل المشاريع</h2><p>المشاريع هي المساحة التي تتحول فيها المعرفة إلى بناء وتجربة ونتائج يمكن مراجعتها.</p></div><Link href="/projects">استعراض جميع المشاريع <ArrowUpLeft/></Link></div><div className="sk-project-grid">{projects.slice(0,3).map(p=><Link href={'/projects/'+p.slug} className="sk-project-card" key={p.slug}><span>ENGINEERING PROJECT</span><b>{p.name}</b><small>{p.summary}</small><em>تفاصيل المشروع <ExternalLink/></em></Link>)}</div></section>
-  <section className="sk-proof"><div><BookOpenCheck/><div><span>05 / VERIFIABLE LEARNING</span><h2>التعلّم والشهادات القابلة للتحقق</h2><p>تدعم الشهادات والمسارات التعليمية بعض مجالات المعرفة، بينما يظل التطبيق والمشاريع دليلاً منفصلاً على الممارسة.</p></div></div><Link href="/credentials">عرض الشهادات والاعتمادات <ArrowUpLeft/></Link></section>
+  <section className="sk-domain-list">{visible.map((d,i)=>{const Icon=d.Icon;const isOpen=expanded.includes(d.id)||query.length>0;return <article className="sk-domain" key={d.id}><button className="sk-domain-toggle" type="button" aria-expanded={isOpen} onClick={()=>toggle(d.id)}><span className="sk-domain-icon"><Icon/></span><span className="sk-domain-title"><small>{String(i+1).padStart(2,'0')} / {d.en}</small><b>{d.title}</b><em>{d.description}</em></span><span className="sk-domain-count">{d.skills.length} مهارة</span><ChevronDown className={isOpen?'rotated':''}/></button>{isOpen&&<div className="sk-skill-grid" hidden={!isOpen}>{d.skills.map(s=><div className="sk-skill" key={s.name}><div><b>{s.name}</b><span className={'sk-level '+(s.level==='تطبيق عملي'?'is-practical':s.level==='ممارسة جيدة'?'is-good':'is-learning')}>{s.level}</span></div><small>{s.note}</small></div>)}</div>}</article>})}{visible.length===0&&<div className="sk-empty">لا توجد نتائج مطابقة. جرّب كلمة بحث أخرى أو اختر كل المجالات.</div>}</section>
+  <section className="sk-method"><div><span>02 / ENGINEERING WORKFLOW</span><h2>منهجية العمل قبل اختيار الأداة.</h2><p>لا تبدأ المعالجة باسم أداة؛ بل بفهم النظام وحدود المهمة. بعدها يأتي الفحص والتحليل، ثم التطوير أو الاستجابة، وأخيراً التحقق والتوثيق. هذه الدورة هي ما يربط البرمجة بالأمن السيبراني.</p><div className="sk-method-links"><Link href={'/'+locale+'/research'} className="sk-inline-link">مسار البحث والتطوير <ArrowUpLeft/></Link><Link href={'/'+locale+'/projects'} className="sk-inline-link">استعراض المشاريع التطبيقية <ArrowUpLeft/></Link></div></div><div className="sk-method-flow">{workflow.map(({Icon,t,a},i)=><article key={t}><span>0{i+1}</span><Icon/><b>{t}</b><small>{a}</small></article>)}</div></section>
+  <section className="sk-proof"><div><BookOpenCheck/><div><span>03 / VERIFIABLE LEARNING</span><h2>التعلّم والشهادات القابلة للتحقق</h2><p>تدعم الشهادات والمسارات التعليمية بعض مجالات المعرفة، بينما يظل التطبيق والمشاريع دليلاً منفصلاً على الممارسة.</p></div></div><Link href="/credentials">عرض الشهادات والاعتمادات <ArrowUpLeft/></Link></section>
   <aside className="sk-note"><ShieldCheck/><p><b>الشفافية المهنية:</b> مستويات المهارات وصفية وليست نسب إتقان أو ادعاء خبرة احترافية. «تطبيق عملي» يعني وجود ممارسة أو تطبيق ضمن مشاريع وتجارب شخصية أو أكاديمية، و«معرفة وتطبيق» تشير إلى مجال ما زال قيد التوسع. جميع اختبارات الأمن تُجرى ضمن نطاقات وبيئات مصرح بها.</p></aside>
-  <footer className="sk-footer"><span>ARFAT ALKAMLI / SKILLS DIRECTORY</span><b>Building Systems. Securing the Future.</b><Link href="/contact">تواصل مهني <ArrowUpLeft/></Link></footer>
+  
  </main>
 }
