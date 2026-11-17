@@ -2226,3 +2226,19 @@ button.selected,.filter-tabs button.selected{
 .portfolio-featured-footer a{display:inline-flex;align-items:center;gap:6px;padding:9px 11px;border:1px solid #CBD5E1;border-radius:6px;background:#FFFFFF;color:#0F4C75;font-size:10px;font-weight:800;text-decoration:none}
 .portfolio-featured-footer a:hover{border-color:#0284C7;background:#F0F9FF}
 @media(max-width:650px){.portfolio-featured-footer a,.portfolio-featured-footer button{width:100%;justify-content:center}}
+
+
+/* Research archive — high-contrast text and complete server-rendered proposal archive */
+.rs-live-label{display:inline-flex;align-items:center;padding:3px 7px;border:1px solid rgba(129,197,164,.34);border-radius:999px;background:rgba(129,197,164,.1);color:#b9e5cd;font:700 8px/1.4 ui-sans-serif,system-ui,sans-serif;letter-spacing:0}
+.rs-orcid h2{color:#0B2E46}
+.rs-orcid p{color:#334155}
+.rs-orcid>a{color:#0284C7}
+.rs-orcid>a b{color:#0B2E46}
+.rs-orcid>a span{color:#0284C7}
+.rs-intro-section h2,.rs-method h2{color:#0B2E46}
+.rs-intro-section p,.rs-method>div>p{color:#334155}
+.rs-status-legend span{color:#334155}
+.rs-paper-summary,.rs-paper-detail p,.rs-paper-outcome p{color:#CBD5E1}
+.rs-method-steps small{color:#CBD5E1}
+.rs-authorship-note h2{color:#0B2E46}
+.rs-authorship-note p{color:#334155}
