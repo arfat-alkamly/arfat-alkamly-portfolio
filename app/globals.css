@@ -2110,3 +2110,16 @@ button.selected,.filter-tabs button.selected{
  .ab-direction-actions{gap:12px}
 }
 @media(prefers-reduced-motion:reduce){.ab-orcid-link,.ab-cv-button{transition:none}}
+
+
+/* A4 CV printing: suppress the shared site chrome without hiding the CV footer. */
+@media print{
+  body:has(.cv-print-route) .site-header,
+  body:has(.cv-print-route) .site-footer,
+  body:has(.cv-print-route) header[role="banner"],
+  body:has(.cv-print-route) footer[role="contentinfo"]{display:none!important}
+  body:has(.cv-print-route),
+  body:has(.cv-print-route) html,
+  body:has(.cv-print-route) #__next{background:#fff!important}
+  body:has(.cv-print-route):before{display:none!important}
+}
