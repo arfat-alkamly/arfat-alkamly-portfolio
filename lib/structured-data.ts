@@ -41,7 +41,7 @@ export function credentialsJsonLd(){
  return {'@context':'https://schema.org','@type':'ItemList',name:'Digital Credentials of Arfat Abdullah Alkamly',numberOfItems:credentials.length,itemListElement:credentials.map((credential,index)=>({
   '@type':'ListItem',position:index+1,item:{
    '@type':'EducationalOccupationalCredential',name:credential.name,credentialCategory:'Digital badge',dateCreated:credential.date,
-   recognizedBy:{'@type':'Organization',name:credential.issuer},url:`https://www.credly.com/badges/${credential.id}/public_url`,about:author,
+   recognizedBy:{'@type':'Organization',name:credential.partner?`${credential.issuer} with ${credential.partner}`:credential.issuer},url:`https://www.credly.com/badges/${credential.id}/public_url`,about:author,
    description:`Awarded to Arfat Abdullah Alkamly by ${credential.issuer}${credential.partner?` with ${credential.partner}`:''} on ${credential.date}.`,
   }
  }))};
