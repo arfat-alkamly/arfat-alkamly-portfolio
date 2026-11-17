@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import { cookies } from 'next/headers';
 import ContactPageEnglish from './ContactPageEnglish';
 import {localizedPageMetadata} from '../../lib/seo';
-import {ArrowLeft,ArrowUpLeft,ArrowUpRight,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageSquareText,Microscope,Send,ShieldCheck} from 'lucide-react';
+import {ArrowLeft,ArrowUpLeft,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageSquareText,Microscope,Send,ShieldCheck} from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
@@ -32,13 +32,13 @@ function ContactPageArabic(){
     <p className={styles.intro}>أرحّب بالتواصل حول هندسة الأمن السيبراني، والبحث الأمني، وتطوير البرمجيات، ومناقشة الأفكار والمشاريع التقنية ذات القيمة.</p>
     <div className={styles.heroActions}>
      <a className={styles.primaryAction} href="#send-message">أرسل رسالة <ArrowUpLeft size={17}/></a>
-     <a className={styles.secondaryAction} href="mailto:alkamlyrfat@gmail.com">تواصل عبر البريد <ArrowUpRight size={16}/></a>
+     <a className={styles.secondaryAction} href="mailto:alkamlyrfat@gmail.com">تواصل عبر البريد <ArrowUpLeft size={16}/></a>
     </div>
    </div>
    <div className={styles.heroMark} aria-label="رمز الهوية AK">
     <div className={`${styles.orbit} ${styles.orbitOne}`}/><div className={`${styles.orbit} ${styles.orbitTwo}`}/>
     <div className={styles.markCore}><span>AK</span><small>CONNECT / 01</small></div>
-    <div className={styles.markFoot}>BUILDING SYSTEMS.<br/>SECURING THE FUTURE.</div>
+    <div className={styles.markFoot} dir="ltr">BUILDING SYSTEMS.<br/>SECURING THE FUTURE.</div>
    </div>
    <div className={styles.heroFooter}><span>CYBERSECURITY</span><span>RESEARCH</span><span>SOFTWARE ENGINEERING</span><span>COLLABORATION</span></div>
   </section>
@@ -47,8 +47,8 @@ function ContactPageArabic(){
    <div className={styles.sectionHeading}><div><span className={styles.sectionIndex}>01 / PROFESSIONAL & DIRECT CHANNELS</span><h2 id="channels-title">اختر قناة التواصل المناسبة</h2><p>الشبكات المهنية والبحثية، إلى جانب قنوات التواصل المباشر.</p></div><span className={styles.headingCode}>SECURE CONNECTIONS · 06</span></div>
    <div className={styles.channelGrid}>
     {channels.map((item,index)=>{const Icon=item.icon;return <a className={styles.channelCard} href={item.href} key={item.name} target={item.href.startsWith('mailto:')?'_self':'_blank'} rel={item.href.startsWith('mailto:')?undefined:['GitHub','LinkedIn','ORCID','Credly'].includes(item.name)?'me noopener noreferrer':'noopener noreferrer'}>
-      <div className={styles.cardTop}><span className={styles.cardNumber}>0{index+1}</span><span className={styles.cardIcon}><Icon size={19}/></span><ArrowUpRight className={styles.cardArrow} size={16}/></div>
-      <div className={styles.cardText}><h3>{item.name}</h3><p>{item.detail}</p><strong>{item.value}</strong></div>
+      <div className={styles.cardTop}><span className={styles.cardNumber}>0{index+1}</span><span className={styles.cardIcon}><Icon size={19}/></span><ArrowUpLeft className={styles.cardArrow} size={16}/></div>
+      <div className={styles.cardText}><h3>{item.name}</h3><p>{item.detail}</p><strong dir={item.name==='Telegram'?'ltr':undefined}>{item.value}</strong></div>
      </a>})}
    </div>
   </section>
