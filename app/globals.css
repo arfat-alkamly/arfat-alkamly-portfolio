@@ -2118,7 +2118,6 @@ button.selected,.filter-tabs button.selected{
   body:has(.cv-print-route) .site-footer,
   body:has(.cv-print-route) header[role="banner"],
   body:has(.cv-print-route) footer[role="contentinfo"]{display:none!important}
-  body:has(.cv-print-route),
   html:has(.cv-print-route),
   body:has(.cv-print-route),
   body:has(.cv-print-route) #__next{background:#fff!important}
