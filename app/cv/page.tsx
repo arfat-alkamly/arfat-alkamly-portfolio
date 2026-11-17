@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import {cookies} from 'next/headers';
 import Link from 'next/link';
-import {projects} from '../../data/projects';
+import {projects,type Project} from '../../data/projects';
 import CVPrintToolbar from './CVPrintToolbar';
 import styles from './cv.module.css';
 
@@ -84,8 +84,8 @@ export default async function CVPage(){
  const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
  const t=copy[locale];
  const isArabic=locale==='ar';
- const selected=selectedSlugs.map(slug=>projects.find(project=>project.slug===slug)).filter((project):project is NonNullable<typeof project>=>Boolean(project));
- return <main className={styles.cvPage} dir={isArabic?'rtl':'ltr'} lang={locale}>
+ const selected=selectedSlugs.map(slug=>projects.find(project=>project.slug===slug)).filter((project):project is Project=>Boolean(project));
+ return <main className={`${styles.cvPage} cv-print-route`} dir={isArabic?'rtl':'ltr'} lang={locale}>
   <CVPrintToolbar locale={locale} backLabel={t.back} printLabel={t.print}/>
   <article className={styles.document}>
    <header className={styles.header}>
