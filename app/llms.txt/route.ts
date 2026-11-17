@@ -14,20 +14,20 @@ const content = `# Arfat Abdullah Alkamly (عرفات عبدالله الكام�
 - Academic researcher identifier: https://orcid.org/0009-0008-1348-5146
 
 ## Featured projects
-- [AEGIS-TITAN] (${siteUrl}/en/projects/aegis-titan): A defensive cyber-security system concept covering security operations, monitoring, analysis, incident response, and digital forensics. Internal engineering details are intentionally not public.
-- [Academic OS] (${siteUrl}/en/projects/academic-os): A Flutter-based academic productivity application for courses, tasks, schedules, exams, and grades.
-- [CryptoLab-Pro] (${siteUrl}/en/projects/cryptolab-pro): An educational cryptography and analysis workspace with classical ciphers, AES-GCM, hashing, and message authentication.
-- [All projects] (${siteUrl}/en/projects)
+- [AEGIS-TITAN](${siteUrl}/en/projects/aegis-titan): A defensive cyber-security system concept covering security operations, monitoring, analysis, incident response, and digital forensics. Internal engineering details are intentionally not public.
+- [Academic OS](${siteUrl}/en/projects/academic-os): A Flutter-based academic productivity application for courses, tasks, schedules, exams, and grades.
+- [CryptoLab-Pro](${siteUrl}/en/projects/cryptolab-pro): An educational cryptography and analysis workspace with classical ciphers, AES-GCM, hashing, and message authentication.
+- [All projects](${siteUrl}/en/projects)
 
 ## Research
 The research portfolio contains 13 proposals covering defensive security engineering, AI-driven threat detection, vulnerability analysis, digital forensics, network security, identity and access security, cloud security, API security, software supply-chain security, privacy, IoT security, incident-response automation, and secure software engineering.
-- [Research portfolio] (${siteUrl}/en/research)
+- [Research portfolio](${siteUrl}/en/research)
 
 These are research proposals and work-in-progress concepts, not claims of 13 completed or published papers.
 
 ## Credentials
 Nine digital credentials issued through Cisco and its learning partners, with public verification records hosted by Credly.
-- [Credentials and verification links] (${siteUrl}/en/credentials)
+- [Credentials and verification links](${siteUrl}/en/credentials)
 
 ## Official identity and verification
 - ORCID: https://orcid.org/0009-0008-1348-5146
@@ -36,15 +36,15 @@ Nine digital credentials issued through Cisco and its learning partners, with pu
 - Credly: https://www.credly.com/users/arfat-alkamly
 
 ## Main website sections
-- [Home] (${siteUrl}/en)
-- [About] (${siteUrl}/en/about)
-- [Skills] (${siteUrl}/en/skills)
-- [Projects] (${siteUrl}/en/projects)
-- [Labs] (${siteUrl}/en/labs)
-- [Research] (${siteUrl}/en/research)
-- [Credentials] (${siteUrl}/en/credentials)
-- [Contact] (${siteUrl}/en/contact)
-- [CV] (${siteUrl}/en/cv)
+- [Home](${siteUrl}/en)
+- [About](${siteUrl}/en/about)
+- [Skills](${siteUrl}/en/skills)
+- [Projects](${siteUrl}/en/projects)
+- [Labs](${siteUrl}/en/labs)
+- [Research](${siteUrl}/en/research)
+- [Credentials](${siteUrl}/en/credentials)
+- [Contact](${siteUrl}/en/contact)
+- [CV](${siteUrl}/en/cv)
 
 ## Content and attribution
 Project ownership and contribution statements are described on the relevant project pages. Collaborative work is identified as collaborative. Private system internals, personal contact numbers, and non-public operational details are intentionally excluded.
