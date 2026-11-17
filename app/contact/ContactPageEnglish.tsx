@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ArrowUpLeft,ArrowUpRight,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send } from 'lucide-react';
+import { ArrowUpLeft,ArrowUpRight,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageSquareText,Microscope,Send } from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
@@ -15,7 +15,6 @@ const channels=[
  {name:'Email',detail:'Inquiries and direct messages',value:'alkamlyrfat@gmail.com',href:'mailto:alkamlyrfat@gmail.com',icon:Mail},
  {name:'ORCID',detail:'Research identity and record',value:'0009-0008-1348-5146',href:'https://orcid.org/0009-0008-1348-5146',icon:Microscope},
  {name:'Credly',detail:'Digital badges and credentials',value:'View digital credentials',href:'https://www.credly.com/users/arfat-alkamly',icon:GraduationCap},
- {name:'WhatsApp',detail:'Direct contact via WhatsApp',value:'Send a direct message',href:'https://wa.me/967772814959?text='+encodeURIComponent('Hello Arfat, I found your message through your professional website.'),icon:MessageCircle},
  {name:'Telegram',detail:'Connect via Telegram',value:'@A_AB_ALK',href:'https://t.me/A_AB_ALK',icon:Send}
 ];
 
@@ -35,7 +34,7 @@ export default function ContactPageEnglish(){
    <div className={styles.heroFooter}><span>CYBERSECURITY</span><span>RESEARCH</span><span>SOFTWARE ENGINEERING</span><span>COLLABORATION</span></div>
   </section>
   <section className={styles.channelsSection} aria-labelledby="channels-title">
-   <div className={styles.sectionHeading}><div><span className={styles.sectionIndex}>01 / PROFESSIONAL & DIRECT CHANNELS</span><h2 id="channels-title">Choose your preferred channel</h2><p>Professional and research networks, along with direct communication channels.</p></div><span className={styles.headingCode}>SECURE CONNECTIONS · 07</span></div>
+   <div className={styles.sectionHeading}><div><span className={styles.sectionIndex}>01 / PROFESSIONAL & DIRECT CHANNELS</span><h2 id="channels-title">Choose your preferred channel</h2><p>Professional and research networks, along with direct communication channels.</p></div><span className={styles.headingCode}>SECURE CONNECTIONS · 06</span></div>
    <div className={styles.channelGrid}>{channels.map((item,index)=>{const Icon=item.icon;return <a className={styles.channelCard} href={item.href} key={item.name} target={item.href.startsWith('mailto:')?'_self':'_blank'} rel={item.href.startsWith('mailto:')?undefined:'noopener noreferrer'}><div className={styles.cardTop}><span className={styles.cardNumber}>0{index+1}</span><span className={styles.cardIcon}><Icon size={19}/></span><ArrowUpRight className={styles.cardArrow} size={16}/></div><div className={styles.cardText}><h3>{item.name}</h3><p>{item.detail}</p><strong>{item.value}</strong></div></a>})}</div>
   </section>
   <section className={styles.messageSection} id="send-message">
