@@ -7,6 +7,6 @@ import JsonLd from '../../components/seo/JsonLd';
 import {personAndWebsiteJsonLd} from '../../lib/structured-data';
 export async function generateMetadata():Promise<Metadata>{
  const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
- return localizedPageMetadata({path:'/about',locale,pageTitle:locale==='en'?'About':'نبذة عني',description:locale==='en'?'Academic journey, technical interests, projects, research direction, and professional profile.':'المسار الأكاديمي والاهتمامات التقنية والمشاريع والتوجه البحثي والملف المهني.',image:'/images/arfat-alkamali.jpg'});
+ return localizedPageMetadata({path:'/about',locale,pageTitle:locale==='en'?'About':'نبذة عني',description:locale==='en'?'Academic journey, technical interests, projects, research direction, and professional profile.':'المسار الأكاديمي والاهتمامات التقنية والمشاريع والتوجه البحثي والملف المهني.'});
 }
 export default async function AboutPage(){const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';return <><JsonLd data={personAndWebsiteJsonLd(locale)}/>{locale==='en'?<AboutTabsEnglish/>:<AboutTabs locale={locale}/>}</>;}
