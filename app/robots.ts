@@ -7,7 +7,7 @@ export default function robots():MetadataRoute.Robots{
   rules:[{
    userAgent:'*',
    allow:['/','/ar/','/en/','/llms.txt'],
-   disallow:['/api/','/_next/'],
+   disallow:['/api','/api/','/_next/'],
   }],
   sitemap:`${siteUrl}/sitemap.xml`,
   host:siteUrl,
