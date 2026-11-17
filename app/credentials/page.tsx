@@ -13,8 +13,6 @@ export async function generateMetadata():Promise<Metadata>{
 }
 
 const credentials=[
-
-const credentials=[
   {name:'Cybersecurity Defense Analyst Career Path',date:'29 يوليو 2026',issuer:'Cisco بالتعاون مع Splunk',id:'23bda189-2470-4ce0-8065-ee904979ba21',skills:['Cybersecurity','Cybersecurity Standards','Security','Splunk','Threat Detection','Analyst','Big Data Analysis','Cyber Kill Chain Framework','Cyber Risk','Cyber Safety','Cybersecurity Systems','Monitoring','SOC','Threat-Hunting'],file:'CybersecurityDefenseAnalystCareerPathv120261103-20-1nonu3.pdf',description:'مسار مهني يركز على فهم مشهد التهديدات السيبرانية والعمل داخل مركز العمليات الأمنية SOC، واستخدام تقنيات Splunk للمراقبة والتحقيق والبحث عن التهديدات والاستجابة للحوادث.'},
   {name:'Network Defense',date:'27 يوليو 2026',issuer:'Cisco',id:'e16ca722-84d2-4da2-ad1f-46e972453890',skills:['Application Security','Cloud Security','Firewalls','Physical Security','Public Key Cryptography','Access Controls','Defense-in-Depth','End Device Logs','Evaluating Alerts','Hashing','Integrity And Authenticity','Network Hardening','Network Logs','Security Policies - Regulations - Standards','System And Network Defense'],file:'NetworkDefenseUpdate20261103-20-xyacmt.pdf',description:'مفاهيم وتقنيات مراقبة الشبكات وحمايتها، بما في ذلك التحكم بالوصول والجدران النارية وأمن السحابة والتشفير وتقييم التنبيهات الأمنية والاستجابة لها.'},
   {name:'Networking Basics',date:'27 يوليو 2026',issuer:'Cisco',id:'2f9902ec-e035-4b56-bf1b-42c66f05ed75',skills:['Application Layer Services','IPv4 Addresses','Network Media','Network Types','Protocols Standards','Wireless Access'],file:'NetworkingBasicsUpdate20261103-20-u7bz38.pdf',description:'أساسيات أنواع الشبكات وآلية عملها، وتبادل البيانات بين الأجهزة، ووسائط الاتصال وعناوين IP والبروتوكولات وخدمات التطبيقات والشبكات اللاسلكية.'},
@@ -139,5 +137,5 @@ function CredentialsPageArabic(){
 
 export default async function CredentialsPage(){
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
-  return <><Script id="credentials-structured-data" type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(credentialsJsonLd()).replace(/</g,'\\u003c')}} />{en ? <CredentialsPageEnglish /> : <CredentialsPageArabic />}</>;
+  return <><JsonLd data={credentialsJsonLd()}/>{en ? <CredentialsPageEnglish /> : <CredentialsPageArabic />}</>;
 }
