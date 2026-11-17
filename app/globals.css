@@ -2123,3 +2123,34 @@ button.selected,.filter-tabs button.selected{
   body:has(.cv-print-route) #__next{background:#fff!important}
   body:has(.cv-print-route):before{display:none!important}
 }
+
+
+/* Skills directory — accessible institutional contrast and complete SSR archive */
+.sk-hero h1{color:#0B2E46}
+.sk-hero h1 em{color:#0284C7}
+.sk-hero-copy>p{color:#334155}
+.sk-hero-tags span{background:#FFFFFF;border:1px solid #CBD5E1;color:#0B2E46;box-shadow:0 3px 10px rgba(11,46,70,.05)}
+.sk-hero-tags svg{color:#0284C7}
+.sk-snapshot article{background:#FFFFFF;border:1px solid #BAE6FD;box-shadow:0 8px 22px rgba(11,46,70,.07)}
+.sk-snapshot b{color:#0F4C75}
+.sk-snapshot span{color:#334155}
+.sk-section-head h2{color:#0B2E46}
+.sk-section-head p{color:#334155}
+.sk-search{background:#FFFFFF;border-color:#CBD5E1;color:#0F4C75}
+.sk-search input{color:#1E293B}
+.sk-search input::placeholder{color:#64748B}
+.sk-filters button{background:#FFFFFF;border:1px solid #CBD5E1;color:#1E293B}
+.sk-filters button:hover{background:#F0F9FF;border-color:#7DD3FC;color:#0B2E46}
+.sk-filters button.active{background:#0F4C75;border-color:#0F4C75;color:#FFFFFF}
+.sk-skill>small{color:#CBD5E1}
+.sk-skill-grid[hidden]{display:none!important}
+.sk-method-links{display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;margin-top:15px}
+.sk-method-links .sk-inline-link{margin-top:0}
+.sk-method-links a:last-child{padding:9px 12px;border:1px solid #7DD3FC;border-radius:6px;background:#FFFFFF;color:#0F4C75;font-weight:700;text-decoration:none}
+.sk-method-links a:last-child:hover{background:#E0F2FE;border-color:#0284C7;color:#0B2E46}
+.sk-proof p{color:#334155}
+.sk-note{background:#F0F9FF;border:1px solid #BAE6FD;border-inline-start:3px solid #0F4C75}
+.sk-note p{color:#1E293B}
+.sk-note b{color:#0B2E46}
+.sk-note svg{color:#0F4C75}
+@media(max-width:600px){.sk-method-links{align-items:stretch;flex-direction:column}.sk-method-links a{width:fit-content}}
