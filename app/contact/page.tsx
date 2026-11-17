@@ -1,17 +1,17 @@
 import type {Metadata} from 'next';
 import { cookies } from 'next/headers';
 import ContactPageEnglish from './ContactPageEnglish';
-import {localizedAlternates} from '../../lib/seo';
+import {localizedPageMetadata} from '../../lib/seo';
 import {ArrowLeft,ArrowUpLeft,ArrowUpRight,BookOpen,Code2,ExternalLink,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send,ShieldCheck} from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
-export async function generateMetadata(): Promise<Metadata> {
- const en = (await cookies()).get('portfolio-locale')?.value === 'en';
- return en
-  ? { title:'Professional Contact', description:'Connect with Arfat Alkamli about cybersecurity engineering, security research, technical projects, and professional collaboration.', alternates:localizedAlternates('/contact','en') }
-  : { title:'التواصل المهني', description:'تواصل مع عرفات الكاملي بشأن هندسة الأمن السيبراني والبحث الأمني والمشاريع التقنية والتعاون المهني.', alternates:localizedAlternates('/contact','ar') };
+export async function generateMetadata():Promise<Metadata>{
+ const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
+ return localizedPageMetadata({path:'/contact',locale,pageTitle:locale==='en'?'Professional Contact':'التواصل المهني',description:locale==='en'?'Professional contact for cybersecurity engineering, security research, software projects, and collaboration.':'قنوات التواصل المهني بشأن هندسة الأمن السيبراني والبحث الأمني وتطوير البرمجيات والتعاون التقني.'});
 }
+
+const channels=[
 
 const channels=[
  {name:'LinkedIn',detail:'التواصل المهني والفرص',value:'Arfat Alkamli',href:'https://www.linkedin.com/in/arfat-alkamly-399676409',icon:Linkedin,kind:'network'},
