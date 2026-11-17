@@ -23,7 +23,7 @@ async function ResearchPageArabic(){
     <section className="rs-identity">
       <div className="rs-identity-grid" aria-hidden="true"><i/><i/><i/><i/></div>
       <div className="rs-identity-copy">
-        <span className="rs-kicker"><span className="rs-live-dot"/> PERSONAL RESEARCH IDENTITY / 2026</span>
+        <span className="rs-kicker"><span className="rs-live-dot"/><span className="rs-live-label">برنامج بحثي نشط</span> PERSONAL RESEARCH IDENTITY / 2026</span>
         <p className="rs-overline">CYBERSECURITY RESEARCHER & SECURITY ENGINEERING</p>
         <h1>الهوية <em>البحثية</em></h1>
         <h2>المهندس عرفات الكاملي</h2>
@@ -87,7 +87,7 @@ async function ResearchPageArabic(){
       </div>
     </aside>
 
-    <footer className="rs-footer"><span>ARFAT ALKAMLI / RESEARCH PORTFOLIO</span><b>BUILDING KNOWLEDGE. ENGINEERING SECURITY.</b><a href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="noopener noreferrer">ORCID PROFILE <ArrowUpLeft size={14}/></a></footer>
+    
   </main>;
 }
 
