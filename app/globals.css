@@ -2066,3 +2066,47 @@ button.selected,.filter-tabs button.selected{
 .site-footer>small,.site-footer>nav a,.site-footer>div a{color:#334155}
 .site-footer>nav a:hover,.site-footer>div a:hover{color:#17618e}
 @media(min-width:640px){.home-v2 .hv-social-links{display:flex;flex-wrap:wrap;gap:12px}}
+
+
+/* About page — high-contrast Sky Institutional hero and accessible profile tabs */
+.ab-page .ab-hero{
+  background:linear-gradient(135deg,#FFFFFF 0%,#E0F2FE 100%);
+  border:1px solid #BAE6FD;
+  box-shadow:0 18px 48px rgba(11,46,70,.08),inset 0 1px #fff;
+}
+.ab-page .ab-hero-copy h1{color:#0B2E46}
+.ab-page .ab-hero-copy h1 em{color:#0284C7}
+.ab-page .ab-hero-copy h2{color:#0F4C75;font-weight:600}
+.ab-page .ab-hero-copy>p{color:#334155}
+.ab-page .ab-kicker{color:#0369A1}
+.ab-page .ab-hero-facts>span{
+  background:#FFFFFF;border:1px solid #BAE6FD;color:#0B2E46;
+  box-shadow:0 3px 10px rgba(2,132,199,.06);
+}
+.ab-page .ab-hero-facts svg{color:#0284C7}
+.ab-hero-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.ab-orcid-link,.ab-cv-button{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:42px;
+  padding:9px 13px;border:1px solid #BAE6FD;border-radius:8px;
+  background:#fff;color:#0B2E46;text-decoration:none;font-size:11px;font-weight:700;
+  box-shadow:0 3px 10px rgba(2,132,199,.06);transition:transform .18s,border-color .18s,background .18s;
+}
+.ab-orcid-link strong{font:700 10px ui-monospace,monospace;color:#0369A1}
+.ab-orcid-link>span{padding:3px 5px;border-radius:4px;background:#E0F2FE;color:#0284C7;font-size:9px}
+.ab-cv-button{border-color:#0284C7;background:#0284C7;color:#fff}
+.ab-orcid-link:hover,.ab-cv-button:hover{transform:translateY(-2px);border-color:#0284C7}
+.ab-direction-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.ab-page .ab-tab-shell{background:#0F172A}
+.ab-page .ab-tab-head h2{color:#F8FAFC!important}
+.ab-page .ab-tab-head>small{color:#CBD5E1}
+.ab-page .ab-tab-head>div>span{color:#38BDF8}
+.ab-page .ab-tabs button>small{color:#CBD5E1}
+.ab-page .ab-tabs button[aria-selected="true"]{border-color:#C6A76B;box-shadow:inset 0 0 0 1px rgba(198,167,107,.35),0 5px 18px rgba(0,0,0,.18)}
+.ab-page .ab-tab-panel[hidden]{display:none!important}
+.ab-page .ab-tab-panel:not([hidden]){display:block}
+@media(max-width:600px){
+ .ab-hero-actions{justify-content:center}
+ .ab-orcid-link,.ab-cv-button{width:100%}
+ .ab-direction-actions{gap:12px}
+}
+@media(prefers-reduced-motion:reduce){.ab-orcid-link,.ab-cv-button{transition:none}}
