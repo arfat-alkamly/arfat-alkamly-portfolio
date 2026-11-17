@@ -1,13 +1,13 @@
-.cvPage{min-height:100vh;padding:28px 18px 50px;background:#f1f5f9;color:#1e293b}
-.document{width:min(100%,210mm);min-height:260mm;margin:0 auto;padding:15mm;background:#fff;color:#1e293b;box-shadow:0 12px 40px rgba(15,23,42,.10);font-family:Arial,"Noto Sans Arabic",Tahoma,sans-serif;font-size:10pt;line-height:1.55}
-.header{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:start;padding-bottom:16px;border-bottom:2px solid #0b2e46}
+.cvPage{min-height:100vh;padding:28px 18px 50px;background:#f1f5f9;color:#1E293B}
+.document{width:min(100%,210mm);min-height:260mm;margin:0 auto;padding:15mm;background:#FFFFFF;color:#1E293B;box-shadow:0 12px 40px rgba(15,23,42,.10);font-family:Arial,"Noto Sans Arabic",Tahoma,sans-serif;font-size:10pt;line-height:1.55}
+.header{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:start;padding-bottom:16px;border-bottom:2px solid #0B2E46}
 .nameBlock{min-width:0}.eyebrow{margin:0 0 5px;color:#0284c7;font-size:8pt;font-weight:700;letter-spacing:.12em}
-.nameBlock h1{margin:0;color:#0b2e46;font-size:27pt;line-height:1.2;font-weight:800}
+.nameBlock h1{margin:0;color:#0B2E46;font-size:27pt;line-height:1.2;font-weight:800}
 .nameBlock h2{margin:7px 0 0;color:#0f4c75;font-size:12pt;font-weight:700}
 .contact{display:grid;gap:3px;min-width:220px;text-align:end;font-size:8.2pt;line-height:1.45}
 .contact a{color:#1e293b;text-decoration:none;overflow-wrap:anywhere}.contact span{color:#475569}
 .section{margin-top:15px;break-inside:avoid;page-break-inside:avoid}
-.section>h2{margin:0 0 7px;padding-bottom:5px;border-bottom:1px solid #cbd5e1;color:#0b2e46;font-size:10.5pt;font-weight:800;letter-spacing:.02em}
+.section>h2{margin:0 0 7px;padding-bottom:5px;border-bottom:1px solid #CBD5E1;color:#0b2e46;font-size:10.5pt;font-weight:800;letter-spacing:.02em}
 .summary{margin:0;color:#1e293b;font-size:9.3pt;line-height:1.65}
 .skillGroups{display:grid;gap:7px}.skillGroup{break-inside:avoid;page-break-inside:avoid}
 .skillGroup h3{margin:0 0 2px;color:#0f4c75;font-size:9pt;font-weight:700}
