@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ArrowLeft,ArrowUpLeft,ArrowUpRight,BookOpen,Code2,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send,ShieldCheck } from 'lucide-react';
+import { ArrowUpLeft,ArrowUpRight,Github,GraduationCap,Linkedin,LockKeyhole,Mail,MessageCircle,MessageSquareText,Microscope,Send } from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 import styles from './contact.module.css';
 
@@ -42,6 +42,5 @@ export default function ContactPageEnglish(){
    <div className={styles.messageIntro}><span className={styles.sectionIndex}>02 / SEND A MESSAGE</span><div className={styles.messageIcon}><MessageSquareText size={22}/></div><h2>Have an idea or<br/><em>something to discuss?</em></h2><p>Share the details of your message. Please clarify the topic and include only the information needed to respond.</p><div className={styles.privacyNote}><LockKeyhole size={17}/><span><b>Privacy & security</b><small>Google verification helps reduce spam. We do not request access to your email or files.</small></span></div></div>
    <div className={styles.formPanel}><div className={styles.formPanelHead}><span>CONTACT FORM</span><span><i/> VERIFIED SESSION</span></div><ContactForm locale="en"/></div>
   </section>
-  <footer className={styles.footer}><span>ARFAT ALKAMLI</span><span>Building Systems. Securing the Future.</span><a href="/en">Back to home <ArrowLeft size={14}/></a></footer>
- </main>;
+   </main>;
 }
