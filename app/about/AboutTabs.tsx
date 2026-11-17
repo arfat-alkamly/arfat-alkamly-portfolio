@@ -2,7 +2,7 @@
 import {useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {ArrowUpLeft,ArrowLeft,ArrowDown,ExternalLink,ShieldCheck,Code2,Network,GraduationCap,BookOpen,Search,Workflow,Target,Compass,Layers,Terminal,FlaskConical,Users,FileCheck2,Lightbulb,Globe2,BriefcaseBusiness} from 'lucide-react';
+import {ArrowUpLeft,ArrowDown,ExternalLink,ShieldCheck,Code2,Network,GraduationCap,BookOpen,Search,Workflow,Target,Compass,Layers,Terminal,FlaskConical,Users,FileCheck2,Lightbulb,Globe2,BriefcaseBusiness} from 'lucide-react';
 
 const tabs=[
  {id:'overview',label:'نظرة عامة',en:'OVERVIEW',Icon:Compass},
