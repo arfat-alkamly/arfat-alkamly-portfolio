@@ -12,5 +12,11 @@ export default function SiteFooter({locale='ar'}:{locale?:Locale}){
    <Link href={`/${locale}/skills`}>{en?'Skills':'المهارات'}</Link>
    <Link href={`/${locale}/contact`}>{en?'Contact':'التواصل'}</Link>
   </nav>
+  <nav className="site-footer-social" aria-label={en?'Verified identity profiles':'حسابات الهوية الموثقة'}>
+   <a href="https://github.com/arfat-alkamly" target="_blank" rel="me noopener noreferrer">GitHub</a>
+   <a href="https://www.linkedin.com/in/arfat-alkamly-399676409" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
+   <a href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="me noopener noreferrer">ORCID</a>
+   <a href="https://www.credly.com/users/arfat-alkamly" target="_blank" rel="me noopener noreferrer">Credly</a>
+  </nav>
  </footer>;
 }
