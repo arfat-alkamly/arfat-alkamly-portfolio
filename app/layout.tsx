@@ -5,7 +5,6 @@ import '../components/LanguageStyles.css';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
 import {localizedPageMetadata} from '../lib/seo';
-const siteUrl='https://arfat-phi.vercel.app';
 export async function generateMetadata():Promise<Metadata>{
  const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
  const metadata=localizedPageMetadata({path:'/',locale,pageTitle:locale==='en'?'Professional Portfolio':'الملف المهني',description:locale==='en'?'Cybersecurity research, software engineering, and documented technical work.':'البحث في الأمن السيبراني وهندسة البرمجيات والأعمال التقنية الموثقة.'});
