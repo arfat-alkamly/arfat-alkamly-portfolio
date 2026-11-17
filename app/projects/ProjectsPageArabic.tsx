@@ -2,19 +2,11 @@
 import {useEffect,useMemo,useState} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {projects,Project,ProjectCategory} from '../../data/projects';
+import type {Project,ProjectFilter} from '../../data/projects';
 import {
-  ArrowLeft,ArrowUpLeft,ArrowUpRight,Code2,FolderGit2,
+  ArrowUpLeft,ArrowUpRight,Code2,FolderGit2,
   GraduationCap,Layers3,ShieldCheck,Sparkles,X,ExternalLink,Terminal,GitBranch,FileText,ArrowUpRight as ArrowRightIcon
 } from 'lucide-react';
-import './projects.css';
-
-const filters:{id:'all'|ProjectCategory;label:string}[]=[
-  {id:'all',label:'جميع المشاريع'},
-  {id:'cyber-defense',label:'الأمن السيبراني'},
-  {id:'software',label:'هندسة البرمجيات'},
-  {id:'academic',label:'الأكاديمية والتعاونية'}
-];
 
 const categoryMeta={
   'cyber-defense':{label:'CYBERSECURITY',name:'الأمن السيبراني',Icon:ShieldCheck},
@@ -22,8 +14,9 @@ const categoryMeta={
   academic:{label:'ACADEMIC / COLLABORATIVE',name:'أكاديمي وتعاوني',Icon:GraduationCap}
 };
 
-export default function ProjectsPage(){
-  const [filter,setFilter]=useState<typeof filters[number]['id']>('all');
+type ProjectsPageProps={projects:Project[];filters:ProjectFilter[];locale:'ar'|'en'};
+export default function ProjectsPage({projects,filters,locale}:ProjectsPageProps){
+  const [filter,setFilter]=useState<ProjectFilter['id']>('all');
   const [selectedProject,setSelectedProject]=useState<Project|null>(null);
   useEffect(()=>{if(!selectedProject)return;const previous=document.body.style.overflow;document.body.style.overflow='hidden';const onKeyDown=(event:KeyboardEvent)=>{if(event.key==='Escape')setSelectedProject(null)};window.addEventListener('keydown',onKeyDown);return()=>{document.body.style.overflow=previous;window.removeEventListener('keydown',onKeyDown)}},[selectedProject]);
   const featured=projects.find(p=>p.slug==='aegis-titan');
@@ -39,7 +32,7 @@ export default function ProjectsPage(){
         <span className="portfolio-archive-eyebrow"><span/> ENGINEERING PORTFOLIO <i/> PROJECT ARCHIVE</span>
         <h1>هندسة الأفكار.<br/><em>بناء الأنظمة.</em></h1>
         <p>مساحة تجمع مشاريع هندسية وتجارب تطبيقية في الأمن السيبراني وتطوير البرمجيات؛ من الرؤية المعمارية إلى بناء الحلول وتوثيقها.</p>
-        <a className="portfolio-archive-explore" href="#project-collection">استكشف المشاريع <ArrowLeft size={16}/></a>
+        <a className="portfolio-archive-explore" href="#project-collection">استكشف المشاريع ↖</a>
       </div>
       <div className="portfolio-archive-hero-mark" aria-hidden="true">
         <div className="portfolio-archive-mark-orbit orbit-a"/>
@@ -47,7 +40,7 @@ export default function ProjectsPage(){
         <div className="portfolio-archive-mark-core"><Layers3 size={42}/><b>BUILD</b><small>ENGINEERED SYSTEMS</small></div>
         <span className="portfolio-archive-mark-code">PA / 01</span>
       </div>
-      <div className="portfolio-archive-hero-foot"><span>DESIGN / ENGINEERING / SECURITY</span><span>BUILDING SYSTEMS. SECURING THE FUTURE.</span></div>
+      <div className="portfolio-archive-hero-foot"><span>DESIGN / ENGINEERING / SECURITY</span><span dir="ltr">BUILDING SYSTEMS. SECURING THE FUTURE.</span></div>
     </section>
 
     <section className="portfolio-archive-metrics" aria-label="ملخص المشاريع">
@@ -75,7 +68,7 @@ export default function ProjectsPage(){
         <div className="portfolio-featured-tags">{featured.stack.slice(0,4).map(x=><span key={x}>{x}</span>)}</div>
         <div className="portfolio-featured-footer">
           <span>FOUNDER &amp; LEAD SYSTEMS ARCHITECT<br/><b>ARFAT ALKAMLI</b></span>
-          <button type="button" onClick={()=>setSelectedProject(featured)}>استكشف المنظومة <ArrowUpLeft size={17}/></button>
+          <button type="button" onClick={()=>setSelectedProject(featured)}>استكشف المنظومة <ArrowUpLeft size={17}/></button><Link href={'/'+locale+'/projects/aegis-titan'}>الملف الهندسي ↖</Link>
         </div>
       </div>
     </section>}
@@ -99,7 +92,7 @@ export default function ProjectsPage(){
           <div><span>03 / ENTERPRISE OPERATIONS</span><h3>العمليات المؤسسية</h3><p>تصور للعلاقة بين الرؤية التشغيلية والتنظيم المؤسسي.</p></div>
         </article>
       </div>
-      <Link href="/projects/aegis-titan" className="portfolio-aegis-gallery-link">استعراض الملف الهندسي الكامل لـ AEGIS-TITAN <ArrowUpLeft size={16}/></Link>
+      <Link href={'/'+locale+'/projects/aegis-titan'} className="portfolio-aegis-gallery-link">استعراض الملف الهندسي الكامل لـ AEGIS-TITAN <ArrowUpLeft size={16}/></Link>
     </section>}
 
     <section className="portfolio-archive-collection" id="project-collection">
@@ -108,31 +101,28 @@ export default function ProjectsPage(){
         <div className="portfolio-archive-count"><strong>{(visible.length+(featuredVisible?1:0)).toString().padStart(2,'0')}</strong><small>PROJECTS</small></div>
       </div>
       <div className="portfolio-archive-filters" role="group" aria-label="تصفية المشاريع">
-        {filters.map(f=><button key={f.id} onClick={()=>setFilter(f.id)} className={filter===f.id?'selected':''} aria-pressed={filter===f.id}>{f.label}<span>{f.id==='all'?projects.length:archive.filter(p=>p.category===f.id).length+(f.id==='cyber-defense'&&featured?1:0)}</span></button>)}
+        {filters.map(f=><button key={f.id} onClick={()=>setFilter(f.id)} className={filter===f.id?'selected':''} aria-pressed={filter===f.id}>{locale==='en'?f.labelEn:f.labelAr}<span>{f.id==='all'?projects.length:archive.filter(p=>p.category===f.id).length+(f.id==='cyber-defense'&&featured?1:0)}</span></button>)}
       </div>
       <div className="portfolio-archive-grid">
         {visible.map((p,i)=>{
           const meta=categoryMeta[p.category];
           const Icon=meta.Icon;
-          return <button type="button" className="portfolio-project-card" onClick={()=>setSelectedProject(p)} key={p.slug} aria-haspopup="dialog" aria-label={'عرض تفاصيل '+p.name}>
+          return <article className="portfolio-project-card" key={p.slug}>
             <div className="portfolio-project-card-top"><span className="portfolio-project-icon"><Icon size={19}/></span><span className="portfolio-project-number">{String(i+1).padStart(2,'0')} / {meta.label}</span><ArrowUpRight className="portfolio-project-open" size={17}/></div>
             <div className="portfolio-project-status"><i/>{p.status}</div>
             <h3>{p.name}</h3>
             <b className="portfolio-project-label">{p.label}</b>
             <p>{p.summary}</p>
             <div className="portfolio-project-stack">{p.stack.slice(0,4).map(x=><span key={x}>{x}</span>)}</div>
-            <div className="portfolio-project-bottom"><span>{p.repository?'REPOSITORY LINKED':'PROJECT PROFILE'}</span><strong>التفاصيل <ArrowUpLeft size={15}/></strong></div>
-          </button>;
+            <div className="portfolio-project-bottom"><span>{p.repository?'REPOSITORY LINKED':'PROJECT PROFILE'}</span><button type="button" onClick={()=>setSelectedProject(p)} aria-haspopup="dialog">التفاصيل <ArrowUpLeft size={15}/></button><Link href={'/'+locale+'/projects/'+p.slug}>صفحة المشروع ↖</Link></div>
+          </article>;
         })}
       </div>
       {visible.length===0&&<div className="portfolio-archive-empty">لا توجد مشاريع ضمن هذا التصنيف حاليًا.</div>}
       <p className="portfolio-archive-disclaimer">تختلف مستويات التوثيق والتطوير من مشروع لآخر. وتُعرض المشاريع التعاونية بوصفها أعمالًا مشتركة، مع توضيح المساهمة الفردية وفق المعلومات المتاحة.</p>
     </section>
 
-    <section className="portfolio-archive-closing">
-      <span>BUILDING SYSTEMS. SECURING THE FUTURE.</span>
-      <p>كل مشروع خطوة في مسار هندسي يتطور بالتصميم والتجربة والتحسين.</p>
-    </section>
+
 
     {selectedProject&&<div className="project-modal-backdrop" role="presentation" onMouseDown={event=>{if(event.target===event.currentTarget)setSelectedProject(null)}}>
       <section className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" dir="rtl">
@@ -168,7 +158,7 @@ export default function ProjectsPage(){
             <span className="project-modal-reference"><GitBranch size={14}/> PROJECT REF / {selectedProject.slug.toUpperCase()}</span>
             <div className="project-modal-actions">
               {selectedProject.repository&&<a href={selectedProject.repository} target="_blank" rel="noreferrer"><FolderGit2 size={15}/> المستودع البرمجي <ExternalLink size={13}/></a>}
-              <Link href={'/projects/'+selectedProject.slug}>صفحة المشروع <ArrowRightIcon size={15}/></Link>
+              <Link href={'/'+locale+'/projects/'+selectedProject.slug}>صفحة المشروع <ArrowRightIcon size={15}/></Link>
               <button type="button" className="project-modal-done" onClick={()=>setSelectedProject(null)}>إغلاق الملف</button>
             </div>
           </footer>
