@@ -89,7 +89,7 @@ function CredentialsPageArabic(){
                 <div className="certificate-document-preview"><CertificatePreview file={pdf} image={previewFiles[i]} title={credential.name} priority={i===0} /></div>
                 <div className="certificate-actions">
                   <a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF ↓</a>
-                  <a href={verify} target="_blank" rel="noopener noreferrer">عرض الشهادة ↗</a>
+                  <a href={verify} target="_blank" rel="noopener noreferrer">عرض الشهادة ↖</a>
                 </div>
               </section>
               <div className="wallet-detail-row">
@@ -109,7 +109,7 @@ function CredentialsPageArabic(){
                     <div><span>الصلاحية</span><strong>لا تنتهي صلاحيتها</strong></div>
                     <div><span>معرّف الشارة</span><code>{credential.id}</code></div>
                   </div>
-                  <a className="wallet-verify-button" href={verify} target="_blank" rel="noopener noreferrer">التحقق من الاعتماد على Credly ↗</a>
+                  <a className="wallet-verify-button" href={verify} target="_blank" rel="noopener noreferrer">التحقق من الاعتماد على Credly ↖</a>
                 </section>
                 <aside className="wallet-badge-column">
                   <div className="wallet-badge-logo">
