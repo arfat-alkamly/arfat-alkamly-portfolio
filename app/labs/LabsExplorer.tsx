@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { LabRecord } from '../../data/labs-directory';
 import {
   Activity, ArrowUpLeft, Binary, Bug, CheckCircle2, ChevronDown, ChevronRight, Cloud,
   Code2, Cpu, Database, FileSearch, FlaskConical, Fingerprint, Globe,
