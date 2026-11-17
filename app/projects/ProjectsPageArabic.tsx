@@ -7,7 +7,6 @@ import {
   ArrowUpLeft,ArrowUpRight,Code2,FolderGit2,
   GraduationCap,Layers3,ShieldCheck,Sparkles,X,ExternalLink,Terminal,GitBranch,FileText,ArrowUpRight as ArrowRightIcon
 } from 'lucide-react';
-import './projects.css';
 
 const categoryMeta={
   'cyber-defense':{label:'CYBERSECURITY',name:'الأمن السيبراني',Icon:ShieldCheck},
