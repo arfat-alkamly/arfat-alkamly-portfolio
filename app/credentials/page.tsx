@@ -61,7 +61,7 @@ function CredentialsPageArabic(){
       <div className="credentials-hero-copy">
         <span className="eyebrow">VERIFIED PROFESSIONAL CREDENTIALS</span>
         <h1>الشهادات والشارات الرقمية</h1>
-        <p>سجل الإنجازات التعليمية والمهارات المكتسبة من برامج Cisco، مع شارات Credly الرقمية ووثائق الشهادات الأصلية.</p>
+        <p>سجل الإنجازات التعليمية والمهارات المكتسبة من برامج Cisco Networking Academy وSimplilearn، مع شارات Credly الرقمية ووثائق الشهادات الأصلية.</p>
       </div>
       <div className="credentials-verified"><span>✓</span> شهادات موثقة</div>
     </header>
@@ -86,7 +86,7 @@ function CredentialsPageArabic(){
             <div className="credential-wallet-grid credential-wallet-grid-v3">
               <section className="credential-wallet-document" aria-label={'وثيقة '+credential.name}>
                 <div className="wallet-document-heading"><span>OFFICIAL CERTIFICATE</span><span>ORIGINAL DOCUMENT · PDF</span></div>
-                <div className="certificate-document-preview"><CertificatePreview file={pdf} image={previewFiles[i]} title={credential.name} /></div>
+                <div className="certificate-document-preview"><CertificatePreview file={pdf} image={previewFiles[i]} title={credential.name} priority={i===0} /></div>
                 <div className="certificate-actions">
                   <a href={pdf} target="_blank" rel="noopener noreferrer" download>تنزيل نسخة PDF ↓</a>
                   <a href={verify} target="_blank" rel="noopener noreferrer">عرض الشهادة ↗</a>
