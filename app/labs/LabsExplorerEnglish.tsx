@@ -19,7 +19,7 @@ type Lab = {
 const labs: Lab[] = [
   {
     id: 'network-defense', name: 'أمن الشبكات والدفاع السيبراني', en: 'NETWORK SECURITY & DEFENSE', category: 'الدفاع والشبكات',
-    status: 'مسار تعلم وتطبيق', summary: 'تصميم الشبكات وتقسيمها ومراقبتها وتقوية حدودها، من إعداد الجدار الناري إلى تحليل الحزم.',
+    status: 'مسار هندسي وتطبيقي', summary: 'تصميم الشبكات وتقسيمها ومراقبتها وتقوية حدودها، من إعداد الجدار الناري إلى تحليل الحزم.',
     goal: 'بناء شبكة اختبار آمنة، وتطبيق ضوابط الحماية، ومراقبة الاتصالات واكتشاف السلوك الشبكي غير المعتاد.',
     environment: 'شبكات افتراضية متعددة المناطق · Linux وWindows · موجهات ومحولات افتراضية · أجهزة جدار ناري تجريبية.',
     tools: ['pfSense / OPNsense', 'iptables / nftables', 'Wireshark', 'Suricata', 'Zeek', 'Cisco Packet Tracer'],
@@ -31,7 +31,7 @@ const labs: Lab[] = [
   },
   {
     id: 'pentest', name: 'اختبار الاختراق والفريق الأحمر', en: 'PENETRATION TESTING & RED TEAMING', category: 'التقييم الهجومي',
-    status: 'مسار تعلم وتطبيق', summary: 'تقييم أمني منظم للأنظمة والخدمات والتطبيقات ضمن نطاق اختبار محدد ومصرح به.',
+    status: 'مسار هندسي وتطبيقي', summary: 'تقييم أمني منظم للأنظمة والخدمات والتطبيقات ضمن نطاق اختبار محدد ومصرح به.',
     goal: 'تطبيق منهجية تقييم تبدأ بالاستطلاع المنضبط وتنتهي بإثبات الأثر وكتابة توصيات معالجة قابلة للتنفيذ.',
     environment: 'مختبر افتراضي معزول · أهداف تدريبية مثل Metasploitable وOWASP Broken Web Apps · لقطات استرجاع.',
     tools: ['Kali Linux', 'Nmap', 'Metasploit Framework', 'Burp Suite', 'Nuclei', 'testssl.sh'],
@@ -43,7 +43,7 @@ const labs: Lab[] = [
   },
   {
     id: 'forensics', name: 'التحقيق الجنائي الرقمي والاستجابة للأدلة', en: 'DIGITAL FORENSICS & EVIDENCE', category: 'التحقيق والاستجابة',
-    status: 'مسار تعلم', summary: 'اقتناء الأدلة الرقمية وحفظ سلامتها وتحليل أنظمة الملفات والذاكرة والسجلات.',
+    status: 'مسار هندسي وتطبيقي', summary: 'اقتناء الأدلة الرقمية وحفظ سلامتها وتحليل أنظمة الملفات والذاكرة والسجلات.',
     goal: 'اتباع إجراءات جنائية قابلة للتكرار تحافظ على سلامة الدليل وتربط الأحداث بخط زمني واضح.',
     environment: 'صور أقراص تدريبية · ملفات ذاكرة RAM · أجهزة افتراضية · نسخ أدلة للقراءة فقط.',
     tools: ['Autopsy / Sleuth Kit', 'FTK Imager', 'Volatility 3', 'KAPE', 'Plaso / log2timeline', 'ExifTool'],
@@ -67,7 +67,7 @@ const labs: Lab[] = [
   },
   {
     id: 'web-appsec', name: 'أمن تطبيقات الويب وواجهات API', en: 'WEB & API APPLICATION SECURITY', category: 'أمن التطبيقات',
-    status: 'مسار تعلم وتطبيق', summary: 'اختبار ضوابط الويب وواجهات API وفق OWASP Top 10 وAPI Security Top 10.',
+    status: 'مسار هندسي وتطبيقي', summary: 'اختبار ضوابط الويب وواجهات API وفق OWASP Top 10 وAPI Security Top 10.',
     goal: 'تقييم المصادقة والجلسات والتحكم بالوصول والتحقق من المدخلات وحماية البيانات في تطبيقات تدريبية.',
     environment: 'OWASP Juice Shop وDVWA · تطبيقات API محلية · متصفح وأدوات Proxy داخل شبكة اختبار.',
     tools: ['Burp Suite', 'OWASP ZAP', 'Postman', 'OWASP ZAP API Scan', 'Semgrep', 'JWT tooling'],
@@ -79,7 +79,7 @@ const labs: Lab[] = [
   },
   {
     id: 'soc', name: 'مركز العمليات الأمنية والاستجابة للحوادث', en: 'SOC & INCIDENT RESPONSE', category: 'الدفاع والشبكات',
-    status: 'مسار تعلم وتطبيق', summary: 'مراقبة التنبيهات وربط الأحداث وإدارة الحوادث عبر SIEM وعمليات الاستجابة.',
+    status: 'مسار هندسي وتطبيقي', summary: 'مراقبة التنبيهات وربط الأحداث وإدارة الحوادث عبر SIEM وعمليات الاستجابة.',
     goal: 'محاكاة دورة عمل SOC من استقبال التنبيه وفرزه إلى التحقيق والاحتواء والتعلم بعد الحادث.',
     environment: 'شبكة مختبرية مع Windows/Linux endpoints · خادم سجلات مركزي · سيناريوهات محاكاة آمنة.',
     tools: ['Wazuh', 'Elastic Security', 'Splunk (أساسيات)', 'Sysmon', 'TheHive', 'Shuffle SOAR'],
@@ -91,7 +91,7 @@ const labs: Lab[] = [
   },
   {
     id: 'crypto', name: 'التشفير وأمن البيانات', en: 'CRYPTOGRAPHY & DATA SECURITY', category: 'أمن البيانات والهوية',
-    status: 'مسار تعلم', summary: 'تطبيق التشفير وإدارة المفاتيح والتوقيعات الرقمية والتحقق من سلامة البيانات.',
+    status: 'مسار هندسي وتطبيقي', summary: 'تطبيق التشفير وإدارة المفاتيح والتوقيعات الرقمية والتحقق من سلامة البيانات.',
     goal: 'فهم الاستخدام الصحيح للخوارزميات والبروتوكولات ومخاطر إدارة المفاتيح بدل ابتكار تشفير غير موثوق.',
     environment: 'بيئة برمجية محلية · ملفات اختبار · شهادات ومفاتيح تجريبية غير مرتبطة ببيانات حقيقية.',
     tools: ['OpenSSL', 'Python cryptography', 'GnuPG', 'Hashcat (عينات تعليمية)', 'Key management concepts'],
@@ -139,7 +139,7 @@ const labs: Lab[] = [
   },
   {
     id: 'cloud', name: 'أمن الحوسبة السحابية', en: 'CLOUD SECURITY & CONTAINER DEFENSE', category: 'الدفاع والشبكات',
-    status: 'مسار تعلم', summary: 'تقييم إعدادات السحابة والهوية والتخزين والشبكات والحاويات وفق مبدأ أقل صلاحية.',
+    status: 'مسار هندسي وتطبيقي', summary: 'تقييم إعدادات السحابة والهوية والتخزين والشبكات والحاويات وفق مبدأ أقل صلاحية.',
     goal: 'تحديد أخطاء التهيئة الشائعة وبناء ضوابط للرصد وإدارة الأسرار وحماية أحمال العمل السحابية.',
     environment: 'حسابات Sandbox أو محاكيات محلية · Docker · Kubernetes محلي · بيانات وموارد تجريبية.',
     tools: ['Prowler', 'ScoutSuite', 'Trivy', 'Checkov', 'Docker', 'Kubernetes'],
@@ -151,7 +151,7 @@ const labs: Lab[] = [
   },
   {
     id: 'devsecops', name: 'أمن البرمجيات وسلاسل التوريد', en: 'SECURE SDLC & DEVSECOPS', category: 'أمن التطبيقات',
-    status: 'مسار تعلم وتطبيق', summary: 'دمج الفحوص الأمنية في دورة التطوير ومراجعة الشفرة والاعتماديات وخطوط CI/CD.',
+    status: 'مسار هندسي وتطبيقي', summary: 'دمج الفحوص الأمنية في دورة التطوير ومراجعة الشفرة والاعتماديات وخطوط CI/CD.',
     goal: 'تحويل الأمن إلى ضوابط مستمرة من التصميم والكتابة إلى البناء والنشر ومراقبة المكونات.',
     environment: 'مستودعات تدريبية · CI pipelines · تطبيقات تجريبية · بيئة بناء منفصلة.',
     tools: ['Semgrep', 'CodeQL', 'Gitleaks', 'Dependabot', 'Trivy', 'OWASP ASVS'],
@@ -163,7 +163,7 @@ const labs: Lab[] = [
   },
   {
     id: 'database', name: 'أمن قواعد البيانات والخصوصية', en: 'DATABASE SECURITY & PRIVACY', category: 'أمن البيانات والهوية',
-    status: 'مسار تعلم', summary: 'تقوية قواعد البيانات والتحكم في الوصول ومراجعة التدقيق والتشفير وحماية البيانات.',
+    status: 'مسار هندسي وتطبيقي', summary: 'تقوية قواعد البيانات والتحكم في الوصول ومراجعة التدقيق والتشفير وحماية البيانات.',
     goal: 'تطبيق مبدأ أقل صلاحية وحماية البيانات أثناء التخزين والنقل مع مراقبة أنشطة قواعد البيانات.',
     environment: 'Oracle Database وPostgreSQL وSQLite محلية · بيانات اصطناعية · نسخ احتياطية تجريبية.',
     tools: ['Oracle Audit', 'PostgreSQL roles', 'SQLCipher', 'pgAudit', 'OWASP Database Security'],
@@ -199,7 +199,7 @@ const labs: Lab[] = [
   },
   {
     id: 'wireless', name: 'أمن الشبكات اللاسلكية', en: 'WIRELESS & RADIO SECURITY', category: 'الأجهزة والأنظمة المتخصصة',
-    status: 'مسار تعلم', summary: 'تقييم إعدادات Wi-Fi والمصادقة والتشفير ومخاطر الأجهزة اللاسلكية.',
+    status: 'مسار هندسي وتطبيقي', summary: 'تقييم إعدادات Wi-Fi والمصادقة والتشفير ومخاطر الأجهزة اللاسلكية.',
     goal: 'تقوية الشبكات اللاسلكية وفهم حدود الثقة بين نقاط الوصول والأجهزة المتصلة.',
     environment: 'نقطة وصول مملوكة · عميل اختبار · محول متوافق · شبكة RF منفصلة.',
     tools: ['WPA2 / WPA3', 'Kismet', 'Wireshark', 'hostapd', 'Router security settings'],
@@ -211,7 +211,7 @@ const labs: Lab[] = [
   },
   {
     id: 'memory', name: 'تحليل الذاكرة والأنظمة', en: 'MEMORY & ENDPOINT FORENSICS', category: 'التحقيق والاستجابة',
-    status: 'مسار تعلم', summary: 'تحليل آثار الأنظمة والعمليات والذاكرة وسجلات نقاط النهاية أثناء التحقيق.',
+    status: 'مسار هندسي وتطبيقي', summary: 'تحليل آثار الأنظمة والعمليات والذاكرة وسجلات نقاط النهاية أثناء التحقيق.',
     goal: 'ربط آثار العمليات والملفات والاتصالات والأحداث لفهم ما جرى على نقطة النهاية.',
     environment: 'Windows وLinux VMs · صور ذاكرة تدريبية · Sysmon وjournald وسجلات اصطناعية.',
     tools: ['Volatility 3', 'Sysmon', 'Windows Event Viewer', 'Velociraptor', 'osquery'],
@@ -241,7 +241,7 @@ export default function LabsExplorer() {
     const label=englishLabels[l.id];
     return (category === 'All' || label?.category === category) &&
     ((label?.title ?? l.name) + ' ' + l.en + ' ' + (label?.summary ?? l.summary) + ' ' + l.tools.join(' ')).toLowerCase().includes(query.trim().toLowerCase());
-  }).map(l=>({...l,name:englishLabels[l.id]?.title ?? l.name,category:englishLabels[l.id]?.category ?? l.category,summary:englishLabels[l.id]?.summary ?? l.summary,goal:'Define a controlled scope, establish clear objectives, and validate the relevant security controls using repeatable procedures.',environment:'A dedicated virtual or isolated test environment using the listed tools and synthetic test data.',objectives:['Define scope, assets, and security requirements','Apply the relevant assessment and validation techniques','Record observations and verify security controls','Document limitations and actionable recommendations'],workflow:['Prepare the authorized test environment','Perform controlled assessment and collect evidence','Review findings and validate results','Document recommendations and next steps'],safety:'Use owned systems, synthetic data, and isolated environments only. Testing requires explicit authorization; never target third-party systems.',outputs:['Scope and environment record','Technical observations and supporting evidence','Risk and control assessment','Documented remediation recommendations'],tools:l.tools.map(tool=>tool.replace(' (تحليل مختبر)',' (lab analysis)').replace(' (أساسيات)',' (fundamentals)').replace(' (عينات تعليمية)',' (training samples)')),status:({ 'مسار تعلم وتطبيق':'Learning & practice track','مسار تعلم':'Learning track','بيئة معزولة مخططة':'Planned isolated environment','مسار بحث وتطبيق':'Research & practice track','مسار تخصصي مخطط':'Planned specialist track','تصميم مسار متقدم':'Advanced track design','مسار تخصصي':'Specialist learning track','مسار بحث وتعلم':'Research & learning track' } as Record<string,string>)[l.status] ?? 'Learning track'})), [category, query]);
+  }).map(l=>({...l,name:englishLabels[l.id]?.title ?? l.name,category:englishLabels[l.id]?.category ?? l.category,summary:englishLabels[l.id]?.summary ?? l.summary,goal:'Define a controlled scope, establish clear objectives, and validate the relevant security controls using repeatable procedures.',environment:'A dedicated virtual or isolated test environment using the listed tools and synthetic test data.',objectives:['Define scope, assets, and security requirements','Apply the relevant assessment and validation techniques','Record observations and verify security controls','Document limitations and actionable recommendations'],workflow:['Prepare the authorized test environment','Perform controlled assessment and collect evidence','Review findings and validate results','Document recommendations and next steps'],safety:'Use owned systems, synthetic data, and isolated environments only. Testing requires explicit authorization; never target third-party systems.',outputs:['Scope and environment record','Technical observations and supporting evidence','Risk and control assessment','Documented remediation recommendations'],tools:l.tools.map(tool=>tool.replace(' (تحليل مختبر)',' (lab analysis)').replace(' (أساسيات)',' (fundamentals)').replace(' (عينات تعليمية)',' (training samples)')),status:({ 'مسار هندسي وتطبيقي':'Learning & practice track','مسار هندسي وتطبيقي':'Learning track','بيئة معزولة مخططة':'Planned isolated environment','مسار بحث وتطبيق':'Research & practice track','مسار تخصصي مخطط':'Planned specialist track','تصميم مسار متقدم':'Advanced track design','مسار تخصصي':'Specialist learning track','مسار بحث وتعلم':'Research & learning track' } as Record<string,string>)[l.status] ?? 'Learning track'})), [category, query]);
   const current = visible.find(l => l.id === selected) ?? visible[0];
   const CurrentIcon = current?.Icon ?? FlaskConical;
   const index = current ? labs.findIndex(l => l.id === current.id) + 1 : 0;
@@ -302,9 +302,9 @@ export default function LabsExplorer() {
       .lx-mast b{color:#cbb17d}.lx-live{display:inline-flex;align-items:center;gap:7px}.lx-live i{width:7px;height:7px;border-radius:50%;background:#76b99b;box-shadow:0 0 10px #76b99b}
       .lx-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:clamp(18px,3vw,42px);align-items:center;padding:clamp(24px,4vw,48px) 0 28px}
       .lx-eyebrow{display:flex;align-items:center;gap:9px;color:#cbb17d;font:9px ui-monospace,monospace;letter-spacing:.12em}.lx-eyebrow svg{width:17px;height:17px}
-      .lx-hero h1{margin:14px 0 10px;font-size:clamp(30px,4.5vw,54px);line-height:1.3;letter-spacing:-.04em}.lx-hero h1 em{font-style:normal;color:#cbb17d}
-      .lx-hero p{max-width:720px;margin:0;color:#aab7b5;font-size:clamp(12px,1.1vw,14px);line-height:2}
-      .lx-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.lx-tags span{padding:7px 10px;border:1px solid var(--line-cool);border-radius:5px;color:#b7c1bd;font:8px ui-monospace,monospace}
+      .lx-hero h1{margin:14px 0 10px;color:#0B2E46;font-size:clamp(30px,4.5vw,54px);line-height:1.3;letter-spacing:-.04em}.lx-hero h1 em{font-style:normal;color:#0284C7}
+      .lx-hero p{max-width:720px;margin:0;color:#334155;font-size:clamp(12px,1.1vw,14px);line-height:2}
+      .lx-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.lx-tags span{padding:7px 10px;border:1px solid #CBD5E1;border-radius:5px;background:#FFFFFF;color:#1E293B;font:8px ui-monospace,monospace}
       .lx-architecture{position:relative;min-height:210px;padding:18px;border:1px solid rgba(183,155,104,.23);border-radius:12px;background:radial-gradient(ellipse at 50% 50%,rgba(76,139,145,.17),transparent 65%),linear-gradient(145deg,#10212a,#0a141b);overflow:hidden}
       .lx-architecture>small{color:#8d9fa0;font:8px ui-monospace,monospace;letter-spacing:.12em}
       .lx-arch-core{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:5px;width:100px;height:100px;place-content:center;border:1px solid rgba(203,177,125,.5);border-radius:50%;background:#14252c;box-shadow:0 0 45px rgba(83,147,151,.18)}
@@ -314,13 +314,13 @@ export default function LabsExplorer() {
       .lx-arch-line{position:absolute;left:50%;top:52%;width:75%;height:1px;background:linear-gradient(90deg,transparent,rgba(126,177,178,.55),transparent);transform:translate(-50%,-50%)}
       .lx-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 30px}
       .lx-metric{display:flex;align-items:center;gap:12px;min-width:0;padding:14px 16px;border:1px solid var(--line-cool);border-radius:9px;background:linear-gradient(135deg,rgba(31,51,58,.62),rgba(11,20,26,.8))}
-      .lx-metric svg{width:21px;height:21px;flex:0 0 auto;color:#cbb17d}.lx-metric b{display:block;color:#d4bc8b;font:700 21px ui-monospace,monospace}.lx-metric span{display:block;color:#98a9a6;font-size:9px;line-height:1.6}
+      .lx-metric svg{width:21px;height:21px;flex:0 0 auto;color:#cbb17d}.lx-metric b{display:block;color:#d4bc8b;font:700 21px ui-monospace,monospace}.lx-metric span{display:block;color:#CBD5E1;font-size:9px;line-height:1.6}
       .lx-directory{border:1px solid var(--line-cool);border-radius:12px;background:linear-gradient(145deg,rgba(15,27,34,.96),rgba(8,16,22,.98));overflow:hidden}
       .lx-directory-head{display:flex;justify-content:space-between;align-items:end;gap:18px;padding:20px 22px;border-bottom:1px solid var(--line-cool)}
       .lx-directory-head small{color:#bda477;font:8px ui-monospace,monospace;letter-spacing:.13em}.lx-directory-head h2{margin:6px 0 0;font-size:clamp(18px,2vw,24px)}.lx-directory-head p{margin:5px 0 0;color:#8fa09f;font-size:10px}
       .lx-toolsbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line-cool)}
       .lx-search{display:flex;align-items:center;gap:9px;flex:1 1 220px;max-width:360px;padding:10px 12px;border:1px solid var(--line-cool);border-radius:7px;background:#091218}.lx-search svg{width:15px;color:#bda477}.lx-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#e5e7df;font-size:11px}.lx-search input::placeholder{color:#74858a}
-      .lx-category{display:flex;gap:6px;flex:1 1 440px;flex-wrap:wrap}.lx-category button{padding:7px 10px;border:1px solid transparent;border-radius:6px;background:rgba(255,255,255,.025);color:#91a3a2;font-size:9px;cursor:pointer}.lx-category button.active{border-color:rgba(203,177,125,.38);background:rgba(203,177,125,.1);color:#e4d2a9}
+      .lx-category{display:flex;align-items:center;gap:8px;flex:1 1 440px;flex-wrap:nowrap;min-width:0;overflow-x:auto;overflow-y:hidden;padding-bottom:4px;scrollbar-width:none;-ms-overflow-style:none}.lx-category::-webkit-scrollbar{display:none}.lx-category button{flex:0 0 auto;white-space:nowrap;padding:8px 14px;border:1px solid transparent;border-radius:6px;background:rgba(255,255,255,.025);color:#91a3a2;font-size:9px;cursor:pointer}.lx-category button.active{border-color:rgba(203,177,125,.38);background:rgba(203,177,125,.1);color:#e4d2a9}
       .lx-lab-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:18px}
       .lx-lab-card{position:relative;display:flex;flex-direction:column;min-width:0;min-height:220px;padding:17px;border:1px solid rgba(116,157,160,.19);border-radius:9px;background:linear-gradient(145deg,rgba(21,39,47,.82),rgba(10,19,25,.92));text-align:left;color:#e7e8e2;cursor:pointer;transition:border-color .2s,transform .2s,background .2s}
       .lx-lab-card:hover{transform:translateY(-2px);border-color:rgba(203,177,125,.5);background:linear-gradient(145deg,rgba(29,51,59,.92),rgba(10,19,25,.98))}
@@ -329,9 +329,9 @@ export default function LabsExplorer() {
       .lx-card-icon{display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(203,177,125,.3);border-radius:10px;background:radial-gradient(circle,rgba(203,177,125,.13),rgba(76,139,145,.08));color:#d7bd86}
       .lx-card-icon svg{width:23px;height:23px}.lx-card-number{color:#789094;font:9px ui-monospace,monospace;letter-spacing:.1em}
       .lx-lab-card h3{margin:0 0 5px;font-size:13px;line-height:1.8}.lx-lab-card .en{color:#bda477;font:8px ui-monospace,monospace;line-height:1.7;letter-spacing:.04em}
-      .lx-lab-card p{margin:11px 0 15px;color:#9eafaa;font-size:10px;line-height:1.9}
+      .lx-lab-card p{margin:11px 0 15px;color:#CBD5E1;font-size:10px;line-height:1.9}
       .lx-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:11px;border-top:1px solid rgba(116,157,160,.14)}
-      .lx-card-bottom span{color:#9aaba6;font-size:8px}.lx-card-bottom b{display:inline-flex;align-items:center;gap:6px;color:#d4bc8b;font-size:9px;font-weight:600}.lx-card-bottom svg{width:13px;height:13px}
+      .lx-card-bottom span{color:#94A3B8;font-size:8px}.lx-card-bottom b{display:inline-flex;align-items:center;gap:6px;color:#d4bc8b;font-size:9px;font-weight:600}.lx-card-bottom svg{width:13px;height:13px}
       .lx-branch-panel{margin:0 18px 18px;padding:17px;border:1px solid rgba(203,177,125,.25);border-radius:9px;background:linear-gradient(120deg,rgba(42,60,61,.32),rgba(9,18,24,.8))}
       .lx-branch-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}.lx-branch-head small{color:#bda477;font:8px ui-monospace,monospace;letter-spacing:.12em}.lx-branch-head h3{margin:5px 0 0;font-size:14px}.lx-branch-head p{margin:4px 0 0;color:#91a3a2;font-size:9px}
       .lx-branch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
@@ -369,7 +369,7 @@ export default function LabsExplorer() {
       .lx-modal-tabs button:focus-visible,.lx-category button:focus-visible,.lx-branch-card:focus-visible{outline:2px solid #d7bd86;outline-offset:3px}
       .lx-branch-card{border-color:rgba(125,158,160,.28);background:linear-gradient(145deg,#10222a,#0b171e)}
       .lx-branch-card:hover{transform:translateY(-2px);border-color:rgba(203,177,125,.62);box-shadow:0 8px 20px rgba(0,0,0,.18)}
-      @media(max-width:700px){.lx-modal-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.lx-modal-tabs button{min-width:0;padding:9px 5px;font-size:9px}.lx-category button{padding:8px 11px}}
+      @media(max-width:700px){.lx-modal-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.lx-modal-tabs button{min-width:0;padding:9px 5px;font-size:9px}.lx-category button{padding:8px 14px;white-space:nowrap;flex:0 0 auto}}
       @media(prefers-reduced-motion:reduce){.lx-modal-tabs button,.lx-category button,.lx-branch-card{transition:none}.lx-modal-tabs button:hover,.lx-category button:hover,.lx-branch-card:hover{transform:none}}
     `}
 </style>
