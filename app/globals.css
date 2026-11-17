@@ -2226,3 +2226,12 @@ button.selected,.filter-tabs button.selected{
 .portfolio-featured-footer a{display:inline-flex;align-items:center;gap:6px;padding:9px 11px;border:1px solid #CBD5E1;border-radius:6px;background:#FFFFFF;color:#0F4C75;font-size:10px;font-weight:800;text-decoration:none}
 .portfolio-featured-footer a:hover{border-color:#0284C7;background:#F0F9FF}
 @media(max-width:650px){.portfolio-featured-footer a,.portfolio-featured-footer button{width:100%;justify-content:center}}
+
+
+/* Credentials archive — contrast, readable badge labels, and mobile navigation */
+.credentials-page .credentials-section-heading h2{color:#0B2E46}
+.credentials-page .disclaimer{margin:24px 0;padding:13px 16px;border:1px solid #CBD5E1;border-inline-start:3px solid #0284C7;border-radius:8px;background:#F8FAFC;color:#334155}
+.credentials-page .wallet-badge-logo .credential-panel-label{display:-webkit-box;max-width:100%;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;color:#CBD5E1!important;white-space:normal;overflow-wrap:anywhere}
+.credentials-page .wallet-skills-wide-heading p,.credentials-page .wallet-skills-description{color:#CBD5E1!important}
+.credentials-page .credential-wallet-head .credential-title-block>p{color:#CBD5E1}
+@media(max-width:760px){.site-header .site-nav-scroll{scroll-behavior:smooth;scroll-padding-inline:50%}.site-header .site-nav-scroll a[aria-current="page"]{scroll-margin-inline:50%}}
