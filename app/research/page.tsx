@@ -6,7 +6,7 @@ import JsonLd from '../../components/seo/JsonLd';
 import {researchJsonLd} from '../../lib/structured-data';
 import {researchProgramsEnglish} from './ResearchPageEnglish';
 import {researchPrograms} from '../../data/research-proposals';
-import {ArrowUpLeft, ArrowUpRight, Fingerprint, ShieldCheck} from 'lucide-react';
+import {ArrowUpRight, Fingerprint, ShieldCheck} from 'lucide-react';
 
 export async function generateMetadata():Promise<Metadata>{
  const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
