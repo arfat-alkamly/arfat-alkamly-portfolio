@@ -31,9 +31,20 @@ const iconMap: Record<string, typeof Shield> = {
 
 
 
+const englishCategories: Record<string, string> = {
+  'الكل': 'All',
+  'الدفاع والشبكات': 'Defense & Networking',
+  'التقييم الهجومي': 'Offensive Assessment',
+  'التحقيق والاستجابة': 'Investigation & Response',
+  'أمن التطبيقات': 'Application Security',
+  'أمن البيانات والهوية': 'Data & Identity Security',
+  'الأجهزة والأنظمة المتخصصة': 'Specialized Systems & Devices',
+  'المحاكاة والتدريب': 'Simulation & Training',
+};
+
 const englishLabels: Record<string, {title:string;category:string;summary:string}> = {"network-defense":{"title":"Network Security & Defense","category":"Defense & Networking","summary":"Design, segment, monitor, and harden networks through firewall policy and packet analysis."},"pentest":{"title":"Penetration Testing & Red Team","category":"Offensive Assessment","summary":"Assess systems and applications within a clearly defined, authorized testing scope."},"forensics":{"title":"Digital Forensics & Evidence","category":"Investigation & Response","summary":"Acquire, preserve, and analyze digital evidence across file systems, memory, and logs."},"malware":{"title":"Malware Analysis & Reverse Engineering","category":"Investigation & Response","summary":"Examine suspicious files safely to understand behavior and identify indicators of compromise."},"web-appsec":{"title":"Web & API Application Security","category":"Application Security","summary":"Assess web and API controls using established OWASP guidance and controlled test applications."},"soc":{"title":"SOC & Incident Response","category":"Defense & Networking","summary":"Monitor alerts, correlate events, and manage incidents through SIEM and response workflows."},"crypto":{"title":"Cryptography & Data Security","category":"Data & Identity Security","summary":"Apply established encryption, key management, digital signatures, and integrity verification."},"iot":{"title":"IoT & Embedded Device Security","category":"Specialized Systems & Devices","summary":"Assess smart-device security, communication protocols, firmware, and debugging interfaces."},"ics":{"title":"ICS / SCADA & OT Security","category":"Specialized Systems & Devices","summary":"Study industrial control security with priority given to safety and service continuity."},"range":{"title":"Cyber Range & Purple Team","category":"Simulation & Training","summary":"Build repeatable training scenarios for Red, Blue, and Purple Team exercises."},"cloud":{"title":"Cloud Security & Container Defense","category":"Defense & Networking","summary":"Review cloud identity, storage, network, and container configurations using least privilege."},"devsecops":{"title":"Secure SDLC & DevSecOps","category":"Application Security","summary":"Integrate security checks into development, dependencies, and CI/CD workflows."},"database":{"title":"Database Security & Privacy","category":"Data & Identity Security","summary":"Harden database permissions, auditing, encryption, backups, and privacy controls."},"identity":{"title":"Identity, IAM & Zero Trust","category":"Data & Identity Security","summary":"Manage identity lifecycles, multifactor authentication, privileged access, and conditional access."},"ai-security":{"title":"AI Security & LLM Red Teaming","category":"Simulation & Training","summary":"Study threats to AI applications, models, data, and tool-use pipelines."},"wireless":{"title":"Wireless & Radio Security","category":"Specialized Systems & Devices","summary":"Review wireless configuration and radio exposure in isolated, authorized environments."},"memory":{"title":"Memory & Endpoint Forensics","category":"Investigation & Response","summary":"Analyze volatile memory and endpoint artifacts to reconstruct activity during investigations."}};
 
-export default function LabsExplorer({ labs, filters: _filters }: { labs: LabRecord[]; filters: string[] }) {
+export default function LabsExplorer({ labs, filters }: { labs: LabRecord[]; filters: string[] }) {
   const [selected, setSelected] = useState('network-defense');
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('All');
@@ -42,7 +53,7 @@ export default function LabsExplorer({ labs, filters: _filters }: { labs: LabRec
   const modalRef = useRef<HTMLElement | null>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
 
-  const categories = ['All', ...Array.from(new Set(labs.map(l => englishLabels[l.id]?.category ?? l.category)))];
+  const categories = filters.map(filter => englishCategories[filter] ?? filter);
   const visible = useMemo(() => labs.filter(l => {
     const label=englishLabels[l.id];
     return (category === 'All' || label?.category === category) &&
