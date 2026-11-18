@@ -40,7 +40,7 @@ const copy={
    'crypto-master-enterprise':'تطوير تطبيق سطح مكتب تجريبي للتشفير وتحليل الشفرات، مع أدوات الإنتروبيا وAvalanche وقياس الأداء وتصدير التقارير؛ قيد التطوير.'
   },
   educationLine:'بكالوريوس الأمن السيبراني والشبكات — كلية المنار الجامعية للعلوم والتكنولوجيا (الخطة الأكاديمية: 2024–2028؛ المستوى الثالث).',
-  leadership:'مسؤول اللجنة العلمية — قسما الأمن السيبراني وتقنية المعلومات، المستوى الثالث.',
+  leadership:'مسؤول اللجنة العلمية — الملتقى الطلابي لقسمي الأمن السيبراني وتقنية المعلومات، المستوى الثالث.',
   back:'العودة إلى النبذة',
   print:'حفظ / طباعة بصيغة PDF',
   pageTitle:'السيرة الذاتية | عرفات الكاملي',
@@ -66,7 +66,7 @@ const copy={
    'crypto-master-enterprise':'Developed an experimental desktop application for cryptography and cipher analysis, including entropy, Avalanche, benchmarking, and report-export tools; in development.'
   },
   educationLine:'Bachelor’s in Cybersecurity and Networks — Al-Manar College for Science & Technology (academic plan: 2024–2028; Level 3).',
-  leadership:'Scientific Committee Coordinator — Cybersecurity and Information Technology, Level 3.',
+  leadership:'Scientific Committee Coordinator — Student Forum for Cybersecurity and Information Technology, Level 3.',
   back:'Back to About',
   print:'Save / Print as PDF',
   pageTitle:'CV | Arfat Alkamli',
@@ -152,6 +152,7 @@ export default async function CVPage(){
     <div className={styles.education}>
      <p>{t.educationLine}</p>
      <p>{t.leadership}</p>
+     <p><a href="https://t.me/USF_CS_manar_CYS_3" target="_blank" rel="noreferrer">{isArabic?'القناة العلمية الرسمية':'Scientific committee channel'}</a></p>
     </div>
    </section>
    <footer className={styles.documentFooter}>
