@@ -8,9 +8,9 @@ import {localizedAlternates} from '../lib/seo';
 const siteUrl='https://arfat-phi.vercel.app';
 const personJsonLd={
  '@context':'https://schema.org','@type':'Person',name:'عرفات الكاملي',alternateName:'Arfat Alkamli',url:siteUrl,
- jobTitle:'Cybersecurity Student and Security Researcher',description:'باحث ومطور أمن سيبراني مهتم بالأمن الدفاعي والبحث الأمني وتطوير البرمجيات والتحليل الجنائي الرقمي.',
+ jobTitle:'Cybersecurity & Networks Student',description:'طالب أمن سيبراني وشبكات ومطوّر مشاريع تقنية مستقل، يركز على الأمن الدفاعي والشبكات وتطوير البرمجيات والتعلم التطبيقي.',
  email:'mailto:alkamlyrfat@gmail.com',sameAs:['https://github.com/arfat-alkamly','https://www.linkedin.com/in/arfat-alkamly-399676409','https://www.credly.com/users/arfat-alkamly','https://orcid.org/0009-0008-1348-5146'],
- knowsAbout:['Cybersecurity','Defensive Security','Security Research','Digital Forensics and Incident Response','Network Security','Software Engineering','Python','Cloud Computing']
+ knowsAbout:['Cybersecurity','Cybersecurity and Networks','Defensive Security','Network Security','Software Development','Digital Forensics Fundamentals','Cryptography','Python','Cloud Computing Fundamentals']
 };
 export async function generateMetadata():Promise<Metadata>{
  const locale=(await cookies()).get('portfolio-locale')?.value==='en'?'en':'ar';
