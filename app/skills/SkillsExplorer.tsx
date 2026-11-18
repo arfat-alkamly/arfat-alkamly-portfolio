@@ -68,6 +68,39 @@ const domains:Domain[]=[
 ]}
 ];
 const filters=[['all','الكل (44)'],['engineering','البرمجة'],['cyber-defense','الدفاع وSOC'],['security-testing','اختبار الأمن'],['networking','الشبكات'],['systems','الأنظمة'],['data','قواعد البيانات'],['research','التحليل والبحث']];
+const evidenceByDomain:Record<string,{label:string;href:string;note:string}[]> = {
+ engineering:[
+  {label:'CryptoLab-Pro',href:'/projects/cryptolab-pro',note:'JavaScript · Web Crypto API · تطبيق تشفير وتحليل'},
+  {label:'Academic OS',href:'/projects/academic-os',note:'Flutter · Dart · SQLite · مشروع قيد التطوير'},
+  {label:'CyberKey Suite Enterprise',href:'/projects/crypto-master-enterprise',note:'Python · تطبيق مكتبي تعليمي قيد التطوير'}
+ ],
+ 'cyber-defense':[
+  {label:'AEGIS-TITAN',href:'/projects/aegis-titan',note:'ملف مشروع دفاعي؛ التفاصيل الهندسية الداخلية خاصة'},
+  {label:'Virtual Pentesting Lab',href:'/projects/virtual-pentesting-lab',note:'بيئة تعلم افتراضية معزولة'},
+  {label:'شهادات الدفاع والأمن الطرفي',href:'/credentials',note:'مسارات تعليمية قابلة للتحقق'}
+ ],
+ 'security-testing':[
+  {label:'Vulnerability Research Lab',href:'/projects/vulnerability-research-lab',note:'توثيق مراجعة SSO؛ لا يُنسب اكتشاف الثغرة'},
+  {label:'معامل الأمن التطبيقية',href:'/labs',note:'مسارات تعلم واختبار ضمن نطاقات مصرح بها'}
+ ],
+ networking:[
+  {label:'Network Security Projects',href:'/projects/network-security-projects',note:'أعمال وتمارين أكاديمية وعملية'},
+  {label:'Virtual Pentesting Lab',href:'/projects/virtual-pentesting-lab',note:'VMware · Kali Linux · بيئة معزولة'},
+  {label:'شهادات الشبكات والدفاع',href:'/credentials',note:'Networking Basics وNetwork Defense'}
+ ],
+ systems:[
+  {label:'Virtual Pentesting Lab',href:'/projects/virtual-pentesting-lab',note:'VMware · Kali Linux · Virtualization'},
+  {label:'Academic OS',href:'/projects/academic-os',note:'تطبيق متعدد المنصات وبيانات محلية'}
+ ],
+ data:[
+  {label:'Academic OS',href:'/projects/academic-os',note:'SQLite · تصميم طبقات البيانات'},
+  {label:'Manar Schedule System',href:'/projects/manar-schedule-system',note:'PostgreSQL · Prisma · مشروع تعاوني'}
+ ],
+ research:[
+  {label:'Vulnerability Research Lab',href:'/projects/vulnerability-research-lab',note:'بحث وتوثيق أمني تطبيقي'},
+  {label:'مقترحات بحثية قيد التطوير',href:'/research',note:'أفكار ومقترحات وليست أبحاثاً منشورة'}
+ ]
+};
 const workflow=[{Icon:Layers3,t:'Understand',a:'فهم النظام والسياق'},{Icon:Search,t:'Investigate',a:'التحليل والفحص'},{Icon:Braces,t:'Build',a:'التطوير والتنفيذ'},{Icon:FileSearch,t:'Validate',a:'التحقق والتوثيق'}];
 export default function SkillsExplorer({locale='ar'}:{locale?:'ar'|'en'}){
  const [active,setActive]=useState('all');
@@ -83,7 +116,7 @@ export default function SkillsExplorer({locale='ar'}:{locale?:'ar'|'en'}){
   <section className="sk-snapshot" aria-label="ملخص المهارات"><article><b>{total}</b><span>مهارة وتقنية موثقة</span></article><article><b>{domains.length}</b><span>مجالات تقنية</span></article><article><b>{practical}</b><span>تطبيق عملي مُدرج</span></article><article><b>03</b><span>مسارات عمل مترابطة</span></article></section>
   <section className="sk-section-head"><div><span>01 / CAPABILITY DIRECTORY</span><h2>دليل المهارات التفصيلي</h2><p>ابحث باسم المهارة أو الأداة، أو اختر مجالاً محدداً. اضغط على أي مجال لعرض تفاصيل التقنيات ومستوى الممارسة.</p></div><label className="sk-search"><Search/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث عن لغة أو أداة أو مجال..." aria-label="ابحث عن مهارة أو أداة"/></label></section>
   <div className="sk-filters" role="group" aria-label="تصفية المجالات">{filters.map(([id,label])=><button key={id} type="button" className={active===id?'active':''} aria-pressed={active===id} onClick={()=>setActive(id)}>{label}</button>)}</div>
-  <section className="sk-domain-list">{visible.map((d,i)=>{const Icon=d.Icon;const isOpen=expanded.includes(d.id)||query.length>0;return <article className="sk-domain" key={d.id}><button className="sk-domain-toggle" type="button" aria-expanded={isOpen} onClick={()=>toggle(d.id)}><span className="sk-domain-icon"><Icon/></span><span className="sk-domain-title"><small>{String(i+1).padStart(2,'0')} / {d.en}</small><b>{d.title}</b><em>{d.description}</em></span><span className="sk-domain-count">{d.skills.length} مهارة</span><ChevronDown className={isOpen?'rotated':''}/></button><div className="sk-skill-grid" hidden={!isOpen}>{d.skills.map(s=><div className="sk-skill" key={s.name}><div><b>{s.name}</b><span className={'sk-level '+(s.level==='تطبيق عملي'?'is-practical':s.level==='ممارسة جيدة'?'is-good':'is-learning')}>{s.level}</span></div><small>{s.note}</small></div>)}</div></article>})}{visible.length===0&&<div className="sk-empty">لا توجد نتائج مطابقة. جرّب كلمة بحث أخرى أو اختر كل المجالات.</div>}</section>
+  <section className="sk-domain-list">{visible.map((d,i)=>{const Icon=d.Icon;const isOpen=expanded.includes(d.id)||query.length>0;return <article className="sk-domain" key={d.id}><button className="sk-domain-toggle" type="button" aria-expanded={isOpen} onClick={()=>toggle(d.id)}><span className="sk-domain-icon"><Icon/></span><span className="sk-domain-title"><small>{String(i+1).padStart(2,'0')} / {d.en}</small><b>{d.title}</b><em>{d.description}</em></span><span className="sk-domain-count">{d.skills.length} مهارة</span><ChevronDown className={isOpen?'rotated':''}/></button><div className="sk-skill-grid" hidden={!isOpen}>{d.skills.map(s=><div className="sk-skill" key={s.name}><div><b>{s.name}</b><span className={'sk-level '+(s.level==='تطبيق عملي'?'is-practical':s.level==='ممارسة جيدة'?'is-good':'is-learning')}>{s.level}</span></div><small>{s.note}</small></div>)}</div><div className="sk-domain-evidence"><span>أعمال وأدلة مرتبطة بالمجال</span><div>{(evidenceByDomain[d.id]||[]).map(item=><Link key={item.href+item.label} href={'/'+locale+item.href}><b>{item.label}</b><small>{item.note}</small><ArrowUpLeft/></Link>)}</div></div></article>})}{visible.length===0&&<div className="sk-empty">لا توجد نتائج مطابقة. جرّب كلمة بحث أخرى أو اختر كل المجالات.</div>}</section>
   <section className="sk-method"><div><span>02 / ENGINEERING WORKFLOW</span><h2>منهجية العمل قبل اختيار الأداة.</h2><p>لا تبدأ المعالجة باسم أداة؛ بل بفهم النظام وحدود المهمة. بعدها يأتي الفحص والتحليل، ثم التطوير أو الاستجابة، وأخيراً التحقق والتوثيق. هذه الدورة هي ما يربط البرمجة بالأمن السيبراني.</p><div className="sk-method-links"><Link href={'/'+locale+'/research'} className="sk-inline-link">مسار البحث والتطوير <ArrowUpLeft/></Link><Link href={'/'+locale+'/projects'} className="sk-inline-link">استعراض المشاريع التطبيقية <ArrowUpLeft/></Link></div></div><div className="sk-method-flow">{workflow.map(({Icon,t,a},i)=><article key={t}><span>0{i+1}</span><Icon/><b>{t}</b><small>{a}</small></article>)}</div></section>
   <section className="sk-proof"><div><BookOpenCheck/><div><span>03 / VERIFIABLE LEARNING</span><h2>التعلّم والشهادات القابلة للتحقق</h2><p>تدعم الشهادات والمسارات التعليمية بعض مجالات المعرفة، بينما يظل التطبيق والمشاريع دليلاً منفصلاً على الممارسة.</p></div></div><Link href={'/'+locale+'/credentials'}>عرض الشهادات والاعتمادات <ArrowUpLeft/></Link></section>
   <aside className="sk-note"><ShieldCheck/><p><b>الشفافية المهنية:</b> مستويات المهارات وصفية وليست نسب إتقان أو ادعاء خبرة احترافية. «تطبيق عملي» يعني وجود ممارسة أو تطبيق ضمن مشاريع وتجارب شخصية أو أكاديمية، و«معرفة وتطبيق» تشير إلى مجال ما زال قيد التوسع. جميع اختبارات الأمن تُجرى ضمن نطاقات وبيئات مصرح بها.</p></aside>
