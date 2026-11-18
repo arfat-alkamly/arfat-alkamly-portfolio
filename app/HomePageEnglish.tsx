@@ -21,7 +21,7 @@ export default function HomePageEnglish(){
    <div className="hv-hero-grid" aria-hidden="true"/>
    <div className="hv-hero-copy">
     <div className="hv-overline"><span className="hv-live-dot"/> INDEPENDENT TECHNOLOGY PORTFOLIO <span className="hv-overline-line"/></div>
-    <p className="hv-role">CYBERSECURITY <i>×</i> SOFTWARE ENGINEERING</p>
+    <p className="hv-role">CYBERSECURITY & NETWORKS <i>×</i> SOFTWARE DEVELOPMENT</p>
     <h1 id="home-title">Arfat <span>Alkamli</span></h1>
     <a className="hv-hero-orcid" href="https://orcid.org/0009-0008-1348-5146" target="_blank" rel="noopener noreferrer"><span className="hv-orcid-mark">iD</span><span>ORCID researcher identifier</span><strong>0009-0008-1348-5146</strong><ArrowUpRight size={14}/></a>
     <h2>Building Systems.<br/><em>Securing the Future.</em></h2>
