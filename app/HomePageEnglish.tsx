@@ -42,6 +42,15 @@ export default function HomePageEnglish(){
    </div>
    <div className="hv-scroll-cue"><span/> SCROLL TO EXPLORE</div>
   </section>
+  <section className="hv-proof-strip" aria-label="Professional and academic evidence">
+   <div className="hv-proof-heading"><span>PROFESSIONAL SNAPSHOT / 2026</span><p>Academic progress, student leadership, verifiable credentials, and documented technical work.</p></div>
+   <div className="hv-proof-grid">
+    <Link href="/en/about" className="hv-proof-card"><span>01 / ACADEMIC PATH</span><strong>Bachelor’s in Cybersecurity & Networks</strong><small>Al-Manar College · Level 3</small></Link>
+    <Link href="/en/about" className="hv-proof-card"><span>02 / STUDENT LEADERSHIP</span><strong>Scientific Committee Coordinator</strong><small>Cybersecurity & IT · Level 3</small></Link>
+    <Link href="/en/credentials" className="hv-proof-card"><span>03 / DIGITAL CREDENTIALS</span><strong>09 Digital Credentials</strong><small>Learning badges with Credly verification links</small></Link>
+    <Link href="/en/projects" className="hv-proof-card"><span>04 / SELECTED WORK</span><strong>{projects.length.toString().padStart(2,'0')} Technical Projects</strong><small>Personal, academic, and collaborative work with defined scope</small></Link>
+   </div>
+  </section>
   <section className="hv-disciplines" aria-labelledby="disciplines-title">
    <div className="hv-section-top"><span>01 / AREAS OF FOCUS</span></div>
    <div className="hv-section-intro"><div><h2 id="disciplines-title">Three disciplines.<br/><em>One engineering mindset.</em></h2></div><p>I bring together systems thinking, security-focused analysis, and software development to build considered technical solutions.</p></div>
