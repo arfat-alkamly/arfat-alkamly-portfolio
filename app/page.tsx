@@ -50,6 +50,16 @@ export default async function HomePage() {
         <div className="hv-scroll-cue"><span /> SCROLL TO EXPLORE</div>
       </section>
 
+      <section className="hv-proof-strip" aria-label="الأدلة المهنية والأكاديمية">
+        <div className="hv-proof-heading"><span>PROFESSIONAL SNAPSHOT / 2026</span><p>مسار أكاديمي، مسؤولية طلابية، واعتمادات ومشاريع يمكن استكشافها والتحقق منها.</p></div>
+        <div className="hv-proof-grid">
+          <Link href={`/${locale}/about`} className="hv-proof-card"><span>01 / ACADEMIC PATH</span><strong>بكالوريوس الأمن السيبراني والشبكات</strong><small>كلية المنار الجامعية · المستوى الثالث</small></Link>
+          <Link href={`/${locale}/about`} className="hv-proof-card"><span>02 / STUDENT LEADERSHIP</span><strong>مسؤول اللجنة العلمية</strong><small>قسما الأمن السيبراني وتقنية المعلومات · المستوى الثالث</small></Link>
+          <Link href={`/${locale}/credentials`} className="hv-proof-card"><span>03 / DIGITAL CREDENTIALS</span><strong>09 اعتمادات رقمية</strong><small>شارات تعليمية مع روابط تحقق من Credly</small></Link>
+          <Link href={`/${locale}/projects`} className="hv-proof-card"><span>04 / SELECTED WORK</span><strong>{projects.length.toString().padStart(2,'0')} مشروعًا تقنيًا</strong><small>أعمال شخصية وأكاديمية وتعاونية بنطاقات موضحة</small></Link>
+        </div>
+      </section>
+
       <section className="hv-disciplines" aria-labelledby="disciplines-title">
         <div className="hv-section-top"><span>01 / AREAS OF FOCUS</span></div>
         <div className="hv-section-intro"><div><h2 id="disciplines-title">ثلاثة مسارات،<br /><em>رؤية هندسية واحدة.</em></h2></div><p>أجمع بين فهم الأنظمة، التفكير الأمني، والتطوير البرمجي لبناء حلول تقنية مدروسة.</p></div>
