@@ -46,3 +46,8 @@
 .projectLinks a{color:#0369a1;font-size:7.3pt;text-decoration:none}
 .projectLinks a:hover{text-decoration:underline;text-underline-offset:2px}
 @media print{.projectLinks a{color:#075985!important}}
+
+.academicFocus{margin-top:9px;padding:8px 10px;border-inline-start:3px solid #0f6b8f;background:#f1f7fa;break-inside:avoid;page-break-inside:avoid}
+.academicFocus h3{margin:0 0 5px;color:#0b2e46;font-size:8.8pt;font-weight:800}
+.academicFocus ul{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0;padding-inline-start:18px;color:#334155;font-size:8.1pt;line-height:1.5}
+@media print{.academicFocus{background:#f1f7fa!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
