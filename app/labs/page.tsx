@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import LabsExplorer from './LabsExplorer';
 import LabsExplorerEnglish from './LabsExplorerEnglish';
 import {localizedAlternates} from '../../lib/seo';
+import { labs, labFilters } from '../../data/labs-directory';
 
 export async function generateMetadata(): Promise<Metadata> {
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
@@ -21,5 +22,5 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function LabsPage() {
   const en = (await cookies()).get('portfolio-locale')?.value === 'en';
-  return en ? <LabsExplorerEnglish /> : <LabsExplorer />;
+  return en ? <LabsExplorerEnglish labs={labs} filters={labFilters} /> : <LabsExplorer labs={labs} filters={labFilters} />;
 }
