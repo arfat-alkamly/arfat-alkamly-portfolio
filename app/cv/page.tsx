@@ -10,8 +10,13 @@ const orcid='0009-0008-1348-5146';
 const credentials=[
  {name:'Cybersecurity Defense Analyst Career Path',issuer:'Cisco · Splunk',id:'23bda189-2470-4ce0-8065-ee904979ba21'},
  {name:'Network Defense',issuer:'Cisco',id:'e16ca722-84d2-4da2-ad1f-46e972453890'},
+ {name:'Networking Basics',issuer:'Cisco',id:'2f9902ec-e035-4b56-bf1b-42c66f05ed75'},
+ {name:'Python Essentials 2',issuer:'Cisco · OpenEDG',id:'de9c51d6-2eb6-4f7e-833a-31670170e278'},
+ {name:'Python Essentials 1',issuer:'Cisco · OpenEDG',id:'43943e68-05c5-40ea-93d1-d2a26e07ced0'},
+ {name:'Introduction to Modern AI',issuer:'Cisco',id:'4e822fcc-656e-4891-bc51-666ca95cd6e8'},
  {name:'Endpoint Security',issuer:'Cisco',id:'f0520c01-63aa-4440-9df4-69c7303d8762'},
- {name:'Python Essentials 2',issuer:'Cisco · OpenEDG',id:'de9c51d6-2eb6-4f7e-833a-31670170e278'}
+ {name:'Create Digital Content, Communicate and Collaborate Online',issuer:'Cisco · OpenEDG',id:'a370a36f-7ce1-4531-b44b-b909e56ee52d'},
+ {name:'Introduction to Cybersecurity',issuer:'Cisco',id:'dd68b74c-65f9-468f-9a51-3bb78adad239'}
 ];
 const selectedSlugs=['aegis-titan','cryptolab-pro','academic-os','crypto-master-enterprise'];
 const skillGroups=[
