@@ -1,5 +1,5 @@
 const siteUrl='https://arfat-phi.vercel.app';
-const person={ '@type':'Person',name:'Arfat Alkamli',url:siteUrl,sameAs:['https://github.com/arfat-alkamly','https://www.linkedin.com/in/arfat-alkamly-399676409','https://www.credly.com/users/arfat-alkamly','https://orcid.org/0009-0008-1348-5146'] };
+const person={ '@type':'Person',name:'Arfat Alkamli',alternateName:'عرفات الكاملي',jobTitle:'Cybersecurity & Networks Student',description:'Cybersecurity and Networks student and independent technology project developer focused on defensive security, networking, and practical software projects.',url:siteUrl,sameAs:['https://github.com/arfat-alkamly','https://www.linkedin.com/in/arfat-alkamly-399676409','https://www.credly.com/users/arfat-alkamly','https://orcid.org/0009-0008-1348-5146'] };
 
 const credentials=[
  {name:'Cybersecurity Defense Analyst Career Path',id:'23bda189-2470-4ce0-8065-ee904979ba21',date:'2026-07-29',issuer:'Cisco with Splunk',skills:['Cybersecurity','Splunk','Threat Detection','SOC','Threat Hunting']},
