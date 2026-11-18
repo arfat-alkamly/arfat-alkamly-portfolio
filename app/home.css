@@ -209,3 +209,21 @@
 .home-v2 .hv-social-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-width:0}
 .home-v2 .hv-social-links>a{min-width:0}
 @media(min-width:640px){.home-v2 .hv-social-links{display:flex;flex-wrap:wrap;gap:12px}}
+
+
+/* Professional evidence snapshot: surface academic, leadership, credential and project proof. */
+.home-v2 .hv-proof-strip{max-width:1240px;margin:0 auto;padding:28px 28px 18px}
+.home-v2 .hv-proof-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:14px;border-bottom:1px solid var(--hv-line)}
+.home-v2 .hv-proof-heading>span{font:700 9px Arial,sans-serif;letter-spacing:.14em;color:#287da9;white-space:nowrap}
+.home-v2 .hv-proof-heading>p{max-width:540px;margin:0;color:#526f83;font-size:12px;line-height:1.8}
+.home-v2 .hv-proof-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--hv-line);border-top:0}
+.home-v2 .hv-proof-card{min-width:0;min-height:142px;padding:19px 17px;display:flex;flex-direction:column;gap:10px;border-inline-start:1px solid var(--hv-line);background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(239,247,252,.72));transition:background .2s ease,border-color .2s ease}
+.home-v2 .hv-proof-card:first-child{border-inline-start:0}
+.home-v2 .hv-proof-card:hover{background:#fff}
+.home-v2 .hv-proof-card:focus-visible{outline:2px solid #287da9;outline-offset:-3px}
+.home-v2 .hv-proof-card>span{font:700 8px Arial,sans-serif;letter-spacing:.12em;color:#287da9}
+.home-v2 .hv-proof-card>strong{font-size:14px;line-height:1.55;color:#19364b}
+.home-v2 .hv-proof-card>small{margin-top:auto;font-size:10px;line-height:1.65;color:#647d8e}
+@media(max-width:900px){.home-v2 .hv-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-v2 .hv-proof-card:nth-child(3){border-inline-start:0;border-top:1px solid var(--hv-line)}.home-v2 .hv-proof-card:nth-child(4){border-top:1px solid var(--hv-line)}}
+@media(max-width:640px){.home-v2 .hv-proof-strip{padding:18px 22px 8px}.home-v2 .hv-proof-heading{align-items:flex-start;flex-direction:column;gap:8px}.home-v2 .hv-proof-heading>p{font-size:11px}.home-v2 .hv-proof-card{min-height:150px;padding:14px 12px}.home-v2 .hv-proof-card>strong{font-size:12px}.home-v2 .hv-proof-card>small{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.home-v2 .hv-proof-card{transition:none}}
