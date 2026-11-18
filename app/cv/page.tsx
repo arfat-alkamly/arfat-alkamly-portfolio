@@ -124,8 +124,12 @@ export default async function CVPage(){
     <div className={styles.projects}>
      {selected.map(project=><article className={styles.project} key={project.slug}>
       <div className={styles.projectHeading}>
-       <h3>{project.name}</h3>
+       <h3><a href={`${siteUrl}/${locale}/projects/${project.slug}`}>{project.name}</a></h3>
        <span>{project.status}</span>
+      </div>
+      <div className={styles.projectLinks}>
+       <a href={`${siteUrl}/${locale}/projects/${project.slug}`}>{isArabic?'عرض ملف المشروع':'View project'}</a>
+       {project.repository&&<a href={project.repository} target="_blank" rel="noreferrer">{isArabic?'مستودع GitHub':'GitHub repository'}</a>}
       </div>
       <p>{t.projectRole[project.slug as keyof typeof t.projectRole]}</p>
       <p className={styles.stack}><b>{t.stackLabel}:</b> {project.stack.join(' · ')}</p>
