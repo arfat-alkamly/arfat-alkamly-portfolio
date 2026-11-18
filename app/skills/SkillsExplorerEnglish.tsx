@@ -3,7 +3,6 @@ import {useMemo,useState} from 'react';
 import Link from 'next/link';
 import {ArrowUpRight,Braces,Code2,Database,Network,Search,ShieldCheck,Workflow,Layers3,FileSearch,Activity,ChevronDown,ScanSearch,Server,BookOpenCheck} from 'lucide-react';
 import type {LucideIcon} from 'lucide-react';
-import {projects} from '../../data/projects';
 type Level='Practical use'|'Developing practice'|'Learning & application';
 type Skill={name:string;level:Level;note:string};
 type Domain={id:string;title:string;description:string;Icon:LucideIcon;skills:Skill[]};
@@ -17,6 +16,39 @@ const domains:Domain[]=[
 {id:'research',title:'Technical Analysis & R&D',description:'Turning technical problems and data into findings that can be reviewed, documented, and improved.',Icon:Workflow,skills:[{name:'Log & Indicator Analysis',level:'Practical use',note:'Correlating events and extracting meaningful indicators'},{name:'Technical Evidence Documentation',level:'Practical use',note:'Organizing findings, scope, and analysis outputs'},{name:'Systems Analysis',level:'Practical use',note:'Understanding components, dependencies, and data flows'},{name:'Applied Technical Research',level:'Learning & application',note:'Exploring solutions and comparing technical approaches'},{name:'AI for Cybersecurity',level:'Learning & application',note:'Applications of AI in security analysis'}]}
 ];
 const filters=[['all','All (44)'],['engineering','Software'],['cyber-defense','Defense & SOC'],['security-testing','Security testing'],['networking','Networking'],['systems','Systems'],['data','Databases'],['research','Analysis & research']];
+const evidenceByDomain:Record<string,{label:string;href:string;note:string}[]> = {
+ engineering:[
+  {label:'CryptoLab-Pro',href:'/projects/cryptolab-pro',note:'JavaScript · Web Crypto API · cryptography and analysis'},
+  {label:'Academic OS',href:'/projects/academic-os',note:'Flutter · Dart · SQLite · in development'},
+  {label:'CyberKey Suite Enterprise',href:'/projects/crypto-master-enterprise',note:'Python · educational desktop application in development'}
+ ],
+ 'cyber-defense':[
+  {label:'AEGIS-TITAN',href:'/projects/aegis-titan',note:'Defensive project profile; internal engineering details are private'},
+  {label:'Virtual Pentesting Lab',href:'/projects/virtual-pentesting-lab',note:'Isolated virtual learning environment'},
+  {label:'Defense and endpoint credentials',href:'/credentials',note:'Verifiable learning credentials'}
+ ],
+ 'security-testing':[
+  {label:'Vulnerability Research Lab',href:'/projects/vulnerability-research-lab',note:'SSO review documentation; no vulnerability discovery claim'},
+  {label:'Applied security labs',href:'/labs',note:'Learning and testing tracks within authorized scope'}
+ ],
+ networking:[
+  {label:'Network Security Projects',href:'/projects/network-security-projects',note:'Academic and practical exercises'},
+  {label:'Virtual Pentesting Lab',href:'/projects/virtual-pentesting-lab',note:'VMware · Kali Linux · isolated environment'},
+  {label:'Networking credentials',href:'/credentials',note:'Networking Basics and Network Defense'}
+ ],
+ systems:[
+  {label:'Virtual Pentesting Lab',href:'/projects/virtual-pentesting-lab',note:'VMware · Kali Linux · virtualization'},
+  {label:'Academic OS',href:'/projects/academic-os',note:'Cross-platform application and local data'}
+ ],
+ data:[
+  {label:'Academic OS',href:'/projects/academic-os',note:'SQLite · data-layer design'},
+  {label:'Manar Schedule System',href:'/projects/manar-schedule-system',note:'PostgreSQL · Prisma · collaborative project'}
+ ],
+ research:[
+  {label:'Vulnerability Research Lab',href:'/projects/vulnerability-research-lab',note:'Applied security research and documentation'},
+  {label:'Research proposals in development',href:'/research',note:'Ideas and proposals, not published papers'}
+ ]
+};
 const workflow=[{Icon:Layers3,title:'Understand',detail:'Understand the system and its context'},{Icon:Search,title:'Investigate',detail:'Analyze and examine'},{Icon:Braces,title:'Build',detail:'Develop and implement'},{Icon:FileSearch,title:'Validate',detail:'Verify and document'}];
 export default function SkillsExplorerEnglish({locale='en'}:{locale?:'ar'|'en'}){
  const [active,setActive]=useState('all'),[query,setQuery]=useState(''),[expanded,setExpanded]=useState<string[]>(['cyber-defense','engineering']);
@@ -29,7 +61,7 @@ export default function SkillsExplorerEnglish({locale='en'}:{locale?:'ar'|'en'})
   <section className="sk-snapshot" aria-label="Skills summary"><article><b>{total}</b><span>Listed skills & technologies</span></article><article><b>{domains.length}</b><span>Technical domains</span></article><article><b>{practical}</b><span>Items marked practical use</span></article><article><b>03</b><span>Connected workstreams</span></article></section>
   <section className="sk-section-head"><div><span>01 / CAPABILITY DIRECTORY</span><h2>Detailed skills directory</h2><p>Search by skill or tool, or select a domain. Expand any domain to review technologies and practice levels.</p></div><label className="sk-search"><Search/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search a language, tool, or domain..." aria-label="Search skills or tools"/></label></section>
   <div className="sk-filters" role="group" aria-label="Filter domains">{filters.map(([id,label])=><button key={id} type="button" className={active===id?'active':''} aria-pressed={active===id} onClick={()=>setActive(id)}>{label}</button>)}</div>
-  <section className="sk-domain-list">{visible.map((d,i)=>{const Icon=d.Icon,isOpen=expanded.includes(d.id)||query.length>0;return <article className="sk-domain" key={d.id}><button className="sk-domain-toggle" type="button" aria-expanded={isOpen} onClick={()=>toggle(d.id)}><span className="sk-domain-icon"><Icon/></span><span className="sk-domain-title"><small>{String(i+1).padStart(2,'0')} / {d.title.toUpperCase()}</small><b>{d.title}</b><em>{d.description}</em></span><span className="sk-domain-count">{d.skills.length} skills</span><ChevronDown className={isOpen?'rotated':''}/></button><div className="sk-skill-grid" hidden={!isOpen}>{d.skills.map(s=><div className="sk-skill" key={s.name}><div><b>{s.name}</b><span className={'sk-level '+(s.level==='Practical use'?'is-practical':s.level==='Developing practice'?'is-good':'is-learning')}>{s.level}</span></div><small>{s.note}</small></div>)}</div></article>})}{visible.length===0&&<div className="sk-empty">No matching results. Try another search term or select all areas.</div>}</section>
+  <section className="sk-domain-list">{visible.map((d,i)=>{const Icon=d.Icon,isOpen=expanded.includes(d.id)||query.length>0;return <article className="sk-domain" key={d.id}><button className="sk-domain-toggle" type="button" aria-expanded={isOpen} onClick={()=>toggle(d.id)}><span className="sk-domain-icon"><Icon/></span><span className="sk-domain-title"><small>{String(i+1).padStart(2,'0')} / {d.title.toUpperCase()}</small><b>{d.title}</b><em>{d.description}</em></span><span className="sk-domain-count">{d.skills.length} skills</span><ChevronDown className={isOpen?'rotated':''}/></button><div className="sk-skill-grid" hidden={!isOpen}>{d.skills.map(s=><div className="sk-skill" key={s.name}><div><b>{s.name}</b><span className={'sk-level '+(s.level==='Practical use'?'is-practical':s.level==='Developing practice'?'is-good':'is-learning')}>{s.level}</span></div><small>{s.note}</small></div>)}</div><div className="sk-domain-evidence"><span>RELATED WORK & EVIDENCE</span><div>{(evidenceByDomain[d.id]||[]).map(item=><Link key={item.href+item.label} href={'/'+locale+item.href}><b>{item.label}</b><small>{item.note}</small><ArrowUpRight/></Link>)}</div></div></article>})}{visible.length===0&&<div className="sk-empty">No matching results. Try another search term or select all areas.</div>}</section>
   <section className="sk-method"><div><span>02 / ENGINEERING WORKFLOW</span><h2>Method before tools.</h2><p>Work begins by understanding the system and the task boundaries—not by choosing a tool. Investigation comes next, followed by implementation or response, and finally verification and documentation. This cycle connects software engineering with cybersecurity.</p><div className="sk-method-links"><Link href={'/'+locale+'/research'} className="sk-inline-link">Research & development <ArrowUpRight/></Link><Link href={'/'+locale+'/projects'} className="sk-inline-link">Browse applied projects <ArrowUpRight/></Link></div></div><div className="sk-method-flow">{workflow.map(({Icon,title,detail},i)=><article key={title}><span>0{i+1}</span><Icon/><b>{title}</b><small>{detail}</small></article>)}</div></section>
   <section className="sk-proof"><div><BookOpenCheck/><div><span>03 / VERIFIABLE LEARNING</span><h2>Credentials and verifiable learning</h2><p>Credentials support selected areas of knowledge, while practical work and projects remain separate evidence of application.</p></div></div><Link href={'/'+locale+'/credentials'}>View credentials <ArrowUpRight/></Link></section>
   <aside className="sk-note"><ShieldCheck/><p><b>Professional transparency:</b> Skill levels are descriptive, not proficiency percentages or claims of professional expertise. “Practical use” indicates experience through personal or academic projects and exercises. “Learning & application” identifies areas still being developed. Security testing is conducted only in authorized environments and scopes.</p></aside>
