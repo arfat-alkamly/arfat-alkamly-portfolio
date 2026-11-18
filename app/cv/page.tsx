@@ -15,19 +15,19 @@ const credentials=[
 ];
 const selectedSlugs=['aegis-titan','cryptolab-pro','academic-os','crypto-master-enterprise'];
 const skillGroups=[
- {key:'security',ar:'الأمن السيبراني والعمليات الدفاعية',en:'Cybersecurity & Defensive Operations',items:['SOC Operations','Threat Detection','Network Security','DFIR','Incident Response','Malware Analysis','Cryptography','Vulnerability Analysis','Open-source Code Review','Application Security Review']},
- {key:'software',ar:'هندسة البرمجيات والتطوير',en:'Software Engineering & Development',items:['Python','C#','Dart','Flutter','JavaScript','HTML5','CSS3','Java','Tauri','Git','GitHub','SQL','PL/SQL','SQLite']},
- {key:'systems',ar:'الأنظمة والأدوات الأمنية',en:'Systems & Security Tooling',items:['Kali Linux','Linux','Windows','VMware','Wireshark','Cisco Networking','Burp Suite','Nmap','VS Code','Oracle Database','Virtualization','Cloud Computing']}
+ {key:'security',ar:'الأمن السيبراني والعمليات الدفاعية',en:'Cybersecurity & Defensive Operations',items:['Network Security','Threat Detection','Digital Forensics Fundamentals','Incident Response','Malware Analysis (Developing)','Cryptography','Vulnerability Analysis','Open-source Code Review','Application Security Review']},
+ {key:'software',ar:'هندسة البرمجيات والتطوير',en:'Software Engineering & Development',items:['Python','C#','Dart','Flutter','JavaScript','HTML5','CSS3','Java','Tauri','Git & GitHub','SQL','PL/SQL','SQLite']},
+ {key:'systems',ar:'الأنظمة والأدوات الأمنية',en:'Systems & Security Tooling',items:['Kali Linux','Linux','Windows','VMware','Wireshark','Cisco Networking','VS Code','Oracle Database','Virtualization','Cloud Computing Fundamentals']}
 ];
 const copy={
  ar:{
   title:'السيرة الذاتية الهندسية',
-  role:'مهندس أمن سيبراني | مطور برمجيات',
+  role:'طالب أمن سيبراني وشبكات | مطوّر برمجيات',
   location:'اليمن',
-  summary:'مهندس أمن سيبراني ومطور برمجيات يركز على هندسة الدفاع السيبراني، وتحليل الأنظمة والشيفرات، وبناء تطبيقات وأدوات تقنية عملية. يجمع العمل بين تصميم الأنظمة، وتطوير البرمجيات، وتحليل الشبكات والأدلة الرقمية ضمن نطاقات واضحة وقابلة للتحقق. يطوّر مشاريع شخصية موثقة، مع اهتمام بالموثوقية، وأمن التطبيقات، وجودة التنفيذ.',
-  competencies:'الكفاءات التقنية الأساسية',
-  systems:'الأنظمة الهندسية والبحث الأمني',
-  certifications:'الشهادات المهنية المعتمدة',
+  summary:'طالب أمن سيبراني وشبكات ومطوّر مشاريع تقنية مستقل، أعمل على بناء تطبيقات وأدوات عملية، وأطوّر مهاراتي في الأمن الدفاعي وتحليل الشيفرات والشبكات. يجمع مساري بين الدراسة الأكاديمية والتطبيق عبر مشاريع شخصية وتجارب موثقة، مع التركيز على فهم الأنظمة والتحقق من النتائج والعمل ضمن نطاقات مصرح بها.',
+  competencies:'المهارات التقنية ومجالات الممارسة',
+  systems:'المشاريع التقنية المختارة',
+  certifications:'الشهادات والشارات الرقمية المختارة',
   education:'المؤهل الأكاديمي',
   verify:'التحقق من الشهادة',
   roleLabel:'الدور',
@@ -44,16 +44,16 @@ const copy={
   back:'العودة إلى النبذة',
   print:'حفظ / طباعة بصيغة PDF',
   pageTitle:'السيرة الذاتية | عرفات الكاملي',
-  pageDescription:'السيرة الذاتية المهنية لعرفات الكاملي في هندسة الأمن السيبراني وتطوير البرمجيات.'
+  pageDescription:'السيرة الذاتية لعرفات الكاملي، طالب الأمن السيبراني والشبكات ومطوّر المشاريع التقنية.'
  },
  en:{
   title:'ENGINEERING CURRICULUM VITAE',
-  role:'Cybersecurity Engineer | Software Developer',
+  role:'Cybersecurity & Networks Student | Software Developer',
   location:'Yemen',
-  summary:'Cybersecurity engineer and software developer focused on defensive security engineering, systems and code analysis, and practical software tools. Combines systems design, application development, network analysis, and digital-evidence workflows within defined, verifiable scopes. Builds documented personal engineering projects with an emphasis on reliability, application security, and implementation quality.',
-  competencies:'CORE TECHNICAL COMPETENCIES',
-  systems:'ENGINEERED SYSTEMS & SECURITY RESEARCH',
-  certifications:'VERIFIED INDUSTRY CERTIFICATIONS',
+  summary:'Cybersecurity and Networks student and independent technology project developer. I build practical applications and tools while developing my capabilities in defensive security, source-code analysis, and networking. My work combines academic study with hands-on personal projects and documented experiments, emphasizing systems understanding, verifiable results, and authorized scope.',
+  competencies:'TECHNICAL SKILLS & AREAS OF PRACTICE',
+  systems:'SELECTED TECHNICAL PROJECTS',
+  certifications:'SELECTED DIGITAL CREDENTIALS',
   education:'EDUCATION',
   verify:'Verify credential',
   roleLabel:'ROLE',
@@ -70,7 +70,7 @@ const copy={
   back:'Back to About',
   print:'Save / Print as PDF',
   pageTitle:'CV | Arfat Alkamli',
-  pageDescription:'Professional CV for Arfat Alkamli in cybersecurity engineering and software development.'
+  pageDescription:'Professional CV for Arfat Alkamli, a Cybersecurity and Networks student and independent technology project developer.'
  }
 } as const;
 
