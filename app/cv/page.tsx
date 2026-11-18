@@ -34,6 +34,8 @@ const copy={
   systems:'المشاريع التقنية المختارة',
   certifications:'الشهادات والشارات الرقمية المختارة',
   education:'المؤهل الأكاديمي',
+  academicFocus:'المحاور الأكاديمية الحالية',
+  coursework:['تطوير الويب','التشفير','أمن المعلومات والشبكات','مناهج البحث العلمي','أساسيات تطوير البرمجيات','الذكاء الاصطناعي للأمن السيبراني','مهارات الاتصال'],
   verify:'التحقق من الشهادة',
   roleLabel:'الدور',
   stackLabel:'النطاق والتقنيات',
@@ -60,6 +62,8 @@ const copy={
   systems:'SELECTED TECHNICAL PROJECTS',
   certifications:'SELECTED DIGITAL CREDENTIALS',
   education:'EDUCATION',
+  academicFocus:'CURRENT ACADEMIC FOCUS',
+  coursework:['Web Development','Cryptography','Information Security & Networks','Research Methods','Software Development Fundamentals','AI for Cybersecurity','Communication Skills'],
   verify:'Verify credential',
   roleLabel:'ROLE',
   stackLabel:'TECHNICAL SCOPE / STACK',
@@ -158,6 +162,10 @@ export default async function CVPage(){
      <p>{t.educationLine}</p>
      <p>{t.leadership}</p>
      <p><a href="https://t.me/USF_CS_manar_CYS_3" target="_blank" rel="noreferrer">{isArabic?'القناة العلمية الرسمية':'Scientific committee channel'}</a></p>
+    </div>
+    <div className={styles.academicFocus}>
+     <h3>{t.academicFocus}</h3>
+     <ul>{t.coursework.map(item=><li key={item}>{item}</li>)}</ul>
     </div>
    </section>
    <footer className={styles.documentFooter}>
